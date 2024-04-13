@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IPlayerView 
 {
     void LookDir(Vector2 dir);
+    void GetDamaged();
 }

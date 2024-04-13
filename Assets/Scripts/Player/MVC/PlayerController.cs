@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class PlayerController : MonoBehaviour
     public GameObject sword;
     public GameObject kunaiPrefab;
 
+    public string nombreEscenaAJugar;
+
+    public int maxHealth = 10;
+    public int actualHealth;
+
     private void Awake()
     {
         _player = GetComponent<IPlayerModel>();
@@ -22,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         Attack();
+        actualHealth = maxHealth;
     }
 
     private void Update()
@@ -43,6 +50,22 @@ public class PlayerController : MonoBehaviour
         {
             Attack();
         }
+
+        if (actualHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void GetDamaged(int damage)
+    {
+        _view.GetDamaged();
+        actualHealth -= damage;
+    }
+
+    public void Die()
+    {
+        SceneManager.LoadScene(nombreEscenaAJugar);
     }
 
     private void Attack()

@@ -5,6 +5,14 @@ using UnityEngine;
 public class PlayerView : MonoBehaviour, IPlayerView
 {
     public GameObject body;
+    private Color colorOriginal;
+    private Renderer rend;
+
+    void Start()
+    {
+        rend = GetComponent<Renderer>();
+        colorOriginal = rend.material.color;
+    }
 
     public void LookDir(Vector2 dir)
     {
@@ -16,6 +24,18 @@ public class PlayerView : MonoBehaviour, IPlayerView
         {
             body.transform.localScale = new Vector2(1, 1);
         }
+    }
+
+    public void GetDamaged()
+    {
+        rend.material.color = Color.red;
+        StartCoroutine(RestoreColorAfterDelay(0.2f));
+    }
+
+    IEnumerator RestoreColorAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        rend.material.color = colorOriginal;
     }
 
 }

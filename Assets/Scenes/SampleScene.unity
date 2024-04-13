@@ -411,6 +411,10 @@ PrefabInstance:
       propertyPath: kunaiPrefab
       value: 
       objectReference: {fileID: 8500496088789214507, guid: 2d5704400104d7546b6b55527ce4fe28, type: 3}
+    - target: {fileID: 4774728957630617895, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
+      propertyPath: nombreEscenaAJugar
+      value: MainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 8099983410260055410, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
       propertyPath: m_Name
       value: Player
