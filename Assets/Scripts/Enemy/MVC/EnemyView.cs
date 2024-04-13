@@ -16,6 +16,7 @@ public class EnemyView : MonoBehaviour, IEnemyView
 
     public void LookDir(Vector2 dir)
     {
+        
         if (dir.x > 0)
         {
             body.transform.localScale = new Vector2(-1, 1);

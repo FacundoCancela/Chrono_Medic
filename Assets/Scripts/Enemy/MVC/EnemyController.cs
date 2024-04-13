@@ -4,32 +4,71 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    IEnemyModel _enemy;
+    //Variables de IA
     IEnemyView _view;
     PlayerController _player;
-    Transform _playerTransform; // Referencia al transform del jugador
-    bool canAttack = true; // Variable para controlar el cooldown del ataque
-    public float attackRange = 1f; // Rango de ataque del enemigo
+    public Rigidbody2D target;
+    public float timePrediction;
+    public float angle;
+    public float radius;
+    public LayerMask obsMask;
+    FSM<StatesEnum> _fsm;
+    ISteering _steering;
+    EnemyModel _enemy;
+    ObstacleAvoidance _obstacleAvoidance;
 
+    //Variables de ataque
+    bool canAttack = true; 
+    public float attackRange = 2f; 
+    public int damage = 2;
+    public float attackCooldown = 1f; 
+
+    //Variables de vida
     public int maxHealth = 10;
     public int actualHealth;
-    public int damage = 2;
-    public float attackCooldown = 1f; // Cooldown de ataque en segundos
+
+
 
     private void Awake()
     {
+        //referencias
         _enemy = GetComponent<EnemyModel>();
         _view = GetComponent<EnemyView>();
-
-        // Obtener referencia al jugador
         _player = FindObjectOfType<PlayerController>();
+        target = FindObjectOfType<PlayerController>().GetComponent<Rigidbody2D>();
+        //inicializaciones 
+        InitilizeSteering();
+        InitializeFSM();
     }
 
     private void Start()
     {
         actualHealth = maxHealth;
-        _playerTransform = _player.transform; // Asignar el transform del jugador
     }
+
+    void InitilizeSteering()
+    {
+        var seek = new Seek(_enemy.transform, _player.transform);
+        var flee = new Flee(_enemy.transform, _player.transform);
+        var pursuit = new Pursuit(_enemy.transform, target, timePrediction);
+        var evade = new Evade(_enemy.transform, target, timePrediction);
+        _steering = seek;
+        _obstacleAvoidance = new ObstacleAvoidance(_enemy.transform, angle, radius, obsMask);
+    }
+
+    void InitializeFSM()
+    {
+        _fsm = new FSM<StatesEnum>();
+
+        var idle = new EnemyStateIdle<StatesEnum>();
+        var steering = new EnemyStateSteering<StatesEnum>(_enemy, _steering, _obstacleAvoidance);
+
+        idle.AddTransition(StatesEnum.Walk, steering);
+        steering.AddTransition(StatesEnum.Idle, idle);
+
+        _fsm.SetInit(steering);
+    }
+
 
     private void Update()
     {
@@ -38,10 +77,13 @@ public class EnemyController : MonoBehaviour
             Die();
         }
 
-        FollowPlayer(); // Llama a la función FollowPlayer en cada frame
+        _fsm.OnUpdate();
 
-        // Verificar si el jugador está dentro del rango de ataque y si el enemigo puede atacar
-        if (Vector2.Distance(transform.position, _playerTransform.position) <= attackRange && canAttack)
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player") && canAttack)
         {
             Attack();
             StartCoroutine(AttackCooldown()); // Iniciar el cooldown del ataque
@@ -62,17 +104,6 @@ public class EnemyController : MonoBehaviour
     public void Attack()
     {
         _player.GetDamaged(damage);
-    }
-
-    void FollowPlayer()
-    {
-        if (_playerTransform != null)
-        {
-            Vector2 dir = _playerTransform.position - transform.position;
-
-            dir.Normalize(); // Normaliza para que el enemigo no se mueva más rápido al acercarse al jugador
-            _enemy.Move(dir); // Mueve al enemigo hacia la dirección del jugador
-        }
     }
 
     IEnumerator AttackCooldown()

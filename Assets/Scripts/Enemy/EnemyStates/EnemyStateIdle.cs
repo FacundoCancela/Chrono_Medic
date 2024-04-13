@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ISteering
+public class EnemyStateIdle<T> : State<T>
 {
-    Vector3 GetDir();
-    
+
 }

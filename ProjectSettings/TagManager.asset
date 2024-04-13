@@ -6,14 +6,15 @@ TagManager:
   tags:
   - Enemy
   - Weapon
+  - Obstacle
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Obs
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -51,4 +52,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 742889129
+    locked: 0
+  - name: Obstacle
+    uniqueID: 123574885
     locked: 0

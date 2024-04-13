@@ -6,7 +6,7 @@ public class Evade : ISteering
 {
     Pursuit _pursuit;
 
-    public Evade(Transform entity, Rigidbody target, float timePrediction)
+    public Evade(Transform entity, Rigidbody2D target, float timePrediction)
     {
         _pursuit = new Pursuit(entity, target, timePrediction);
     }
