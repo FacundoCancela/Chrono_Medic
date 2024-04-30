@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    IPlayerModel _player;
-    IPlayerView _view;
+    IActorModel _player;
+    IActorView _view;
 
     float _weaponCooldown = 1f;
     float _timeSinceLastAttack = 0f;
@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        _player = GetComponent<IPlayerModel>();
-        _view = GetComponent<IPlayerView>();
+        _player = GetComponent<IActorModel>();
+        _view = GetComponent<IActorView>();
     }
 
     private void Start()

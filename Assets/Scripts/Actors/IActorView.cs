@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPlayerView 
+public interface IActorView 
 {
     void LookDir(Vector2 dir);
     void GetDamaged();

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerModel : MonoBehaviour, IPlayerModel
+public class Actor : MonoBehaviour, IActorModel
 {
     public float speed;
 

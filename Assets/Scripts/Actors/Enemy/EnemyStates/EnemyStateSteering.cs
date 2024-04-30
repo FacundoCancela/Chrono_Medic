@@ -6,13 +6,14 @@ public class EnemyStateSteering<T> : State<T>
 {
     ISteering _steering;
     EnemyModel _enemy;
-    //EnemyView _enemyView;
+    EnemyView _enemyView;
     ObstacleAvoidance _obs;
 
-    public EnemyStateSteering(EnemyModel enemy ,ISteering steering, ObstacleAvoidance obs)
+    public EnemyStateSteering(EnemyModel enemy ,EnemyView view,ISteering steering, ObstacleAvoidance obs)
     {
         _steering = steering;
         _enemy = enemy;
+        _enemyView = view;
         _obs = obs;
     }
 
@@ -20,6 +21,6 @@ public class EnemyStateSteering<T> : State<T>
     {
         var dir = _obs.GetDir(_steering.GetDir());
         _enemy.Move(dir);
-        //_enemyView.LookDir(dir);
+        _enemyView.LookDir(dir);
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyView : MonoBehaviour, IEnemyView
+public class EnemyView : MonoBehaviour, IActorView
 {
     public GameObject body;
     private Color colorOriginal;
@@ -19,11 +19,11 @@ public class EnemyView : MonoBehaviour, IEnemyView
         
         if (dir.x > 0)
         {
-            body.transform.localScale = new Vector2(-1, 1);
+            body.transform.localScale = new Vector2(1, 1);
         }
         else if (dir.x < 0)
         {
-            body.transform.localScale = new Vector2(1, 1);
+            body.transform.localScale = new Vector2(-1, 1);
         }
     }
 

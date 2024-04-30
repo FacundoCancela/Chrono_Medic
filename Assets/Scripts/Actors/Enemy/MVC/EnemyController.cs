@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     //Variables de IA
-    IEnemyView _view;
-    PlayerController _player;
-    public Rigidbody2D target;
+    EnemyView _view;
+    PlayerController _target;
+    public Rigidbody2D _targetRb;
     public float timePrediction;
     public float angle;
     public float radius;
@@ -34,8 +34,8 @@ public class EnemyController : MonoBehaviour
         //referencias
         _enemy = GetComponent<EnemyModel>();
         _view = GetComponent<EnemyView>();
-        _player = FindObjectOfType<PlayerController>();
-        target = FindObjectOfType<PlayerController>().GetComponent<Rigidbody2D>();
+        _target = FindObjectOfType<PlayerController>();
+        _targetRb = FindObjectOfType<PlayerController>().GetComponent<Rigidbody2D>();
         //inicializaciones 
         InitilizeSteering();
         InitializeFSM();
@@ -48,10 +48,10 @@ public class EnemyController : MonoBehaviour
 
     void InitilizeSteering()
     {
-        var seek = new Seek(_enemy.transform, _player.transform);
-        var flee = new Flee(_enemy.transform, _player.transform);
-        var pursuit = new Pursuit(_enemy.transform, target, timePrediction);
-        var evade = new Evade(_enemy.transform, target, timePrediction);
+        var seek = new Seek(_enemy.transform, _target.transform);
+        var flee = new Flee(_enemy.transform, _target.transform);
+        var pursuit = new Pursuit(_enemy.transform, _targetRb, timePrediction);
+        var evade = new Evade(_enemy.transform, _targetRb, timePrediction);
         _steering = seek;
         _obstacleAvoidance = new ObstacleAvoidance(_enemy.transform, angle, radius, obsMask);
     }
@@ -61,7 +61,7 @@ public class EnemyController : MonoBehaviour
         _fsm = new FSM<StatesEnum>();
 
         var idle = new EnemyStateIdle<StatesEnum>();
-        var steering = new EnemyStateSteering<StatesEnum>(_enemy, _steering, _obstacleAvoidance);
+        var steering = new EnemyStateSteering<StatesEnum>(_enemy,_view, _steering, _obstacleAvoidance);
 
         idle.AddTransition(StatesEnum.Walk, steering);
         steering.AddTransition(StatesEnum.Idle, idle);
@@ -103,7 +103,7 @@ public class EnemyController : MonoBehaviour
 
     public void Attack()
     {
-        _player.GetDamaged(damage);
+        _target.GetDamaged(damage);
     }
 
     IEnumerator AttackCooldown()

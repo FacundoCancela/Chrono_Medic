@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerView : MonoBehaviour, IPlayerView
+public class PlayerView : MonoBehaviour, IActorView
 {
     public GameObject body;
     private Color colorOriginal;

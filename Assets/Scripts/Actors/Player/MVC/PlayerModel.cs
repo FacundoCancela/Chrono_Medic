@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IEnemyModel
+public class PlayerModel : Actor
 {
-    void Move(Vector2 dir);
+
 }
