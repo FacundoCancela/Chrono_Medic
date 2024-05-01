@@ -99,46 +99,20 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        //if (actualHealth <= 0)
-        //{
-        //    Die();
-        //}
+        if (actualHealth <= 0)
+        {
+            _blackBoardDictionary[EnemyBlackBoardConsts.B__IS_DEAD] = true;
+        }
 
         _fsm.OnUpdate();
         _enemyTree.ExecuteTree();
     }
-
-    //private void OnCollisionStay2D(Collision2D collision)
-    //{
-    //    if(collision.gameObject.CompareTag("Player") && canAttack)
-    //    {
-    //        Attack();
-    //        StartCoroutine(AttackCooldown()); // Iniciar el cooldown del ataque
-    //    }
-    //}
 
     public void GetDamaged(int damage)
     {
         _view.GetDamaged();
         actualHealth -= damage;
     }
-
-    //public void Die()
-    //{
-    //    Destroy(gameObject);
-    //}
-
-    //public void Attack()
-    //{
-    //    _target.GetDamaged(damage);
-    //}
-
-    //IEnumerator AttackCooldown()
-    //{
-    //    canAttack = false; // Desactivar la capacidad de atacar
-    //    yield return new WaitForSeconds(attackCooldown); // Esperar el tiempo de cooldown
-    //    canAttack = true; // Activar la capacidad de atacar nuevamente
-    //}
 
     private void OnDrawGizmosSelected()
     {

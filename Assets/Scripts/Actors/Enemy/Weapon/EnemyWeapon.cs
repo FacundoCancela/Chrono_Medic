@@ -7,7 +7,7 @@ public class EnemyWeapon : MonoBehaviour
     public bool CanUseWeapon => canUseWeapon;
 
     private bool canUseWeapon = true;
-    [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletSpeed = 10.0f;
     [SerializeField] private float fireRate = 1.0f;
     [SerializeField] private Transform shootPoint;
@@ -31,9 +31,13 @@ public class EnemyWeapon : MonoBehaviour
 
     public void FireWeapon(Vector2 targetDir)
     {
-        GameObject newBullet = Instantiate(bullet,shootPoint);
-        Rigidbody2D newBulletRb = newBullet.GetComponent<Rigidbody2D>();
-        newBulletRb.AddForce((targetDir).normalized * bulletSpeed);
+        Vector2 dir = (targetDir- (Vector2)transform.position).normalized;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, rotation);
+        bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
+
         canUseWeapon = false;
     }
 }

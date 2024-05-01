@@ -13,7 +13,6 @@ public class Projectile : MonoBehaviour
             EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
             if (enemyController != null)
             {
-                Debug.Log("Kunai colision");
                 enemyController.GetDamaged(damage);
                 Destroy(gameObject);
             }

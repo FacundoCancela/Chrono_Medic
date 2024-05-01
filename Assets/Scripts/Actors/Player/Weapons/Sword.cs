@@ -14,7 +14,6 @@ public class Sword : MonoBehaviour
             if (enemyController != null)
             {
                 // Aquí llamamos al método GetDamaged del EnemyController
-                Debug.Log("Sword colision");
                 enemyController.GetDamaged(damage);
             }
         }

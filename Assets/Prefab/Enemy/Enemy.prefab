@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 712544308059456984}
   - component: {fileID: 6663684604217561763}
   - component: {fileID: 1399357850653536701}
-  - component: {fileID: 3826122619755607472}
   - component: {fileID: 2081250994260454005}
   - component: {fileID: 6220062889391689488}
   m_Layer: 6
@@ -103,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e4e5591801d5744b0ca212791727dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _target: {fileID: 0}
   angle: 115
   radius: 5
   obsMask:
@@ -141,23 +141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1130082731687103583}
---- !u!114 &3826122619755607472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130082731687103583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a4ecbd3aa1cd2b4aa76f7a17d7503c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 1.5
-  angle: 1
-  maskObs:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!61 &2081250994260454005
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -327,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed394dae881df043aec23027d84467e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 8500496088789214507, guid: 2d5704400104d7546b6b55527ce4fe28, type: 3}
+  bulletPrefab: {fileID: 0}
   bulletSpeed: 10
   fireRate: 1
   shootPoint: {fileID: 1591282576986889045}
