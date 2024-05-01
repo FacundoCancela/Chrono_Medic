@@ -10,9 +10,9 @@ public class EnemyModel : Actor
     public void Shoot(Vector2 targetDir)
     {
          if(enemyWeapon.CanUseWeapon)
-        {
+         {
             enemyWeapon.FireWeapon(targetDir);
-        }
+         }
     }
 
 

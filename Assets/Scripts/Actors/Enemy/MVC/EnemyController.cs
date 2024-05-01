@@ -1,44 +1,63 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UI.Image;
+
+//Constantes para el blackboard
+public static class EnemyBlackBoardConsts
+{
+    public static string B__IS_DEAD = "bool_IsDead";
+}
 
 public class EnemyController : MonoBehaviour
 {
     //Variables de IA
+    EnemyModel _model;
     EnemyView _view;
-    PlayerController _target;
-    public Rigidbody2D _targetRb;
-    public float timePrediction;
+    [SerializeField]PlayerController _target;
+    EnemyTree _enemyTree;
+
+    ObstacleAvoidance _obstacleAvoidance;
     public float angle;
     public float radius;
     public LayerMask obsMask;
-    FSM<StatesEnum> _fsm;
+
+    FSM<EnemyStatesEnum> _fsm;
     ISteering _steering;
-    EnemyModel _enemy;
-    ObstacleAvoidance _obstacleAvoidance;
 
     //Variables de ataque
-    bool canAttack = true; 
-    public float attackRange = 2f; 
-    public int damage = 2;
-    public float attackCooldown = 1f; 
+    [SerializeField] bool canAttack = true;
+    [SerializeField] private float shootRange;
+    [SerializeField] public int damage = 2;
+    [SerializeField] public float attackCooldown = 1f;
+    
 
     //Variables de vida
     public int maxHealth = 10;
     public int actualHealth;
+
+    private Dictionary<string, object> _blackBoardDictionary = new Dictionary<string, object>
+    {
+        {EnemyBlackBoardConsts.B__IS_DEAD,false },
+    };
 
 
 
     private void Awake()
     {
         //referencias
-        _enemy = GetComponent<EnemyModel>();
+        _model = GetComponent<EnemyModel>();
         _view = GetComponent<EnemyView>();
         _target = FindObjectOfType<PlayerController>();
-        _targetRb = FindObjectOfType<PlayerController>().GetComponent<Rigidbody2D>();
+        
         //inicializaciones 
         InitilizeSteering();
         InitializeFSM();
+
+        _enemyTree = new EnemyTree(_fsm, _model.transform, _target.transform, shootRange, ref _blackBoardDictionary);
+        _enemyTree.InitializeTree();
+
     }
 
     private void Start()
@@ -48,47 +67,55 @@ public class EnemyController : MonoBehaviour
 
     void InitilizeSteering()
     {
-        var seek = new Seek(_enemy.transform, _target.transform);
-        var flee = new Flee(_enemy.transform, _target.transform);
-        var pursuit = new Pursuit(_enemy.transform, _targetRb, timePrediction);
-        var evade = new Evade(_enemy.transform, _targetRb, timePrediction);
+        var seek = new Seek(_model.transform, _target.transform);
+        
         _steering = seek;
-        _obstacleAvoidance = new ObstacleAvoidance(_enemy.transform, angle, radius, obsMask);
+        _obstacleAvoidance = new ObstacleAvoidance(_model.transform, angle, radius, obsMask);
     }
 
     void InitializeFSM()
     {
-        _fsm = new FSM<StatesEnum>();
+        _fsm = new FSM<EnemyStatesEnum>();
 
-        var idle = new EnemyStateIdle<StatesEnum>();
-        var steering = new EnemyStateSteering<StatesEnum>(_enemy,_view, _steering, _obstacleAvoidance);
+        //States
+        var seek = new EnemyStateSteering<EnemyStatesEnum>(_model,_view, _steering, _obstacleAvoidance);
+        var shoot = new EnemyStateShoot<EnemyStatesEnum>(_model, _target.transform);
+        var dead = new EnemyStateDead<EnemyStatesEnum>(_model);
 
-        idle.AddTransition(StatesEnum.Walk, steering);
-        steering.AddTransition(StatesEnum.Idle, idle);
+        //Transitions
 
-        _fsm.SetInit(steering);
+        seek.AddTransition(EnemyStatesEnum.Shoot, shoot);
+        seek.AddTransition(EnemyStatesEnum.Dead, dead);
+
+        shoot.AddTransition(EnemyStatesEnum.Seek, seek);
+        shoot.AddTransition(EnemyStatesEnum.Dead, dead);
+
+        dead.AddTransition(EnemyStatesEnum.Shoot, shoot);
+        dead.AddTransition(EnemyStatesEnum.Seek, seek);
+
+        _fsm.SetInit(seek);
     }
 
 
     private void Update()
     {
-        if (actualHealth <= 0)
-        {
-            Die();
-        }
+        //if (actualHealth <= 0)
+        //{
+        //    Die();
+        //}
 
         _fsm.OnUpdate();
-
+        _enemyTree.ExecuteTree();
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player") && canAttack)
-        {
-            Attack();
-            StartCoroutine(AttackCooldown()); // Iniciar el cooldown del ataque
-        }
-    }
+    //private void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    if(collision.gameObject.CompareTag("Player") && canAttack)
+    //    {
+    //        Attack();
+    //        StartCoroutine(AttackCooldown()); // Iniciar el cooldown del ataque
+    //    }
+    //}
 
     public void GetDamaged(int damage)
     {
@@ -96,20 +123,26 @@ public class EnemyController : MonoBehaviour
         actualHealth -= damage;
     }
 
-    public void Die()
-    {
-        Destroy(gameObject);
-    }
+    //public void Die()
+    //{
+    //    Destroy(gameObject);
+    //}
 
-    public void Attack()
-    {
-        _target.GetDamaged(damage);
-    }
+    //public void Attack()
+    //{
+    //    _target.GetDamaged(damage);
+    //}
 
-    IEnumerator AttackCooldown()
+    //IEnumerator AttackCooldown()
+    //{
+    //    canAttack = false; // Desactivar la capacidad de atacar
+    //    yield return new WaitForSeconds(attackCooldown); // Esperar el tiempo de cooldown
+    //    canAttack = true; // Activar la capacidad de atacar nuevamente
+    //}
+
+    private void OnDrawGizmosSelected()
     {
-        canAttack = false; // Desactivar la capacidad de atacar
-        yield return new WaitForSeconds(attackCooldown); // Esperar el tiempo de cooldown
-        canAttack = true; // Activar la capacidad de atacar nuevamente
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, shootRange);
     }
 }

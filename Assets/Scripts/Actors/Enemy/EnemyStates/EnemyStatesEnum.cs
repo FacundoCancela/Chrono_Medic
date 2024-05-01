@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum StatesEnum
+public enum EnemyStatesEnum
 {
-    Default,
-    Idle,
-    Walk,
-    Attack,
-    Chase,
+    Seek,
+    Shoot,
     Dead
 }
