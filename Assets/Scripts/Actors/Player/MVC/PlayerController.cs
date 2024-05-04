@@ -10,9 +10,12 @@ public class PlayerController : MonoBehaviour
 
     float _weaponCooldown = 1f;
     float _timeSinceLastAttack = 0f;
-    bool _isAttacking = false;
+    float _swordSlashDuration = 0.1f;
+    bool _attackInCooldown = false;
     public GameObject sword;
     public GameObject kunaiPrefab;
+
+    public int attackType = 1;
 
     public string nombreEscenaAJugar;
 
@@ -27,7 +30,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        Attack();
         actualHealth = maxHealth;
     }
 
@@ -40,15 +42,37 @@ public class PlayerController : MonoBehaviour
         _view.LookDir(dir);
 
         // Si no estamos atacando, actualizar el tiempo desde el último ataque
-        if (!_isAttacking)
+        if (_attackInCooldown)
         {
             _timeSinceLastAttack += Time.deltaTime;
+            if( _timeSinceLastAttack >= _weaponCooldown )
+            {
+                _attackInCooldown = false;
+            }
         }
 
-        // Si no estamos atacando y ha pasado el cooldown, entonces atacar
-        if (!_isAttacking && _timeSinceLastAttack >= _weaponCooldown)
+        //Control de ataque
+        if(Input.GetKeyDown(KeyCode.F) && !_attackInCooldown)
         {
-            Attack();
+            _attackInCooldown = true;
+            _timeSinceLastAttack = 0f;
+
+            if (attackType == 1)
+            {
+                MeleeAttack();
+            }
+            else if(attackType == 2)
+            {
+                RangeAttack();
+            }
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            attackType = 1;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            attackType = 2;
         }
 
         if (actualHealth <= 0)
@@ -68,23 +92,22 @@ public class PlayerController : MonoBehaviour
         SceneManager.LoadScene(nombreEscenaAJugar);
     }
 
-    private void Attack()
-    {
-        MeleeAttack();
-        RangeAttack();
-    }
-
     private void MeleeAttack()
     {
-        _isAttacking = true;
-        _timeSinceLastAttack = 0f;
+        
         sword.SetActive(true);
-        StartCoroutine(DeactivateSwordAfterDelay(0.1f));
+        Invoke("DeactivateSword", _swordSlashDuration);
+    }
+
+    private void DeactivateSword()
+    {
+        sword.SetActive(false);
     }
 
     private void RangeAttack()
     {
-        _isAttacking = true;
+        _attackInCooldown = true;
+        _timeSinceLastAttack = 0f;
 
         // Obtener todos los objetos EnemyController en la escena
         EnemyController[] enemies = FindObjectsOfType<EnemyController>();
@@ -114,22 +137,5 @@ public class PlayerController : MonoBehaviour
             GameObject kunai = Instantiate(kunaiPrefab, transform.position, rotation);
             kunai.GetComponent<Rigidbody2D>().velocity = direction * 10f; // Velocidad del Kunai
         }
-
-        // Finalizar el ataque después de un tiempo de espera
-        StartCoroutine(EndRangeAttackAfterDelay(0.1f));
-    }
-
-
-    private IEnumerator EndRangeAttackAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        _isAttacking = false;
-    }
-
-    private IEnumerator DeactivateSwordAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        sword.SetActive(false);
-        _isAttacking = false;
     }
 }
