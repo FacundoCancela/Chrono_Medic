@@ -19,6 +19,7 @@ public class EnemyStateShoot<T> : State<T>
     {
         base.Execute();
         //Dispara con autoaim al jugador
+        _model.Move(Vector2.zero);
         _model.Shoot(_shootTarget.position);
     }
 }
