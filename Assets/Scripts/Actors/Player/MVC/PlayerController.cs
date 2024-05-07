@@ -10,8 +10,13 @@ public class PlayerController : MonoBehaviour
 
     float _weaponCooldown = 1f;
     float _timeSinceLastAttack = 0f;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     bool _isAttacking = false;
+=======
+    float _swordSlashDuration = 0.1f;
+    bool _attackInCooldown = false;
+>>>>>>> IA
     public GameObject sword;
 =======
     float _swordSlashDuration = 0.1f;
@@ -20,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public GameObject circleSlash;
 >>>>>>> Stashed changes
     public GameObject kunaiPrefab;
+
+    public int attackType = 1;
 
     public string nombreEscenaAJugar;
 
@@ -34,7 +41,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        Attack();
         actualHealth = maxHealth;
     }
 
@@ -47,34 +53,49 @@ public class PlayerController : MonoBehaviour
         _view.LookDir(dir);
 
         // Si no estamos atacando, actualizar el tiempo desde el último ataque
-        if (!_isAttacking)
+        if (_attackInCooldown)
         {
             _timeSinceLastAttack += Time.deltaTime;
+            if( _timeSinceLastAttack >= _weaponCooldown )
+            {
+                _attackInCooldown = false;
+            }
         }
 
-        // Si no estamos atacando y ha pasado el cooldown, entonces atacar
-        if (!_isAttacking && _timeSinceLastAttack >= _weaponCooldown)
+        //Control de ataque
+        if(Input.GetKeyDown(KeyCode.F) && !_attackInCooldown)
         {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             Attack();
 =======
+=======
+>>>>>>> IA
             _attackInCooldown = true;
             _timeSinceLastAttack = 0f;
 
             if (attackType == 1)
             {
+<<<<<<< HEAD
                 BasicSlash();
+=======
+                MeleeAttack();
+>>>>>>> IA
             }
             else if(attackType == 2)
             {
                 RangeAttack();
             }
+<<<<<<< HEAD
             else if(attackType == 3)
             {
                 CircleSlash();
             }
         }
 
+=======
+        }
+>>>>>>> IA
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             attackType = 1;
@@ -82,11 +103,14 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             attackType = 2;
+<<<<<<< HEAD
 >>>>>>> Stashed changes
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             attackType = 3;
+=======
+>>>>>>> IA
         }
 
         if (actualHealth <= 0)
@@ -106,6 +130,7 @@ public class PlayerController : MonoBehaviour
         SceneManager.LoadScene(nombreEscenaAJugar);
     }
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     private void Attack()
     {
@@ -113,11 +138,13 @@ public class PlayerController : MonoBehaviour
         RangeAttack();
     }
 
+=======
+>>>>>>> IA
     private void MeleeAttack()
     {
-        _isAttacking = true;
-        _timeSinceLastAttack = 0f;
+        
         sword.SetActive(true);
+<<<<<<< HEAD
         StartCoroutine(DeactivateSwordAfterDelay(0.1f));
 =======
     private void BasicSlash()
@@ -143,11 +170,20 @@ public class PlayerController : MonoBehaviour
     {
         circleSlash.SetActive(false);
 >>>>>>> Stashed changes
+=======
+        Invoke("DeactivateSword", _swordSlashDuration);
+    }
+
+    private void DeactivateSword()
+    {
+        sword.SetActive(false);
+>>>>>>> IA
     }
 
     private void RangeAttack()
     {
-        _isAttacking = true;
+        _attackInCooldown = true;
+        _timeSinceLastAttack = 0f;
 
         // Obtener todos los objetos EnemyController en la escena
         EnemyController[] enemies = FindObjectsOfType<EnemyController>();
@@ -177,22 +213,5 @@ public class PlayerController : MonoBehaviour
             GameObject kunai = Instantiate(kunaiPrefab, transform.position, rotation);
             kunai.GetComponent<Rigidbody2D>().velocity = direction * 10f; // Velocidad del Kunai
         }
-
-        // Finalizar el ataque después de un tiempo de espera
-        StartCoroutine(EndRangeAttackAfterDelay(0.1f));
-    }
-
-
-    private IEnumerator EndRangeAttackAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        _isAttacking = false;
-    }
-
-    private IEnumerator DeactivateSwordAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        sword.SetActive(false);
-        _isAttacking = false;
     }
 }
