@@ -10,20 +10,10 @@ public class PlayerController : MonoBehaviour
 
     float _weaponCooldown = 1f;
     float _timeSinceLastAttack = 0f;
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    bool _isAttacking = false;
-=======
-    float _swordSlashDuration = 0.1f;
-    bool _attackInCooldown = false;
->>>>>>> IA
-    public GameObject sword;
-=======
     float _swordSlashDuration = 0.1f;
     bool _attackInCooldown = false;
     public GameObject basicSlash;
     public GameObject circleSlash;
->>>>>>> Stashed changes
     public GameObject kunaiPrefab;
 
     public int attackType = 1;
@@ -65,37 +55,23 @@ public class PlayerController : MonoBehaviour
         //Control de ataque
         if(Input.GetKeyDown(KeyCode.F) && !_attackInCooldown)
         {
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-            Attack();
-=======
-=======
->>>>>>> IA
             _attackInCooldown = true;
             _timeSinceLastAttack = 0f;
 
             if (attackType == 1)
             {
-<<<<<<< HEAD
                 BasicSlash();
-=======
-                MeleeAttack();
->>>>>>> IA
             }
             else if(attackType == 2)
             {
                 RangeAttack();
             }
-<<<<<<< HEAD
             else if(attackType == 3)
             {
                 CircleSlash();
             }
         }
 
-=======
-        }
->>>>>>> IA
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             attackType = 1;
@@ -103,14 +79,10 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             attackType = 2;
-<<<<<<< HEAD
->>>>>>> Stashed changes
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             attackType = 3;
-=======
->>>>>>> IA
         }
 
         if (actualHealth <= 0)
@@ -130,23 +102,6 @@ public class PlayerController : MonoBehaviour
         SceneManager.LoadScene(nombreEscenaAJugar);
     }
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    private void Attack()
-    {
-        MeleeAttack();
-        RangeAttack();
-    }
-
-=======
->>>>>>> IA
-    private void MeleeAttack()
-    {
-        
-        sword.SetActive(true);
-<<<<<<< HEAD
-        StartCoroutine(DeactivateSwordAfterDelay(0.1f));
-=======
     private void BasicSlash()
     {
         
@@ -169,15 +124,6 @@ public class PlayerController : MonoBehaviour
     private void DeactivateCircleSlash()
     {
         circleSlash.SetActive(false);
->>>>>>> Stashed changes
-=======
-        Invoke("DeactivateSword", _swordSlashDuration);
-    }
-
-    private void DeactivateSword()
-    {
-        sword.SetActive(false);
->>>>>>> IA
     }
 
     private void RangeAttack()
