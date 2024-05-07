@@ -10,8 +10,15 @@ public class PlayerController : MonoBehaviour
 
     float _weaponCooldown = 1f;
     float _timeSinceLastAttack = 0f;
+<<<<<<< Updated upstream
     bool _isAttacking = false;
     public GameObject sword;
+=======
+    float _swordSlashDuration = 0.1f;
+    bool _attackInCooldown = false;
+    public GameObject basicSlash;
+    public GameObject circleSlash;
+>>>>>>> Stashed changes
     public GameObject kunaiPrefab;
 
     public string nombreEscenaAJugar;
@@ -48,7 +55,38 @@ public class PlayerController : MonoBehaviour
         // Si no estamos atacando y ha pasado el cooldown, entonces atacar
         if (!_isAttacking && _timeSinceLastAttack >= _weaponCooldown)
         {
+<<<<<<< Updated upstream
             Attack();
+=======
+            _attackInCooldown = true;
+            _timeSinceLastAttack = 0f;
+
+            if (attackType == 1)
+            {
+                BasicSlash();
+            }
+            else if(attackType == 2)
+            {
+                RangeAttack();
+            }
+            else if(attackType == 3)
+            {
+                CircleSlash();
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            attackType = 1;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            attackType = 2;
+>>>>>>> Stashed changes
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            attackType = 3;
         }
 
         if (actualHealth <= 0)
@@ -68,6 +106,7 @@ public class PlayerController : MonoBehaviour
         SceneManager.LoadScene(nombreEscenaAJugar);
     }
 
+<<<<<<< Updated upstream
     private void Attack()
     {
         MeleeAttack();
@@ -80,6 +119,30 @@ public class PlayerController : MonoBehaviour
         _timeSinceLastAttack = 0f;
         sword.SetActive(true);
         StartCoroutine(DeactivateSwordAfterDelay(0.1f));
+=======
+    private void BasicSlash()
+    {
+        
+        basicSlash.SetActive(true);
+        Invoke("DeactivateBasicSlash", _swordSlashDuration);
+    }
+
+    private void DeactivateBasicSlash()
+    {
+        basicSlash.SetActive(false);
+    }
+    
+    private void CircleSlash()
+    {
+        
+        circleSlash.SetActive(true);
+        Invoke("DeactivateCircleSlash", _swordSlashDuration);
+    }
+
+    private void DeactivateCircleSlash()
+    {
+        circleSlash.SetActive(false);
+>>>>>>> Stashed changes
     }
 
     private void RangeAttack()
