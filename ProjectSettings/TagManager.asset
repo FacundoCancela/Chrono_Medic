@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Weapon
   - Obstacle
+  - Lvl_Egypt
+  - Lvl_BlackDeath
+  - Lvl_2400
   layers:
   - Default
   - TransparentFX
@@ -15,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
+  - Player
   - 
   - 
   - 
