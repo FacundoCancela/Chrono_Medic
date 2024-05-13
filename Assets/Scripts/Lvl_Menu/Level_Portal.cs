@@ -5,15 +5,9 @@ using UnityEngine;
 
 public class Level_Portal : MonoBehaviour
 {
-    public PlayButton playButton;
+    public SceneManager playButton;
 
-    private string sceneName;
-
-    private void Awake()
-    {
-        sceneName = gameObject.tag;
-        //Debug.Log(sceneName);
-    }
+    [SerializeField] private string sceneName;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

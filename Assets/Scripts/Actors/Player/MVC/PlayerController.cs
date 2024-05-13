@@ -9,11 +9,14 @@ public class PlayerController : MonoBehaviour
     IActorView _view;
 
     float _weaponCooldown = 1f;
-    float _timeSinceLastAttack = 0f;
+    float _timeSinceLastMeleeAttack = 0f;
+    float _timeSinceLastRangeAttack = 0f;
     float _swordSlashDuration = 0.1f;
-    bool _attackInCooldown = false;
+    bool _meleeAttackInCooldown = false;
+    bool _rangeAttackInCooldown = true;
     public GameObject basicSlash;
     public GameObject circleSlash;
+    public GameObject bigSlash;
     public GameObject kunaiPrefab;
 
     public int attackType = 1;
@@ -43,20 +46,33 @@ public class PlayerController : MonoBehaviour
         _view.LookDir(dir);
 
         // Si no estamos atacando, actualizar el tiempo desde el último ataque
-        if (_attackInCooldown)
+        if (_meleeAttackInCooldown)
         {
-            _timeSinceLastAttack += Time.deltaTime;
-            if( _timeSinceLastAttack >= _weaponCooldown )
+            _timeSinceLastMeleeAttack += Time.deltaTime;
+            if( _timeSinceLastMeleeAttack >= _weaponCooldown )
             {
-                _attackInCooldown = false;
+                _meleeAttackInCooldown = false;
             }
         }
 
-        //Control de ataque
-        if(Input.GetKeyDown(KeyCode.F) && !_attackInCooldown)
+        if( _rangeAttackInCooldown )
         {
-            _attackInCooldown = true;
-            _timeSinceLastAttack = 0f;
+            _timeSinceLastRangeAttack += Time.deltaTime;
+            if(_timeSinceLastRangeAttack >= _weaponCooldown )
+            {
+                _rangeAttackInCooldown = false;
+                RangeAttack();
+            }
+        }
+
+
+
+
+        //Control de ataque
+        if(Input.GetKeyDown(KeyCode.F) && !_meleeAttackInCooldown)
+        {
+            _meleeAttackInCooldown = true;
+            _timeSinceLastMeleeAttack = 0f;
 
             if (attackType == 1)
             {
@@ -64,7 +80,7 @@ public class PlayerController : MonoBehaviour
             }
             else if(attackType == 2)
             {
-                RangeAttack();
+                BigSlash();
             }
             else if(attackType == 3)
             {
@@ -99,7 +115,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        SceneManager.LoadScene(nombreEscenaAJugar);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(nombreEscenaAJugar);
     }
 
     private void BasicSlash()
@@ -125,11 +141,22 @@ public class PlayerController : MonoBehaviour
     {
         circleSlash.SetActive(false);
     }
+    private void BigSlash()
+    {
+        
+        bigSlash.SetActive(true);
+        Invoke("DeactivateBigSlash", _swordSlashDuration);
+    }
+
+    private void DeactivateBigSlash()
+    {
+        bigSlash.SetActive(false);
+    }
 
     private void RangeAttack()
     {
-        _attackInCooldown = true;
-        _timeSinceLastAttack = 0f;
+        _rangeAttackInCooldown = true;
+        _timeSinceLastRangeAttack = 0f;
 
         // Obtener todos los objetos EnemyController en la escena
         EnemyController[] enemies = FindObjectsOfType<EnemyController>();

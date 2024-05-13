@@ -10,6 +10,7 @@ TagManager:
   - Lvl_Egypt
   - Lvl_BlackDeath
   - Lvl_2400
+  - SampleScene
   layers:
   - Default
   - TransparentFX
