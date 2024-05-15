@@ -12,6 +12,8 @@ public static class EnemyBlackBoardConsts
 
 public class EnemyController : MonoBehaviour
 {
+    public EnemyStats enemyStats;
+
     //Variables de IA
     EnemyModel _model;
     EnemyView _view;
@@ -26,23 +28,15 @@ public class EnemyController : MonoBehaviour
     FSM<EnemyStatesEnum> _fsm;
     ISteering _steering;
 
-    //Variables de ataque
+    //Variables
     [SerializeField] bool canAttack = true;
-    [SerializeField] private float shootRange;
-    [SerializeField] public int damage = 2;
-    [SerializeField] public float attackCooldown = 1f;
-    
-
-    //Variables de vida
-    public int maxHealth = 10;
+    private float shootRange;
     public int actualHealth;
 
     private Dictionary<string, object> _blackBoardDictionary = new Dictionary<string, object>
     {
         {EnemyBlackBoardConsts.B__IS_DEAD,false },
     };
-
-
 
     private void Awake()
     {
@@ -55,14 +49,13 @@ public class EnemyController : MonoBehaviour
         InitilizeSteering();
         InitializeFSM();
 
+        //EnemyStats
+        shootRange = enemyStats.shootRange;
+        actualHealth = enemyStats.maxHealth;
+
         _enemyTree = new EnemyTree(_fsm, _model.transform, _target.transform, shootRange, ref _blackBoardDictionary);
         _enemyTree.InitializeTree();
 
-    }
-
-    private void Start()
-    {
-        actualHealth = maxHealth;
     }
 
     void InitilizeSteering()
@@ -99,19 +92,23 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        _fsm.OnUpdate();
+        _enemyTree.ExecuteTree();
+    }
+
+    private void DeathCheck()
+    {
         if (actualHealth <= 0)
         {
             _blackBoardDictionary[EnemyBlackBoardConsts.B__IS_DEAD] = true;
         }
-
-        _fsm.OnUpdate();
-        _enemyTree.ExecuteTree();
     }
 
     public void GetDamaged(int damage)
     {
         _view.GetDamaged();
         actualHealth -= damage;
+        DeathCheck();
     }
 
     private void OnDrawGizmosSelected()

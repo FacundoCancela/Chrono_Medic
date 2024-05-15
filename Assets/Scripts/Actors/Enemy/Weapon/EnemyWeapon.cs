@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class EnemyWeapon : MonoBehaviour
 {
+    public EnemyStats enemyStats;
     public bool CanUseWeapon => canUseWeapon;
 
     private bool canUseWeapon = true;
+
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float bulletSpeed = 10.0f;
-    [SerializeField] private float fireRate = 1.0f;
     [SerializeField] private Transform shootPoint;
+    [SerializeField] private float bulletSpeed = 10.0f;
+    [SerializeField] private float fireRate;
 
     private float fireRateTimer = 0.0f;
+
+    private void Awake()
+    {
+        fireRate = enemyStats.attackCooldown;
+    }
+
 
     private void Update()
     {

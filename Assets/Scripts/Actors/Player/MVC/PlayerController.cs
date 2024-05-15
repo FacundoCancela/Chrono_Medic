@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public PlayerStats playerStats;
+    public HealthBar healthBar;
 
     IActorModel _player;
     IActorView _view;
@@ -19,16 +20,12 @@ public class PlayerController : MonoBehaviour
         _player = GetComponent<IActorModel>();
         _view = GetComponent<IActorView>();
         actualHealth = playerStats.maxHealth;
+        healthBar.SetMaxHealth(actualHealth);
     }
 
     private void Update()
     {
         Move();
-
-        if (actualHealth <= 0)
-        {
-            Die();
-        }
     }
 
     public void Move()
@@ -40,10 +37,20 @@ public class PlayerController : MonoBehaviour
         _view.LookDir(dir);
     }
 
+    private void DeathCheck()
+    {
+        if (actualHealth <= 0)
+        {
+            Die();
+        }
+    }
+
     public void GetDamaged(int damage)
     {
         _view.GetDamaged();
         actualHealth -= damage;
+        DeathCheck();
+        healthBar.SetHealth(actualHealth);
     }
 
     public void Die()

@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e4e5591801d5744b0ca212791727dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStats: {fileID: 11400000, guid: 349b08fffe7022546901a3b002094378, type: 2}
   _target: {fileID: 0}
   angle: 115
   radius: 5
@@ -109,10 +110,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   canAttack: 1
-  shootRange: 10
-  damage: 2
-  attackCooldown: 1
-  maxHealth: 10
   actualHealth: 0
 --- !u!114 &6663684604217561763
 MonoBehaviour:
@@ -310,7 +307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed394dae881df043aec23027d84467e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStats: {fileID: 11400000, guid: 349b08fffe7022546901a3b002094378, type: 2}
   bulletPrefab: {fileID: 1367665112320747349, guid: f79b08c8607f1e54baee3df80eabf287, type: 3}
+  shootPoint: {fileID: 1591282576986889045}
   bulletSpeed: 10
   fireRate: 1
-  shootPoint: {fileID: 1591282576986889045}
