@@ -4,28 +4,129 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    public float _weaponCooldown = 1f;
-    public float _timeSinceLastAttack = 0f;
-    public bool _isAttacking = false;
-    public GameObject sword;
+
+    public int attackType = 1;
+
+    float _weaponCooldown = 1f;
+    float _timeSinceLastMeleeAttack = 0f;
+    float _timeSinceLastRangeAttack = 0f;
+    float _swordSlashDuration = 0.1f;
+
+    bool _meleeAttackInCooldown = false;
+    bool _rangeAttackInCooldown = true;
+
+    public GameObject basicSlash;
+    public GameObject circleSlash;
+    public GameObject bigSlash;
     public GameObject kunaiPrefab;
 
-    public void Attack()
+    private Dictionary<int, System.Action> _attackDictionary = new Dictionary<int, System.Action>();
+
+    private void Awake()
     {
-        MeleeAttack();
-        RangeAttack();
+        _attackDictionary.Add(1, BasicSlash);
+        _attackDictionary.Add(2, BigSlash);
+        _attackDictionary.Add(3, CircleSlash);
     }
 
-    private void MeleeAttack()
+    private void Update()
     {
-        _isAttacking = true;
-        _timeSinceLastAttack = 0f;
-        sword.SetActive(true);
-        StartCoroutine(DeactivateSwordAfterDelay(0.1f));
+        WeaponCooldown();
+        WeaponSelector();
+        UseWeapon();
     }
+
+    public void WeaponCooldown()
+    {
+        // Si no estamos atacando, actualizar el tiempo desde el último ataque
+        if (_meleeAttackInCooldown)
+        {
+            _timeSinceLastMeleeAttack += Time.deltaTime;
+            if (_timeSinceLastMeleeAttack >= _weaponCooldown)
+            {
+                _meleeAttackInCooldown = false;
+            }
+        }
+
+        if (_rangeAttackInCooldown)
+        {
+            _timeSinceLastRangeAttack += Time.deltaTime;
+            if (_timeSinceLastRangeAttack >= _weaponCooldown)
+            {
+                _rangeAttackInCooldown = false;
+                RangeAttack();
+            }
+        }
+    }
+
+    public void WeaponSelector()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1) && attackType != 1)
+        {
+            attackType = 1;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && attackType != 2)
+        {
+            attackType = 2;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && attackType != 3)
+        {
+            attackType = 3;
+        }
+    }
+
+    public void UseWeapon()
+    {
+        if (Input.GetKeyDown(KeyCode.F) && !_meleeAttackInCooldown)
+        {
+            _meleeAttackInCooldown = true;
+            _timeSinceLastMeleeAttack = 0f;
+            if (_attackDictionary.ContainsKey(attackType))
+            {
+                _attackDictionary[attackType]?.Invoke();
+            }
+        }
+    }
+
+    private void BasicSlash()
+    {
+
+        basicSlash.SetActive(true);
+        Invoke("DeactivateBasicSlash", _swordSlashDuration);
+    }
+
+    private void DeactivateBasicSlash()
+    {
+        basicSlash.SetActive(false);
+    }
+
+    private void CircleSlash()
+    {
+
+        circleSlash.SetActive(true);
+        Invoke("DeactivateCircleSlash", _swordSlashDuration);
+    }
+
+    private void DeactivateCircleSlash()
+    {
+        circleSlash.SetActive(false);
+    }
+    private void BigSlash()
+    {
+
+        bigSlash.SetActive(true);
+        Invoke("DeactivateBigSlash", _swordSlashDuration);
+    }
+
+    private void DeactivateBigSlash()
+    {
+        bigSlash.SetActive(false);
+    }
+
     private void RangeAttack()
     {
-        _isAttacking = true;
+        _rangeAttackInCooldown = true;
+        _timeSinceLastRangeAttack = 0f;
 
         // Obtener todos los objetos EnemyController en la escena
         EnemyController[] enemies = FindObjectsOfType<EnemyController>();
@@ -55,23 +156,5 @@ public class WeaponManager : MonoBehaviour
             GameObject kunai = Instantiate(kunaiPrefab, transform.position, rotation);
             kunai.GetComponent<Rigidbody2D>().velocity = direction * 10f; // Velocidad del Kunai
         }
-
-        // Finalizar el ataque después de un tiempo de espera
-        StartCoroutine(EndRangeAttackAfterDelay(0.1f));
     }
-
-
-    private IEnumerator EndRangeAttackAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        _isAttacking = false;
-    }
-
-    private IEnumerator DeactivateSwordAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        sword.SetActive(false);
-        _isAttacking = false;
-    }
-
 }

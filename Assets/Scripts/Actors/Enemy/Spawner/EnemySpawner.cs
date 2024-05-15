@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    public List<GameObject> enemyPrefabs; // Lista de prefabs de enemigos
     public float spawnInterval = 5f;
     public float minSpawnRange = 5f;
     public float maxSpawnRange = 10f;
@@ -30,15 +30,19 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        if (playerTransform != null)
+        if (playerTransform != null && enemyPrefabs.Count > 0)
         {
+            // Selecciona un índice aleatorio de la lista de prefabs de enemigos
+            int randomIndex = Random.Range(0, enemyPrefabs.Count);
+            GameObject selectedEnemyPrefab = enemyPrefabs[randomIndex];
+
             // Genera una posición aleatoria dentro del rango alrededor del jugador
             Vector2 spawnOffset = Random.insideUnitCircle.normalized * Random.Range(minSpawnRange, maxSpawnRange);
             // Aplica la posición relativa al jugador
             Vector2 spawnPosition = (Vector2)playerTransform.position + spawnOffset;
 
             // Instancia el enemigo en la posición generada
-            Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            Instantiate(selectedEnemyPrefab, spawnPosition, Quaternion.identity);
         }
     }
 }
