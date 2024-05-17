@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,10 @@ public class EnemyModel : Actor
          }
     }
 
-
+    public void EnemyDeath()
+    {
+        Debug.Log("Me mori");
+        WaveManager.Instance.OnEnemyKilled();
+    }
 
 }

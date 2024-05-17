@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyStateDead<T> : State<T>
@@ -14,6 +16,7 @@ public class EnemyStateDead<T> : State<T>
     public override void Execute()
     {
         base.Execute();
+        _model.EnemyDeath();
         GameObject.Destroy(_model.gameObject);
     }
 

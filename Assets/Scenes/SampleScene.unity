@@ -577,6 +577,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &852515255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 852515256}
+  - component: {fileID: 852515257}
+  m_Layer: 0
+  m_Name: WaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &852515256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852515255}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1698428744}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &852515257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852515255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614ef501826af8d43a3cba2ab162e412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxWave: 5
+  enemySpawner: {fileID: 1348863575}
+  model: {fileID: 0}
+  enemyPrefabs:
+  - {fileID: 1130082731687103583, guid: f0ba8a86a5dca4d4bbee99cfe919b12a, type: 3}
+  - {fileID: 1130082731687103583, guid: 968caa023c0cbc74386d93142e5e5a2c, type: 3}
+  enemiesInThisWave: 5
+  enemiesAlive: 0
+  spawnInterval: 1
 --- !u!1001 &977837737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -842,12 +895,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b597a0b644081a549b7c38622cf49014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 1130082731687103583, guid: 968caa023c0cbc74386d93142e5e5a2c, type: 3}
-  - {fileID: 1130082731687103583, guid: f0ba8a86a5dca4d4bbee99cfe919b12a, type: 3}
-  spawnInterval: 2
   minSpawnRange: 5
   maxSpawnRange: 10
+  waveManager: {fileID: 852515257}
 --- !u!1 &1698428743
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,6 +929,7 @@ Transform:
   m_Children:
   - {fileID: 1348863574}
   - {fileID: 1009415058}
+  - {fileID: 852515256}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1960979992

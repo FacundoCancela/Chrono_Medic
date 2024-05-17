@@ -29,7 +29,6 @@ public class EnemyController : MonoBehaviour
     ISteering _steering;
 
     //Variables
-    [SerializeField] bool canAttack = true;
     private float shootRange;
     public int actualHealth;
 
