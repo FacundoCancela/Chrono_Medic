@@ -15,12 +15,16 @@ public class PlayerController : MonoBehaviour
 
     private int actualHealth;
 
+
     private void Awake()
     {
         _player = GetComponent<IActorModel>();
         _view = GetComponent<IActorView>();
         actualHealth = playerStats.maxHealth;
-        healthBar.SetMaxHealth(actualHealth);
+        if(healthBar != null )
+        {
+            healthBar.SetMaxHealth(actualHealth);
+        }
     }
 
     private void Update()

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    [SerializeField] WaveCount waveCount;
+    [SerializeField] WinScreen winScreen;
     [SerializeField] public int maxWave;
-    private int actualWave = 0;
+    private int actualWave = 1;
     private bool waveInProgress;
 
     [SerializeField] public EnemySpawner enemySpawner;
@@ -62,7 +64,9 @@ public class WaveManager : MonoBehaviour
 
     public void StartNextWave()
     {
-        if (actualWave < maxWave)
+        waveCount.updateWave(actualWave, maxWave);
+
+        if (actualWave <= maxWave)
         {
             actualWave++;
             enemiesToSpawn = enemiesInThisWave;
@@ -73,7 +77,7 @@ public class WaveManager : MonoBehaviour
         {
             // All waves completed
             waveInProgress = false;
-            Debug.Log("All waves completed!");
+            Win();
         }
     }
 
@@ -82,11 +86,18 @@ public class WaveManager : MonoBehaviour
         enemiesAlive--;
         Debug.Log(enemiesAlive);
 
-        if (enemiesAlive <= 0 && actualWave < maxWave)
+        if (enemiesAlive <= 0)
         {
             waveInProgress = false;
             StartNextWave();
         }
     }
+
+    public void Win()
+    {
+        winScreen.gameObject.SetActive(true);
+    }
+
+
 
 }
