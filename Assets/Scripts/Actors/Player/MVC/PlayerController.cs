@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public PlayerStats playerStats;
     public HealthBar healthBar;
+    [SerializeField] public LoseScreen loseScreen;
 
     IActorModel _player;
     IActorView _view;
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(nombreEscenaAJugar);
+        this.gameObject.SetActive(false);
+        loseScreen.gameObject.SetActive(true);
     }
 }
