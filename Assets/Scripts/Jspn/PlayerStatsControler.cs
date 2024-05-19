@@ -7,7 +7,7 @@ public class PlayerStatsControler : MonoBehaviour
 {
     public GameObject player;
     public string savedStats;
-    public JsonStats playerStats = new JsonStats();
+    public PlayerStats playerStats = new PlayerStats();
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class PlayerStatsControler : MonoBehaviour
         if (File.Exists(savedStats))
         {
             string content = File.ReadAllText(savedStats);
-            playerStats = JsonUtility.FromJson<JsonStats>(content);
+            playerStats = JsonUtility.FromJson<PlayerStats>(content);
             Debug.Log("Datos cargados correctamente");
         }
         else
@@ -39,9 +39,9 @@ public class PlayerStatsControler : MonoBehaviour
 
     public void SaveData()
     {
-        JsonStats newData = new JsonStats()
+        PlayerStats newData = new PlayerStats()
         {
-            maxHealthvida = player.GetComponent<health>().health,
+            maxHealth = player.GetComponent<>().health,
         };
         
 
