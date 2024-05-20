@@ -6,4 +6,6 @@ using UnityEngine;
 public class GameData
 {
     public int maxHealth;
+    public int damage;
+    public int money;
 }

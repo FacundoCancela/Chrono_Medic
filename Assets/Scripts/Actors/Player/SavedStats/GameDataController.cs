@@ -33,7 +33,7 @@ public class GameDataController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
-            IncreaseHealth();
+            IncreaseHealth(moreHealth);
         }
     }
 
@@ -45,10 +45,14 @@ public class GameDataController : MonoBehaviour
             gameData = JsonUtility.FromJson<GameData>(data);
 
             playerStats.maxHealth = gameData.maxHealth;
+            playerStats.damage = gameData.damage;
+            playerStats.money = gameData.money;
+            
             player.UpdateStats(playerStats);
 
-
             Debug.Log("vida maxima :" + gameData.maxHealth);
+            Debug.Log("daño actual :" + gameData.damage);
+            Debug.Log("dinero :" + gameData.money);
         }
         else
         {
@@ -60,7 +64,9 @@ public class GameDataController : MonoBehaviour
     {
         GameData newData = new GameData()
         {
-            maxHealth = playerStats.maxHealth
+            maxHealth = playerStats.maxHealth,
+            damage = playerStats.damage,
+            money = playerStats.money
         };
 
         string JSONstring = JsonUtility.ToJson(newData);
@@ -70,14 +76,28 @@ public class GameDataController : MonoBehaviour
         Debug.Log("Archivo guardado");
     }
 
-    private void IncreaseHealth()
+    public void IncreaseHealth(int moreHealth)
     {
         gameData.maxHealth += moreHealth;
         playerStats.maxHealth = gameData.maxHealth;
         player.UpdateStats(playerStats);
         SaveData();
-
-        Debug.Log("vida gamedata:" + gameData.maxHealth);
+    }
+    
+    public void IncreaseDamage(int moreDamage)
+    {
+        gameData.damage += moreDamage;
+        playerStats.damage = gameData.damage;
+        player.UpdateStats(playerStats);
+        SaveData();
+    }
+    
+    public void IncreaseMoney(int moreMoney)
+    {
+        gameData.money += moreMoney;
+        playerStats.money = gameData.money;
+        player.UpdateStats(playerStats);
+        SaveData();
     }
 
 }
