@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerStats : ScriptableObject
 {
     public int maxHealth = 100;
-    
-    
+        
     // Puedes agregar más estadísticas aquí si es necesario
 }
