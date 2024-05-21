@@ -63,12 +63,4 @@ public class PlayerController : MonoBehaviour
         this.gameObject.SetActive(false);
         loseScreen.gameObject.SetActive(true);
     }
-
-    public void UpdateStats(PlayerStats newStats)
-    {
-        playerStats = newStats;
-        actualHealth = playerStats.maxHealth;
-    }
-
-
 }
