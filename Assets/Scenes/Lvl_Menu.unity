@@ -252,7 +252,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 60, y: 40, z: 1}
+  m_LocalScale: {x: 308.196, y: 205.464, z: 5.1366}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2196,7 +2196,7 @@ GameObject:
   - component: {fileID: 1817743663}
   - component: {fileID: 1817743662}
   m_Layer: 5
-  m_Name: Interface (1)
+  m_Name: Interface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2293,6 +2293,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2801208177678872072, guid: 79278eb53ede1944bbc6d771231e24d0, type: 3}
+      propertyPath: orthographic size
+      value: 13.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4903283713358911401, guid: 79278eb53ede1944bbc6d771231e24d0, type: 3}
       propertyPath: jugador
       value: 
@@ -2487,17 +2491,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5783573777242164651, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8099983410260055410, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8099983410260055410, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8594744066657588435, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
       propertyPath: m_LocalPosition.x

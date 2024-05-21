@@ -18,11 +18,11 @@ public class PlayerView : MonoBehaviour, IActorView
     {
         if (dir.x > 0)
         {
-            body.transform.localScale = new Vector2(-1,1);
+            body.transform.localScale = new Vector2(1,1);
         }
         else if(dir.x < 0)
         {
-            body.transform.localScale = new Vector2(1, 1);
+            body.transform.localScale = new Vector2(-1, 1);
         }
     }
 
