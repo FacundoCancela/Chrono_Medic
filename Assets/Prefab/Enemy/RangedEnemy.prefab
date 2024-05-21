@@ -109,7 +109,6 @@ MonoBehaviour:
   obsMask:
     serializedVersion: 2
     m_Bits: 8
-  canAttack: 1
   actualHealth: 0
 --- !u!114 &6663684604217561763
 MonoBehaviour:
@@ -125,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   enemyWeapon: {fileID: 3694756802680767602}
+  enemyStats: {fileID: 11400000, guid: 349b08fffe7022546901a3b002094378, type: 2}
 --- !u!114 &1399357850653536701
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,15 +7,29 @@ public class GameDataController : MonoBehaviour
 {
     [SerializeField] public PlayerController player;
     [SerializeField] public PlayerStats playerStats;
+
+    [SerializeField] public int upgradeCost = 50;
+
     public string savedFile;
     public GameData gameData = new GameData();
 
-    //PlayerStats
-    public int moreHealth = 10;
-
+    public static GameDataController Instance
+    {
+        get { return instance; }
+    }
+    private static GameDataController instance;
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         savedFile = Application.dataPath + "/gameData.json";
 
         LoadData();
@@ -30,10 +44,6 @@ public class GameDataController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.G))
         {
             SaveData();
-        }
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            IncreaseHealth(moreHealth);
         }
     }
 
@@ -78,23 +88,42 @@ public class GameDataController : MonoBehaviour
 
     public void IncreaseHealth(int moreHealth)
     {
-        gameData.maxHealth += moreHealth;
-        playerStats.maxHealth = gameData.maxHealth;
-        player.UpdateStats(playerStats);
-        SaveData();
+        if (playerStats.money >= upgradeCost)
+        {
+            DecreaseMoney(upgradeCost);
+            gameData.maxHealth += moreHealth;
+            playerStats.maxHealth = gameData.maxHealth;
+            player.UpdateStats(playerStats);
+            SaveData();
+        }
+        else Debug.Log("te falta plata");
+
     }
     
     public void IncreaseDamage(int moreDamage)
     {
-        gameData.damage += moreDamage;
-        playerStats.damage = gameData.damage;
-        player.UpdateStats(playerStats);
-        SaveData();
+        if(playerStats.money >= upgradeCost)
+        {
+            DecreaseMoney(upgradeCost);
+            gameData.damage += moreDamage;
+            playerStats.damage = gameData.damage;
+            player.UpdateStats(playerStats);
+            SaveData();
+        }
+        else Debug.Log("te falta plata");
     }
     
     public void IncreaseMoney(int moreMoney)
     {
         gameData.money += moreMoney;
+        playerStats.money = gameData.money;
+        player.UpdateStats(playerStats);
+        SaveData();
+    }
+
+    public void DecreaseMoney(int moreMoney)
+    {
+        gameData.money -= moreMoney;
         playerStats.money = gameData.money;
         player.UpdateStats(playerStats);
         SaveData();
