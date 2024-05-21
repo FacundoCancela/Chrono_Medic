@@ -13,6 +13,7 @@ public class GameDataController : MonoBehaviour
     public string savedFile;
     public GameData gameData = new GameData();
 
+
     public static GameDataController Instance
     {
         get { return instance; }
