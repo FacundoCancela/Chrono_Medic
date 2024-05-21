@@ -35,18 +35,6 @@ public class GameDataController : MonoBehaviour
         LoadData();
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.C))
-        {
-            LoadData();
-        }
-        if(Input.GetKeyDown(KeyCode.G))
-        {
-            SaveData();
-        }
-    }
-
     private void LoadData()
     {
         if(File.Exists(savedFile))
@@ -55,7 +43,7 @@ public class GameDataController : MonoBehaviour
             gameData = JsonUtility.FromJson<GameData>(data);
 
             playerStats.maxHealth = gameData.maxHealth;
-            playerStats.damage = gameData.damage;
+            playerStats.damageMultiplier = gameData.damage;
             playerStats.money = gameData.money;
             
             player.UpdateStats(playerStats);
@@ -75,7 +63,7 @@ public class GameDataController : MonoBehaviour
         GameData newData = new GameData()
         {
             maxHealth = playerStats.maxHealth,
-            damage = playerStats.damage,
+            damage = playerStats.damageMultiplier,
             money = playerStats.money
         };
 
@@ -83,7 +71,6 @@ public class GameDataController : MonoBehaviour
 
         File.WriteAllText(savedFile, JSONstring);
 
-        Debug.Log("Archivo guardado");
     }
 
     public void IncreaseHealth(int moreHealth)
@@ -106,7 +93,7 @@ public class GameDataController : MonoBehaviour
         {
             DecreaseMoney(upgradeCost);
             gameData.damage += moreDamage;
-            playerStats.damage = gameData.damage;
+            playerStats.damageMultiplier = gameData.damage;
             player.UpdateStats(playerStats);
             SaveData();
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    public int damage = 2;
+    [SerializeField] public PlayerStats playerStats;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,8 +13,7 @@ public class Sword : MonoBehaviour
             EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
             if (enemyController != null)
             {
-                // Aquí llamamos al método GetDamaged del EnemyController
-                enemyController.GetDamaged(damage);
+                enemyController.GetDamaged(playerStats.swordDamage * playerStats.damageMultiplier);
             }
         }
     }

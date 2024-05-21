@@ -171,4 +171,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de72a14db02d08c4c87fb0f8fc54e0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  playerStats: {fileID: 11400000, guid: 91da14b5e2e7db44ea9f049a89a4d62d, type: 2}

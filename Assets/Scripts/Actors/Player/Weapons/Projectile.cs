@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public int damage = 1;
+    [SerializeField] public PlayerStats playerStats;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
             EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
             if (enemyController != null)
             {
-                enemyController.GetDamaged(damage);
+                enemyController.GetDamaged(playerStats.projectileDamage * playerStats.damageMultiplier);
                 Destroy(gameObject);
             }
         }
