@@ -84,7 +84,6 @@ public class WaveManager : MonoBehaviour
     public void OnEnemyKilled()
     {
         enemiesAlive--;
-        Debug.Log(enemiesAlive);
 
         if (enemiesAlive <= 0)
         {

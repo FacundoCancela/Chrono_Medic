@@ -17,3 +17,4 @@ MonoBehaviour:
   shootRange: 10
   attackCooldown: 3
   xpDropped: 10
+  moneyDroped: 20

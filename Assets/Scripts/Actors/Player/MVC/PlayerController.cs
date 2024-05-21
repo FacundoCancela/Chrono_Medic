@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public string nombreEscenaAJugar;
 
-    private int actualHealth;
+    public int actualHealth;
 
 
     private void Awake()

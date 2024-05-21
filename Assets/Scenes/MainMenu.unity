@@ -1014,7 +1014,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Move: WASD
 
-    Select Weapon: 1-9
+    Select Weapon: 1-3
 
     Attack: F'
   m_isRightToLeft: 0

@@ -7,6 +7,7 @@ public class EnemyModel : Actor
 {
 
     [SerializeField] private EnemyWeapon enemyWeapon;
+    [SerializeField] private EnemyStats enemyStats;
 
     public void Shoot(Vector2 targetDir)
     {
@@ -18,7 +19,7 @@ public class EnemyModel : Actor
 
     public void EnemyDeath()
     {
-        Debug.Log("Me mori");
+        GameDataController.Instance.IncreaseMoney(enemyStats.moneyDroped);
         WaveManager.Instance.OnEnemyKilled();
     }
 

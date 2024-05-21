@@ -7,34 +7,32 @@ public class GameDataController : MonoBehaviour
 {
     [SerializeField] public PlayerController player;
     [SerializeField] public PlayerStats playerStats;
+
+    [SerializeField] public int upgradeCost = 50;
+
     public string savedFile;
     public GameData gameData = new GameData();
 
-    //PlayerStats
-    public int moreHealth = 10;
-
+    public static GameDataController Instance
+    {
+        get { return instance; }
+    }
+    private static GameDataController instance;
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         savedFile = Application.dataPath + "/gameData.json";
 
         LoadData();
-    }
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.C))
-        {
-            LoadData();
-        }
-        if(Input.GetKeyDown(KeyCode.G))
-        {
-            SaveData();
-        }
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            IncreaseHealth(moreHealth);
-        }
     }
 
     private void LoadData()
@@ -45,7 +43,7 @@ public class GameDataController : MonoBehaviour
             gameData = JsonUtility.FromJson<GameData>(data);
 
             playerStats.maxHealth = gameData.maxHealth;
-            playerStats.damage = gameData.damage;
+            playerStats.damageMultiplier = gameData.damage;
             playerStats.money = gameData.money;
             
             player.UpdateStats(playerStats);
@@ -65,7 +63,7 @@ public class GameDataController : MonoBehaviour
         GameData newData = new GameData()
         {
             maxHealth = playerStats.maxHealth,
-            damage = playerStats.damage,
+            damage = playerStats.damageMultiplier,
             money = playerStats.money
         };
 
@@ -73,28 +71,46 @@ public class GameDataController : MonoBehaviour
 
         File.WriteAllText(savedFile, JSONstring);
 
-        Debug.Log("Archivo guardado");
     }
 
     public void IncreaseHealth(int moreHealth)
     {
-        gameData.maxHealth += moreHealth;
-        playerStats.maxHealth = gameData.maxHealth;
-        player.UpdateStats(playerStats);
-        SaveData();
+        if (playerStats.money >= upgradeCost)
+        {
+            DecreaseMoney(upgradeCost);
+            gameData.maxHealth += moreHealth;
+            playerStats.maxHealth = gameData.maxHealth;
+            player.UpdateStats(playerStats);
+            SaveData();
+        }
+        else Debug.Log("te falta plata");
+
     }
     
     public void IncreaseDamage(int moreDamage)
     {
-        gameData.damage += moreDamage;
-        playerStats.damage = gameData.damage;
-        player.UpdateStats(playerStats);
-        SaveData();
+        if(playerStats.money >= upgradeCost)
+        {
+            DecreaseMoney(upgradeCost);
+            gameData.damage += moreDamage;
+            playerStats.damageMultiplier = gameData.damage;
+            player.UpdateStats(playerStats);
+            SaveData();
+        }
+        else Debug.Log("te falta plata");
     }
     
     public void IncreaseMoney(int moreMoney)
     {
         gameData.money += moreMoney;
+        playerStats.money = gameData.money;
+        player.UpdateStats(playerStats);
+        SaveData();
+    }
+
+    public void DecreaseMoney(int moreMoney)
+    {
+        gameData.money -= moreMoney;
         playerStats.money = gameData.money;
         player.UpdateStats(playerStats);
         SaveData();

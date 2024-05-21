@@ -9,5 +9,6 @@ public class EnemyStats : ScriptableObject
     public float shootRange;
     public float attackCooldown = 3;
     public float xpDropped = 10;
+    public int moneyDroped = 10;
     // Puedes agregar más estadísticas aquí si es necesario
 }
