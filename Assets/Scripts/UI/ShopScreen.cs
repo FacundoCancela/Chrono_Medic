@@ -11,14 +11,17 @@ public class ShopScreen : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            ShopUI.gameObject.SetActive(true);
+            if(ShopUI != null)
+                ShopUI.gameObject.SetActive(true);
+            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            ShopUI.gameObject.SetActive(false);
+            if (ShopUI != null)
+                ShopUI.gameObject.SetActive(false);
         }
     }
 }
