@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   damage: 2
-  shootRange: 3
+  shootRange: 5
   attackCooldown: 3
-  xpDropped: 10
+  experienceDropped: 10
+  moneyDroped: 10

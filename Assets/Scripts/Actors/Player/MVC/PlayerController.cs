@@ -42,6 +42,13 @@ public class PlayerController : MonoBehaviour
         _view.LookDir(dir);
     }
 
+    public void GetHealed(int hpHealed)
+    {
+        actualHealth += hpHealed;
+        if (actualHealth > playerStats.maxHealth) actualHealth = playerStats.maxHealth;
+        healthBar.SetHealth(actualHealth);
+    }
+
     private void DeathCheck()
     {
         if (actualHealth <= 0)

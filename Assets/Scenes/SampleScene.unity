@@ -2410,12 +2410,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponManager: {fileID: 1054705972}
+  playerController: {fileID: 1054705971}
   levelUPScreen: {fileID: 1687045918}
   XpBar: {fileID: 59060162}
   actualExperience: 0
   maxExperience: 30
-  extraExperiencePerLevel: 0
+  extraExperiencePerLevel: 10
   level: 0
+  healthHealed: 2
+  extraMeleeDamage: 1
+  extraRangedDamage: 1
+  extraMeleeDamagePerLevel: 1
+  extraRangedDamagePerLevel: 1
 --- !u!4 &854511298
 Transform:
   m_ObjectHideFlags: 0

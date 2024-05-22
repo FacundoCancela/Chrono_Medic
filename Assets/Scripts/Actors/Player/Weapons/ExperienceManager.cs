@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExperienceManager : MonoBehaviour
 {
     [SerializeField] WeaponManager weaponManager;
+    [SerializeField] PlayerController playerController;
     [SerializeField] LevelUPScreen levelUPScreen;
     [SerializeField] XPBar XpBar;
 
@@ -13,9 +14,23 @@ public class ExperienceManager : MonoBehaviour
     public int extraExperiencePerLevel;
     public int level;
 
+    public int healthHealed;
+    public int extraMeleeDamage = 1;
+    public int extraRangedDamage = 1;
+    
+    public int extraMeleeDamagePerLevel = 1;
+    public int extraRangedDamagePerLevel =1;
+
+
+
     private void Awake()
     {
         XpBar.SetMaxXP(maxExperience);
+    }
+
+    private void Start()
+    {
+        ResetTemporalStats();
     }
 
     public void gainExperience(int experienceGained)
@@ -33,23 +48,30 @@ public class ExperienceManager : MonoBehaviour
         actualExperience = 0;
         maxExperience += extraExperiencePerLevel;
         level++;
+
     }
 
     //Level up efects
 
     public void Heal()
     {
-
+        playerController.GetHealed(healthHealed);
     }
 
     public void MeleeDamage()
     {
-
+        extraMeleeDamage += extraMeleeDamagePerLevel;
     }
 
     public void RangedDamage()
     {
+        extraRangedDamage += extraRangedDamagePerLevel;
+    }
 
+    public void ResetTemporalStats()
+    {
+        extraMeleeDamage = 1; 
+        extraRangedDamage = 1;
     }
 
 

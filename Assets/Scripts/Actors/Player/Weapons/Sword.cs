@@ -11,9 +11,10 @@ public class Sword : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
+            ExperienceManager experienceManager = FindAnyObjectByType<ExperienceManager>();
             if (enemyController != null)
             {
-                enemyController.GetDamaged(playerStats.swordDamage * playerStats.damageMultiplier);
+                enemyController.GetDamaged(playerStats.swordDamage * playerStats.damageMultiplier * experienceManager.extraMeleeDamage);
             }
         }
     }

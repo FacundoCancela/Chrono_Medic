@@ -16,5 +16,5 @@ MonoBehaviour:
   damage: 1
   shootRange: 10
   attackCooldown: 3
-  xpDropped: 10
+  experienceDropped: 10
   moneyDroped: 20

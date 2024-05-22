@@ -105,7 +105,7 @@ MonoBehaviour:
   enemyStats: {fileID: 11400000, guid: 349b08fffe7022546901a3b002094378, type: 2}
   _target: {fileID: 0}
   angle: 115
-  radius: 5
+  radius: 4
   obsMask:
     serializedVersion: 2
     m_Bits: 8
