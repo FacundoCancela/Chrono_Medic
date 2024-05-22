@@ -19,5 +19,10 @@ public class PlayerStats : ScriptableObject
 
     public int swordDamage = 2;
     public int projectileDamage = 1;       
+
+    //UnlockedWeapons
+    public bool basicSlashUnlocked = false;
+    public bool bigSlashUnlocked = false;
+    public bool circleSlashUnlocked = false;
     
 }

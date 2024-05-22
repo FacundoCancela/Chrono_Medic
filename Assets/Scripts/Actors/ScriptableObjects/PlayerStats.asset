@@ -12,6 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62723226a3236184e94ab8ce004de605, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  maxHealth: 230
-  damage: 56
-  money: 1100
+  money: 40
+  maxHealth: 10
+  damageMultiplier: 0
+  movementSpeed: 1
+  experience: 0
+  actualLevel: 0
+  attackSpeed: 1
+  attackRange: 0
+  swordDamage: 2
+  projectileDamage: 1
+  basicSlashUnlocked: 0
+  bigSlashUnlocked: 0
+  circleSlashUnlocked: 0

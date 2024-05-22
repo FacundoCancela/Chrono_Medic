@@ -44,13 +44,16 @@ public class GameDataController : MonoBehaviour
             gameData = JsonUtility.FromJson<GameData>(data);
 
             playerStats.maxHealth = gameData.maxHealth;
-            playerStats.damageMultiplier = gameData.damage;
+            playerStats.damageMultiplier = gameData.damageMultiplier;
             playerStats.money = gameData.money;
+            playerStats.basicSlashUnlocked = gameData.basicSlashUnlocked;
+            playerStats.bigSlashUnlocked = gameData.bigSlashUnlocked;
+            playerStats.circleSlashUnlocked = gameData.circleSlashUnlocked;
             
             player.UpdateStats(playerStats);
 
             Debug.Log("vida maxima :" + gameData.maxHealth);
-            Debug.Log("daño actual :" + gameData.damage);
+            Debug.Log("daño actual :" + gameData.damageMultiplier);
             Debug.Log("dinero :" + gameData.money);
         }
         else
@@ -64,8 +67,12 @@ public class GameDataController : MonoBehaviour
         GameData newData = new GameData()
         {
             maxHealth = playerStats.maxHealth,
-            damage = playerStats.damageMultiplier,
-            money = playerStats.money
+            damageMultiplier = playerStats.damageMultiplier,
+            money = playerStats.money,
+            basicSlashUnlocked = playerStats.basicSlashUnlocked,
+            bigSlashUnlocked = playerStats.bigSlashUnlocked,
+            circleSlashUnlocked = playerStats.circleSlashUnlocked,
+            
         };
 
         string JSONstring = JsonUtility.ToJson(newData);
@@ -93,8 +100,8 @@ public class GameDataController : MonoBehaviour
         if(playerStats.money >= upgradeCost)
         {
             DecreaseMoney(upgradeCost);
-            gameData.damage += moreDamage;
-            playerStats.damageMultiplier = gameData.damage;
+            gameData.damageMultiplier += moreDamage;
+            playerStats.damageMultiplier = gameData.damageMultiplier;
             player.UpdateStats(playerStats);
             SaveData();
         }
@@ -109,12 +116,51 @@ public class GameDataController : MonoBehaviour
         SaveData();
     }
 
-    public void DecreaseMoney(int moreMoney)
+    public void DecreaseMoney(int spentMoney)
     {
-        gameData.money -= moreMoney;
+        gameData.money -= spentMoney;
         playerStats.money = gameData.money;
         player.UpdateStats(playerStats);
         SaveData();
     }
+
+    public void UnlockBasicSlash(int shopPrice)
+    {
+        if (playerStats.money >= shopPrice && !playerStats.basicSlashUnlocked)
+        {
+            DecreaseMoney(shopPrice);
+            playerStats.basicSlashUnlocked = true;
+            player.UpdateStats(playerStats);
+            SaveData();
+        }
+        else if (playerStats.basicSlashUnlocked) Debug.Log("arma ya obtenida");
+        else Debug.Log("te falta plata");
+    }
+    public void UnlockBigSlash(int shopPrice)
+    {
+        if (playerStats.money >= shopPrice && !playerStats.bigSlashUnlocked)
+        {
+            DecreaseMoney(shopPrice);
+            playerStats.bigSlashUnlocked = true;
+            player.UpdateStats(playerStats);
+            SaveData();
+        }
+        else if (playerStats.bigSlashUnlocked) Debug.Log("arma ya obtenida");
+        else Debug.Log("te falta plata");
+    }
+    public void UnlockCircleSlash(int shopPrice)
+    {
+        if (playerStats.money >= shopPrice && !playerStats.circleSlashUnlocked)
+        {
+            DecreaseMoney(shopPrice);
+            playerStats.circleSlashUnlocked = true;
+            player.UpdateStats(playerStats);
+            SaveData();
+        }
+        else if (playerStats.circleSlashUnlocked) Debug.Log("arma ya obtenida");
+        else Debug.Log("te falta plata");
+    }
+
+
 
 }

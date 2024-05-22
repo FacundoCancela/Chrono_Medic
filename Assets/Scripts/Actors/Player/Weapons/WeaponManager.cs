@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+    [SerializeField] public PlayerStats playerStats;
 
-    public int attackType = 1;
+    public int attackType = 0;
 
     float _weaponCooldown = 1f;
     float _timeSinceLastMeleeAttack = 0f;
@@ -63,21 +64,45 @@ public class WeaponManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && attackType != 1)
         {
-            attackType = 1;
+            if(playerStats.basicSlashUnlocked)
+            {
+                attackType = 1;
+            }
+            else
+            {
+                Debug.Log("arma no desbloqueada");
+                attackType = 0;
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && attackType != 2)
         {
-            attackType = 2;
+            if(playerStats.bigSlashUnlocked)
+            {
+                attackType = 2;
+            }
+            else
+            {
+                Debug.Log("arma no desbloqueada");
+                attackType = 0;
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && attackType != 3)
         {
-            attackType = 3;
+            if(playerStats.circleSlashUnlocked)
+            {
+                attackType = 3;
+            }
+            else
+            {
+                Debug.Log("arma no desbloqueada");
+                attackType = 0;
+            }
         }
     }
 
     public void UseWeapon()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !_meleeAttackInCooldown)
+        if (Input.GetKeyDown(KeyCode.F) && !_meleeAttackInCooldown && attackType != 0)
         {
             _meleeAttackInCooldown = true;
             _timeSinceLastMeleeAttack = 0f;

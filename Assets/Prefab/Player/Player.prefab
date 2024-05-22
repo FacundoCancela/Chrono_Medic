@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57d9c0bc9e4a4e408561efaf830265f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
 --- !u!114 &2274487562447567255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc46271116dfb7469a02dae40f85536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackType: 1
+  playerStats: {fileID: 11400000, guid: 91da14b5e2e7db44ea9f049a89a4d62d, type: 2}
+  attackType: 0
   basicSlash: {fileID: 2359169247640644333}
   circleSlash: {fileID: 207389811345194911}
   bigSlash: {fileID: 4715720244428203321}

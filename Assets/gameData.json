@@ -1,1 +1,1 @@
-{"maxHealth":10,"damage":1,"money":240}
+{"maxHealth":10,"damageMultiplier":0,"money":40,"movementSpeed":0,"experience":0,"actualLevel":0,"attackSpeed":0.0,"attackRange":0.0,"swordDamage":0,"projectileDamage":0,"basicSlashUnlocked":false,"bigSlashUnlocked":false,"circleSlashUnlocked":false}
