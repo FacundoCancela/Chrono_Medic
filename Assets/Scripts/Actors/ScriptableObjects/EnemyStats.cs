@@ -8,7 +8,7 @@ public class EnemyStats : ScriptableObject
     public int damage = 1;
     public float shootRange;
     public float attackCooldown = 3;
-    public float xpDropped = 10;
+    public int experienceDropped = 10;
     public int moneyDroped = 10;
     // Puedes agregar más estadísticas aquí si es necesario
 }

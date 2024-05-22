@@ -10,7 +10,6 @@ public class PlayerStats : ScriptableObject
     public int maxHealth = 100;
     public int damageMultiplier = 1;
     public int movementSpeed = 1;
-    public int experience;
     public int actualLevel;
     public float attackSpeed = 1;
     public float attackRange;

@@ -10,7 +10,6 @@ public class GameData
     public int damageMultiplier;
     public int money;
     public int movementSpeed;
-    public int experience;
     public int actualLevel;
     public float attackSpeed;
     public float attackRange;
