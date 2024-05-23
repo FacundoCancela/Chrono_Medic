@@ -13,7 +13,7 @@ public class UpgradePrice : MonoBehaviour
     [SerializeField] ShopUpgrade shopUpgrade;
     [SerializeField] PlayerStats playerStats;
 
-    private void Awake()
+    private void Update()
     {
         HealthPrice();
         DamagePrice();

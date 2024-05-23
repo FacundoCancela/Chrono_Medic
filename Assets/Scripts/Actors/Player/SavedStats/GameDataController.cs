@@ -90,8 +90,6 @@ public class GameDataController : MonoBehaviour
             playerStats.maxHealth = gameData.maxHealth;
             player.UpdateStats(playerStats);
             SaveData();
-            if(upgradePrice != null)
-                upgradePrice.HealthPrice();
         }
         else Debug.Log("te falta plata");
 
@@ -106,8 +104,6 @@ public class GameDataController : MonoBehaviour
             playerStats.damageMultiplier = gameData.damageMultiplier;
             player.UpdateStats(playerStats);
             SaveData();
-            if (upgradePrice != null)
-                upgradePrice.DamagePrice();
         }
         else Debug.Log("te falta plata");
     }
@@ -145,8 +141,6 @@ public class GameDataController : MonoBehaviour
             playerStats.basicSlashUnlocked = true;
             player.UpdateStats(playerStats);
             SaveData();
-            if (upgradePrice != null)
-                upgradePrice.BasicSlashUnlocked();
         }
         else if (playerStats.basicSlashUnlocked) Debug.Log("arma ya obtenida");
         else Debug.Log("te falta plata");
@@ -159,8 +153,6 @@ public class GameDataController : MonoBehaviour
             playerStats.bigSlashUnlocked = true;
             player.UpdateStats(playerStats);
             SaveData();
-            if (upgradePrice != null)
-                upgradePrice.BigSlashUnlocked();
         }
         else if (playerStats.bigSlashUnlocked) Debug.Log("arma ya obtenida");
         else Debug.Log("te falta plata");
@@ -173,8 +165,6 @@ public class GameDataController : MonoBehaviour
             playerStats.circleSlashUnlocked = true;
             player.UpdateStats(playerStats);
             SaveData();
-            if (upgradePrice != null)
-                upgradePrice.CircleSlashUnlocked();
         }
         else if (playerStats.circleSlashUnlocked) Debug.Log("arma ya obtenida");
         else Debug.Log("te falta plata");
