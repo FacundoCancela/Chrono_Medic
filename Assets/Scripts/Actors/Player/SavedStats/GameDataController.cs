@@ -7,8 +7,7 @@ public class GameDataController : MonoBehaviour
 {
     [SerializeField] public PlayerController player;
     [SerializeField] public PlayerStats playerStats;
-
-    [SerializeField] public int upgradeCost = 50;
+    [SerializeField] public UpgradePrice upgradePrice;
 
     public string savedFile;
     public GameData gameData = new GameData();
@@ -32,7 +31,6 @@ public class GameDataController : MonoBehaviour
         }
 
         savedFile = Application.dataPath + "/gameData.json";
-
         LoadData();
     }
 
@@ -49,6 +47,7 @@ public class GameDataController : MonoBehaviour
             playerStats.basicSlashUnlocked = gameData.basicSlashUnlocked;
             playerStats.bigSlashUnlocked = gameData.bigSlashUnlocked;
             playerStats.circleSlashUnlocked = gameData.circleSlashUnlocked;
+            playerStats.upgradeCost = gameData.upgradeCost;
             
             player.UpdateStats(playerStats);
 
@@ -72,6 +71,7 @@ public class GameDataController : MonoBehaviour
             basicSlashUnlocked = playerStats.basicSlashUnlocked,
             bigSlashUnlocked = playerStats.bigSlashUnlocked,
             circleSlashUnlocked = playerStats.circleSlashUnlocked,
+            upgradeCost = playerStats.upgradeCost,
             
         };
 
@@ -83,13 +83,15 @@ public class GameDataController : MonoBehaviour
 
     public void IncreaseHealth(int moreHealth)
     {
-        if (playerStats.money >= upgradeCost)
+        if (playerStats.money >= gameData.upgradeCost)
         {
-            DecreaseMoney(upgradeCost);
+            DecreaseMoney(gameData.upgradeCost);
             gameData.maxHealth += moreHealth;
             playerStats.maxHealth = gameData.maxHealth;
             player.UpdateStats(playerStats);
             SaveData();
+            if(upgradePrice != null)
+                upgradePrice.HealthPrice();
         }
         else Debug.Log("te falta plata");
 
@@ -97,13 +99,15 @@ public class GameDataController : MonoBehaviour
     
     public void IncreaseDamage(int moreDamage)
     {
-        if(playerStats.money >= upgradeCost)
+        if(playerStats.money >= gameData.upgradeCost)
         {
-            DecreaseMoney(upgradeCost);
+            DecreaseMoney(gameData.upgradeCost);
             gameData.damageMultiplier += moreDamage;
             playerStats.damageMultiplier = gameData.damageMultiplier;
             player.UpdateStats(playerStats);
             SaveData();
+            if (upgradePrice != null)
+                upgradePrice.DamagePrice();
         }
         else Debug.Log("te falta plata");
     }
@@ -124,6 +128,15 @@ public class GameDataController : MonoBehaviour
         SaveData();
     }
 
+    public void basicUpgradePrice()
+    {
+        gameData.upgradeCost = 50;
+        playerStats.upgradeCost = gameData.upgradeCost;
+        player.UpdateStats(playerStats);
+        SaveData();
+        
+    }
+
     public void UnlockBasicSlash(int shopPrice)
     {
         if (playerStats.money >= shopPrice && !playerStats.basicSlashUnlocked)
@@ -132,6 +145,8 @@ public class GameDataController : MonoBehaviour
             playerStats.basicSlashUnlocked = true;
             player.UpdateStats(playerStats);
             SaveData();
+            if (upgradePrice != null)
+                upgradePrice.BasicSlashUnlocked();
         }
         else if (playerStats.basicSlashUnlocked) Debug.Log("arma ya obtenida");
         else Debug.Log("te falta plata");
@@ -144,6 +159,8 @@ public class GameDataController : MonoBehaviour
             playerStats.bigSlashUnlocked = true;
             player.UpdateStats(playerStats);
             SaveData();
+            if (upgradePrice != null)
+                upgradePrice.BigSlashUnlocked();
         }
         else if (playerStats.bigSlashUnlocked) Debug.Log("arma ya obtenida");
         else Debug.Log("te falta plata");
@@ -156,6 +173,8 @@ public class GameDataController : MonoBehaviour
             playerStats.circleSlashUnlocked = true;
             player.UpdateStats(playerStats);
             SaveData();
+            if (upgradePrice != null)
+                upgradePrice.CircleSlashUnlocked();
         }
         else if (playerStats.circleSlashUnlocked) Debug.Log("arma ya obtenida");
         else Debug.Log("te falta plata");

@@ -23,4 +23,9 @@ public class GameData
     public bool basicSlashUnlocked;
     public bool bigSlashUnlocked;
     public bool circleSlashUnlocked;
+
+    //Shop prices
+    public int upgradeCost;
+
+
 }

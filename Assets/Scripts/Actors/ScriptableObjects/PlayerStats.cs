@@ -23,5 +23,8 @@ public class PlayerStats : ScriptableObject
     public bool basicSlashUnlocked = false;
     public bool bigSlashUnlocked = false;
     public bool circleSlashUnlocked = false;
-    
+
+    //Shop prices
+    public int upgradeCost = 50;
+
 }
