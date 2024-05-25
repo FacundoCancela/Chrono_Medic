@@ -339,9 +339,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1054705971}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: Die
+      - m_Target: {fileID: 1409930952}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: Surrender
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2955,8 +2955,10 @@ MonoBehaviour:
   healthHealed: 2
   extraMeleeDamage: 1
   extraRangedDamage: 1
+  extraOrbitalDamage: 1
   extraMeleeDamagePerLevel: 1
   extraRangedDamagePerLevel: 1
+  extraOrbitalDamagePerLevel: 1
 --- !u!4 &854511298
 Transform:
   m_ObjectHideFlags: 0
@@ -3056,7 +3058,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 959130497}
-  - component: {fileID: 959130496}
   m_Layer: 5
   m_Name: PauseScreen
   m_TagString: Untagged
@@ -3064,19 +3065,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &959130496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959130495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26502edd4371ce648b3e37fa61f78f9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winScreen: {fileID: 959130496}
 --- !u!224 &959130497
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4459,6 +4447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 959130495}
+  playerController: {fileID: 1054705971}
   gamePaused: 0
 --- !u!1 &1439487843
 GameObject:

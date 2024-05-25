@@ -7,11 +7,11 @@ public class ShopUpgrade : MonoBehaviour
     [SerializeField] GameDataController dataController;
     [SerializeField] public int extraHealthPerLevel;
     [SerializeField] public int extraDamagePerLevel;
-    [SerializeField] public int extraMoney;
+    private int extraMoney;
 
     [SerializeField] public int basicSlashPrice;
     [SerializeField] public int bigSlashPrice;
-    [SerializeField] public int circleSlashPrice;
+    [SerializeField] public int orbitalWeaponPrice;
 
     public void addHealth()
     {
@@ -40,7 +40,7 @@ public class ShopUpgrade : MonoBehaviour
 
     public void unlockCircleSlash()
     {
-        dataController.UnlockCircleSlash(circleSlashPrice);
+        dataController.UnlockOrbitalWeapon(orbitalWeaponPrice);
     }
 
 }

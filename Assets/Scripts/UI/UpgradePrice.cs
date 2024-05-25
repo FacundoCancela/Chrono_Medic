@@ -52,11 +52,11 @@ public class UpgradePrice : MonoBehaviour
 
     public void CircleSlashUnlocked()
     {
-        if (playerStats.circleSlashUnlocked)
+        if (playerStats.orbitalWeaponUnlocked)
         {
             circleSlashText.text = ("Unlocked");
         }
-        else circleSlashText.text = ("$:" + shopUpgrade.circleSlashPrice);
+        else circleSlashText.text = ("$:" + shopUpgrade.orbitalWeaponPrice);
     }
 
 

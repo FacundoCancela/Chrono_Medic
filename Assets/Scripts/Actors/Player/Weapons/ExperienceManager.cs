@@ -17,9 +17,11 @@ public class ExperienceManager : MonoBehaviour
     public int healthHealed;
     public int extraMeleeDamage = 1;
     public int extraRangedDamage = 1;
+    public int extraOrbitalDamage = 1;
     
     public int extraMeleeDamagePerLevel = 1;
-    public int extraRangedDamagePerLevel =1;
+    public int extraRangedDamagePerLevel = 1;
+    public int extraOrbitalDamagePerLevel = 1;
 
 
 
@@ -68,10 +70,16 @@ public class ExperienceManager : MonoBehaviour
         extraRangedDamage += extraRangedDamagePerLevel;
     }
 
+    public void OrbitalDamage()
+    {
+        extraOrbitalDamage += extraOrbitalDamagePerLevel;
+    }
+
     public void ResetTemporalStats()
     {
         extraMeleeDamage = 1; 
         extraRangedDamage = 1;
+        extraOrbitalDamage = 1;
     }
 
 

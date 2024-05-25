@@ -5,6 +5,7 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
     [SerializeField] GameObject pauseScreen;
+    [SerializeField] PlayerController playerController;
     public bool gamePaused;
 
     private void Update()
@@ -35,4 +36,11 @@ public class PauseManager : MonoBehaviour
             gamePaused = false;
         }
     }
+
+    public void Surrender()
+    {
+        playerController.Die();
+        PauseAndContinue();
+    }
+
 }

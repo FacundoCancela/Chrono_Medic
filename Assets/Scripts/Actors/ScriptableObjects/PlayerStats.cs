@@ -18,11 +18,13 @@ public class PlayerStats : ScriptableObject
 
     public int swordDamage = 2;
     public int projectileDamage = 1;       
+    public int orbitalDamage = 2;   
+    public int orbitalSpeed = 100;
 
     //UnlockedWeapons
     public bool basicSlashUnlocked = false;
     public bool bigSlashUnlocked = false;
-    public bool circleSlashUnlocked = false;
+    public bool orbitalWeaponUnlocked = false;
 
     //Shop prices
     public int upgradeCost = 50;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class OrbitalWeaponDamage : MonoBehaviour
 {
     [SerializeField] public PlayerStats playerStats;
 
@@ -10,12 +10,12 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("toque un enemigo");
             EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
             ExperienceManager experienceManager = FindAnyObjectByType<ExperienceManager>();
             if (enemyController != null)
             {
-                enemyController.GetDamaged(playerStats.projectileDamage * playerStats.damageMultiplier * experienceManager.extraRangedDamage);
-                Destroy(gameObject);
+                enemyController.GetDamaged(playerStats.orbitalDamage * playerStats.damageMultiplier * experienceManager.extraRangedDamage);
             }
         }
     }

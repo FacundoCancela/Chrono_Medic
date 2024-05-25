@@ -18,11 +18,13 @@ public class GameData
 
     public int swordDamage;
     public int projectileDamage;
+    public int orbitDamage;
+    public int orbitalSpeed;
 
     //UnlockedWeapons
     public bool basicSlashUnlocked;
     public bool bigSlashUnlocked;
-    public bool circleSlashUnlocked;
+    public bool orbitalWeaponUnlocked;
 
     //Shop prices
     public int upgradeCost;
