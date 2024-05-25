@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 90b99a2dd2da0ab42a343445dd3a9e3f
+guid: 6115ec92055682049ac7d71b9aacb68b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Detalles del desierto_0
+      name: Arena
       rect:
         serializedVersion: 2
-        x: 280
-        y: 490
-        width: 260
-        height: 300
+        x: 0
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7377730f9edb4045ad8889eb819a7d1
-      internalID: 1758630923
+      spriteID: 16f972f5f96a1fb4bbe5b93fe7c3c42c
+      internalID: 1851372995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_1
+      name: "Monta\xF1aAbajoDerecha"
       rect:
         serializedVersion: 2
-        x: 660
-        y: 650
-        width: 130
-        height: 110
+        x: 320
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff01fc0a3b904f1468f606060acff9a4
-      internalID: -1533967314
+      spriteID: cbead9c616a938142ab86bd19e9a4988
+      internalID: -934366650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_2
+      name: "Monta\xF1aArribaDerecha"
       rect:
         serializedVersion: 2
-        x: 810
-        y: 650
-        width: 140
-        height: 130
+        x: 640
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6590afaa7341d643aafd6531f443ef9
-      internalID: 676741794
+      spriteID: 7580a2db52704d041ab74faa6130294b
+      internalID: -156634243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_3
+      name: "Monta\xF1aArribaIzquierda"
       rect:
         serializedVersion: 2
-        x: 650
-        y: 490
-        width: 130
-        height: 100
+        x: 960
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eef44933a41517e41889f4800d51c756
-      internalID: 89670937
+      spriteID: 758b3df44284d7f44aff9251db16afd8
+      internalID: -102251706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_4
+      name: "Monta\xF1aAbajoIzquierda"
       rect:
         serializedVersion: 2
-        x: 190
-        y: 260
-        width: 60
-        height: 40
+        x: 1280
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58e636fac222f484688cd7f7a5674cac
-      internalID: 869213849
+      spriteID: 6f5e27f03f11a484ca7e722fe7aef4f1
+      internalID: -968764481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_5
+      name: ArenaCaminoCentro
       rect:
         serializedVersion: 2
-        x: 330
-        y: 180
-        width: 140
-        height: 120
+        x: 1600
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f589222544b805438856695bf68df7c
-      internalID: 1472732731
+      spriteID: b51be91347a0b9c458687b0b54305917
+      internalID: 1349183527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_6
+      name: ArenaCaminoArriba
       rect:
         serializedVersion: 2
-        x: 480
-        y: 170
-        width: 150
-        height: 300
+        x: 1920
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,20 +250,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 389c8616f42a78643b51d98be3271cd1
-      internalID: 1860307201
+      spriteID: ff49068c36cf0ee45bdea55b2aab3be3
+      internalID: -1918170109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_7
+      name: ArenaCaminoAbajo
       rect:
         serializedVersion: 2
-        x: 180
-        y: 180
-        width: 130
-        height: 60
+        x: 2238
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,8 +271,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 271adef98ed332d4891f3fb9e4680f7d
-      internalID: 151114740
+      spriteID: f377a9b6b3e10924e93fb9ea9fc57894
+      internalID: 932644103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArenaCaminoIzquierda
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: befb47ccdddfc4e4492172cc4807e469
+      internalID: -558427774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArenaCaminoDerecha
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d63cf9d0c3c61428ef566750e4111a
+      internalID: 148136340
       vertices: []
       indices: 
       edges: []
@@ -288,14 +330,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Detalles del desierto_0: 1758630923
-      Detalles del desierto_1: -1533967314
-      Detalles del desierto_2: 676741794
-      Detalles del desierto_3: 89670937
-      Detalles del desierto_4: 869213849
-      Detalles del desierto_5: 1472732731
-      Detalles del desierto_6: 1860307201
-      Detalles del desierto_7: 151114740
+      Arena: 1851372995
+      ArenaCaminoAbajo: 932644103
+      ArenaCaminoArriba: -1918170109
+      ArenaCaminoCentro: 1349183527
+      ArenaCaminoDerecha: 148136340
+      ArenaCaminoIzquierda: -558427774
+      "Monta\xF1aAbajoDerecha": -934366650
+      "Monta\xF1aAbajoIzquierda": -968764481
+      "Monta\xF1aArribaDerecha": -156634243
+      "Monta\xF1aArribaIzquierda": -102251706
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

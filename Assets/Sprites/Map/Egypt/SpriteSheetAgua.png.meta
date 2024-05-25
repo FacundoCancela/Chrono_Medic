@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 90b99a2dd2da0ab42a343445dd3a9e3f
+guid: c056a399f5f046a4289aaa3a36bd3209
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Detalles del desierto_0
+      name: Agua_0
       rect:
         serializedVersion: 2
-        x: 280
-        y: 490
-        width: 260
-        height: 300
+        x: 0
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7377730f9edb4045ad8889eb819a7d1
-      internalID: 1758630923
+      spriteID: 22039fe6b70fe9045a6a63fb43acd047
+      internalID: 557504252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_1
+      name: Agua_1
       rect:
         serializedVersion: 2
-        x: 660
-        y: 650
-        width: 130
-        height: 110
+        x: 320
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff01fc0a3b904f1468f606060acff9a4
-      internalID: -1533967314
+      spriteID: 511ae0f121315c3418f8baf9d36f278e
+      internalID: 968159571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_2
+      name: Agua_2
       rect:
         serializedVersion: 2
-        x: 810
-        y: 650
-        width: 140
-        height: 130
+        x: 640
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6590afaa7341d643aafd6531f443ef9
-      internalID: 676741794
+      spriteID: de147a052f312f54f9bf461095188ea6
+      internalID: 1974944505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_3
+      name: Agua_3
       rect:
         serializedVersion: 2
-        x: 650
-        y: 490
-        width: 130
-        height: 100
+        x: 960
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,92 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eef44933a41517e41889f4800d51c756
-      internalID: 89670937
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Detalles del desierto_4
-      rect:
-        serializedVersion: 2
-        x: 190
-        y: 260
-        width: 60
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58e636fac222f484688cd7f7a5674cac
-      internalID: 869213849
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Detalles del desierto_5
-      rect:
-        serializedVersion: 2
-        x: 330
-        y: 180
-        width: 140
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f589222544b805438856695bf68df7c
-      internalID: 1472732731
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Detalles del desierto_6
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 170
-        width: 150
-        height: 300
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 389c8616f42a78643b51d98be3271cd1
-      internalID: 1860307201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Detalles del desierto_7
-      rect:
-        serializedVersion: 2
-        x: 180
-        y: 180
-        width: 130
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 271adef98ed332d4891f3fb9e4680f7d
-      internalID: 151114740
+      spriteID: 7e685baf529b38c45b4600290d60d4c6
+      internalID: -811736889
       vertices: []
       indices: 
       edges: []
@@ -288,14 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Detalles del desierto_0: 1758630923
-      Detalles del desierto_1: -1533967314
-      Detalles del desierto_2: 676741794
-      Detalles del desierto_3: 89670937
-      Detalles del desierto_4: 869213849
-      Detalles del desierto_5: 1472732731
-      Detalles del desierto_6: 1860307201
-      Detalles del desierto_7: 151114740
+      Agua_0: 557504252
+      Agua_1: 968159571
+      Agua_2: 1974944505
+      Agua_3: -811736889
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 90b99a2dd2da0ab42a343445dd3a9e3f
+guid: 081eed763f9c70f47b38dedb5053d0d6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Detalles del desierto_0
+      name: OI_0
       rect:
         serializedVersion: 2
-        x: 280
-        y: 490
-        width: 260
-        height: 300
+        x: 0
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7377730f9edb4045ad8889eb819a7d1
-      internalID: 1758630923
+      spriteID: 99bca903c9fb44e43b604535156c1e44
+      internalID: 1961744111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_1
+      name: OI_1
       rect:
         serializedVersion: 2
-        x: 660
-        y: 650
-        width: 130
-        height: 110
+        x: 320
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff01fc0a3b904f1468f606060acff9a4
-      internalID: -1533967314
+      spriteID: 1b026b33010e4a64d9d994740f8f31ce
+      internalID: -353885324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_2
+      name: OI_2
       rect:
         serializedVersion: 2
-        x: 810
-        y: 650
-        width: 140
-        height: 130
+        x: 640
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6590afaa7341d643aafd6531f443ef9
-      internalID: 676741794
+      spriteID: 57478ae29b1d15545bf7bf3ccdb93a28
+      internalID: 1144470437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_3
+      name: OI_3
       rect:
         serializedVersion: 2
-        x: 650
-        y: 490
-        width: 130
-        height: 100
+        x: 960
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eef44933a41517e41889f4800d51c756
-      internalID: 89670937
+      spriteID: 5d7ce15a27bfb104090a6bedb190f1e3
+      internalID: 1625010288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_4
+      name: OI_4
       rect:
         serializedVersion: 2
-        x: 190
-        y: 260
-        width: 60
-        height: 40
+        x: 1280
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58e636fac222f484688cd7f7a5674cac
-      internalID: 869213849
+      spriteID: 7ee285f0eec3ba94e88cc832e8713e71
+      internalID: -149592995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_5
+      name: OI_5
       rect:
         serializedVersion: 2
-        x: 330
-        y: 180
-        width: 140
-        height: 120
+        x: 1600
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f589222544b805438856695bf68df7c
-      internalID: 1472732731
+      spriteID: ba44eb903df5e25458b6492bb73a4db0
+      internalID: -1430289586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Detalles del desierto_6
+      name: OI_6
       rect:
         serializedVersion: 2
-        x: 480
-        y: 170
-        width: 150
-        height: 300
+        x: 1920
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,29 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 389c8616f42a78643b51d98be3271cd1
-      internalID: 1860307201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Detalles del desierto_7
-      rect:
-        serializedVersion: 2
-        x: 180
-        y: 180
-        width: 130
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 271adef98ed332d4891f3fb9e4680f7d
-      internalID: 151114740
+      spriteID: 174f4051bbea25b4c8c8e8dbe2191b9f
+      internalID: -1267012748
       vertices: []
       indices: 
       edges: []
@@ -288,14 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Detalles del desierto_0: 1758630923
-      Detalles del desierto_1: -1533967314
-      Detalles del desierto_2: 676741794
-      Detalles del desierto_3: 89670937
-      Detalles del desierto_4: 869213849
-      Detalles del desierto_5: 1472732731
-      Detalles del desierto_6: 1860307201
-      Detalles del desierto_7: 151114740
+      OI_0: 1961744111
+      OI_1: -353885324
+      OI_2: 1144470437
+      OI_3: 1625010288
+      OI_4: -149592995
+      OI_5: -1430289586
+      OI_6: -1267012748
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
