@@ -8,6 +8,7 @@ public class GameDataController : MonoBehaviour
     [SerializeField] public PlayerController player;
     [SerializeField] public PlayerStats playerStats;
     [SerializeField] public UpgradePrice upgradePrice;
+    
 
     public string savedFile;
     public GameData gameData = new GameData();

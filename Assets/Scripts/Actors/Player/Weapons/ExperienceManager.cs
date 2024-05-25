@@ -14,7 +14,6 @@ public class ExperienceManager : MonoBehaviour
     public int extraExperiencePerLevel;
     public int level;
 
-    public int healthHealed;
     public int extraMeleeDamage = 1;
     public int extraRangedDamage = 1;
     public int extraOrbitalDamage = 1;
@@ -54,11 +53,6 @@ public class ExperienceManager : MonoBehaviour
     }
 
     //Level up efects
-
-    public void Heal()
-    {
-        playerController.GetHealed(healthHealed);
-    }
 
     public void MeleeDamage()
     {

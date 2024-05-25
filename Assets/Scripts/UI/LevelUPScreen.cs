@@ -6,12 +6,6 @@ public class LevelUPScreen : MonoBehaviour
 {
     [SerializeField] ExperienceManager experienceManager;
 
-    public void Heal()
-    {
-        experienceManager.Heal();
-        gameObject.SetActive(false);
-    }
-
     public void MeleeDamage()
     {
         experienceManager.MeleeDamage();
@@ -21,6 +15,12 @@ public class LevelUPScreen : MonoBehaviour
     public void RangedDamage()
     {
         experienceManager.RangedDamage();
+        gameObject.SetActive(false);
+    }
+
+    public void OrbitalDamage()
+    {
+        experienceManager.OrbitalDamage();
         gameObject.SetActive(false);
     }
 }

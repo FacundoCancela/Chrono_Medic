@@ -37,6 +37,13 @@ public class PauseManager : MonoBehaviour
         }
     }
 
+    public void Continue()
+    {
+        Time.timeScale = 1.0f;
+        pauseScreen.SetActive(false);
+        gamePaused = false;
+    }
+
     public void Surrender()
     {
         playerController.Die();

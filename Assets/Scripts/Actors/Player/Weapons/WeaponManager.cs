@@ -56,7 +56,7 @@ public class WeaponManager : MonoBehaviour
             if (_timeSinceLastRangeAttack >= _weaponCooldown)
             {
                 _rangeAttackInCooldown = false;
-                //RangeAttack();
+                RangeAttack();
             }
         }
     }
