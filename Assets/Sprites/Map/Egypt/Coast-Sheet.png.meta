@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c056a399f5f046a4289aaa3a36bd3209
+guid: 98c156527ea3f464d9fc3c8c7a2d120d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpriteSheetAgua_0
+      name: Coast-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4e9bf27bdad44c438d61cbb9dd3693b
-      internalID: -794823764
+      spriteID: de965d12c5690cb479ceb13bfff9b74a
+      internalID: 131724529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheetAgua_1
+      name: Coast-Sheet_1
       rect:
         serializedVersion: 2
         x: 320
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 235637c8a3ebc054b8da7940f176379a
-      internalID: -1880817504
+      spriteID: c3deefb189fa4e9448a39e1645d46816
+      internalID: -2131104428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheetAgua_2
+      name: Coast-Sheet_2
       rect:
         serializedVersion: 2
         x: 640
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c93fca72f5005eb458f04b514ba22886
-      internalID: -601452706
+      spriteID: fc38f88a1cacba541b6666457e919c91
+      internalID: -789070840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheetAgua_3
+      name: Coast-Sheet_3
       rect:
         serializedVersion: 2
         x: 960
@@ -187,8 +187,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21f493d0597358e44b8fbd74616c1810
-      internalID: -1852089075
+      spriteID: 97d4744843631f548bce59e0f4b07ccd
+      internalID: -660241938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34c778ce4bb24204cbbc3d0597770a46
+      internalID: -67854474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c218c887b569e043b4b73ef584d91d4
+      internalID: -1323185115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eab84eabc6ea30d48aab1bc5db666297
+      internalID: 201082031
       vertices: []
       indices: 
       edges: []
@@ -204,10 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SpriteSheetAgua_0: -794823764
-      SpriteSheetAgua_1: -1880817504
-      SpriteSheetAgua_2: -601452706
-      SpriteSheetAgua_3: -1852089075
+      Coast-Sheet_0: 131724529
+      Coast-Sheet_1: -2131104428
+      Coast-Sheet_2: -789070840
+      Coast-Sheet_3: -660241938
+      Coast-Sheet_4: -67854474
+      Coast-Sheet_5: -1323185115
+      Coast-Sheet_6: 201082031
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
