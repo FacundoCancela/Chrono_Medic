@@ -707,7 +707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playButton: {fileID: 95512231}
-  sceneName: SampleScene
+  sceneName: Lvl_Egypt
   portalUnlocked: 1
 --- !u!61 &262295600
 BoxCollider2D:
