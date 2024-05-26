@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c056a399f5f046a4289aaa3a36bd3209
+guid: fbc9a7eb01b62cb4aa22adfdfc01880d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 320
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpriteSheetAgua_0
+      name: Detalles del desierto sin cactus_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 320
-        height: 320
+        x: 180
+        y: 490
+        width: 130
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4e9bf27bdad44c438d61cbb9dd3693b
-      internalID: -794823764
+      spriteID: 4011b55bb49aaa54393a3479bfc6636f
+      internalID: 1056708891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheetAgua_1
+      name: Detalles del desierto sin cactus_1
       rect:
         serializedVersion: 2
-        x: 320
-        y: 0
-        width: 320
-        height: 320
+        x: 330
+        y: 490
+        width: 140
+        height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 235637c8a3ebc054b8da7940f176379a
-      internalID: -1880817504
+      spriteID: 06b5967568537964686db45597f0cb38
+      internalID: 396327409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheetAgua_2
+      name: Detalles del desierto sin cactus_2
       rect:
         serializedVersion: 2
-        x: 640
-        y: 0
-        width: 320
-        height: 320
+        x: 190
+        y: 260
+        width: 60
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c93fca72f5005eb458f04b514ba22886
-      internalID: -601452706
+      spriteID: 6c4d65b4354e69a419938096d81044c6
+      internalID: 932981509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheetAgua_3
+      name: Detalles del desierto sin cactus_3
       rect:
         serializedVersion: 2
-        x: 960
-        y: 0
-        width: 320
-        height: 320
+        x: 330
+        y: 180
+        width: 140
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21f493d0597358e44b8fbd74616c1810
-      internalID: -1852089075
+      spriteID: ec90689c54b87234d9170f71421e9cf3
+      internalID: -1789768666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Detalles del desierto sin cactus_4
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 170
+        width: 150
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afe1e1f41dca114488d76ac3d7d3b793
+      internalID: -2126983362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Detalles del desierto sin cactus_5
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 180
+        width: 130
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 420a65fd189a6c742843d327020192c1
+      internalID: 1994566039
       vertices: []
       indices: 
       edges: []
@@ -204,10 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SpriteSheetAgua_0: -794823764
-      SpriteSheetAgua_1: -1880817504
-      SpriteSheetAgua_2: -601452706
-      SpriteSheetAgua_3: -1852089075
+      Detalles del desierto sin cactus_0: 1056708891
+      Detalles del desierto sin cactus_1: 396327409
+      Detalles del desierto sin cactus_2: 932981509
+      Detalles del desierto sin cactus_3: -1789768666
+      Detalles del desierto sin cactus_4: -2126983362
+      Detalles del desierto sin cactus_5: 1994566039
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

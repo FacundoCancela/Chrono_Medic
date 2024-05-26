@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Arena
+      name: SpriteSheetArena_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16f972f5f96a1fb4bbe5b93fe7c3c42c
-      internalID: 1851372995
+      spriteID: 6eba9b6c571720846983ed30a6add351
+      internalID: 704914591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Monta\xF1aAbajoDerecha"
+      name: SpriteSheetArena_1
       rect:
         serializedVersion: 2
         x: 320
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbead9c616a938142ab86bd19e9a4988
-      internalID: -934366650
+      spriteID: 09a7844c3f4c4aa40990f8b991458554
+      internalID: 1582542578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Monta\xF1aArribaDerecha"
+      name: SpriteSheetArena_2
       rect:
         serializedVersion: 2
         x: 640
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7580a2db52704d041ab74faa6130294b
-      internalID: -156634243
+      spriteID: e490781ffda8bf64084aea574668cfda
+      internalID: -2025660171
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Monta\xF1aArribaIzquierda"
+      name: SpriteSheetArena_3
       rect:
         serializedVersion: 2
         x: 960
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 758b3df44284d7f44aff9251db16afd8
-      internalID: -102251706
+      spriteID: 5f46eac064bccab439e7ae71e3724b4c
+      internalID: 1941725766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Monta\xF1aAbajoIzquierda"
+      name: SpriteSheetArena_4
       rect:
         serializedVersion: 2
         x: 1280
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f5e27f03f11a484ca7e722fe7aef4f1
-      internalID: -968764481
+      spriteID: 221855bdea2961d448e5ffc414d721e8
+      internalID: 1860981697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArenaCaminoCentro
+      name: SpriteSheetArena_5
       rect:
         serializedVersion: 2
         x: 1600
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b51be91347a0b9c458687b0b54305917
-      internalID: 1349183527
+      spriteID: 5b9914f3dca496049847a8721112de4c
+      internalID: -12032624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArenaCaminoArriba
+      name: SpriteSheetArena_6
       rect:
         serializedVersion: 2
         x: 1920
@@ -250,17 +250,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff49068c36cf0ee45bdea55b2aab3be3
-      internalID: -1918170109
+      spriteID: 765f0e9ac21e35c42b0b14d312ffc275
+      internalID: 1197074276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArenaCaminoAbajo
+      name: SpriteSheetArena_7
       rect:
         serializedVersion: 2
-        x: 2238
+        x: 2240
         y: 0
         width: 320
         height: 320
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f377a9b6b3e10924e93fb9ea9fc57894
-      internalID: 932644103
+      spriteID: 00cda9c0134289a48af18c7c52d7d61b
+      internalID: -1938078988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArenaCaminoIzquierda
+      name: SpriteSheetArena_8
       rect:
         serializedVersion: 2
         x: 2560
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: befb47ccdddfc4e4492172cc4807e469
-      internalID: -558427774
+      spriteID: aeb28e5a1ef5e4b4581d00b210b8c49d
+      internalID: -1153789765
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ArenaCaminoDerecha
+      name: SpriteSheetArena_9
       rect:
         serializedVersion: 2
         x: 2880
@@ -313,8 +313,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63d63cf9d0c3c61428ef566750e4111a
-      internalID: 148136340
+      spriteID: c95689f036fae1e43b0db5f697fc1625
+      internalID: -527248183
       vertices: []
       indices: 
       edges: []
@@ -330,16 +330,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Arena: 1851372995
-      ArenaCaminoAbajo: 932644103
-      ArenaCaminoArriba: -1918170109
-      ArenaCaminoCentro: 1349183527
-      ArenaCaminoDerecha: 148136340
-      ArenaCaminoIzquierda: -558427774
-      "Monta\xF1aAbajoDerecha": -934366650
-      "Monta\xF1aAbajoIzquierda": -968764481
-      "Monta\xF1aArribaDerecha": -156634243
-      "Monta\xF1aArribaIzquierda": -102251706
+      SpriteSheetArena_0: 704914591
+      SpriteSheetArena_1: 1582542578
+      SpriteSheetArena_2: -2025660171
+      SpriteSheetArena_3: 1941725766
+      SpriteSheetArena_4: 1860981697
+      SpriteSheetArena_5: -12032624
+      SpriteSheetArena_6: 1197074276
+      SpriteSheetArena_7: -1938078988
+      SpriteSheetArena_8: -1153789765
+      SpriteSheetArena_9: -527248183
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
