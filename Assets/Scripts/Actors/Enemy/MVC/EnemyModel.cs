@@ -6,12 +6,18 @@ using UnityEngine;
 
 public class EnemyModel : Actor
 {
+    public Animator animator;
 
     [SerializeField] private EnemyWeapon enemyWeapon;
     [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private ExperiencePoint experiencePoint;
     [SerializeField] private GameObject experiencePrefab;
 
+    public void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+    
     public void Shoot(Vector2 targetDir)
     {
          if(enemyWeapon.CanUseWeapon)

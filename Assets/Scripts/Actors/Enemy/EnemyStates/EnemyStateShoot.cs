@@ -18,6 +18,8 @@ public class EnemyStateShoot<T> : State<T>
     public override void Execute()
     {
         base.Execute();
+        //Anim
+        _model.animator.SetTrigger("Attack");
         //Dispara con autoaim al jugador
         _model.Move(Vector2.zero);
         _model.Shoot(_shootTarget.position);
