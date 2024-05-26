@@ -6,7 +6,6 @@ using UnityEngine;
 public class UpgradePrice : MonoBehaviour
 {
     public TextMeshProUGUI healthText;
-    public TextMeshProUGUI damageText;
     public TextMeshProUGUI BasicSlashText;
     public TextMeshProUGUI BigSlashText;
     public TextMeshProUGUI circleSlashText;
@@ -16,20 +15,14 @@ public class UpgradePrice : MonoBehaviour
     private void Update()
     {
         HealthPrice();
-        DamagePrice();
         BasicSlashUnlocked();
         BigSlashUnlocked();
-        CircleSlashUnlocked();
+        OrbitalWeaponUnlocked();
     }
 
     public void HealthPrice()
     {
         healthText.text = ("$" + playerStats.upgradeCost + "/+" +shopUpgrade.extraHealthPerLevel);
-    }
-
-    public void DamagePrice()
-    {
-        damageText.text = ("$" + playerStats.upgradeCost + "/+" + shopUpgrade.extraDamagePerLevel);
     }
 
     public void BasicSlashUnlocked()
@@ -50,13 +43,13 @@ public class UpgradePrice : MonoBehaviour
         else BigSlashText.text = ("$:" + shopUpgrade.bigSlashPrice);
     }
 
-    public void CircleSlashUnlocked()
+    public void OrbitalWeaponUnlocked()
     {
-        if (playerStats.circleSlashUnlocked)
+        if (playerStats.orbitalWeaponUnlocked)
         {
             circleSlashText.text = ("Unlocked");
         }
-        else circleSlashText.text = ("$:" + shopUpgrade.circleSlashPrice);
+        else circleSlashText.text = ("$:" + shopUpgrade.orbitalWeaponPrice);
     }
 
 

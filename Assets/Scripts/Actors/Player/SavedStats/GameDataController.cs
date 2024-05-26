@@ -8,6 +8,7 @@ public class GameDataController : MonoBehaviour
     [SerializeField] public PlayerController player;
     [SerializeField] public PlayerStats playerStats;
     [SerializeField] public UpgradePrice upgradePrice;
+    
 
     public string savedFile;
     public GameData gameData = new GameData();
@@ -46,7 +47,7 @@ public class GameDataController : MonoBehaviour
             playerStats.money = gameData.money;
             playerStats.basicSlashUnlocked = gameData.basicSlashUnlocked;
             playerStats.bigSlashUnlocked = gameData.bigSlashUnlocked;
-            playerStats.circleSlashUnlocked = gameData.circleSlashUnlocked;
+            playerStats.orbitalWeaponUnlocked = gameData.orbitalWeaponUnlocked;
             playerStats.upgradeCost = gameData.upgradeCost;
             
             player.UpdateStats(playerStats);
@@ -70,7 +71,7 @@ public class GameDataController : MonoBehaviour
             money = playerStats.money,
             basicSlashUnlocked = playerStats.basicSlashUnlocked,
             bigSlashUnlocked = playerStats.bigSlashUnlocked,
-            circleSlashUnlocked = playerStats.circleSlashUnlocked,
+            orbitalWeaponUnlocked = playerStats.orbitalWeaponUnlocked,
             upgradeCost = playerStats.upgradeCost,
             
         };
@@ -157,16 +158,16 @@ public class GameDataController : MonoBehaviour
         else if (playerStats.bigSlashUnlocked) Debug.Log("arma ya obtenida");
         else Debug.Log("te falta plata");
     }
-    public void UnlockCircleSlash(int shopPrice)
+    public void UnlockOrbitalWeapon(int shopPrice)
     {
-        if (playerStats.money >= shopPrice && !playerStats.circleSlashUnlocked)
+        if (playerStats.money >= shopPrice && !playerStats.orbitalWeaponUnlocked)
         {
             DecreaseMoney(shopPrice);
-            playerStats.circleSlashUnlocked = true;
+            playerStats.orbitalWeaponUnlocked = true;
             player.UpdateStats(playerStats);
             SaveData();
         }
-        else if (playerStats.circleSlashUnlocked) Debug.Log("arma ya obtenida");
+        else if (playerStats.orbitalWeaponUnlocked) Debug.Log("arma ya obtenida");
         else Debug.Log("te falta plata");
     }
 

@@ -6,4 +6,9 @@ public class WinScreen : MonoBehaviour
 {
     [SerializeField] WinScreen winScreen;
 
+    private void Start()
+    {
+        Time.timeScale = 0.0f;
+    }
+
 }

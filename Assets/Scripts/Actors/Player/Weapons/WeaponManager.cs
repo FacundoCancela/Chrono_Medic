@@ -12,13 +12,14 @@ public class WeaponManager : MonoBehaviour
     float _timeSinceLastMeleeAttack = 0f;
     float _timeSinceLastRangeAttack = 0f;
     float _swordSlashDuration = 0.1f;
+    float _orbitalDuration = 5f;
 
     bool _meleeAttackInCooldown = false;
     bool _rangeAttackInCooldown = true;
 
     public GameObject basicSlash;
-    public GameObject circleSlash;
     public GameObject bigSlash;
+    public GameObject orbitalWeapon;
     public GameObject kunaiPrefab;
 
     private Dictionary<int, System.Action> _attackDictionary = new Dictionary<int, System.Action>();
@@ -27,7 +28,7 @@ public class WeaponManager : MonoBehaviour
     {
         _attackDictionary.Add(1, BasicSlash);
         _attackDictionary.Add(2, BigSlash);
-        _attackDictionary.Add(3, CircleSlash);
+        _attackDictionary.Add(3, OrbitalWeapon);
     }
 
     private void Update()
@@ -88,7 +89,7 @@ public class WeaponManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && attackType != 3)
         {
-            if(playerStats.circleSlashUnlocked)
+            if(playerStats.orbitalWeaponUnlocked)
             {
                 attackType = 3;
             }
@@ -125,16 +126,16 @@ public class WeaponManager : MonoBehaviour
         basicSlash.SetActive(false);
     }
 
-    private void CircleSlash()
+    private void OrbitalWeapon()
     {
 
-        circleSlash.SetActive(true);
-        Invoke("DeactivateCircleSlash", _swordSlashDuration);
+        orbitalWeapon.SetActive(true);
+        Invoke("DeactivateOrbitalWeapon", _orbitalDuration);
     }
 
-    private void DeactivateCircleSlash()
+    private void DeactivateOrbitalWeapon()
     {
-        circleSlash.SetActive(false);
+        orbitalWeapon.SetActive(false);
     }
     private void BigSlash()
     {

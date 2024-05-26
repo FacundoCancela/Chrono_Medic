@@ -6,11 +6,6 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] public PlayerStats playerStats;
 
-    private void Awake()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))

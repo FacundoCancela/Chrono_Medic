@@ -22,15 +22,22 @@ public class PlayerController : MonoBehaviour
         _player = GetComponent<IActorModel>();
         _view = GetComponent<IActorView>();
         actualHealth = playerStats.maxHealth;
-        if(healthBar != null )
-        {
-            healthBar.SetMaxHealth(actualHealth);
-        }
     }
 
     private void Update()
     {
         Move();
+        if(healthBar != null)
+            HealthBarManager();
+    }
+
+    public void HealthBarManager()
+    {
+        if(actualHealth >= playerStats.maxHealth)
+        {
+            healthBar.SetMaxHealth(actualHealth);
+        }
+        else healthBar.SetHealth(actualHealth);    
     }
 
     public void Move()
@@ -46,23 +53,15 @@ public class PlayerController : MonoBehaviour
     {
         actualHealth += hpHealed;
         if (actualHealth > playerStats.maxHealth) actualHealth = playerStats.maxHealth;
-        healthBar.SetHealth(actualHealth);
-    }
-
-    private void DeathCheck()
-    {
-        if (actualHealth <= 0)
-        {
-            Die();
-        }
     }
 
     public void GetDamaged(int damage)
     {
         _view.GetDamaged();
         actualHealth -= damage;
-        DeathCheck();
-        healthBar.SetHealth(actualHealth);
+        if (actualHealth <= 0)
+            Die();
+        
     }
 
     public void Die()
