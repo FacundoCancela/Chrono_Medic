@@ -113,12 +113,12 @@ TextureImporter:
       name: escorpion-Sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 640
-        height: 640
+        x: 257
+        y: 18
+        width: 266
+        height: 192
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: escorpion-Sheet_1
       rect:
         serializedVersion: 2
-        x: 640
-        y: 0
-        width: 640
-        height: 640
+        x: 900
+        y: 4
+        width: 272
+        height: 207
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: escorpion-Sheet_2
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 640
-        height: 640
+        x: 1546
+        y: 8
+        width: 269
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: escorpion-Sheet_3
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 0
-        width: 640
-        height: 640
+        x: 2181
+        y: 18
+        width: 283
+        height: 219
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: escorpion-Sheet_4
       rect:
         serializedVersion: 2
-        x: 2560
-        y: 0
-        width: 640
-        height: 640
+        x: 2817
+        y: 18
+        width: 295
+        height: 213
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: escorpion-Sheet_5
       rect:
         serializedVersion: 2
-        x: 3200
-        y: 0
-        width: 640
-        height: 640
+        x: 3458
+        y: 17
+        width: 286
+        height: 218
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +239,12 @@ TextureImporter:
       name: escorpion-Sheet_6
       rect:
         serializedVersion: 2
-        x: 3840
+        x: 4100
         y: 0
-        width: 640
-        height: 640
+        width: 274
+        height: 207
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,12 +260,12 @@ TextureImporter:
       name: escorpion-Sheet_7
       rect:
         serializedVersion: 2
-        x: 4480
-        y: 0
-        width: 640
-        height: 640
+        x: 4740
+        y: 18
+        width: 275
+        height: 196
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

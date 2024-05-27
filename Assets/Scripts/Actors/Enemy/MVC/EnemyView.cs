@@ -48,9 +48,22 @@ public class EnemyView : MonoBehaviour, IActorView
         {
             anim.SetBool("isAtaking", true);
         }
-        else if (!isAttacking)
+        else if (isAttacking == false)
         {
             anim.SetBool("isAtaking", false);
+            Debug.Log("nOaTAKING");
         }
     }
+
+    //public void Seeek(bool isAttacking)
+    //{
+    //    if (isAttacking)
+    //    {
+    //        anim.SetBool("isAtaking", true);
+    //    }
+    //    else if (!isAttacking)
+    //    {
+    //        anim.SetBool("isAtaking", false);
+    //    }
+    //}
 }
