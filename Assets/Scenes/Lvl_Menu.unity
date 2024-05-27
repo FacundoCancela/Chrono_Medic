@@ -1982,7 +1982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &262295599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1998,6 +1998,9 @@ MonoBehaviour:
   playButton: {fileID: 95512231}
   sceneName: Lvl_Egypt
   portalUnlocked: 1
+  unlockedPortal: {fileID: -701595248, guid: f1ebd277119aef74bbf1b4fdec728a90, type: 3}
+  lockedPortal: {fileID: 1009088162, guid: 12b8f51d5a6b9144ca3820fbc2e787f2, type: 3}
+  spriteRenderer: {fileID: 0}
 --- !u!61 &262295600
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27881,6 +27884,7 @@ Transform:
   - {fileID: 2067818594}
   - {fileID: 1546945225}
   - {fileID: 1782079965}
+  - {fileID: 2070151181}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &836114888
@@ -29004,7 +29008,7 @@ Transform:
   m_GameObject: {fileID: 1063402429}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.28, y: 0.14, z: 0}
+  m_LocalPosition: {x: -9.06, y: 0.96, z: 0}
   m_LocalScale: {x: 3.6957, y: 3.6957, z: 3.6957}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29529,7 +29533,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.9622642, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -30166,6 +30170,9 @@ MonoBehaviour:
   playButton: {fileID: 95512231}
   sceneName: Lvl_BlackDeath
   portalUnlocked: 0
+  unlockedPortal: {fileID: -701595248, guid: f1ebd277119aef74bbf1b4fdec728a90, type: 3}
+  lockedPortal: {fileID: 1009088162, guid: 12b8f51d5a6b9144ca3820fbc2e787f2, type: 3}
+  spriteRenderer: {fileID: 1546945224}
 --- !u!61 &1546945223
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30272,7 +30279,7 @@ Transform:
   m_GameObject: {fileID: 1546945221}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -509.48, y: -379, z: 0}
+  m_LocalPosition: {x: -509.48004, y: -379, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30648,6 +30655,9 @@ MonoBehaviour:
   playButton: {fileID: 95512231}
   sceneName: Lvl_2400
   portalUnlocked: 0
+  unlockedPortal: {fileID: -701595248, guid: f1ebd277119aef74bbf1b4fdec728a90, type: 3}
+  lockedPortal: {fileID: 1009088162, guid: 12b8f51d5a6b9144ca3820fbc2e787f2, type: 3}
+  spriteRenderer: {fileID: 1782079964}
 --- !u!61 &1782079963
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31680,7 +31690,7 @@ Transform:
   m_GameObject: {fileID: 2067818592}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -514.43, y: -379, z: 0}
+  m_LocalPosition: {x: -514.43005, y: -379, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31745,7 +31755,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playButton: {fileID: 95512231}
   sceneName: Lvl_Egypt
-  portalUnlocked: 0
+  portalUnlocked: 1
+  unlockedPortal: {fileID: -701595248, guid: f1ebd277119aef74bbf1b4fdec728a90, type: 3}
+  lockedPortal: {fileID: 1009088162, guid: 12b8f51d5a6b9144ca3820fbc2e787f2, type: 3}
+  spriteRenderer: {fileID: 2067818593}
 --- !u!1 &2070151180
 GameObject:
   m_ObjectHideFlags: 0
@@ -31770,15 +31783,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2070151180}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 512, y: 384, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 95512232}
   - {fileID: 136855623}
   - {fileID: 124936086}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 806044980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -31790,7 +31803,6 @@ SceneRoots:
   - {fileID: 1063402431}
   - {fileID: 1745087902}
   - {fileID: 806044980}
-  - {fileID: 2070151181}
   - {fileID: 836114893}
   - {fileID: 1817743665}
   - {fileID: 633521399}
