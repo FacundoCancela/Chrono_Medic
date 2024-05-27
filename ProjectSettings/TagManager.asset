@@ -51,7 +51,7 @@ TagManager:
   - name: Floor
     uniqueID: 195797623
     locked: 0
-  - name: Water
+  - name: Water/Walls
     uniqueID: 810050399
     locked: 0
   - name: Enemy
