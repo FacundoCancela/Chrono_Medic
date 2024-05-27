@@ -9,19 +9,24 @@ public class Level_Portal : MonoBehaviour
 
     [SerializeField] private string sceneName;
     [SerializeField] private bool portalUnlocked;
-    private Renderer rend;
+
+    [SerializeField] Sprite unlockedPortal;
+    [SerializeField] Sprite lockedPortal;
+
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     void Start()
     {
-        rend = GetComponent<Renderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         if (portalUnlocked)
         {
-            rend.material.color = Color.green;
+            spriteRenderer.sprite = unlockedPortal;
+
         }
 
         if (!portalUnlocked)
         {
-            rend.material.color = Color.red;
+            spriteRenderer.sprite = lockedPortal;
         }
     }
 
