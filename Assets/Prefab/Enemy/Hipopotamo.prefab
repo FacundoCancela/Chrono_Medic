@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 57587367
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 3356763239288504912}
   - component: {fileID: 7303037560891085381}
   - component: {fileID: 7807974521482023852}
+  - component: {fileID: 9020849455717983552}
   m_Layer: 6
   m_Name: Hipopotamo
   m_TagString: Enemy
@@ -179,7 +180,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 57587367
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2487da8d311bbde4bb7669602ea3cdce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -225,7 +226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  animator: {fileID: 0}
   enemyWeapon: {fileID: 3234632740494174730}
   enemyStats: {fileID: 11400000, guid: 404efc00874d5ec418b4a9611db0303e, type: 2}
   experiencePoint: {fileID: 7819564320793251449, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 6057087403127246776}
+  anim: {fileID: 9020849455717983552}
 --- !u!61 &7303037560891085381
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -275,18 +276,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.12902832, y: 0.0069746077}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9, y: 5.1}
+    oldSize: {x: 2.8125, y: 1.59375}
     newSize: {x: 7.4, y: 7.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.4, y: 1.2}
+  m_Size: {x: 1.3189516, y: 1.6324191}
   m_EdgeRadius: 0
 --- !u!50 &7807974521482023852
 Rigidbody2D:
@@ -315,3 +316,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &9020849455717983552
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6057087403127246776}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e8a90cc0949e4084b961d0788ea3c9d6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

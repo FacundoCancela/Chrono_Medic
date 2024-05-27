@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1399357850653536701}
   - component: {fileID: 2081250994260454005}
   - component: {fileID: 6220062889391689488}
+  - component: {fileID: 1487746574371546006}
   m_Layer: 6
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 57587367
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f8af5208956e15b4caaeb2013f262ef1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -140,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1130082731687103583}
+  anim: {fileID: 1487746574371546006}
 --- !u!61 &2081250994260454005
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,18 +174,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12169099, y: -0.12401271}
+  m_Offset: {x: -0.051908255, y: -0.061983466}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.8, y: 4.8}
+    oldSize: {x: 1.5, y: 1.5}
     newSize: {x: 7.4, y: 7.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.1146417, y: 5.0849013}
+  m_Size: {x: 0.71101046, y: 1.6112669}
   m_EdgeRadius: 0
 --- !u!50 &6220062889391689488
 Rigidbody2D:
@@ -212,6 +214,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &1487746574371546006
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130082731687103583}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0028fe66391c9924386e8dbd8e8efac1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2377739668335863612
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +307,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 57587367
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
