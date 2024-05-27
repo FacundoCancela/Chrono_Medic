@@ -22,7 +22,7 @@ public class EnemyStateShoot<T> : State<T>
 
         _view.Attack(true);
         //Anim
-        _model.animator.SetTrigger("Attack");
+        //_model.animator.SetTrigger("Attack");
         //Dispara con autoaim al jugador
         _model.Move(Vector2.zero);
         _model.Shoot(_shootTarget.position);
