@@ -57,12 +57,12 @@ TagManager:
   - name: Enemy
     uniqueID: 57587367
     locked: 0
-  - name: Player
-    uniqueID: 742889129
-    locked: 0
   - name: Obstacle
     uniqueID: 123574885
     locked: 0
   - name: Objects
     uniqueID: 3784141005
+    locked: 0
+  - name: Player
+    uniqueID: 742889129
     locked: 0

@@ -71,7 +71,7 @@ public class EnemyController : MonoBehaviour
 
         //States
         var seek = new EnemyStateSteering<EnemyStatesEnum>(_model,_view, _steering, _obstacleAvoidance);
-        var shoot = new EnemyStateShoot<EnemyStatesEnum>(_model, _target.transform);
+        var shoot = new EnemyStateShoot<EnemyStatesEnum>(_model, _target.transform, _view);
         var dead = new EnemyStateDead<EnemyStatesEnum>(_model);
 
         //Transitions

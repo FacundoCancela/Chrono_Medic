@@ -1,0 +1,259 @@
+fileFormatVersion: 2
+guid: 88597dcc74a26224da965930a9b28a52
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SandStorm2-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 0
+        width: 301
+        height: 301
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb97deb06e61a246bc411c2125ed128
+      internalID: 683923738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandStorm2-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 0
+        width: 233
+        height: 231
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b10260cc6aab3b47bbbaa15449d6f88
+      internalID: 1317523969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandStorm2-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 0
+        width: 344
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc0836f1a7565f4abeeeb7fc4a06fe3
+      internalID: -1024889801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandStorm2-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 0
+        width: 316
+        height: 290
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dc6ae9967785c744aa1817becc35a67
+      internalID: -1673655900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      SandStorm2-Sheet_0: 1024614216
+      SandStorm2-Sheet_1: -315346382
+      SandStorm2-Sheet_10: -2068182296
+      SandStorm2-Sheet_11: 1317523969
+      SandStorm2-Sheet_12: 1907418352
+      SandStorm2-Sheet_13: 450061516
+      SandStorm2-Sheet_14: -818144990
+      SandStorm2-Sheet_15: 552583494
+      SandStorm2-Sheet_16: 865781521
+      SandStorm2-Sheet_17: -1815181583
+      SandStorm2-Sheet_18: -982447817
+      SandStorm2-Sheet_19: -1024889801
+      SandStorm2-Sheet_2: 2120754939
+      SandStorm2-Sheet_20: -290603760
+      SandStorm2-Sheet_21: -457058715
+      SandStorm2-Sheet_22: 1232726361
+      SandStorm2-Sheet_23: -1673655900
+      SandStorm2-Sheet_24: 1034736479
+      SandStorm2-Sheet_25: 1533275472
+      SandStorm2-Sheet_26: 98226592
+      SandStorm2-Sheet_27: 2116112022
+      SandStorm2-Sheet_28: 1896222772
+      SandStorm2-Sheet_29: -1071865857
+      SandStorm2-Sheet_3: -4329695
+      SandStorm2-Sheet_30: -385772352
+      SandStorm2-Sheet_31: 33571166
+      SandStorm2-Sheet_32: -256819928
+      SandStorm2-Sheet_33: -1513412294
+      SandStorm2-Sheet_34: 582684154
+      SandStorm2-Sheet_35: -1809882289
+      SandStorm2-Sheet_36: 943379245
+      SandStorm2-Sheet_37: 1013326081
+      SandStorm2-Sheet_38: -894514628
+      SandStorm2-Sheet_39: 784257031
+      SandStorm2-Sheet_4: 39107966
+      SandStorm2-Sheet_40: 1296558197
+      SandStorm2-Sheet_41: -791094926
+      SandStorm2-Sheet_42: -1096665469
+      SandStorm2-Sheet_43: -1985097123
+      SandStorm2-Sheet_44: 1366933298
+      SandStorm2-Sheet_45: 725343529
+      SandStorm2-Sheet_46: 788011335
+      SandStorm2-Sheet_47: 1871243956
+      SandStorm2-Sheet_5: 1995673109
+      SandStorm2-Sheet_6: -502228355
+      SandStorm2-Sheet_7: 755774615
+      SandStorm2-Sheet_8: 683923738
+      SandStorm2-Sheet_9: 459842445
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

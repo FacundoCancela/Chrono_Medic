@@ -5,8 +5,11 @@ using UnityEngine;
 public class EnemyView : MonoBehaviour, IActorView
 {
     public GameObject body;
+    public Animator anim;
     private Color colorOriginal;
     private Renderer rend;
+
+
 
     void Start()
     {
@@ -37,5 +40,17 @@ public class EnemyView : MonoBehaviour, IActorView
     {
         yield return new WaitForSeconds(delay);
         rend.material.color = colorOriginal;
+    }
+
+    public void Attack(bool isAttacking)
+    {
+        if (isAttacking)
+        {
+            anim.SetBool("isAtaking", true);
+        }
+        else if (!isAttacking)
+        {
+            anim.SetBool("isAtaking", false);
+        }
     }
 }
