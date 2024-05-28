@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c27bc0cbe9dfd554aab3ebd7e4b8750c
+guid: f7de4bc6fdae90541872e3cd53540034
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,169 +110,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: escorpion-Sheet_0
+      name: scorpion-Sheet_0
       rect:
         serializedVersion: 2
-        x: 257
-        y: 18
-        width: 266
-        height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 943e4173fe803f54b8ae30c0146467a8
-      internalID: -1482951932
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: escorpion-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 4
-        width: 272
-        height: 207
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 61343ae452cfab546b1064fe80b23a02
-      internalID: -790328387
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: escorpion-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 1546
-        y: 8
-        width: 269
-        height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67704cd000b5ad54a8519c6a70049f21
-      internalID: -2089046661
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: escorpion-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 2181
-        y: 18
-        width: 283
-        height: 219
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5518bc27f07cf994da2d92ce67963925
-      internalID: -671866855
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: escorpion-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 2817
-        y: 18
-        width: 295
-        height: 213
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ea04aa07938f82499b7a3d72e584a2f
-      internalID: -966643963
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: escorpion-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 3458
-        y: 17
-        width: 286
-        height: 218
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54a1e263ee41d6847bbad5cd71c2baec
-      internalID: -1692371181
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: escorpion-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 4100
-        y: 0
-        width: 274
-        height: 207
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90ff3beb65a26774996738776f782b3b
-      internalID: 802807344
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: escorpion-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 4740
+        x: 108
         y: 18
         width: 275
-        height: 196
+        height: 195
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6ede301acec7f34c970df5f9b632e2e
-      internalID: -1881268349
+      spriteID: d16f30f8e16906f46b93e32dbc26ba76
+      internalID: -388347038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scorpion-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 18
+        width: 275
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de0ca175af375e3429cf70997e697b4d
+      internalID: -1903428250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scorpion-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 18
+        width: 285
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30d5f52110c37bd4c95b5af2e50771c9
+      internalID: -2055961068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scorpion-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 18
+        width: 295
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58dadbd1e13bb4f48a2462593ca1ff08
+      internalID: -1747878660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scorpion-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2658
+        y: 18
+        width: 285
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81b74390d45d71d4a833df05dc0be6a2
+      internalID: -1033428238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scorpion-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 3308
+        y: 8
+        width: 265
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ad91366fba70674399be8896f173592
+      internalID: -2067614918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scorpion-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3948
+        y: 8
+        width: 275
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eae0b4fe5b5b4024cb6580e080f69f4b
+      internalID: -945895561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scorpion-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 4598
+        y: 18
+        width: 265
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d573caf48785224d8330a282ce68d34
+      internalID: -2046742
       vertices: []
       indices: 
       edges: []
@@ -288,14 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      escorpion-Sheet_0: -1482951932
-      escorpion-Sheet_1: -790328387
-      escorpion-Sheet_2: -2089046661
-      escorpion-Sheet_3: -671866855
-      escorpion-Sheet_4: -966643963
-      escorpion-Sheet_5: -1692371181
-      escorpion-Sheet_6: 802807344
-      escorpion-Sheet_7: -1881268349
+      scorpion-Sheet_0: -388347038
+      scorpion-Sheet_1: -1903428250
+      scorpion-Sheet_2: -2055961068
+      scorpion-Sheet_3: -1747878660
+      scorpion-Sheet_4: -1033428238
+      scorpion-Sheet_5: -2067614918
+      scorpion-Sheet_6: -945895561
+      scorpion-Sheet_7: -2046742
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
