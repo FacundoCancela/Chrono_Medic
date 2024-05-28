@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &505179156981557664
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 5228078335819795296, guid: 779a108e76556194e9c99ad4f1c34825, type: 3}
-  m_PrefabInstance: {fileID: 6349686969553819013}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3455201461367649266}
-  m_Layer: 0
-  m_Name: 'OrbitalWeapon (Missing Prefab with guid: 779a108e76556194e9c99ad4f1c34825)'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3455201461367649266
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 8641785104367363703, guid: 779a108e76556194e9c99ad4f1c34825, type: 3}
-  m_PrefabInstance: {fileID: 6349686969553819013}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 505179156981557664}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.8, y: -0.27040428, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1297411953702783806}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2723444329532453748
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,6 +56,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1297411953702783806}
     m_Modifications:
+    - target: {fileID: 3191502346390016283, guid: 779a108e76556194e9c99ad4f1c34825, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 501365171, guid: 951d286e4e06f4244b54a70ebe4cc2eb, type: 3}
+    - target: {fileID: 3191502346390016283, guid: 779a108e76556194e9c99ad4f1c34825, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3191502346390016283, guid: 779a108e76556194e9c99ad4f1c34825, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3191502346390016283, guid: 779a108e76556194e9c99ad4f1c34825, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5228078335819795296, guid: 779a108e76556194e9c99ad4f1c34825, type: 3}
       propertyPath: m_Name
       value: OrbitalWeapon
@@ -136,3 +121,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 779a108e76556194e9c99ad4f1c34825, type: 3}
+--- !u!4 &3455201461367649266 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8641785104367363703, guid: 779a108e76556194e9c99ad4f1c34825, type: 3}
+  m_PrefabInstance: {fileID: 6349686969553819013}
+  m_PrefabAsset: {fileID: 0}
