@@ -7,6 +7,7 @@ public class ExperienceManager : MonoBehaviour
     [SerializeField] WeaponManager weaponManager;
     [SerializeField] PlayerController playerController;
     [SerializeField] LevelUPScreen levelUPScreen;
+    [SerializeField] PauseManager pausedManager;
     [SerializeField] XPBar XpBar;
 
     public int actualExperience;
@@ -46,6 +47,9 @@ public class ExperienceManager : MonoBehaviour
     {
         levelUPScreen.gameObject.SetActive(true);
 
+        pausedManager.canPause = false;
+        Time.timeScale = 0f;
+        
         actualExperience = 0;
         maxExperience += extraExperiencePerLevel;
         level++;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShopScreen : MonoBehaviour
 {
     [SerializeField] ShopUpgrade ShopUI;
+    [SerializeField] PauseManager pauseManager;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -12,7 +13,10 @@ public class ShopScreen : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             if(ShopUI != null)
+            {
+                pauseManager.canPause = false;
                 ShopUI.gameObject.SetActive(true);
+            }
             
         }
     }
@@ -21,7 +25,11 @@ public class ShopScreen : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             if (ShopUI != null)
+            {
+                pauseManager.canPause = true;
                 ShopUI.gameObject.SetActive(false);
+            }
+                
         }
     }
 }

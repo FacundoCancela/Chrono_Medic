@@ -7,6 +7,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField] GameObject pauseScreen;
     [SerializeField] PlayerController playerController;
     public bool gamePaused;
+    public bool canPause = true;
 
     private void Update()
     {
@@ -15,7 +16,7 @@ public class PauseManager : MonoBehaviour
 
     public void PauseKey()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)) 
+        if(Input.GetKeyDown(KeyCode.Escape) && canPause) 
         {
             PauseAndContinue();
         }

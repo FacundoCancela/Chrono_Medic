@@ -49,7 +49,7 @@ public class EnemyController : MonoBehaviour
         InitializeFSM();
 
         //EnemyStats
-        shootRange = enemyStats.shootRange;
+        shootRange = enemyStats.attackRange;
         actualHealth = enemyStats.maxHealth;
 
         _enemyTree = new EnemyTree(_fsm, _model.transform, _target.transform, shootRange, ref _blackBoardDictionary);

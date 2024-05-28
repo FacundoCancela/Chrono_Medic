@@ -783,6 +783,7 @@ MonoBehaviour:
   pauseScreen: {fileID: 1517550181}
   playerController: {fileID: 3691414602440998097}
   gamePaused: 0
+  canPause: 1
 --- !u!1001 &192351405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56781,6 +56782,7 @@ MonoBehaviour:
   weaponManager: {fileID: 1024138184950151252}
   playerController: {fileID: 3691414602440998097}
   levelUPScreen: {fileID: 1268608737}
+  pausedManager: {fileID: 155018610}
   XpBar: {fileID: 688777311}
   actualExperience: 0
   maxExperience: 30
@@ -56861,6 +56863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experienceManager: {fileID: 1261455809}
+  pauseManager: {fileID: 155018610}
 --- !u!1 &1295119364
 GameObject:
   m_ObjectHideFlags: 0
