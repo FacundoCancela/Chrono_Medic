@@ -8,14 +8,15 @@ public class WeaponManager : MonoBehaviour
 
     public int attackType = 0;
 
-    float _weaponCooldown = 1f;
-    float _timeSinceLastMeleeAttack = 0f;
-    float _timeSinceLastRangeAttack = 0f;
+    public float _weaponCooldown = 1f;
+    public float _timeSinceLastMeleeAttack = 0f;
+    public float _timeSinceLastRangeAttack = 0f;
     float _swordSlashDuration = 0.1f;
     float _orbitalDuration = 5f;
 
-    bool _meleeAttackInCooldown = false;
+    bool _meleeAttackInCooldown = true;
     bool _rangeAttackInCooldown = true;
+    public bool _isInCombat = false;
 
     public GameObject basicSlash;
     public GameObject bigSlash;
@@ -50,7 +51,7 @@ public class WeaponManager : MonoBehaviour
             }
         }
 
-        if (_rangeAttackInCooldown)
+        if (_rangeAttackInCooldown && _isInCombat)
         {
             _timeSinceLastRangeAttack += Time.deltaTime;
             if (_timeSinceLastRangeAttack >= _weaponCooldown)
