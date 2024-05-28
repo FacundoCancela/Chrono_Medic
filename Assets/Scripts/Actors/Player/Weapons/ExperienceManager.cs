@@ -50,6 +50,7 @@ public class ExperienceManager : MonoBehaviour
         maxExperience += extraExperiencePerLevel;
         level++;
 
+        XpBar.SetMaxXP(maxExperience);
     }
 
     //Level up efects

@@ -6,17 +6,23 @@ public class WeaponManager : MonoBehaviour
 {
     [SerializeField] public PlayerStats playerStats;
 
+    public bool _isInCombat = false;
     public int attackType = 0;
-
     public float _weaponCooldown = 1f;
-    public float _timeSinceLastMeleeAttack = 0f;
+
     public float _timeSinceLastRangeAttack = 0f;
+    public float _timeSinceLastSlashAttack = 0f;
+    public float _timeSinceLastBigSlashAttack = 0f;
+    public float _timeSinceLastOrbitalWeaponAttack = 0f;
+
+
     float _swordSlashDuration = 0.1f;
     float _orbitalDuration = 5f;
 
-    bool _meleeAttackInCooldown = true;
     bool _rangeAttackInCooldown = true;
-    public bool _isInCombat = false;
+    bool _slashAttackInCooldown = true;
+    bool _bigSlashAttackInCooldown = true;
+    bool _orbitalWeaponInCooldown = true;
 
     public GameObject basicSlash;
     public GameObject bigSlash;
@@ -42,12 +48,30 @@ public class WeaponManager : MonoBehaviour
     public void WeaponCooldown()
     {
         // Si no estamos atacando, actualizar el tiempo desde el último ataque
-        if (_meleeAttackInCooldown)
+        if (_slashAttackInCooldown)
         {
-            _timeSinceLastMeleeAttack += Time.deltaTime;
-            if (_timeSinceLastMeleeAttack >= _weaponCooldown)
+            _timeSinceLastSlashAttack += Time.deltaTime;
+            if (_timeSinceLastSlashAttack >= _weaponCooldown)
             {
-                _meleeAttackInCooldown = false;
+                _slashAttackInCooldown = false;
+            }
+        }
+
+        if (_bigSlashAttackInCooldown)
+        {
+            _timeSinceLastBigSlashAttack += Time.deltaTime;
+            if (_timeSinceLastBigSlashAttack >= _weaponCooldown)
+            {
+                _bigSlashAttackInCooldown = false;
+            }
+        }
+
+        if (_orbitalWeaponInCooldown)
+        {
+            _timeSinceLastOrbitalWeaponAttack += Time.deltaTime;
+            if (_timeSinceLastOrbitalWeaponAttack >= _weaponCooldown)
+            {
+                _orbitalWeaponInCooldown = false;
             }
         }
 
@@ -104,10 +128,8 @@ public class WeaponManager : MonoBehaviour
 
     public void UseWeapon()
     {
-        if (Input.GetKeyDown(KeyCode.F) && !_meleeAttackInCooldown && attackType != 0)
+        if (Input.GetKeyDown(KeyCode.F) && attackType != 0)
         {
-            _meleeAttackInCooldown = true;
-            _timeSinceLastMeleeAttack = 0f;
             if (_attackDictionary.ContainsKey(attackType))
             {
                 _attackDictionary[attackType]?.Invoke();
@@ -117,9 +139,13 @@ public class WeaponManager : MonoBehaviour
 
     private void BasicSlash()
     {
-
-        basicSlash.SetActive(true);
-        Invoke("DeactivateBasicSlash", _swordSlashDuration);
+        if(!_slashAttackInCooldown)
+        {
+            basicSlash.SetActive(true);
+            _timeSinceLastSlashAttack = 0f;
+            _slashAttackInCooldown = true;
+            Invoke("DeactivateBasicSlash", _swordSlashDuration);
+        }        
     }
 
     private void DeactivateBasicSlash()
@@ -129,9 +155,13 @@ public class WeaponManager : MonoBehaviour
 
     private void OrbitalWeapon()
     {
-
-        orbitalWeapon.SetActive(true);
-        Invoke("DeactivateOrbitalWeapon", _orbitalDuration);
+        if(!_orbitalWeaponInCooldown)
+        {
+            orbitalWeapon.SetActive(true);
+            _timeSinceLastOrbitalWeaponAttack = 0f;
+            _orbitalWeaponInCooldown = true;
+            Invoke("DeactivateOrbitalWeapon", _orbitalDuration);
+        }        
     }
 
     private void DeactivateOrbitalWeapon()
@@ -140,9 +170,13 @@ public class WeaponManager : MonoBehaviour
     }
     private void BigSlash()
     {
-
-        bigSlash.SetActive(true);
-        Invoke("DeactivateBigSlash", _swordSlashDuration);
+        if(!_bigSlashAttackInCooldown)
+        {
+            bigSlash.SetActive(true);
+            _timeSinceLastBigSlashAttack = 0f;
+            _bigSlashAttackInCooldown = true;
+            Invoke("DeactivateBigSlash", _swordSlashDuration);
+        }
     }
 
     private void DeactivateBigSlash()
