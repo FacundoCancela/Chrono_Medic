@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class WeaponManager : MonoBehaviour
     public bool _isInCombat = false;
     public int attackType = 0;
     public float _weaponCooldown = 1f;
-
+    
     public float _timeSinceLastRangeAttack = 0f;
     public float _timeSinceLastSlashAttack = 0f;
     public float _timeSinceLastBigSlashAttack = 0f;
@@ -29,6 +30,7 @@ public class WeaponManager : MonoBehaviour
     public GameObject orbitalWeapon;
     public GameObject kunaiPrefab;
 
+    public Action OnAttack;
     private Dictionary<int, System.Action> _attackDictionary = new Dictionary<int, System.Action>();
 
     private void Awake()
@@ -133,7 +135,9 @@ public class WeaponManager : MonoBehaviour
             if (_attackDictionary.ContainsKey(attackType))
             {
                 _attackDictionary[attackType]?.Invoke();
-            }
+
+                OnAttack?.Invoke();
+            } 
         }
     }
 

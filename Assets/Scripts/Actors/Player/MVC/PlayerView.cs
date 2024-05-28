@@ -7,12 +7,39 @@ public class PlayerView : MonoBehaviour, IActorView
     public GameObject body;
     private Color colorOriginal;
     private Renderer rend;
-
+    public Animator anim;
     void Start()
     {
+       
         rend = GetComponent<Renderer>();
         colorOriginal = rend.material.color;
     }
+
+    public void Walk(bool IsWalking)
+    {
+        if (IsWalking)
+        {
+            anim.SetBool("IsWalking", true);
+        }
+        if (!IsWalking)
+        {
+            anim.SetBool("IsWalking", false);
+        }
+    }
+
+    public void Attack(bool IsAttack)
+    {
+        if (IsAttack)
+        {
+            anim.SetBool("IsAttack", true);
+        }
+        if (!IsAttack)
+        {
+            anim.SetBool("IsAttack", false);
+            Debug.Log("FALSEaTACK");
+        }
+    }
+
 
     public void LookDir(Vector2 dir)
     {

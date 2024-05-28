@@ -1,18 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class PlayerStateAttack : MonoBehaviour
+public class PlayerStateAttack<T> : State<T>
 {
-    // Start is called before the first frame update
-    void Start()
+    IActorView _view;
+    T _InputMovement;
+    T _InputIdle;
+    IActorModel _Model;
+
+    public PlayerStateAttack(IActorView view, IActorModel model, T inputMovement, T inputIdle)
     {
-        
+        _view = view;
+        _InputMovement = inputMovement;
+        _InputIdle = inputIdle;
+        _Model = model;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Enter()
     {
-        
+        base.Enter();
+        _view.Attack(true);
+    }
+
+    public override void Execute()
+    {
+        base.Execute();
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
+        Vector2 dir = new Vector2(x, y).normalized;
+        _Model.Move(dir);
+        _view.LookDir(dir);
+        _fsm.Transition(_InputIdle);
+    }
+
+    public override void Sleep()
+    {
+        base.Sleep();
+        _view.Attack(false);
+        Debug.Log("SleepAttack");
     }
 }

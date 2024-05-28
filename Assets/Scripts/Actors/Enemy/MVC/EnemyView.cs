@@ -55,6 +55,11 @@ public class EnemyView : MonoBehaviour, IActorView
         }
     }
 
+    public void Walk(bool IsWalking)
+    {
+        throw new System.NotImplementedException();
+    }
+
     //public void Seeek(bool isAttacking)
     //{
     //    if (isAttacking)

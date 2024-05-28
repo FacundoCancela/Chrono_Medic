@@ -30989,8 +30989,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 349.94977, y: 50}
-  m_SizeDelta: {x: 700, y: 100}
+  m_AnchoredPosition: {x: 349.69293, y: 49.8132}
+  m_SizeDelta: {x: 700.5137, y: 100.3736}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1730156192
 MonoBehaviour:
@@ -31693,6 +31693,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc46271116dfb7469a02dae40f85536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1830720040 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -9016250087246774975, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
+  m_PrefabInstance: {fileID: 2058687922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1921827357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32034,6 +32039,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2274487562447567255, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1830720040}
     - target: {fileID: 4774728957630617895, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
       propertyPath: healthBar
       value: 
