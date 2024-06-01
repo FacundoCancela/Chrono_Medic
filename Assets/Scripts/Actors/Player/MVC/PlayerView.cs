@@ -27,16 +27,15 @@ public class PlayerView : MonoBehaviour, IActorView
         }
     }
 
-    public void Attack(bool IsAttack)
+    public void Attack(bool IsAttacking)
     {
-        if (IsAttack)
+        if (IsAttacking)
         {
             anim.SetBool("IsAttack", true);
         }
-        if (!IsAttack)
+        if (!IsAttacking)
         {
             anim.SetBool("IsAttack", false);
-            Debug.Log("FALSEaTACK");
         }
     }
 

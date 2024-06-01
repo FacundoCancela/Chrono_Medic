@@ -8,6 +8,7 @@ public class PlayerStats : ScriptableObject
     //Player stats
     public int money = 0;
     public int maxHealth = 100;
+    public float maxBuyHealth = 200;
     public int damageMultiplier = 1;
     public int movementSpeed = 1;
     public int actualLevel;

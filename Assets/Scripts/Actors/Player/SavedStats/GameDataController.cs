@@ -84,7 +84,11 @@ public class GameDataController : MonoBehaviour
 
     public void IncreaseHealth(int moreHealth)
     {
-        if (playerStats.money >= gameData.upgradeCost)
+        if(playerStats.maxHealth >= playerStats.maxBuyHealth)
+        {
+            Debug.Log("Vida maxima alcanzada");
+        }
+        else if (playerStats.money >= gameData.upgradeCost)
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.maxHealth += moreHealth;

@@ -28,6 +28,7 @@ public class GameData
 
     //Shop prices
     public int upgradeCost;
+   
 
 
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     [SerializeField] public PlayerStats playerStats;
+    [SerializeField] public PlayerView playerView;
 
     public bool _isInCombat = false;
     public int attackType = 0;
@@ -83,6 +84,7 @@ public class WeaponManager : MonoBehaviour
             if (_timeSinceLastRangeAttack >= _weaponCooldown)
             {
                 _rangeAttackInCooldown = false;
+                playerView.Attack(true);
                 RangeAttack();
             }
         }
@@ -221,5 +223,6 @@ public class WeaponManager : MonoBehaviour
             GameObject kunai = Instantiate(kunaiPrefab, transform.position, rotation);
             kunai.GetComponent<Rigidbody2D>().velocity = direction * 10f; // Velocidad del Kunai
         }
+        playerView.Attack(false);
     }
 }

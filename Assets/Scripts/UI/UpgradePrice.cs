@@ -22,7 +22,14 @@ public class UpgradePrice : MonoBehaviour
 
     public void HealthPrice()
     {
-        healthText.text = ("$" + playerStats.upgradeCost + "/+" +shopUpgrade.extraHealthPerLevel);
+        if(playerStats.maxHealth >= playerStats.maxBuyHealth)
+        {
+            healthText.text = ("Max Level");
+        }
+        else
+        {
+            healthText.text = ("$" + playerStats.upgradeCost + "/+" + shopUpgrade.extraHealthPerLevel);
+        }
     }
 
     public void BasicSlashUnlocked()
