@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManager : MonoBehaviour
+public class SceneChanger : MonoBehaviour
 {
     [SerializeField] public string nombreEscenaAJugar;
     private PauseManager pauseManager;
@@ -16,7 +16,7 @@ public class SceneManager : MonoBehaviour
     public void CambiarEscenaDefault()
     {
         // Cambiar a la escena especificada
-        UnityEngine.SceneManagement.SceneManager.LoadScene(nombreEscenaAJugar);
+        SceneManager.LoadScene(nombreEscenaAJugar);
         if (pauseManager != null) 
             pauseManager.canPause = true;
     }
@@ -24,8 +24,11 @@ public class SceneManager : MonoBehaviour
     public void CambiarEscena(string nombreEscenaAJugar)
     {
         // Cambiar a la escena especificada
-        UnityEngine.SceneManagement.SceneManager.LoadScene(nombreEscenaAJugar);
+        SceneManager.LoadScene(nombreEscenaAJugar);
         if (pauseManager != null)
             pauseManager.canPause = true;
     }
+
+
+
 }

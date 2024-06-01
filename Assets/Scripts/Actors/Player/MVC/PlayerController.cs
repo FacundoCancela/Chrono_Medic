@@ -91,6 +91,11 @@ public class PlayerController : MonoBehaviour
     public void UpdateStats(PlayerStats newStats)
     {
         playerStats = newStats;
+    }
+
+    public void UpdateHealth(PlayerStats newStats)
+    {
+        playerStats = newStats;
         actualHealth = playerStats.maxHealth;
     }
 

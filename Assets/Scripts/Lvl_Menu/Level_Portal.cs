@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Level_Portal : MonoBehaviour
 {
-    public SceneManager playButton;
+    public SceneChanger playButton;
 
     [SerializeField] private string sceneName;
     [SerializeField] private bool portalUnlocked;

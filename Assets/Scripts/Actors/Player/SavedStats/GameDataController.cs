@@ -89,7 +89,7 @@ public class GameDataController : MonoBehaviour
             DecreaseMoney(gameData.upgradeCost);
             gameData.maxHealth += moreHealth;
             playerStats.maxHealth = gameData.maxHealth;
-            player.UpdateStats(playerStats);
+            player.UpdateHealth(playerStats);
             SaveData();
         }
         else Debug.Log("te falta plata");
