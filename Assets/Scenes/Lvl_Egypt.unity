@@ -1832,7 +1832,7 @@ MonoBehaviour:
   - {fileID: 4220072662542796888, guid: e6deab9f79d2b754db329e68c17ae4bd, type: 3}
   enemiesInThisWave: 10
   enemiesAlive: 0
-  spawnInterval: 1
+  spawnInterval: 3
 --- !u!1 &527402700
 GameObject:
   m_ObjectHideFlags: 0
@@ -57073,7 +57073,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 123574885
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0.25, z: 0}
@@ -62070,7 +62070,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -510826291
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

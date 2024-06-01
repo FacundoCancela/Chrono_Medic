@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
         _player = GetComponent<IActorModel>();
         _playerView = GetComponent<PlayerView>();
         actualHealth = playerStats.maxHealth;
+        Time.timeScale = 1.0f;
     }
 
     private void Update()
