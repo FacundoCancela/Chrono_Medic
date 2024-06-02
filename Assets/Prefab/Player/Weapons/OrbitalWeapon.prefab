@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1297411953702783806}
-  - component: {fileID: 8133883051392264679}
+  - component: {fileID: 7704972939156969629}
   m_Layer: 7
   m_Name: OrbitalWeapon
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 3455201461367649266}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8133883051392264679
+--- !u!114 &7704972939156969629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,12 +42,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2723444329532453748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a85f81311adbe4c4fbba9aaa0956e222, type: 3}
+  m_Script: {fileID: 11500000, guid: 49c643fd3ecf3d149bd6cd82f85dd49b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: 91da14b5e2e7db44ea9f049a89a4d62d, type: 2}
-  playerController: {fileID: 0}
-  weapon: {fileID: 3455201461367649266}
+  player: {fileID: 0}
 --- !u!1001 &6349686969553819013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -119,8 +117,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5228078335819795296, guid: 779a108e76556194e9c99ad4f1c34825, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4256776839936811431}
   m_SourcePrefab: {fileID: 100100000, guid: 779a108e76556194e9c99ad4f1c34825, type: 3}
+--- !u!1 &1194372148607246053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5228078335819795296, guid: 779a108e76556194e9c99ad4f1c34825, type: 3}
+  m_PrefabInstance: {fileID: 6349686969553819013}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4256776839936811431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194372148607246053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85f81311adbe4c4fbba9aaa0956e222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: 91da14b5e2e7db44ea9f049a89a4d62d, type: 2}
+  playerController: {fileID: 0}
+  weapon: {fileID: 3455201461367649266}
 --- !u!4 &3455201461367649266 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8641785104367363703, guid: 779a108e76556194e9c99ad4f1c34825, type: 3}
