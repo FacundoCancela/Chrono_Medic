@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public float minSpawnRange = 10f;
-    public float maxSpawnRange = 15f;
     private Transform playerTransform;
     [SerializeField] WaveManager waveManager;
+    [SerializeField] List<GameObject> portals; // Lista de portales
 
     private void Start()
     {
@@ -18,17 +17,46 @@ public class EnemySpawner : MonoBehaviour
     {
         if (playerTransform != null && waveManager.enemyPrefabs.Count > 0)
         {
-            // Selecciona un índice aleatorio de la lista de prefabs de enemigos
-            int randomIndex = Random.Range(0, waveManager.enemyPrefabs.Count);
-            GameObject selectedEnemyPrefab = waveManager.enemyPrefabs[randomIndex];
+            // Encuentra el portal más cercano al jugador
+            GameObject nearestPortal = GetNearestPortal();
 
-            // Genera una posición aleatoria dentro del rango alrededor del jugador
-            Vector2 spawnOffset = Random.insideUnitCircle.normalized * Random.Range(minSpawnRange, maxSpawnRange);
-            // Aplica la posición relativa al jugador
-            Vector2 spawnPosition = (Vector2)playerTransform.position + spawnOffset;
+            if (nearestPortal != null)
+            {
+                // Desactiva los sprites de todos los portales excepto el más cercano
+                foreach (GameObject portal in portals)
+                {
+                    SpriteRenderer spriteRenderer = portal.GetComponent<SpriteRenderer>();
+                    if (spriteRenderer != null)
+                    {
+                        spriteRenderer.enabled = portal == nearestPortal;
+                    }
+                }
 
-            // Instancia el enemigo en la posición generada
-            Instantiate(selectedEnemyPrefab, spawnPosition, Quaternion.identity);
+                // Selecciona un índice aleatorio de la lista de prefabs de enemigos
+                int randomIndex = Random.Range(0, waveManager.enemyPrefabs.Count);
+                GameObject selectedEnemyPrefab = waveManager.enemyPrefabs[randomIndex];
+
+                // Instancia el enemigo en la posición del portal más cercano
+                Instantiate(selectedEnemyPrefab, nearestPortal.transform.position, Quaternion.identity);
+            }
         }
+    }
+
+    private GameObject GetNearestPortal()
+    {
+        GameObject nearestPortal = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (GameObject portal in portals)
+        {
+            float distanceToPortal = Vector2.Distance(playerTransform.position, portal.transform.position);
+            if (distanceToPortal < closestDistance)
+            {
+                closestDistance = distanceToPortal;
+                nearestPortal = portal;
+            }
+        }
+
+        return nearestPortal;
     }
 }
