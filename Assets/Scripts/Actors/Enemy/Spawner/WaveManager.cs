@@ -7,18 +7,19 @@ public class WaveManager : MonoBehaviour
     [SerializeField] WaveCount waveCount;
     [SerializeField] WinScreen winScreen;
     [SerializeField] public int maxWave;
+    public float waveTimer = 30f;
     private int actualWave = 1;
     private bool waveInProgress;
 
     [SerializeField] public EnemySpawner enemySpawner;
     [SerializeField] public List<GameObject> enemyPrefabs;
     [SerializeField] public int enemiesInThisWave;
-    private int enemiesToSpawn;
     public int enemiesAlive;
 
     [SerializeField] public float spawnInterval = 1f;
+    [SerializeField] public int maxEnemiesInThisWave = 15;
 
-    private float timer = 0f;
+    private float spawnCooldown = 0f;
 
     public static WaveManager Instance
     {
@@ -40,6 +41,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
+        ResetTimerAndEnemies();
         StartNextWave();
     }
 
@@ -48,15 +50,23 @@ public class WaveManager : MonoBehaviour
     {
         if (waveInProgress)
         {
-            timer += Time.deltaTime;
+            spawnCooldown += Time.deltaTime;
+            waveTimer -= Time.deltaTime;
+            waveCount.UpdateTimer(waveTimer);
 
-            if (timer >= spawnInterval)
+            if(waveTimer <= 0f)
             {
-                timer = 0f;
-                if (enemiesToSpawn > 0)
+                ResetTimerAndEnemies();
+                StartNextWave();
+            }
+
+            if (spawnCooldown >= spawnInterval)
+            {
+                spawnCooldown = 0f;
+                if (enemiesAlive < maxEnemiesInThisWave)
                 {
                     enemySpawner.SpawnEnemy();
-                    enemiesToSpawn--;
+                    enemiesAlive++;
                 }
             }
         }
@@ -69,8 +79,6 @@ public class WaveManager : MonoBehaviour
         if (actualWave <= maxWave)
         {
             actualWave++;
-            enemiesToSpawn = enemiesInThisWave;
-            enemiesAlive = enemiesToSpawn;
             waveInProgress = true;
         }
         else
@@ -83,12 +91,69 @@ public class WaveManager : MonoBehaviour
 
     public void OnEnemyKilled()
     {
-        enemiesAlive--;
+        enemiesAlive--;               
+    }
 
-        if (enemiesAlive <= 0)
+    public void ResetTimerAndEnemies()
+    {
+        switch(actualWave)
         {
-            waveInProgress = false;
-            StartNextWave();
+            case 1:
+                waveTimer = 30f;
+                maxEnemiesInThisWave = 15;
+                spawnCooldown = 3;
+                break;
+            case 2:
+                waveTimer = 40f;
+                maxEnemiesInThisWave = 20;
+                spawnCooldown = 3;
+                break;
+            case 3:
+                waveTimer = 50f;
+                maxEnemiesInThisWave = 30;
+                spawnCooldown = 3;
+                break;
+            case 4:
+                waveTimer = 50f;
+                maxEnemiesInThisWave = 40;
+                spawnCooldown = 2.5f;
+                break;
+            case 5:
+                waveTimer = 60f;
+                maxEnemiesInThisWave = 50;
+                spawnCooldown = 2.5f;
+                break;
+            case 6:
+                waveTimer = 70f;
+                maxEnemiesInThisWave = 55;
+                spawnCooldown = 2.5f;
+                break;
+            case 7:
+                waveTimer = 80f;
+                maxEnemiesInThisWave = 60;
+                spawnCooldown = 2;
+                break;
+            case 8:
+                waveTimer = 85f;
+                maxEnemiesInThisWave = 65;
+                spawnCooldown = 2;
+                break;
+            case 9:
+                waveTimer = 90f;
+                maxEnemiesInThisWave = 65;
+                spawnCooldown = 2;
+                break;
+            case 10:
+                waveTimer = 180f;
+                maxEnemiesInThisWave = 60;
+                spawnCooldown = 2;
+                break;
+            default:
+                waveTimer = 30f;
+                maxEnemiesInThisWave = 60;
+                spawnCooldown = 2;
+                break;
+
         }
     }
 
@@ -96,7 +161,4 @@ public class WaveManager : MonoBehaviour
     {
         winScreen.gameObject.SetActive(true);
     }
-
-
-
 }

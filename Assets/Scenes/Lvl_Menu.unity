@@ -2028,7 +2028,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 123574885
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -29320,7 +29320,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -510826291
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 1715519544, guid: a7ba5578f945dec4d81f79ca5501066d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -30803,7 +30803,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 123574885
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1009088162, guid: 12b8f51d5a6b9144ca3820fbc2e787f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -31451,7 +31451,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 123574885
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1009088162, guid: 12b8f51d5a6b9144ca3820fbc2e787f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -32215,6 +32215,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
+      propertyPath: orbitalWeapon
+      value: 
+      objectReference: {fileID: 2723444329532453748, guid: a04ce469459f944468819a22a149e351, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32278,7 +32282,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 123574885
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -701595248, guid: f1ebd277119aef74bbf1b4fdec728a90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
