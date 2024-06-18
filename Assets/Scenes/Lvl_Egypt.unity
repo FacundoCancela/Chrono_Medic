@@ -3133,7 +3133,7 @@ MonoBehaviour:
   - {fileID: 4220072662542796888, guid: e6deab9f79d2b754db329e68c17ae4bd, type: 3}
   enemiesInThisWave: 10
   enemiesAlive: 0
-  spawnInterval: 1
+  spawnInterval: 3
   maxEnemiesInThisWave: 5
 --- !u!114 &477800048
 MonoBehaviour:
@@ -58699,8 +58699,8 @@ MonoBehaviour:
   pausedManager: {fileID: 155018610}
   XpBar: {fileID: 688777311}
   actualExperience: 0
-  maxExperience: 30
-  extraExperiencePerLevel: 10
+  maxExperience: 80
+  extraExperiencePerLevel: 40
   level: 0
   extraMeleeDamage: 1
   extraRangedDamage: 1
