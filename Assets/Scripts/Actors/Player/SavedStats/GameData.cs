@@ -30,6 +30,7 @@ public class GameData
     public int upgradeCost;
 
     //Items
-    public int InjectionHealth = 5;
+    public int InjectionHeal = 5;
+    public int InjectionsLimit = 5;
 
 }

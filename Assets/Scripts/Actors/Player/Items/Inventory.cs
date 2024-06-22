@@ -11,16 +11,22 @@ public class Inventory : MonoBehaviour
 
     public int injections;
 
+    private void Update()
+    {
+        injectionsText.text = (injections.ToString() + "/" + playerStats.InjectionsLimit);
+    }
+
     private void Awake()
     {
-        playerController = GetComponent<PlayerController>();
-        injectionsText.text = injections.ToString();
+        playerController = GetComponent<PlayerController>();        
     }
 
     public void saveInjection()
     {
-        injections++;
-        injectionsText.text = injections.ToString();
+        if (injections < playerStats.maxInjectionsLimit)
+        {
+            injections++;
+        }        
     }
 
     public void useInjection()
@@ -28,9 +34,10 @@ public class Inventory : MonoBehaviour
         if (injections > 0) 
         {
             injections--;
-            injectionsText.text = injections.ToString();
-            playerController.GetHealed(playerStats.InjectionHealth);
+            playerController.GetHealed(playerStats.InjectionHeal);
         }
     }
+
+    
 
 }
