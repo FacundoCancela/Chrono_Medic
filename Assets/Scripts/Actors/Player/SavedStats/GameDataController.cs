@@ -49,6 +49,7 @@ public class GameDataController : MonoBehaviour
             playerStats.bigSlashUnlocked = gameData.bigSlashUnlocked;
             playerStats.orbitalWeaponUnlocked = gameData.orbitalWeaponUnlocked;
             playerStats.upgradeCost = gameData.upgradeCost;
+            playerStats.InjectionHealth = gameData.InjectionHealth;
             
             player.UpdateStats(playerStats);
 
@@ -73,6 +74,7 @@ public class GameDataController : MonoBehaviour
             bigSlashUnlocked = playerStats.bigSlashUnlocked,
             orbitalWeaponUnlocked = playerStats.orbitalWeaponUnlocked,
             upgradeCost = playerStats.upgradeCost,
+            InjectionHealth = playerStats.InjectionHealth,
             
         };
 
@@ -174,7 +176,5 @@ public class GameDataController : MonoBehaviour
         else if (playerStats.orbitalWeaponUnlocked) Debug.Log("arma ya obtenida");
         else Debug.Log("te falta plata");
     }
-
-
 
 }

@@ -30,4 +30,7 @@ public class PlayerStats : ScriptableObject
     //Shop prices
     public int upgradeCost = 50;
 
+    //Items
+    public int InjectionHealth = 5;
+
 }

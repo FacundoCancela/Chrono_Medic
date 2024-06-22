@@ -13,11 +13,6 @@ public class EnemyModel : Actor
     [SerializeField] private ExperiencePoint experiencePoint;
     [SerializeField] private GameObject experiencePrefab;
 
-    //public void Awake()
-    //{
-    //    animator = GetComponent<Animator>();
-    //}
-
     public void Shoot(Vector2 targetDir)
     {
          if(enemyWeapon.CanUseWeapon)
@@ -29,9 +24,10 @@ public class EnemyModel : Actor
     public void EnemyDeath()
     {
         GameDataController.Instance.IncreaseMoney(enemyStats.moneyDroped);
+        DropManager.Instance.DropSomething(transform.position);
         WaveManager.Instance.OnEnemyKilled();
         experiencePoint.ExperienceDrop(enemyStats.experienceDropped);
-        Instantiate(experiencePrefab, transform.position, Quaternion.identity);
+        //Instantiate(experiencePrefab, transform.position, Quaternion.identity);
     }
 
 }

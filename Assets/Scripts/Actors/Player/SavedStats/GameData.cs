@@ -28,7 +28,8 @@ public class GameData
 
     //Shop prices
     public int upgradeCost;
-   
 
+    //Items
+    public int InjectionHealth = 5;
 
 }
