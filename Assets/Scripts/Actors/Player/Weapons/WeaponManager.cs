@@ -7,6 +7,7 @@ public class WeaponManager : MonoBehaviour
 {
     [SerializeField] public PlayerStats playerStats;
     [SerializeField] public PlayerView playerView;
+    [SerializeField] public ClassManager playerClassManager;
 
     public bool _isInCombat = false;
     public int attackType = 0;
@@ -17,28 +18,33 @@ public class WeaponManager : MonoBehaviour
     public float _timeSinceLastBigSlashAttack = 0f;
     public float _timeSinceLastOrbitalWeaponAttack = 0f;
 
-
     float _swordSlashDuration = 0.1f;
     float _orbitalDuration = 5f;
 
     bool _rangeAttackInCooldown = true;
     bool _slashAttackInCooldown = true;
-    bool _bigSlashAttackInCooldown = true;
     bool _orbitalWeaponInCooldown = true;
 
     public GameObject basicSlash;
-    public GameObject bigSlash;
     public GameObject orbitalWeapon;
     public GameObject kunaiPrefab;
 
     public Action OnAttack;
     private Dictionary<int, System.Action> _attackDictionary = new Dictionary<int, System.Action>();
 
+    public bool _meleeCanAttack = false;
+    public bool _rangedCanAttack = false;
+    public bool _engineerCanAttack = false;
+
     private void Awake()
     {
         _attackDictionary.Add(1, BasicSlash);
-        _attackDictionary.Add(2, BigSlash);
-        _attackDictionary.Add(3, OrbitalWeapon);
+        _attackDictionary.Add(2, OrbitalWeapon);
+    }
+
+    private void Start()
+    {
+        ActivateWeaponClass();
     }
 
     private void Update()
@@ -46,6 +52,22 @@ public class WeaponManager : MonoBehaviour
         WeaponCooldown();
         WeaponSelector();
         UseWeapon();
+    }
+
+    private void ActivateWeaponClass()
+    {
+        switch (ClassManager.currentClass)
+        {
+            case ClassManager.SelectedClass.Melee:
+                _meleeCanAttack = true;
+                break;
+            case ClassManager.SelectedClass.Ranged:
+                _rangedCanAttack = true;
+                break;
+            case ClassManager.SelectedClass.Engineer
+                : _engineerCanAttack = true;
+                break;
+        }
     }
 
     public void WeaponCooldown()
@@ -57,15 +79,6 @@ public class WeaponManager : MonoBehaviour
             if (_timeSinceLastSlashAttack >= _weaponCooldown)
             {
                 _slashAttackInCooldown = false;
-            }
-        }
-
-        if (_bigSlashAttackInCooldown)
-        {
-            _timeSinceLastBigSlashAttack += Time.deltaTime;
-            if (_timeSinceLastBigSlashAttack >= _weaponCooldown)
-            {
-                _bigSlashAttackInCooldown = false;
             }
         }
 
@@ -81,7 +94,7 @@ public class WeaponManager : MonoBehaviour
         if (_rangeAttackInCooldown && _isInCombat)
         {
             _timeSinceLastRangeAttack += Time.deltaTime;
-            if (_timeSinceLastRangeAttack >= _weaponCooldown)
+            if (_timeSinceLastRangeAttack >= _weaponCooldown && _rangedCanAttack)
             {
                 _rangeAttackInCooldown = false;
                 playerView.Attack(true);
@@ -92,11 +105,12 @@ public class WeaponManager : MonoBehaviour
 
     public void WeaponSelector()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && attackType != 1)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && attackType != 1 && _meleeCanAttack)
         {
             if(playerStats.basicSlashUnlocked)
             {
                 attackType = 1;
+                Debug.Log("Slash seleccionado");
             }
             else
             {
@@ -104,30 +118,19 @@ public class WeaponManager : MonoBehaviour
                 attackType = 0;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && attackType != 2)
-        {
-            if(playerStats.bigSlashUnlocked)
-            {
-                attackType = 2;
-            }
-            else
-            {
-                Debug.Log("arma no desbloqueada");
-                attackType = 0;
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && attackType != 3)
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && attackType != 2 && _engineerCanAttack)
         {
             if(playerStats.orbitalWeaponUnlocked)
             {
-                attackType = 3;
+                attackType = 2;
+                Debug.Log("Orbital seleccionado");
             }
             else
             {
                 Debug.Log("arma no desbloqueada");
                 attackType = 0;
             }
-        }
+        }        
     }
 
     public void UseWeapon()
@@ -138,7 +141,7 @@ public class WeaponManager : MonoBehaviour
             {
                 _attackDictionary[attackType]?.Invoke();
 
-                OnAttack?.Invoke();
+                //OnAttack?.Invoke();
             } 
         }
     }
@@ -174,22 +177,7 @@ public class WeaponManager : MonoBehaviour
     {
         orbitalWeapon.SetActive(false);
     }
-    private void BigSlash()
-    {
-        if(!_bigSlashAttackInCooldown)
-        {
-            bigSlash.SetActive(true);
-            _timeSinceLastBigSlashAttack = 0f;
-            _bigSlashAttackInCooldown = true;
-            Invoke("DeactivateBigSlash", _swordSlashDuration);
-        }
-    }
-
-    private void DeactivateBigSlash()
-    {
-        bigSlash.SetActive(false);
-    }
-
+    
     private void RangeAttack()
     {
         _rangeAttackInCooldown = true;

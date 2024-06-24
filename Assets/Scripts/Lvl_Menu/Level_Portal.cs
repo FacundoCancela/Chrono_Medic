@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class Level_Portal : MonoBehaviour
 {
-    public SceneChanger playButton;
-
-    [SerializeField] private string sceneName;
+    [SerializeField] public string sceneName;
     [SerializeField] private bool portalUnlocked;
 
     [SerializeField] Sprite unlockedPortal;
     [SerializeField] Sprite lockedPortal;
 
     [SerializeField] SpriteRenderer spriteRenderer;
+
+    [SerializeField] ClassSelector classSelector;
 
     void Start()
     {
@@ -34,7 +34,22 @@ public class Level_Portal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && portalUnlocked)
         {
-            playButton.CambiarEscena(sceneName);
+            if(classSelector != null)
+            {
+                classSelector.gameObject.SetActive(true);
+                classSelector.sceneName = sceneName;
+            }            
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if(classSelector != null)
+            {
+                classSelector.gameObject.SetActive(false);
+            }
         }
     }
 }
