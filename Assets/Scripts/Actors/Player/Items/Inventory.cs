@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour
 
     public void saveInjection()
     {
-        if (injections < playerStats.maxInjectionsLimit)
+        if (injections < playerStats.InjectionsLimit)
         {
             injections++;
         }        
@@ -34,7 +34,9 @@ public class Inventory : MonoBehaviour
         if (injections > 0) 
         {
             injections--;
-            playerController.GetHealed(playerStats.InjectionHeal);
+            float healAmount = (playerStats.maxHealth * playerStats.InjectionHeal / 100);
+            Debug.Log(healAmount);
+            playerController.GetHealed((int)healAmount);
         }
     }
 

@@ -27,7 +27,6 @@ public class EnemyModel : Actor
         DropManager.Instance.DropSomething(transform.position);
         WaveManager.Instance.OnEnemyKilled();
         experiencePoint.ExperienceDrop(enemyStats.experienceDropped);
-        //Instantiate(experiencePrefab, transform.position, Quaternion.identity);
     }
 
 }
