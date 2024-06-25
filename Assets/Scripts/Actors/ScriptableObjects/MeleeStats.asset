@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d21dd8259b418542bea633a0d82d9c5, type: 3}
   m_Name: MeleeStats
   m_EditorClassIdentifier: 
-  maxHealth: 25
-  damage: 8
+  maxHealth: 5
+  damage: 2
   attackRange: 2
-  attackCooldown: 5
-  experienceDropped: 10
+  attackCooldown: 3
+  experienceDropped: 20
   moneyDroped: 10

@@ -28,7 +28,9 @@ public class GameData
 
     //Shop prices
     public int upgradeCost;
-   
 
+    //Items
+    public int InjectionHeal = 5;
+    public int InjectionsLimit = 5;
 
 }

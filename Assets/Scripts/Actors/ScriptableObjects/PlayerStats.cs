@@ -30,4 +30,9 @@ public class PlayerStats : ScriptableObject
     //Shop prices
     public int upgradeCost = 50;
 
+    //Items
+    public int InjectionHeal = 15;
+    public int maxInjectionsHeal = 30;
+    public int InjectionsLimit = 5;
+    public int maxInjectionsLimit = 10;
 }

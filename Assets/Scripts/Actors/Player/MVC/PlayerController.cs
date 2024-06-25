@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public PlayerStats playerStats;
     public HealthBar healthBar;
+    public Inventory inventory;
     [SerializeField] public LoseScreen loseScreen;
 
     IActorModel _player;
@@ -22,14 +23,29 @@ public class PlayerController : MonoBehaviour
         _player = GetComponent<IActorModel>();
         _playerView = GetComponent<PlayerView>();
         actualHealth = playerStats.maxHealth;
+        inventory = GetComponent<Inventory>();
         Time.timeScale = 1.0f;
     }
 
     private void Update()
     {
         Walk();
+        GetMoney();
+        UseInventoryItem();
         if(healthBar != null)
             HealthBarManager();
+    }
+
+    public void GetMoney()
+    {
+        if(Input.GetKeyDown(KeyCode.F8))
+        {
+            GameDataController.Instance.IncreaseMoney(1000);
+        }
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            GameDataController.Instance.DecreaseMoney(1000);
+        }
     }
 
 
@@ -44,6 +60,14 @@ public class PlayerController : MonoBehaviour
         if (x == 0 && y == 0)
         {
             _playerView.Walk(false);
+        }
+    }
+
+    public void UseInventoryItem()
+    {
+        if(Input.GetKeyDown(KeyCode.E) && inventory != null)
+        {
+            inventory.useInjection();
         }
     }
 
@@ -74,6 +98,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        HealthBarManager();
         this.gameObject.SetActive(false);
         loseScreen.gameObject.SetActive(true);
     }

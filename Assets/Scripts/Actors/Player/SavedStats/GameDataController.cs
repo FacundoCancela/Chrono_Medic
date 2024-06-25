@@ -49,6 +49,8 @@ public class GameDataController : MonoBehaviour
             playerStats.bigSlashUnlocked = gameData.bigSlashUnlocked;
             playerStats.orbitalWeaponUnlocked = gameData.orbitalWeaponUnlocked;
             playerStats.upgradeCost = gameData.upgradeCost;
+            playerStats.InjectionHeal = gameData.InjectionHeal;
+            playerStats.InjectionsLimit = gameData.InjectionsLimit;
             
             player.UpdateStats(playerStats);
 
@@ -73,6 +75,8 @@ public class GameDataController : MonoBehaviour
             bigSlashUnlocked = playerStats.bigSlashUnlocked,
             orbitalWeaponUnlocked = playerStats.orbitalWeaponUnlocked,
             upgradeCost = playerStats.upgradeCost,
+            InjectionHeal = playerStats.InjectionHeal,
+            InjectionsLimit = playerStats.InjectionsLimit,
             
         };
 
@@ -99,7 +103,43 @@ public class GameDataController : MonoBehaviour
         else Debug.Log("te falta plata");
 
     }
-    
+
+    public void IncreaseInjectionHeal(int extraHeal)
+    {
+        if (playerStats.InjectionHeal >= playerStats.maxInjectionsHeal)
+        {
+            Debug.Log("Vida maxima alcanzada");
+        }
+        else if (playerStats.money >= gameData.upgradeCost)
+        {
+            DecreaseMoney(gameData.upgradeCost);
+            gameData.InjectionHeal += extraHeal;
+            playerStats.InjectionHeal = gameData.InjectionHeal;
+            player.UpdateStats(playerStats);
+            SaveData();
+        }
+        else Debug.Log("te falta plata");
+
+    }
+
+    public void IncreaseInjectionLimit(int moreInjections)
+    {
+        if (playerStats.InjectionsLimit >= playerStats.maxInjectionsLimit)
+        {
+            Debug.Log("Vida maxima alcanzada");
+        }
+        else if (playerStats.money >= gameData.upgradeCost)
+        {
+            DecreaseMoney(gameData.upgradeCost);
+            gameData.InjectionsLimit += moreInjections;
+            playerStats.InjectionsLimit = gameData.InjectionsLimit;
+            player.UpdateStats(playerStats);
+            SaveData();
+        }
+        else Debug.Log("te falta plata");
+
+    }
+
     public void IncreaseDamage(int moreDamage)
     {
         if(playerStats.money >= gameData.upgradeCost)
@@ -174,7 +214,5 @@ public class GameDataController : MonoBehaviour
         else if (playerStats.orbitalWeaponUnlocked) Debug.Log("arma ya obtenida");
         else Debug.Log("te falta plata");
     }
-
-
 
 }

@@ -6,7 +6,9 @@ public class ShopUpgrade : MonoBehaviour
 {
     [SerializeField] GameDataController dataController;
     [SerializeField] public int extraHealthPerLevel;
-    private int extraMoney;
+    [SerializeField] public int extraInjectionLimit;
+    [SerializeField] public int extraInjectionHeal;
+
 
     [SerializeField] public int basicSlashPrice;
     [SerializeField] public int bigSlashPrice;
@@ -17,9 +19,14 @@ public class ShopUpgrade : MonoBehaviour
         dataController.IncreaseHealth(extraHealthPerLevel);
     }
 
-    public void addMoney()
+    public void addInjections()
     {
-        dataController.IncreaseMoney(extraMoney);
+        dataController.IncreaseInjectionLimit(extraInjectionLimit);
+    }
+
+    public void extraInjectionsHeal()
+    {
+        dataController.IncreaseInjectionHeal(extraInjectionHeal);
     }
 
     public void unlockBasicSlash()
