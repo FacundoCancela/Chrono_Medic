@@ -23,8 +23,13 @@ public class AbilityUnlocked : MonoBehaviour
                 case 2:
                     abilityObjects[i].SetActive(weaponManager._engineerCanAttack);
                     break;
+                case 3:
+                    abilityObjects[i].SetActive(weaponManager._boomerangCanAttack); 
+                    break;
+                case 4:
+                    abilityObjects[i].SetActive(weaponManager._curveSwordCanAttack); 
+                    break;
                 default:
-                    Debug.LogError("Index out of range in abilityImages.");
                     break;
             }
         }

@@ -8,6 +8,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] public PlayerStats playerStats;
     [SerializeField] public PlayerView playerView;
     [SerializeField] public ClassManager playerClassManager;
+    [SerializeField] public Boomerang boomerang;
 
     public bool _isInCombat = false;
     public int attackType = 0;
@@ -15,19 +16,26 @@ public class WeaponManager : MonoBehaviour
     
     public float _timeSinceLastRangeAttack = 0f;
     public float _timeSinceLastSlashAttack = 0f;
-    public float _timeSinceLastBigSlashAttack = 0f;
     public float _timeSinceLastOrbitalWeaponAttack = 0f;
+    public float _timeSinceLastBoomerangAttack = 0f;
+    public float _timeSinceLastCurveSwordAttack = 0f;
 
     float _swordSlashDuration = 0.1f;
     float _orbitalDuration = 5f;
+    float _curveSwordDuration = 4f;
+    public float _curveSwordCooldown = 30f;
 
-    bool _rangeAttackInCooldown = true;
+    bool _rangedWeaponInCooldown = true;
     bool _slashAttackInCooldown = true;
     bool _orbitalWeaponInCooldown = true;
+    bool _boomerangWeaponInCooldown = true;
+    bool _curveSwordInCooldown = true;
 
     public GameObject basicSlash;
     public GameObject orbitalWeapon;
     public GameObject kunaiPrefab;
+    public GameObject boomerangPrefab;
+    public GameObject curveSword;
 
     public Action OnAttack;
     private Dictionary<int, System.Action> _attackDictionary = new Dictionary<int, System.Action>();
@@ -35,11 +43,14 @@ public class WeaponManager : MonoBehaviour
     public bool _meleeCanAttack = false;
     public bool _rangedCanAttack = false;
     public bool _engineerCanAttack = false;
+    public bool _boomerangCanAttack = false;
+    public bool _curveSwordCanAttack = true;
 
     private void Awake()
     {
         _attackDictionary.Add(1, BasicSlash);
         _attackDictionary.Add(2, OrbitalWeapon);
+        _attackDictionary.Add(3, CurveSword);
     }
 
     private void Start()
@@ -85,20 +96,40 @@ public class WeaponManager : MonoBehaviour
         if (_orbitalWeaponInCooldown)
         {
             _timeSinceLastOrbitalWeaponAttack += Time.deltaTime;
-            if (_timeSinceLastOrbitalWeaponAttack >= _weaponCooldown)
+            if (_timeSinceLastOrbitalWeaponAttack >= _weaponCooldown && _timeSinceLastOrbitalWeaponAttack >= _orbitalDuration)
             {
                 _orbitalWeaponInCooldown = false;
             }
         }
 
-        if (_rangeAttackInCooldown && _isInCombat)
+        if (_curveSwordInCooldown)
+        {
+            _timeSinceLastCurveSwordAttack += Time.deltaTime;
+            if (_timeSinceLastCurveSwordAttack >= _curveSwordCooldown)
+            {
+                _curveSwordInCooldown = false;
+            }
+        }
+
+        if (_rangedWeaponInCooldown && _isInCombat)
         {
             _timeSinceLastRangeAttack += Time.deltaTime;
             if (_timeSinceLastRangeAttack >= _weaponCooldown && _rangedCanAttack)
             {
-                _rangeAttackInCooldown = false;
+                _rangedWeaponInCooldown = false;
                 playerView.Attack(true);
                 RangeAttack();
+            }
+        }
+
+        if (_boomerangWeaponInCooldown && _isInCombat)
+        {
+            _timeSinceLastBoomerangAttack += Time.deltaTime;
+            if (_timeSinceLastBoomerangAttack >= _weaponCooldown && _boomerangCanAttack)
+            {
+                _boomerangWeaponInCooldown = false;
+                playerView.Attack(true);
+                BoomerangAttack();
             }
         }
     }
@@ -130,7 +161,12 @@ public class WeaponManager : MonoBehaviour
                 Debug.Log("arma no desbloqueada");
                 attackType = 0;
             }
-        }        
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && attackType != 3 && _curveSwordCanAttack)
+        {
+            attackType = 3;
+            Debug.Log("licuadora seleccionada");
+        }
     }
 
     public void UseWeapon()
@@ -140,8 +176,6 @@ public class WeaponManager : MonoBehaviour
             if (_attackDictionary.ContainsKey(attackType))
             {
                 _attackDictionary[attackType]?.Invoke();
-
-                //OnAttack?.Invoke();
             } 
         }
     }
@@ -177,10 +211,26 @@ public class WeaponManager : MonoBehaviour
     {
         orbitalWeapon.SetActive(false);
     }
+
+    private void CurveSword()
+    {
+        if (!_curveSwordInCooldown)
+        {
+            curveSword.SetActive(true);
+            _timeSinceLastCurveSwordAttack = 0f;
+            _curveSwordInCooldown = true;
+            Invoke("DeactivateCurveSword", _curveSwordDuration);
+        }
+    }
+
+    private void DeactivateCurveSword()
+    {
+        curveSword.SetActive(false) ;
+    }
     
     private void RangeAttack()
     {
-        _rangeAttackInCooldown = true;
+        _rangedWeaponInCooldown = true;
         _timeSinceLastRangeAttack = 0f;
 
         // Obtener todos los objetos EnemyController en la escena
@@ -213,4 +263,16 @@ public class WeaponManager : MonoBehaviour
         }
         playerView.Attack(false);
     }
+
+    private void BoomerangAttack()
+    {
+        float angle = transform.localScale.x > 0 ? 0f : 180f;
+        Quaternion rotation = Quaternion.Euler(0, 0, angle);
+        Instantiate(boomerangPrefab, transform.position, rotation);
+
+        _boomerangWeaponInCooldown = true;
+        _timeSinceLastBoomerangAttack = 0f;
+        playerView.Attack(false);
+    }
+
 }

@@ -8,9 +8,10 @@ public class AbilityCooldown : MonoBehaviour
     public enum AttackType
     {
         Slash,
-        BigSlash,
         OrbitalWeapon,
-        Ranged
+        Ranged,
+        Boomerang,
+        CurveSword,
     }
 
     [SerializeField] public Image cooldownImage;
@@ -24,16 +25,19 @@ public class AbilityCooldown : MonoBehaviour
             switch (attackType)
             {
                 case AttackType.Slash:
-                    cooldownImage.fillAmount = weaponManager._timeSinceLastSlashAttack;
+                    cooldownImage.fillAmount = weaponManager._timeSinceLastSlashAttack / weaponManager._weaponCooldown;
                     break;
-                case AttackType.BigSlash:
-                    cooldownImage.fillAmount = weaponManager._timeSinceLastBigSlashAttack
-                        ; break;
                 case AttackType.OrbitalWeapon:
-                    cooldownImage.fillAmount = weaponManager._timeSinceLastOrbitalWeaponAttack
+                    cooldownImage.fillAmount = weaponManager._timeSinceLastOrbitalWeaponAttack / weaponManager._weaponCooldown;
                         ; break;
                 case AttackType.Ranged:
-                    cooldownImage.fillAmount = weaponManager._timeSinceLastRangeAttack;
+                    cooldownImage.fillAmount = weaponManager._timeSinceLastRangeAttack / weaponManager._weaponCooldown;
+                    break;
+                case AttackType.Boomerang:
+                    cooldownImage.fillAmount = weaponManager._timeSinceLastBoomerangAttack/weaponManager._weaponCooldown;
+                    break;
+                case AttackType.CurveSword:
+                    cooldownImage.fillAmount = weaponManager._timeSinceLastCurveSwordAttack/weaponManager._curveSwordCooldown;
                     break;
                 default:
                     break;
