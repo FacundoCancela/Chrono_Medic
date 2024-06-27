@@ -30040,7 +30040,7 @@ PrefabInstance:
       objectReference: {fileID: 613930052}
     - target: {fileID: 4849722879142564297, guid: b8dbe4787b114104aaee3f544e74cd7a, type: 3}
       propertyPath: extraInjectionHeal
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4849722879142564297, guid: b8dbe4787b114104aaee3f544e74cd7a, type: 3}
       propertyPath: extraInjectionLimit

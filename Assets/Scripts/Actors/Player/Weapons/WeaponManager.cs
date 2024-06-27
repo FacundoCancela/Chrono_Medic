@@ -171,7 +171,7 @@ public class WeaponManager : MonoBehaviour
 
     public void UseWeapon()
     {
-        if (Input.GetKeyDown(KeyCode.F) && attackType != 0)
+        if (Input.GetMouseButtonDown(0) && attackType != 0)
         {
             if (_attackDictionary.ContainsKey(attackType))
             {

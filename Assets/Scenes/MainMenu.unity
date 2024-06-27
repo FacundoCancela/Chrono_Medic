@@ -1137,7 +1137,11 @@ MonoBehaviour:
     Select Weapon: 1-3
 
 
-    Attack: F'
+    Attack:  Left Click
+
+
+    Heal:
+    E'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ba63949f77f70a74bb17ad2085f1e9cd, type: 2}
   m_sharedMaterial: {fileID: -2819789022547473093, guid: ba63949f77f70a74bb17ad2085f1e9cd, type: 2}

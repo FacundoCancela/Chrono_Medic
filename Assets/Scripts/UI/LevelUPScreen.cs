@@ -10,23 +10,47 @@ public class LevelUPScreen : MonoBehaviour
     [SerializeField] WeaponManager weaponManager;
     [SerializeField] Button unlockMeleeButton;
     [SerializeField] Button unlockRangedButton;
-    [SerializeField] Button unlockEnineerButton;
+    [SerializeField] Button unlockEngineerButton;
+    [SerializeField] Button unlockBoomerangButton;
+    [SerializeField] Button unlockCurveSwordButton;
     [SerializeField] ClassManager classManager;
+
+    private List<Button> weaponButtons;
+
+    public int weaponUnlockOptions = 3;
+
 
     private void Start()
     {
+        weaponButtons = new List<Button>
+        {
+            unlockMeleeButton,
+            unlockRangedButton,
+            unlockEngineerButton,
+            unlockBoomerangButton,
+            unlockCurveSwordButton,
+        };
+
         switch (ClassManager.currentClass)
         {
             case ClassManager.SelectedClass.Melee:
+                weaponButtons.Remove(unlockMeleeButton);
                 unlockMeleeButton.gameObject.SetActive(false);
                 break;
             case ClassManager.SelectedClass.Ranged:
+                weaponButtons.Remove(unlockRangedButton);
                 unlockRangedButton.gameObject.SetActive(false);
                 break;
             case ClassManager.SelectedClass.Engineer:
-                unlockEnineerButton.gameObject.SetActive(false);
+                weaponButtons.Remove(unlockEngineerButton);
+                unlockEngineerButton.gameObject.SetActive(false);
                 break;
         }
+
+        ShuffleAndDisplayButtons();
+
+
+        
     }
 
     //Weapon upgrade
@@ -60,30 +84,72 @@ public class LevelUPScreen : MonoBehaviour
     public void UnlockOrbital()
     {
         weaponManager._engineerCanAttack = true;
-        ContinueGame();
-        gameObject.SetActive(false);
-        unlockEnineerButton.gameObject.SetActive(false);
+        DeactivateButton(unlockEngineerButton);
     }
 
     public void UnlockMelee()
     {
         weaponManager._meleeCanAttack = true;
-        ContinueGame();
-        gameObject.SetActive(false);
-        unlockMeleeButton.gameObject.SetActive(false);
+        DeactivateButton(unlockMeleeButton);
     }
 
     public void UnlockRanged()
     {
         weaponManager._rangedCanAttack = true;
-        ContinueGame();
-        gameObject.SetActive(false);
-        unlockRangedButton.gameObject.SetActive(false);
+        DeactivateButton(unlockRangedButton);
     }
 
+    public void UnlockBoomerang()
+    {
+        weaponManager._boomerangCanAttack = true;
+        DeactivateButton(unlockBoomerangButton);
+    }
+
+    public void UnlockCurveSword()
+    {
+        weaponManager._curveSwordCanAttack = true;
+        DeactivateButton(unlockCurveSwordButton);
+    }
+
+    public void DeactivateButton(Button button)
+    {
+        ContinueGame();
+        gameObject.SetActive(false);
+        weaponButtons.Remove(button);
+        button.gameObject.SetActive(false);
+        ShuffleAndDisplayButtons();
+    }
+
+
+    //Extra features
     public void ContinueGame()
     {
         pauseManager.canPause = true;
         Time.timeScale = 1.0f;
     }
+
+    private void ShuffleAndDisplayButtons()
+    {
+        foreach (var button in weaponButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < weaponButtons.Count; i++)
+        {
+            Button temp = weaponButtons[i];
+            int randomIndex = Random.Range(i, weaponButtons.Count);
+            weaponButtons[i] = weaponButtons[randomIndex];
+            weaponButtons[randomIndex] = temp;
+        }
+        
+        int buttonsToShow = Mathf.Min(weaponUnlockOptions, weaponButtons.Count);
+
+        for (int i = 0; i < buttonsToShow; i++)
+        {
+            weaponButtons[i].gameObject.SetActive(true);
+        }
+
+    }
+
 }
