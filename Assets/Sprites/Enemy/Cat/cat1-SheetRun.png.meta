@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6dab46d00e427984f865b90f11446e37
+guid: 4586c0a69e0e27c4e83153a9125552de
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 320
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemigo Pesado Egip-Recovered-Sheet_0
+      name: cat1-SheetRun_0
       rect:
         serializedVersion: 2
-        x: 50
-        y: 0
-        width: 750
-        height: 620
+        x: 9
+        y: 16
+        width: 36
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01bfc9fdbace1bc46b51cc94aaa44f0a
-      internalID: 1236197215
+      spriteID: a8d4690f91d8b56429197b7e45fa28fb
+      internalID: -910221763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo Pesado Egip-Recovered-Sheet_1
+      name: cat1-SheetRun_1
       rect:
         serializedVersion: 2
-        x: 1251
-        y: 0
-        width: 727
-        height: 620
+        x: 55
+        y: 16
+        width: 41
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2c7d861e4d76a844ada2894888cfd50
-      internalID: 263700413
+      spriteID: 7dda56193eb09ea4888ebb99327409f5
+      internalID: -105833277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo Pesado Egip-Recovered-Sheet_2
+      name: cat1-SheetRun_2
       rect:
         serializedVersion: 2
-        x: 2511
-        y: 0
-        width: 668
-        height: 620
+        x: 104
+        y: 16
+        width: 40
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0052625d38805ee4ab68fd63a2201a2a
-      internalID: 1523901267
+      spriteID: 4ace6b6c4e7773543b8ba7e99b58a790
+      internalID: 859533662
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo Pesado Egip-Recovered-Sheet_3
+      name: cat1-SheetRun_3
       rect:
         serializedVersion: 2
-        x: 3753
-        y: 0
-        width: 615
-        height: 620
+        x: 149
+        y: 16
+        width: 42
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8369bda89c39b741828d3f39d7666cd
-      internalID: 1584357998
+      spriteID: e0420a6dc61dc2649a0cd3170beac57c
+      internalID: 1876077903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo Pesado Egip-Recovered-Sheet_4
+      name: cat1-SheetRun_4
       rect:
         serializedVersion: 2
-        x: 4855
-        y: 0
-        width: 720
-        height: 620
+        x: 197
+        y: 17
+        width: 41
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f63de982407522f4699fa47a75c8e261
-      internalID: 1102067934
+      spriteID: 9e4ba10bf49dc5d4bb83a53680e0b378
+      internalID: -521231523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo Pesado Egip-Recovered-Sheet_5
+      name: cat1-SheetRun_5
       rect:
         serializedVersion: 2
-        x: 6050
-        y: 0
-        width: 726
-        height: 620
+        x: 245
+        y: 17
+        width: 41
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,92 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31a3bec9915cb9d4492dcd2a55f2d1a7
-      internalID: -980548017
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemigo Pesado Egip-Recovered-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 7345
-        y: 0
-        width: 720
-        height: 620
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b218da5505be72e46882ba4c26df24ec
-      internalID: -841188461
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemigo Pesado Egip-Recovered-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 8540
-        y: 0
-        width: 908
-        height: 620
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef39bd0132fb1b740a487ba1a4c2378a
-      internalID: 924467047
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemigo Pesado Egip-Recovered-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 9653
-        y: 0
-        width: 1125
-        height: 620
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a0712f7b9eb5f743be13243a76a15d9
-      internalID: 1697652768
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemigo Pesado Egip-Recovered-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 10855
-        y: 0
-        width: 1060
-        height: 620
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9e7f9f47bba053a4794cd07d81636cac
-      internalID: 1176832277
+      spriteID: db09a957780a93647ba0b3567b99ba09
+      internalID: -1261930550
       vertices: []
       indices: 
       edges: []
@@ -330,17 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemigo Pesado Egip-Recovered-Sheet_0: 1236197215
-      Enemigo Pesado Egip-Recovered-Sheet_1: 263700413
-      Enemigo Pesado Egip-Recovered-Sheet_10: 1677745666
-      Enemigo Pesado Egip-Recovered-Sheet_2: 1523901267
-      Enemigo Pesado Egip-Recovered-Sheet_3: 1584357998
-      Enemigo Pesado Egip-Recovered-Sheet_4: 1102067934
-      Enemigo Pesado Egip-Recovered-Sheet_5: -980548017
-      Enemigo Pesado Egip-Recovered-Sheet_6: -841188461
-      Enemigo Pesado Egip-Recovered-Sheet_7: 924467047
-      Enemigo Pesado Egip-Recovered-Sheet_8: 1697652768
-      Enemigo Pesado Egip-Recovered-Sheet_9: 1176832277
+      cat1-SheetRun_0: -910221763
+      cat1-SheetRun_1: -105833277
+      cat1-SheetRun_2: 859533662
+      cat1-SheetRun_3: 1876077903
+      cat1-SheetRun_4: -521231523
+      cat1-SheetRun_5: -1261930550
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
