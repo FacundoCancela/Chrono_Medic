@@ -4,9 +4,14 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    public Image healthBar;
+    public Image[] healthPoints;
+
     public Slider slider;
     public TextMeshProUGUI textMeshPro;
 
+
+    public int _health;
     public int maxHealthText;
 
     public void SetMaxHealth(int maxHealth)
@@ -19,7 +24,18 @@ public class HealthBar : MonoBehaviour
 
     public void SetHealth(int health)
     {
-        slider.value = health;
-        textMeshPro.text = "HP" + health + "/" + maxHealthText;
+        _health = health;
+
+        for (int i = 0; i < healthPoints.Length; i++)
+        {
+            healthPoints[i].enabled = !DisplayHealthPoints(_health,i);
+        }
+
+        textMeshPro.text = "HP" + _health + "/" + maxHealthText;
+    }
+
+    bool DisplayHealthPoints(int _health,int pointNumber)
+    {
+        return ((pointNumber * healthPoints.Length) >= _health);
     }
 }

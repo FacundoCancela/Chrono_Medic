@@ -15,13 +15,16 @@ public class Level_Portal : MonoBehaviour
 
     [SerializeField] ClassSelector classSelector;
 
+    Animator animator;
+
     void Start()
     {
+        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (portalUnlocked)
         {
             spriteRenderer.sprite = unlockedPortal;
-
+            animator.SetTrigger("Idle");
         }
 
         if (!portalUnlocked)

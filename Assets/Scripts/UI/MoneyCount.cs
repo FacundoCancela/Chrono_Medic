@@ -10,6 +10,6 @@ public class MoneyCount : MonoBehaviour
 
     private void Update()
     {
-        text.text = ("Money:" + playerStats.money);
+        text.text = ("" + playerStats.money);
     }
 }
