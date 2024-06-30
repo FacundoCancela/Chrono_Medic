@@ -153,20 +153,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: 91da14b5e2e7db44ea9f049a89a4d62d, type: 2}
   playerView: {fileID: 2274487562447567255}
-  playerClassManager: {fileID: 0}
+  playerClassManager: {fileID: 1250715947045751616}
+  boomerang: {fileID: 8517005192338388803, guid: 739d297b2e4b9084ab30ab502ca52461, type: 3}
   _isInCombat: 1
   attackType: 0
   _weaponCooldown: 1
   _timeSinceLastRangeAttack: 0
   _timeSinceLastSlashAttack: 0
-  _timeSinceLastBigSlashAttack: 0
   _timeSinceLastOrbitalWeaponAttack: 0
+  _timeSinceLastBoomerangAttack: 0
+  _timeSinceLastCurveSwordAttack: 0
+  _curveSwordCooldown: 1
   basicSlash: {fileID: 2359169247640644333}
-  orbitalWeapon: {fileID: 2723444329532453748, guid: a04ce469459f944468819a22a149e351, type: 3}
+  orbitalWeapon: {fileID: 0}
   kunaiPrefab: {fileID: 8500496088789214507, guid: 2d5704400104d7546b6b55527ce4fe28, type: 3}
+  boomerangPrefab: {fileID: 3929390940216978768, guid: 739d297b2e4b9084ab30ab502ca52461, type: 3}
+  curveSword: {fileID: 0}
   _meleeCanAttack: 0
   _rangedCanAttack: 0
-  _engineerCanAttack: 0
+  _engineerCanAttack: 1
+  _boomerangCanAttack: 0
+  _curveSwordCanAttack: 1
 --- !u!114 &4495030481155214291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +189,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   playerStats: {fileID: 11400000, guid: 91da14b5e2e7db44ea9f049a89a4d62d, type: 2}
   injectionsText: {fileID: 0}
-  injections: 0
+  injections: 3
 --- !u!50 &7140761966302968119
 Rigidbody2D:
   serializedVersion: 4

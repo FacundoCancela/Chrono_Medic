@@ -35,7 +35,6 @@ public class Inventory : MonoBehaviour
         {
             injections--;
             float healAmount = (playerStats.maxHealth * playerStats.InjectionHeal / 100);
-            Debug.Log(healAmount);
             playerController.GetHealed((int)healAmount);
         }
     }

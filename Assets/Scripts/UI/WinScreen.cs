@@ -18,9 +18,5 @@ public class WinScreen : MonoBehaviour
             Time.timeScale = 0.0f;
             pauseManager.canPause = false;
         }
-        else
-        {
-            Debug.LogError("No se encontró un PauseManager en la escena.");
-        }
     }
 }

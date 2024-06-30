@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,9 +16,13 @@ public class LevelUPScreen : MonoBehaviour
     [SerializeField] Button unlockCurveSwordButton;
     [SerializeField] ClassManager classManager;
 
+    [SerializeField] TextMeshProUGUI maxWeaponsUnlockedText;
+
     private List<Button> weaponButtons;
 
     public int weaponUnlockOptions = 3;
+    public int weaponUnlockCount = 0;
+    public int maxUnlockeableWeapons = 4;
 
 
     private void Start()
@@ -35,22 +40,22 @@ public class LevelUPScreen : MonoBehaviour
         {
             case ClassManager.SelectedClass.Melee:
                 weaponButtons.Remove(unlockMeleeButton);
+                weaponUnlockCount++;
                 unlockMeleeButton.gameObject.SetActive(false);
                 break;
             case ClassManager.SelectedClass.Ranged:
                 weaponButtons.Remove(unlockRangedButton);
+                weaponUnlockCount++;
                 unlockRangedButton.gameObject.SetActive(false);
                 break;
             case ClassManager.SelectedClass.Engineer:
                 weaponButtons.Remove(unlockEngineerButton);
+                weaponUnlockCount++;
                 unlockEngineerButton.gameObject.SetActive(false);
                 break;
         }
 
-        ShuffleAndDisplayButtons();
-
-
-        
+        ShuffleAndDisplayButtons();        
     }
 
     //Weapon upgrade
@@ -117,6 +122,7 @@ public class LevelUPScreen : MonoBehaviour
         gameObject.SetActive(false);
         weaponButtons.Remove(button);
         button.gameObject.SetActive(false);
+        weaponUnlockCount++;
         ShuffleAndDisplayButtons();
     }
 
@@ -145,11 +151,14 @@ public class LevelUPScreen : MonoBehaviour
         
         int buttonsToShow = Mathf.Min(weaponUnlockOptions, weaponButtons.Count);
 
-        for (int i = 0; i < buttonsToShow; i++)
+        if (weaponUnlockCount < maxUnlockeableWeapons)
         {
-            weaponButtons[i].gameObject.SetActive(true);
+            for (int i = 0; i < buttonsToShow; i++)
+            {
+                weaponButtons[i].gameObject.SetActive(true);
+            }
         }
-
+        else maxWeaponsUnlockedText.text = "Max weapons unlocked";
     }
 
 }

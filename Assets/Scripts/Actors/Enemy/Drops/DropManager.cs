@@ -29,7 +29,6 @@ public class DropManager : MonoBehaviour
     {
         if (dropPrefabs.Count != dropWeights.Count)
         {
-            Debug.LogError("DropManager: dropPrefabs and dropWeights lists must have the same number of elements.");
             return;
         }
 

@@ -53,14 +53,6 @@ public class GameDataController : MonoBehaviour
             playerStats.InjectionsLimit = gameData.InjectionsLimit;
             
             player.UpdateStats(playerStats);
-
-            Debug.Log("vida maxima :" + gameData.maxHealth);
-            Debug.Log("daño actual :" + gameData.damageMultiplier);
-            Debug.Log("dinero :" + gameData.money);
-        }
-        else
-        {
-            Debug.Log("el archivo no existe");
         }
     }
 

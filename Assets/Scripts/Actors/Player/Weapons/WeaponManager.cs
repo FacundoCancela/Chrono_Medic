@@ -141,11 +141,9 @@ public class WeaponManager : MonoBehaviour
             if(playerStats.basicSlashUnlocked)
             {
                 attackType = 1;
-                Debug.Log("Slash seleccionado");
             }
             else
             {
-                Debug.Log("arma no desbloqueada");
                 attackType = 0;
             }
         }
@@ -154,18 +152,15 @@ public class WeaponManager : MonoBehaviour
             if(playerStats.orbitalWeaponUnlocked)
             {
                 attackType = 2;
-                Debug.Log("Orbital seleccionado");
             }
             else
             {
-                Debug.Log("arma no desbloqueada");
                 attackType = 0;
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && attackType != 3 && _curveSwordCanAttack)
         {
             attackType = 3;
-            Debug.Log("licuadora seleccionada");
         }
     }
 

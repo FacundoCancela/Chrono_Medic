@@ -157,6 +157,11 @@ public class WaveManager : MonoBehaviour
         }
     }
 
+    public int GetActualWave()
+    {
+        return actualWave;
+    }
+
     public void Win()
     {
         winScreen.gameObject.SetActive(true);
