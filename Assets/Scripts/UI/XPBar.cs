@@ -29,7 +29,7 @@ public class XPBar : MonoBehaviour
 
         for (int i = 0; i < XpPoints.Length; i++)
         {
-            XpPoints[i].enabled = !DisplayXpPoints(_Xp, i);
+            XpPoints[i].enabled = !DisplayXpPoints(_Xp, i); 
         }
 
         textMeshPro.text = "XP" + XP + "/" + maxXPText;
@@ -37,6 +37,6 @@ public class XPBar : MonoBehaviour
 
     bool DisplayXpPoints(int _Xp, int pointNumber)
     {
-        return ((pointNumber * XpPoints.Length) >= _Xp);
+        return ((pointNumber * 6.25) >= _Xp);
     }
 }
