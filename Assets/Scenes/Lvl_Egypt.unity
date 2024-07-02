@@ -59741,6 +59741,10 @@ PrefabInstance:
       propertyPath: injectionsText
       value: 
       objectReference: {fileID: 2031726385}
+    - target: {fileID: 4495030481155214291, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 3691414602440998097}
     - target: {fileID: 4774728957630617895, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
       propertyPath: healthBar
       value: 
@@ -98901,6 +98905,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1934810236}
     m_Modifications:
+    - target: {fileID: 1344083033699009372, guid: d6d7ed1bbd5fba04da72e60bf8b727e5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.17004395
+      objectReference: {fileID: 0}
+    - target: {fileID: 1344083033699009372, guid: d6d7ed1bbd5fba04da72e60bf8b727e5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.23630142
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583773196511072829, guid: d6d7ed1bbd5fba04da72e60bf8b727e5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.2999878
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583773196511072829, guid: d6d7ed1bbd5fba04da72e60bf8b727e5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.16999817
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453648890540966331, guid: d6d7ed1bbd5fba04da72e60bf8b727e5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.17001343
+      objectReference: {fileID: 0}
     - target: {fileID: 5313179956373114654, guid: d6d7ed1bbd5fba04da72e60bf8b727e5, type: 3}
       propertyPath: m_Name
       value: XPBarCheta
@@ -98913,6 +98937,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 316.40527
       objectReference: {fileID: 0}
+    - target: {fileID: 6654206499700997762, guid: d6d7ed1bbd5fba04da72e60bf8b727e5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.16999817
+      objectReference: {fileID: 0}
     - target: {fileID: 6883635618303783518, guid: d6d7ed1bbd5fba04da72e60bf8b727e5, type: 3}
       propertyPath: m_text
       value: 'XP: 200/200'
@@ -98920,6 +98948,10 @@ PrefabInstance:
     - target: {fileID: 6883635618303783518, guid: d6d7ed1bbd5fba04da72e60bf8b727e5, type: 3}
       propertyPath: m_margin.z
       value: -0.000061035156
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775260760576724744, guid: d6d7ed1bbd5fba04da72e60bf8b727e5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.30000305
       objectReference: {fileID: 0}
     - target: {fileID: 7873714618591556922, guid: d6d7ed1bbd5fba04da72e60bf8b727e5, type: 3}
       propertyPath: m_Pivot.x
@@ -99000,6 +99032,10 @@ PrefabInstance:
     - target: {fileID: 7873714618591556922, guid: d6d7ed1bbd5fba04da72e60bf8b727e5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465556782322337286, guid: d6d7ed1bbd5fba04da72e60bf8b727e5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.16635132
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -99931,6 +99967,10 @@ PrefabInstance:
       propertyPath: abilitySprites.Array.data[3]
       value: 
       objectReference: {fileID: 1045664538, guid: c4744af7bceff584187ee13d15e206da, type: 3}
+    - target: {fileID: 5646836244170204071, guid: a540ad55c72c43f44af1ef5421c1bdac, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.35379028
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
