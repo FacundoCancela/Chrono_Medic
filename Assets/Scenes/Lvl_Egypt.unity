@@ -99911,6 +99911,18 @@ PrefabInstance:
       propertyPath: weaponManager
       value: 
       objectReference: {fileID: 1024138184950151252}
+    - target: {fileID: 2689669457866398710, guid: a540ad55c72c43f44af1ef5421c1bdac, type: 3}
+      propertyPath: abilitySprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 133885453, guid: e6837e59fc81571418f4081e4fb6dd3b, type: 3}
+    - target: {fileID: 2689669457866398710, guid: a540ad55c72c43f44af1ef5421c1bdac, type: 3}
+      propertyPath: abilitySprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 779047937, guid: cfc4826db04d559439ea6c03d5e9be74, type: 3}
+    - target: {fileID: 2689669457866398710, guid: a540ad55c72c43f44af1ef5421c1bdac, type: 3}
+      propertyPath: abilitySprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 1045664538, guid: c4744af7bceff584187ee13d15e206da, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
