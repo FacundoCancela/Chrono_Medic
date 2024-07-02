@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;    
+using System.IO;
+using Newtonsoft.Json;
+
 
 public class GameDataController : MonoBehaviour
 {
@@ -40,14 +42,11 @@ public class GameDataController : MonoBehaviour
         if(File.Exists(savedFile))
         {
             string data = File.ReadAllText(savedFile);
-            gameData = JsonUtility.FromJson<GameData>(data);
+            gameData = JsonConvert.DeserializeObject<GameData>(data);
 
             playerStats.maxHealth = gameData.maxHealth;
             playerStats.damageMultiplier = gameData.damageMultiplier;
             playerStats.money = gameData.money;
-            playerStats.basicSlashUnlocked = gameData.basicSlashUnlocked;
-            playerStats.bigSlashUnlocked = gameData.bigSlashUnlocked;
-            playerStats.orbitalWeaponUnlocked = gameData.orbitalWeaponUnlocked;
             playerStats.upgradeCost = gameData.upgradeCost;
             playerStats.InjectionHeal = gameData.InjectionHeal;
             playerStats.InjectionsLimit = gameData.InjectionsLimit;
@@ -63,18 +62,14 @@ public class GameDataController : MonoBehaviour
             maxHealth = playerStats.maxHealth,
             damageMultiplier = playerStats.damageMultiplier,
             money = playerStats.money,
-            basicSlashUnlocked = playerStats.basicSlashUnlocked,
-            bigSlashUnlocked = playerStats.bigSlashUnlocked,
-            orbitalWeaponUnlocked = playerStats.orbitalWeaponUnlocked,
             upgradeCost = playerStats.upgradeCost,
             InjectionHeal = playerStats.InjectionHeal,
             InjectionsLimit = playerStats.InjectionsLimit,
             
         };
 
-        string JSONstring = JsonUtility.ToJson(newData);
-
-        File.WriteAllText(savedFile, JSONstring);
+        string jsonString = JsonConvert.SerializeObject(newData, Formatting.Indented);
+        File.WriteAllText(savedFile, jsonString);
 
     }
 
@@ -169,42 +164,4 @@ public class GameDataController : MonoBehaviour
         SaveData();
         
     }
-
-    public void UnlockBasicSlash(int shopPrice)
-    {
-        if (playerStats.money >= shopPrice && !playerStats.basicSlashUnlocked)
-        {
-            DecreaseMoney(shopPrice);
-            playerStats.basicSlashUnlocked = true;
-            player.UpdateStats(playerStats);
-            SaveData();
-        }
-        else if (playerStats.basicSlashUnlocked) Debug.Log("arma ya obtenida");
-        else Debug.Log("te falta plata");
-    }
-    public void UnlockBigSlash(int shopPrice)
-    {
-        if (playerStats.money >= shopPrice && !playerStats.bigSlashUnlocked)
-        {
-            DecreaseMoney(shopPrice);
-            playerStats.bigSlashUnlocked = true;
-            player.UpdateStats(playerStats);
-            SaveData();
-        }
-        else if (playerStats.bigSlashUnlocked) Debug.Log("arma ya obtenida");
-        else Debug.Log("te falta plata");
-    }
-    public void UnlockOrbitalWeapon(int shopPrice)
-    {
-        if (playerStats.money >= shopPrice && !playerStats.orbitalWeaponUnlocked)
-        {
-            DecreaseMoney(shopPrice);
-            playerStats.orbitalWeaponUnlocked = true;
-            player.UpdateStats(playerStats);
-            SaveData();
-        }
-        else if (playerStats.orbitalWeaponUnlocked) Debug.Log("arma ya obtenida");
-        else Debug.Log("te falta plata");
-    }
-
 }

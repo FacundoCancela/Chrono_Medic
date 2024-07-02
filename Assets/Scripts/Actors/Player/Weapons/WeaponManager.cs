@@ -8,22 +8,18 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] public PlayerStats playerStats;
     [SerializeField] public PlayerView playerView;
     [SerializeField] public ClassManager playerClassManager;
+    [SerializeField] public ExperienceManager experienceManager;
     [SerializeField] public Boomerang boomerang;
 
     public bool _isInCombat = false;
-    public int attackType = 0;
-    public float _weaponCooldown = 1f;
+    public int attackType = 0;    
     
     public float _timeSinceLastRangeAttack = 0f;
     public float _timeSinceLastSlashAttack = 0f;
     public float _timeSinceLastOrbitalWeaponAttack = 0f;
     public float _timeSinceLastBoomerangAttack = 0f;
     public float _timeSinceLastCurveSwordAttack = 0f;
-
     float _swordSlashDuration = 0.1f;
-    float _orbitalDuration = 5f;
-    float _curveSwordDuration = 4f;
-    public float _curveSwordCooldown = 30f;
 
     bool _rangedWeaponInCooldown = true;
     bool _slashAttackInCooldown = true;
@@ -44,7 +40,7 @@ public class WeaponManager : MonoBehaviour
     public bool _rangedCanAttack = false;
     public bool _engineerCanAttack = false;
     public bool _boomerangCanAttack = false;
-    public bool _curveSwordCanAttack = true;
+    public bool _curveSwordCanAttack = false;
 
     private void Awake()
     {
@@ -84,79 +80,70 @@ public class WeaponManager : MonoBehaviour
     public void WeaponCooldown()
     {
         // Si no estamos atacando, actualizar el tiempo desde el último ataque
-        if (_slashAttackInCooldown)
+        if(experienceManager != null)
         {
-            _timeSinceLastSlashAttack += Time.deltaTime;
-            if (_timeSinceLastSlashAttack >= _weaponCooldown)
+            if (_slashAttackInCooldown)
             {
-                _slashAttackInCooldown = false;
+                _timeSinceLastSlashAttack += Time.deltaTime;
+                if (_timeSinceLastSlashAttack >= experienceManager._meleeCooldown)
+                {
+                    _slashAttackInCooldown = false;
+                }
+            }
+
+            if (_orbitalWeaponInCooldown)
+            {
+                _timeSinceLastOrbitalWeaponAttack += Time.deltaTime;
+                if (_timeSinceLastOrbitalWeaponAttack >= experienceManager._orbitalCooldown && _timeSinceLastOrbitalWeaponAttack >= experienceManager._orbitalDuration)
+                {
+                    _orbitalWeaponInCooldown = false;
+                }
+            }
+
+            if (_curveSwordInCooldown)
+            {
+                _timeSinceLastCurveSwordAttack += Time.deltaTime;
+                if (_timeSinceLastCurveSwordAttack >= experienceManager._curveSwordCooldown && _timeSinceLastCurveSwordAttack >= experienceManager._curveSwordDuration)
+                {
+                    _curveSwordInCooldown = false;
+                }
+            }
+
+            if (_rangedWeaponInCooldown && _isInCombat)
+            {
+                _timeSinceLastRangeAttack += Time.deltaTime;
+                if (_timeSinceLastRangeAttack >= experienceManager._rangedCooldown && _rangedCanAttack)
+                {
+                    _rangedWeaponInCooldown = false;
+                    playerView.Attack(true);
+                    RangeAttack();
+                }
+            }
+
+            if (_boomerangWeaponInCooldown && _isInCombat)
+            {
+                _timeSinceLastBoomerangAttack += Time.deltaTime;
+                if (_timeSinceLastBoomerangAttack >= experienceManager._boomerangCooldown && _boomerangCanAttack)
+                {
+                    _boomerangWeaponInCooldown = false;
+                    playerView.Attack(true);
+                    BoomerangAttack();
+                }
             }
         }
 
-        if (_orbitalWeaponInCooldown)
-        {
-            _timeSinceLastOrbitalWeaponAttack += Time.deltaTime;
-            if (_timeSinceLastOrbitalWeaponAttack >= _weaponCooldown && _timeSinceLastOrbitalWeaponAttack >= _orbitalDuration)
-            {
-                _orbitalWeaponInCooldown = false;
-            }
-        }
-
-        if (_curveSwordInCooldown)
-        {
-            _timeSinceLastCurveSwordAttack += Time.deltaTime;
-            if (_timeSinceLastCurveSwordAttack >= _curveSwordCooldown)
-            {
-                _curveSwordInCooldown = false;
-            }
-        }
-
-        if (_rangedWeaponInCooldown && _isInCombat)
-        {
-            _timeSinceLastRangeAttack += Time.deltaTime;
-            if (_timeSinceLastRangeAttack >= _weaponCooldown && _rangedCanAttack)
-            {
-                _rangedWeaponInCooldown = false;
-                playerView.Attack(true);
-                RangeAttack();
-            }
-        }
-
-        if (_boomerangWeaponInCooldown && _isInCombat)
-        {
-            _timeSinceLastBoomerangAttack += Time.deltaTime;
-            if (_timeSinceLastBoomerangAttack >= _weaponCooldown && _boomerangCanAttack)
-            {
-                _boomerangWeaponInCooldown = false;
-                playerView.Attack(true);
-                BoomerangAttack();
-            }
-        }
+        
     }
 
     public void WeaponSelector()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && attackType != 1 && _meleeCanAttack)
         {
-            if(playerStats.basicSlashUnlocked)
-            {
-                attackType = 1;
-            }
-            else
-            {
-                attackType = 0;
-            }
+               attackType = 1;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && attackType != 2 && _engineerCanAttack)
         {
-            if(playerStats.orbitalWeaponUnlocked)
-            {
-                attackType = 2;
-            }
-            else
-            {
-                attackType = 0;
-            }
+            attackType = 2;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && attackType != 3 && _curveSwordCanAttack)
         {
@@ -198,7 +185,7 @@ public class WeaponManager : MonoBehaviour
             orbitalWeapon.SetActive(true);
             _timeSinceLastOrbitalWeaponAttack = 0f;
             _orbitalWeaponInCooldown = true;
-            Invoke("DeactivateOrbitalWeapon", _orbitalDuration);
+            Invoke("DeactivateOrbitalWeapon", experienceManager._orbitalDuration);
         }        
     }
 
@@ -214,7 +201,7 @@ public class WeaponManager : MonoBehaviour
             curveSword.SetActive(true);
             _timeSinceLastCurveSwordAttack = 0f;
             _curveSwordInCooldown = true;
-            Invoke("DeactivateCurveSword", _curveSwordDuration);
+            Invoke("DeactivateCurveSword", experienceManager._curveSwordDuration);
         }
     }
 

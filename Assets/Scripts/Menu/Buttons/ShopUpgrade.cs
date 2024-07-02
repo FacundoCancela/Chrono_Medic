@@ -10,10 +10,6 @@ public class ShopUpgrade : MonoBehaviour
     [SerializeField] public int extraInjectionHeal;
 
 
-    [SerializeField] public int basicSlashPrice;
-    [SerializeField] public int bigSlashPrice;
-    [SerializeField] public int orbitalWeaponPrice;
-
     public void addHealth()
     {
         dataController.IncreaseHealth(extraHealthPerLevel);
@@ -28,20 +24,4 @@ public class ShopUpgrade : MonoBehaviour
     {
         dataController.IncreaseInjectionHeal(extraInjectionHeal);
     }
-
-    public void unlockBasicSlash()
-    {
-        dataController.UnlockBasicSlash(basicSlashPrice);
-    }
-
-    public void unlockBigSlash()
-    {
-        dataController.UnlockBigSlash(bigSlashPrice);
-    }
-
-    public void unlockCircleSlash()
-    {
-        dataController.UnlockOrbitalWeapon(orbitalWeaponPrice);
-    }
-
 }

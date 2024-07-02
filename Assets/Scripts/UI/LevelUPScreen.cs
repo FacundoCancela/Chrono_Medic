@@ -9,16 +9,26 @@ public class LevelUPScreen : MonoBehaviour
     [SerializeField] ExperienceManager experienceManager;
     [SerializeField] PauseManager pauseManager;
     [SerializeField] WeaponManager weaponManager;
+
+    [SerializeField] ClassManager classManager;
+
+    //Unlock Weapon Buttons
     [SerializeField] Button unlockMeleeButton;
     [SerializeField] Button unlockRangedButton;
     [SerializeField] Button unlockEngineerButton;
     [SerializeField] Button unlockBoomerangButton;
     [SerializeField] Button unlockCurveSwordButton;
-    [SerializeField] ClassManager classManager;
 
-    [SerializeField] TextMeshProUGUI maxWeaponsUnlockedText;
+    //Upgrade Weapon Buttons
+    [SerializeField] Button upgradeMeleeButton;
+    [SerializeField] Button upgradeRangedButton;
+    [SerializeField] Button upgradeEngineerButton;
+    [SerializeField] Button upgradeBoomerangButton;
+    [SerializeField] Button upgradeCurveSwordButton;
 
-    private List<Button> weaponButtons;
+    private List<Button> unlockButtons;
+    private List<Button> upgradeButtons;
+    private List<Button> availableButtons;
 
     public int weaponUnlockOptions = 3;
     public int weaponUnlockCount = 0;
@@ -27,7 +37,7 @@ public class LevelUPScreen : MonoBehaviour
 
     private void Start()
     {
-        weaponButtons = new List<Button>
+        unlockButtons = new List<Button>
         {
             unlockMeleeButton,
             unlockRangedButton,
@@ -36,51 +46,88 @@ public class LevelUPScreen : MonoBehaviour
             unlockCurveSwordButton,
         };
 
+        upgradeButtons = new List<Button>
+        {
+           upgradeMeleeButton,
+           upgradeRangedButton,
+           upgradeEngineerButton,
+           upgradeBoomerangButton,
+           upgradeCurveSwordButton,
+        };
+
+        foreach (var button in upgradeButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
+
+        foreach (var button in unlockButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
+
         switch (ClassManager.currentClass)
         {
             case ClassManager.SelectedClass.Melee:
-                weaponButtons.Remove(unlockMeleeButton);
+                unlockButtons.Remove(unlockMeleeButton);
                 weaponUnlockCount++;
                 unlockMeleeButton.gameObject.SetActive(false);
                 break;
             case ClassManager.SelectedClass.Ranged:
-                weaponButtons.Remove(unlockRangedButton);
+                unlockButtons.Remove(unlockRangedButton);
                 weaponUnlockCount++;
                 unlockRangedButton.gameObject.SetActive(false);
                 break;
             case ClassManager.SelectedClass.Engineer:
-                weaponButtons.Remove(unlockEngineerButton);
+                unlockButtons.Remove(unlockEngineerButton);
                 weaponUnlockCount++;
                 unlockEngineerButton.gameObject.SetActive(false);
                 break;
         }
+
+        availableButtons = new List<Button>(unlockButtons);
 
         ShuffleAndDisplayButtons();        
     }
 
     //Weapon upgrade
 
-    public void MeleeDamage()
+    public void MeleeLevel()
     {
-        experienceManager.MeleeDamage();
+        experienceManager.MeleeLevelUp();
         ContinueGame();
         gameObject.SetActive(false);
         
     }
 
-    public void RangedDamage()
+    public void RangedLevel()
     {
-        experienceManager.RangedDamage();
+        experienceManager.RangedLevelUp();
         ContinueGame();
         gameObject.SetActive(false);
     }
 
-    public void OrbitalDamage()
+    public void EngineerLevel()
     {
-        experienceManager.OrbitalDamage();
+        experienceManager.EngineerLevelUp();
         ContinueGame();
         gameObject.SetActive(false);
         
+    }
+
+    public void BoomerangLevel()
+    {
+        experienceManager.BoomerangLevelUp();
+        ContinueGame();
+        gameObject.SetActive(false);
+
+    }
+
+    public void CurveSwordLevel()
+    {
+        experienceManager.CurveSwordLevelUp();
+        ContinueGame();
+        gameObject.SetActive(false);
+
     }
 
     //Weapon unlock
@@ -88,40 +135,46 @@ public class LevelUPScreen : MonoBehaviour
 
     public void UnlockOrbital()
     {
+        experienceManager.EngineerLevelUp();
         weaponManager._engineerCanAttack = true;
-        DeactivateButton(unlockEngineerButton);
+        AlternateButton(unlockEngineerButton, upgradeEngineerButton);
     }
 
     public void UnlockMelee()
     {
+        experienceManager.MeleeLevelUp();
         weaponManager._meleeCanAttack = true;
-        DeactivateButton(unlockMeleeButton);
+        AlternateButton(unlockMeleeButton, upgradeMeleeButton);
     }
 
     public void UnlockRanged()
     {
+        experienceManager.RangedLevelUp();
         weaponManager._rangedCanAttack = true;
-        DeactivateButton(unlockRangedButton);
+        AlternateButton(unlockRangedButton, upgradeRangedButton);
     }
 
     public void UnlockBoomerang()
     {
+        experienceManager.BoomerangLevelUp();   
         weaponManager._boomerangCanAttack = true;
-        DeactivateButton(unlockBoomerangButton);
+        AlternateButton(unlockBoomerangButton, upgradeBoomerangButton);
     }
 
     public void UnlockCurveSword()
     {
+        experienceManager.CurveSwordLevelUp();
         weaponManager._curveSwordCanAttack = true;
-        DeactivateButton(unlockCurveSwordButton);
+        AlternateButton(unlockCurveSwordButton, upgradeCurveSwordButton);
     }
 
-    public void DeactivateButton(Button button)
+    public void AlternateButton(Button unlockButton, Button upgradeButton)
     {
         ContinueGame();
         gameObject.SetActive(false);
-        weaponButtons.Remove(button);
-        button.gameObject.SetActive(false);
+        availableButtons.Remove(unlockButton);
+        availableButtons.Add(upgradeButton);
+        unlockButton.gameObject.SetActive(false);
         weaponUnlockCount++;
         ShuffleAndDisplayButtons();
     }
@@ -136,29 +189,30 @@ public class LevelUPScreen : MonoBehaviour
 
     private void ShuffleAndDisplayButtons()
     {
-        foreach (var button in weaponButtons)
+        foreach (var button in availableButtons)
         {
             button.gameObject.SetActive(false);
         }
 
-        for (int i = 0; i < weaponButtons.Count; i++)
+        if (weaponUnlockCount >= maxUnlockeableWeapons)
         {
-            Button temp = weaponButtons[i];
-            int randomIndex = Random.Range(i, weaponButtons.Count);
-            weaponButtons[i] = weaponButtons[randomIndex];
-            weaponButtons[randomIndex] = temp;
+            availableButtons.RemoveAll(button => unlockButtons.Contains(button));
         }
-        
-        int buttonsToShow = Mathf.Min(weaponUnlockOptions, weaponButtons.Count);
 
-        if (weaponUnlockCount < maxUnlockeableWeapons)
+        for (int i = 0; i < availableButtons.Count; i++)
         {
-            for (int i = 0; i < buttonsToShow; i++)
-            {
-                weaponButtons[i].gameObject.SetActive(true);
-            }
+            Button temp = availableButtons[i];
+            int randomIndex = Random.Range(i, availableButtons.Count);
+            availableButtons[i] = availableButtons[randomIndex];
+            availableButtons[randomIndex] = temp;
         }
-        else maxWeaponsUnlockedText.text = "Max weapons unlocked";
+
+        int buttonsToShow = Mathf.Min(weaponUnlockOptions, availableButtons.Count);
+
+        for (int i = 0; i < buttonsToShow; i++)
+        {
+            availableButtons[i].gameObject.SetActive(true);
+        }
     }
 
 }

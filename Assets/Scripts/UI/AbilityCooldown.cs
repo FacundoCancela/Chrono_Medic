@@ -22,26 +22,26 @@ public class AbilityCooldown : MonoBehaviour
     {
         if (weaponManager._isInCombat)
         {
-            switch (attackType)
-            {
-                case AttackType.Slash:
-                    cooldownImage.fillAmount = weaponManager._timeSinceLastSlashAttack / weaponManager._weaponCooldown;
-                    break;
-                case AttackType.OrbitalWeapon:
-                    cooldownImage.fillAmount = weaponManager._timeSinceLastOrbitalWeaponAttack / weaponManager._weaponCooldown;
-                        ; break;
-                case AttackType.Ranged:
-                    cooldownImage.fillAmount = weaponManager._timeSinceLastRangeAttack / weaponManager._weaponCooldown;
-                    break;
-                case AttackType.Boomerang:
-                    cooldownImage.fillAmount = weaponManager._timeSinceLastBoomerangAttack/weaponManager._weaponCooldown;
-                    break;
-                case AttackType.CurveSword:
-                    cooldownImage.fillAmount = weaponManager._timeSinceLastCurveSwordAttack/weaponManager._curveSwordCooldown;
-                    break;
-                default:
-                    break;
-            }
+            //switch (attackType)
+            //{
+            //    case AttackType.Slash:
+            //        cooldownImage.fillAmount = weaponManager._timeSinceLastSlashAttack / weaponManager._meleeCooldown;
+            //        break;
+            //    case AttackType.OrbitalWeapon:
+            //        cooldownImage.fillAmount = weaponManager._timeSinceLastOrbitalWeaponAttack / weaponManager._meleeCooldown;
+            //            ; break;
+            //    case AttackType.Ranged:
+            //        cooldownImage.fillAmount = weaponManager._timeSinceLastRangeAttack / weaponManager._meleeCooldown;
+            //        break;
+            //    case AttackType.Boomerang:
+            //        cooldownImage.fillAmount = weaponManager._timeSinceLastBoomerangAttack/weaponManager._meleeCooldown;
+            //        break;
+            //    case AttackType.CurveSword:
+            //        cooldownImage.fillAmount = weaponManager._timeSinceLastCurveSwordAttack/weaponManager._curveSwordCooldown;
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
     }
 }

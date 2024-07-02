@@ -1,1 +1,12 @@
-{"maxHealth":50,"damageMultiplier":10,"money":6120,"movementSpeed":0,"actualLevel":0,"attackSpeed":0.0,"attackRange":0.0,"swordDamage":0,"projectileDamage":0,"orbitDamage":0,"orbitalSpeed":0,"basicSlashUnlocked":true,"bigSlashUnlocked":true,"orbitalWeaponUnlocked":true,"upgradeCost":50,"InjectionHeal":15,"InjectionsLimit":5}
+{
+  "maxHealth": 100,
+  "damageMultiplier": 10,
+  "money": 8980,
+  "movementSpeed": 0,
+  "actualLevel": 0,
+  "attackSpeed": 0.0,
+  "attackRange": 0.0,
+  "upgradeCost": 50,
+  "InjectionHeal": 15,
+  "InjectionsLimit": 5
+}

@@ -7,12 +7,16 @@ public class CurveSword : MonoBehaviour
     [SerializeField] public PlayerStats playerStats;
     [SerializeField] public Transform playerController;
     [SerializeField] public Transform weapon;
+    private ExperienceManager experienceManager;
 
-    public float spinSpeed;
+    private void Awake()
+    {
+        experienceManager = FindAnyObjectByType<ExperienceManager>();
+    }
 
     public void Update()
     {
-        weapon.RotateAround(playerController.position, new Vector3(0, 0, -1), spinSpeed * Time.deltaTime);
+        weapon.RotateAround(playerController.position, new Vector3(0, 0, -1), experienceManager.curveSwordSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,7 +27,7 @@ public class CurveSword : MonoBehaviour
             ExperienceManager experienceManager = FindAnyObjectByType<ExperienceManager>();
             if (enemyController != null)
             {
-                enemyController.GetDamaged(playerStats.orbitalDamage * playerStats.damageMultiplier * experienceManager.extraOrbitalDamage);
+                enemyController.GetDamaged(playerStats.damageMultiplier * experienceManager.extraCurveSwordDamage);
             }
         }
     }

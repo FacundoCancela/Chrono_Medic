@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
             ExperienceManager experienceManager = FindAnyObjectByType<ExperienceManager>();
             if (enemyController != null)
             {
-                enemyController.GetDamaged(playerStats.projectileDamage * playerStats.damageMultiplier * experienceManager.extraRangedDamage);
+                enemyController.GetDamaged(playerStats.damageMultiplier * experienceManager.extraRangedDamage);
                 Destroy(gameObject);
             }
         }

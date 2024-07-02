@@ -14,7 +14,7 @@ public class Sword : MonoBehaviour
             ExperienceManager experienceManager = FindAnyObjectByType<ExperienceManager>();
             if (enemyController != null)
             {
-                enemyController.GetDamaged(playerStats.swordDamage * playerStats.damageMultiplier * experienceManager.extraMeleeDamage);
+                enemyController.GetDamaged(playerStats.damageMultiplier * experienceManager.extraMeleeDamage);
             }
         }
     }

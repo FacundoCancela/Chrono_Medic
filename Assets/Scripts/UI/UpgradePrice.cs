@@ -8,9 +8,6 @@ public class UpgradePrice : MonoBehaviour
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI InjectionHealText;
     public TextMeshProUGUI InjectionLimitText;
-    public TextMeshProUGUI BasicSlashText;
-    public TextMeshProUGUI BigSlashText;
-    public TextMeshProUGUI circleSlashText;
     [SerializeField] ShopUpgrade shopUpgrade;
     [SerializeField] PlayerStats playerStats;
 
@@ -19,9 +16,6 @@ public class UpgradePrice : MonoBehaviour
         HealthPrice();
         InjectionHealPrice();
         InjectionLimitPrice();
-        BasicSlashUnlocked();
-        BigSlashUnlocked();
-        OrbitalWeaponUnlocked();
     }
 
     public void HealthPrice()
@@ -59,33 +53,4 @@ public class UpgradePrice : MonoBehaviour
             InjectionLimitText.text = ("$" + playerStats.upgradeCost + "/+" + shopUpgrade.extraInjectionLimit);
         }
     }
-
-    public void BasicSlashUnlocked()
-    {
-        if (playerStats.basicSlashUnlocked)
-        {
-            BasicSlashText.text = ("Unlocked");
-        }
-        else BasicSlashText.text = ("$:" + shopUpgrade.basicSlashPrice);
-    }
-
-    public void BigSlashUnlocked()
-    {
-        if (playerStats.bigSlashUnlocked)
-        {
-            BigSlashText.text = ("Unlocked");
-        }
-        else BigSlashText.text = ("$:" + shopUpgrade.bigSlashPrice);
-    }
-
-    public void OrbitalWeaponUnlocked()
-    {
-        if (playerStats.orbitalWeaponUnlocked)
-        {
-            circleSlashText.text = ("Unlocked");
-        }
-        else circleSlashText.text = ("$:" + shopUpgrade.orbitalWeaponPrice);
-    }
-
-
 }
