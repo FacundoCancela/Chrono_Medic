@@ -50,7 +50,7 @@ public class EgyptInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && hasBeenActivated)
         {
             EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
             if (enemyController != null)
