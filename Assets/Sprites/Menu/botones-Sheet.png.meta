@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5d0f57cf3cd6b284c9878103999da14b
+guid: fb744e016b76403469f6365408cdadfe
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,19 +81,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -123,127 +110,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Secondary_Menu_Exit_0
+      name: button_Play
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        x: 50
+        y: 49
+        width: 17
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54db063e019dc314b9aae9fe274fff4f
-      internalID: 1653451900
+      spriteID: af23dcee094b1ed468e2eb548a09ef32
+      internalID: -61261660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Secondary_Menu_Exit_1
+      name: button_Play_Highlight
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 0
-        width: 1920
-        height: 1080
+        x: 242
+        y: 49
+        width: 17
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10efcb48276e3714892691fd96b81e1f
-      internalID: 1109857542
+      spriteID: ca6d472d66a44db48aa287a8c24fae5f
+      internalID: -1860142498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Secondary_Menu_Exit_2
+      name: button_Controls
       rect:
         serializedVersion: 2
-        x: 3840
-        y: 0
-        width: 1920
-        height: 1080
+        x: 51
+        y: 34
+        width: 24
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70b26cc90faba004e9f65358e3a47b94
-      internalID: 1428181955
+      spriteID: 05cc3488e4d1df8428e42c1ace1e10c1
+      internalID: 1208022168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Secondary_Menu_Exit_3
+      name: button_Controls_Highlight
       rect:
         serializedVersion: 2
-        x: 5760
-        y: 0
-        width: 1920
-        height: 1080
+        x: 243
+        y: 34
+        width: 24
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca971d2e6a6852944aa31f4b5666ac5b
-      internalID: -951140837
+      spriteID: 58bf7816ca2b08e429235db62c73023d
+      internalID: 1223052829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Secondary_Menu_Exit_4
+      name: button_Credits
       rect:
         serializedVersion: 2
-        x: 7680
-        y: 0
-        width: 1920
-        height: 1080
+        x: 55
+        y: 20
+        width: 30
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 463f83d4c0fe2e3479142badc279fd74
-      internalID: -34769585
+      spriteID: 9587f7304fe421e40a44d3d0a34bf678
+      internalID: -1953830461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Secondary_Menu_Exit_5
+      name: button_Exit
       rect:
         serializedVersion: 2
-        x: 9600
-        y: 0
-        width: 1920
-        height: 1080
+        x: 123
+        y: 18
+        width: 13
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b36fe490c67588c4ebee5e627bd096bc
-      internalID: 828726530
+      spriteID: a53a624ccace1264890514162b0a2ea6
+      internalID: -1100209132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button_Credits_Highlight
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 20
+        width: 30
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07807065b42b51243afcc0ac4198389b
+      internalID: 1385954808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button_Exit_Highlight
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 18
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45aad602bbcac024185b445a9774451f
+      internalID: -1258438093
       vertices: []
       indices: 
       edges: []
@@ -259,12 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Secondary_Menu_Exit_0: 1653451900
-      Secondary_Menu_Exit_1: 1109857542
-      Secondary_Menu_Exit_2: 1428181955
-      Secondary_Menu_Exit_3: -951140837
-      Secondary_Menu_Exit_4: -34769585
-      Secondary_Menu_Exit_5: 828726530
+      button_Controls: -61261660
+      button_Controls_Highlight: 1223052829
+      button_Credits: 1208022168
+      button_Credits_Highlight: -1953830461
+      button_Exit: -1258438093
+      button_Exit_Highlight: 1385954808
+      button_Play: -1860142498
+      button_Play_Highlight: -1860142498
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
