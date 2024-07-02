@@ -19,7 +19,7 @@ public class SceneChanger : MonoBehaviour
     public void CambiarEscenaDefault()
     {
         // Cambiar a la escena especificada
-        if(gameManager.exitMainMenu != null)
+        if(gameManager != null)
             gameManager.exitMainMenu.SetActive(true);
 
         SceneManager.LoadScene(nombreEscenaAJugar);
