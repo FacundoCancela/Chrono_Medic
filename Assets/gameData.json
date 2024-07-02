@@ -1,7 +1,7 @@
 {
-  "maxHealth": 200,
-  "damageMultiplier": 10,
-  "money": 9630,
+  "maxHealth": 50,
+  "damageMultiplier": 1,
+  "money": 20,
   "movementSpeed": 0,
   "actualLevel": 0,
   "attackSpeed": 0.0,
