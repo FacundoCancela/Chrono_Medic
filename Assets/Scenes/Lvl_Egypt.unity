@@ -59802,11 +59802,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 626378050}
     - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
+      propertyPath: boomerangPrefab
+      value: 
+      objectReference: {fileID: 3929390940216978768, guid: 739d297b2e4b9084ab30ab502ca52461, type: 3}
+    - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
       propertyPath: experienceManager
       value: 
       objectReference: {fileID: 1261455809}
     - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
       propertyPath: _engineerCanAttack
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
+      propertyPath: _boomerangCanAttack
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
