@@ -166,6 +166,7 @@ public class WeaponManager : MonoBehaviour
     {
         if(!_slashAttackInCooldown)
         {
+            playerView.anim.SetTrigger("AttackMelee");
             basicSlash.SetActive(true);
             _timeSinceLastSlashAttack = 0f;
             _slashAttackInCooldown = true;
