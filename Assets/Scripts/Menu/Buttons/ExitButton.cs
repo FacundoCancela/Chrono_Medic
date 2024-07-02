@@ -12,6 +12,8 @@ public class ExitButton : MonoBehaviour
         EditorApplication.isPlaying = false;
 #else
         // Salir de la aplicación
+        if(gameManager.exitMainMenu != null)
+            gameManager.exitMainMenu.SetActive(true);
         Application.Quit();
 #endif
     }
