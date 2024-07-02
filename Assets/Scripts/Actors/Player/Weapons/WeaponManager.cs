@@ -67,12 +67,15 @@ public class WeaponManager : MonoBehaviour
         {
             case ClassManager.SelectedClass.Melee:
                 _meleeCanAttack = true;
+                if(experienceManager != null)experienceManager.MeleeLevelUp();
                 break;
             case ClassManager.SelectedClass.Ranged:
                 _rangedCanAttack = true;
+                if (experienceManager != null)experienceManager.RangedLevelUp();
                 break;
             case ClassManager.SelectedClass.Engineer
                 : _engineerCanAttack = true;
+                if (experienceManager != null)experienceManager.EngineerLevelUp();
                 break;
         }
     }

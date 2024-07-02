@@ -12,23 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62723226a3236184e94ab8ce004de605, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  money: 3510
-  maxHealth: 200
+  money: 410
+  maxHealth: 50
   maxBuyHealth: 200
   damageMultiplier: 1
   movementSpeed: 1
   actualLevel: 0
   attackSpeed: 1
   attackRange: 0
-  swordDamage: 2
-  projectileDamage: 1
-  orbitalDamage: 2
-  orbitalSpeed: 100
-  basicSlashUnlocked: 1
-  bigSlashUnlocked: 1
-  orbitalWeaponUnlocked: 1
   upgradeCost: 50
-  InjectionHeal: 35
+  InjectionHeal: 15
   maxInjectionsHeal: 30
-  InjectionsLimit: 5
+  InjectionsLimit: 3
   maxInjectionsLimit: 10

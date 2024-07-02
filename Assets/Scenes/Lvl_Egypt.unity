@@ -1924,7 +1924,7 @@ MonoBehaviour:
   - {fileID: 4220072662542796888, guid: e6deab9f79d2b754db329e68c17ae4bd, type: 3}
   enemiesInThisWave: 10
   enemiesAlive: 0
-  spawnInterval: 1
+  spawnInterval: 3
   maxEnemiesInThisWave: 15
 --- !u!1001 &599809132
 PrefabInstance:
@@ -55969,8 +55969,8 @@ MonoBehaviour:
   pausedManager: {fileID: 155018610}
   XpBar: {fileID: 705972102830129676}
   actualExperience: 0
-  maxExperience: 30
-  extraExperiencePerLevel: 10
+  maxExperience: 80
+  extraExperiencePerLevel: 20
   level: 0
   extraMeleeDamage: 1
   extraRangedDamage: 1
@@ -55986,11 +55986,11 @@ MonoBehaviour:
   _curveSwordCooldown: 1
   _orbitalDuration: 5
   _curveSwordDuration: 4
-  actualMeleeLevel: 0
-  actualRangedLevel: 0
-  actualEngineerLevel: 0
-  actualBoomerangLevel: 0
-  actualCurveSwordLevel: 0
+  actualMeleeLevel: 1
+  actualRangedLevel: 1
+  actualEngineerLevel: 1
+  actualBoomerangLevel: 1
+  actualCurveSwordLevel: 1
   maxUpgradeableLevel: 8
 --- !u!4 &1261455810
 Transform:
