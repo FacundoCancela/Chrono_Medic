@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7be4805115e060b47bb7862f4318caa5
-      internalID: -1398124651
+      spriteID: 6d180a11d0803044ca6ae54536f6ee12
+      internalID: -823279044
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50cac7c734c01604e83644de22ca5943
-      internalID: 1436692006
+      spriteID: 6294980185367b14f97f2b5dd9e0f408
+      internalID: -768554960
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09497cd82b75b9049ada9666c9366172
-      internalID: -1041249877
+      spriteID: 30750d5658b9f7b47a9b09e4f821bc8d
+      internalID: 393595766
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5c3e81103e470a4986f1ca90773bf40
-      internalID: 281055762
+      spriteID: 93cc0105cb56a7e489f7b4743d2fcf62
+      internalID: -1116150742
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HozEn1Layer-Sheet_0: -1398124651
-      HozEn1Layer-Sheet_1: 1436692006
-      HozEn1Layer-Sheet_2: -1041249877
-      HozEn1Layer-Sheet_3: 281055762
+      HozEn1Layer-Sheet_0: -823279044
+      HozEn1Layer-Sheet_1: -768554960
+      HozEn1Layer-Sheet_2: 393595766
+      HozEn1Layer-Sheet_3: -1116150742
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
