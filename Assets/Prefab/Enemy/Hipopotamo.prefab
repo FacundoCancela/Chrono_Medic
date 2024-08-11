@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e4e5591801d5744b0ca212791727dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStats: {fileID: 11400000, guid: 404efc00874d5ec418b4a9611db0303e, type: 2}
+  enemyStats: {fileID: 11400000, guid: 5cd9aa2d200e18c47b5a954ba3ab6b00, type: 2}
   _target: {fileID: 0}
   angle: 115
   radius: 5
