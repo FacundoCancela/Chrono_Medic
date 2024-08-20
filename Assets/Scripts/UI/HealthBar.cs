@@ -7,7 +7,6 @@ public class HealthBar : MonoBehaviour
     public Image healthBar;               
     public Image[] healthPoints;          
 
-    public Slider slider;                 
     public TextMeshProUGUI textMeshPro;   
 
     public int _health;                   
@@ -16,12 +15,8 @@ public class HealthBar : MonoBehaviour
 
     public void SetMaxHealth(int maxHealth)
     {
-        slider.maxValue = maxHealth;
-        slider.value = maxHealth;
         maxHealthText = maxHealth;
         textMeshPro.text = "HP " + maxHealth + "/" + maxHealth;
-
-        // Porcentaje de salud por punto de salud.
         _healthPercent = maxHealth / (float)healthPoints.Length;
     }
 
