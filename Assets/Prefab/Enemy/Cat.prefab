@@ -227,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   enemyWeapon: {fileID: 1449681014779870227}
-  enemyStats: {fileID: 11400000, guid: 404efc00874d5ec418b4a9611db0303e, type: 2}
+  enemyStats: {fileID: 11400000, guid: 8cbbc585e21d8754e80f62a848a9ce4c, type: 2}
   experiencePoint: {fileID: 7819564320793251449, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
   experiencePrefab: {fileID: 1229584106086249656, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
 --- !u!114 &4288133991812093932

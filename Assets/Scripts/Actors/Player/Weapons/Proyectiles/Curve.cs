@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CurveSword : MonoBehaviour
+public class Curve : MonoBehaviour
 {
     [SerializeField] public PlayerStats playerStats;
     [SerializeField] public Transform playerController;
-    [SerializeField] public Transform weapon;
-    private ExperienceManager experienceManager;
+    [SerializeField] public ExperienceManager experienceManager;
 
     private void Awake()
     {
         experienceManager = FindAnyObjectByType<ExperienceManager>();
+        playerController = FindAnyObjectByType<PlayerController>().transform;
     }
 
     public void Update()
     {
-        weapon.RotateAround(playerController.position, new Vector3(0, 0, -1), experienceManager.curveSwordSpeed * Time.deltaTime);
+        transform.position = playerController.position;
+        transform.RotateAround(playerController.position, new Vector3(0, 0, -1), experienceManager.curveSwordSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

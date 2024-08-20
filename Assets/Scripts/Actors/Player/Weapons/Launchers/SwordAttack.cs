@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sword : MonoBehaviour, IWeapon
+public class SwordAttack : MonoBehaviour, IWeapon
 {
     [SerializeField] public PlayerStats playerStats;
     [SerializeField] public ExperienceManager experienceManager;
-    [SerializeField] public GameObject SwordSlash;
+    [SerializeField] public GameObject swordSlash;
     [SerializeField] public Transform attackPosition;
     [SerializeField] public float _timeSinceLastSlashAttack = 0f;
     bool _slashAttackInCooldown = false;
@@ -17,11 +17,13 @@ public class Sword : MonoBehaviour, IWeapon
         {
             _timeSinceLastSlashAttack += Time.deltaTime;
         }
-
-        if(_timeSinceLastSlashAttack > experienceManager._meleeCooldown)
+        if(experienceManager != null)
         {
-            _slashAttackInCooldown = false;
-            _timeSinceLastSlashAttack = 0f;
+            if (_timeSinceLastSlashAttack > experienceManager._meleeCooldown)
+            {
+                _slashAttackInCooldown = false;
+                _timeSinceLastSlashAttack = 0f;
+            }
         }
     }
 
@@ -29,9 +31,8 @@ public class Sword : MonoBehaviour, IWeapon
     {
         if (!_slashAttackInCooldown)
         {
-            Instantiate(SwordSlash, attackPosition.position, Quaternion.identity);
+            Instantiate(swordSlash, attackPosition.position, Quaternion.identity);
             _slashAttackInCooldown = true;
         }
-    }      
-
+    }
 }

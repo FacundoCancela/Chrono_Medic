@@ -137,40 +137,46 @@ public class LevelUPScreen : MonoBehaviour
     {
         experienceManager.EngineerLevelUp();
         weaponManager._engineerCanAttack = true;
-        IWeapon orbe = FindAnyObjectByType<OrbitalWeapon>();
-        weaponManager.AddWeapon(orbe);
+        IWeapon orbe = FindAnyObjectByType<OrbeAttack>();
+        weaponManager.AddManualWeapon(orbe);
         AlternateButton(unlockEngineerButton, upgradeEngineerButton);
     }
 
     public void UnlockMelee()
     {
         experienceManager.MeleeLevelUp();
-        weaponManager._curveSwordCanAttack = true;
-        IWeapon sword = FindAnyObjectByType<Sword>();
-        weaponManager.AddWeapon(sword);
+        weaponManager._meleeCanAttack = true;
+        IWeapon sword = FindAnyObjectByType<SwordAttack>();
+        weaponManager.AddManualWeapon(sword);
         AlternateButton(unlockMeleeButton, upgradeMeleeButton);
+    }
+    public void UnlockCurveSword()
+    {
+        experienceManager.CurveSwordLevelUp();
+        weaponManager._curveSwordCanAttack = true;
+        IWeapon curveSword = FindAnyObjectByType<CurveAttack>();
+        weaponManager.AddManualWeapon(curveSword);
+        AlternateButton(unlockCurveSwordButton, upgradeCurveSwordButton);
     }
 
     public void UnlockRanged()
     {
         experienceManager.RangedLevelUp();
         weaponManager._rangedCanAttack = true;
+        IWeapon ranged = FindAnyObjectByType<RangedAttack>();
+        weaponManager.AddAutomaticWeapon(ranged);
         AlternateButton(unlockRangedButton, upgradeRangedButton);
     }
 
     public void UnlockBoomerang()
     {
-        experienceManager.BoomerangLevelUp();   
+        experienceManager.BoomerangLevelUp();
         weaponManager._boomerangCanAttack = true;
+        IWeapon boomerang = FindAnyObjectByType<BoomerangAttack>();
+        weaponManager.AddAutomaticWeapon(boomerang);
         AlternateButton(unlockBoomerangButton, upgradeBoomerangButton);
     }
 
-    public void UnlockCurveSword()
-    {
-        experienceManager.CurveSwordLevelUp();
-        weaponManager._curveSwordCanAttack = true;
-        AlternateButton(unlockCurveSwordButton, upgradeCurveSwordButton);
-    }
 
     public void AlternateButton(Button unlockButton, Button upgradeButton)
     {

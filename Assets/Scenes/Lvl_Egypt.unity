@@ -1314,75 +1314,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8909704712858798564, guid: e96b6697a4543144691c22c4aa172864, type: 3}
   m_PrefabInstance: {fileID: 7884257774465785039}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &139201607
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 139201608}
-  - component: {fileID: 139201609}
-  - component: {fileID: 139201610}
-  m_Layer: 7
-  m_Name: AttackManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &139201608
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139201607}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.32, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 450112042459918629}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &139201609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139201607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ef2f674f88b4447bf1c192837420ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: 91da14b5e2e7db44ea9f049a89a4d62d, type: 2}
-  experienceManager: {fileID: 1261455809}
-  SwordSlash: {fileID: 3368990299770127282, guid: 3531442a7de86a54898fe91aa15a619e, type: 3}
-  attackPosition: {fileID: 139201608}
-  _timeSinceLastSlashAttack: 0
---- !u!114 &139201610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139201607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a85f81311adbe4c4fbba9aaa0956e222, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: 91da14b5e2e7db44ea9f049a89a4d62d, type: 2}
-  experienceManager: {fileID: 1261455809}
-  Orbe: {fileID: 8295462121459392274, guid: 0bba2fbba5aa46d40a181586c84720be, type: 3}
-  attackPosition: {fileID: 1297411953448466548}
-  _timeSinceLastOrbitalAttack: 0
-  numberOfOrbs: 2
-  spawnRadius: 1
 --- !u!1 &155018608
 GameObject:
   m_ObjectHideFlags: 0
@@ -55564,6 +55495,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Curve Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 1214813650616248197, guid: eed8375b92dddc541b56a29621524410, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1371718195903731010, guid: eed8375b92dddc541b56a29621524410, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -56033,7 +55968,7 @@ MonoBehaviour:
   pausedManager: {fileID: 155018610}
   XpBar: {fileID: 705972102830129676}
   actualExperience: 0
-  maxExperience: 80
+  maxExperience: 10
   extraExperiencePerLevel: 20
   level: 0
   extraMeleeDamage: 1
@@ -59643,18 +59578,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2359169247640644333, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 1212843357812201686, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
+      propertyPath: experienceManager
+      value: 
+      objectReference: {fileID: 1261455809}
+    - target: {fileID: 1395838945278747583, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
+      propertyPath: experienceManager
+      value: 
+      objectReference: {fileID: 1261455809}
+    - target: {fileID: 1985325328372179062, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
+      propertyPath: experienceManager
+      value: 
+      objectReference: {fileID: 1261455809}
     - target: {fileID: 4495030481155214291, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
       propertyPath: injectionsText
       value: 
       objectReference: {fileID: 2031726385}
-    - target: {fileID: 4495030481155214291, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 3691414602440998097}
     - target: {fileID: 4774728957630617895, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
       propertyPath: healthBar
       value: 
@@ -59663,6 +59602,18 @@ PrefabInstance:
       propertyPath: loseScreen
       value: 
       objectReference: {fileID: 38737366}
+    - target: {fileID: 5699795978477621027, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
+      propertyPath: experienceManager
+      value: 
+      objectReference: {fileID: 1261455809}
+    - target: {fileID: 6080526112263129986, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
+      propertyPath: attackPosition
+      value: 
+      objectReference: {fileID: 1297411953448466548}
+    - target: {fileID: 6080526112263129986, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
+      propertyPath: experienceManager
+      value: 
+      objectReference: {fileID: 1261455809}
     - target: {fileID: 8099983410260055410, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -59708,48 +59659,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
-      propertyPath: basicSlash
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
-      propertyPath: curveSword
-      value: 
-      objectReference: {fileID: 1076083003687510618}
-    - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
-      propertyPath: orbitalWeapon
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
-      propertyPath: selectedWeapon
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
-      propertyPath: boomerangPrefab
-      value: 
-      objectReference: {fileID: 3929390940216978768, guid: 739d297b2e4b9084ab30ab502ca52461, type: 3}
-    - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
       propertyPath: experienceManager
       value: 
       objectReference: {fileID: 1261455809}
-    - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
-      propertyPath: _engineerCanAttack
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
-      propertyPath: _boomerangCanAttack
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
-      propertyPath: _curveSwordCanAttack
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2359169247640644333, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8594744066657588435, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 139201608}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
 --- !u!114 &1747511498 stripped
@@ -97278,11 +97193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc46271116dfb7469a02dae40f85536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1076083003687510618 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3417331266045153361, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-  m_PrefabInstance: {fileID: 3547811364527252411}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1082938908477026931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97442,8 +97352,7 @@ Transform:
   m_LocalPosition: {x: 0.04, y: 0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7425446197732791290}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1300683669653208010
@@ -98286,79 +98195,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1001 &3547811364527252411
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1297411953448466548}
-    m_Modifications:
-    - target: {fileID: 1425313138434794247, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.3375
-      objectReference: {fileID: 0}
-    - target: {fileID: 1425313138434794247, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.030000009
-      objectReference: {fileID: 0}
-    - target: {fileID: 1425313138434794247, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 1425313138434794247, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1425313138434794247, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1425313138434794247, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1425313138434794247, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1425313138434794247, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1425313138434794247, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1425313138434794247, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1425313138434794247, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3417331266045153361, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-      propertyPath: m_Name
-      value: CurveSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 3417331266045153361, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7059948639338540162, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-      propertyPath: spinSpeed
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7059948639338540162, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 1297411953448466548}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
 --- !u!222 &3576418200128824486
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -100003,11 +99839,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!4 &7425446197732791290 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1425313138434794247, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-  m_PrefabInstance: {fileID: 3547811364527252411}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &7629251552879684671
 Animator:
   serializedVersion: 5

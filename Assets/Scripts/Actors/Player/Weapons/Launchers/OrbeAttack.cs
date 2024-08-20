@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrbitalWeapon : MonoBehaviour, IWeapon
+public class OrbeAttack : MonoBehaviour, IWeapon
 {
     [SerializeField] public PlayerStats playerStats;
     [SerializeField] public ExperienceManager experienceManager;
@@ -19,12 +19,16 @@ public class OrbitalWeapon : MonoBehaviour, IWeapon
         {
             _timeSinceLastOrbitalAttack += Time.deltaTime;
         }
-
-        if (_timeSinceLastOrbitalAttack > experienceManager._meleeCooldown)
+        if (experienceManager != null)
         {
-            _orbitalAttackInCooldown = false;
-            _timeSinceLastOrbitalAttack = 0f;
+            if (_timeSinceLastOrbitalAttack > experienceManager._orbitalCooldown)
+            {
+                _orbitalAttackInCooldown = false;
+                _timeSinceLastOrbitalAttack = 0f;
+            }
+
         }
+
     }
 
     public void Attack()
