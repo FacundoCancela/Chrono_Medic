@@ -2,35 +2,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrbitalWeapon : MonoBehaviour
+public class OrbitalWeapon : MonoBehaviour, IWeapon
 {
     [SerializeField] public PlayerStats playerStats;
-    [SerializeField] public Transform playerController;
-    [SerializeField] public Transform weapon;
-    private ExperienceManager experienceManager;
+    [SerializeField] public ExperienceManager experienceManager;
+    [SerializeField] public GameObject Orbe;
+    [SerializeField] public Transform attackPosition;
+    [SerializeField] public float _timeSinceLastOrbitalAttack = 0f;
+    [SerializeField] public int numberOfOrbs = 1; // Cantidad de orbes a instanciar
+    [SerializeField] public float spawnRadius = 1f; // Radio de aparición de los orbes
+    bool _orbitalAttackInCooldown = false;
 
-    private void Awake()
+    private void Update()
     {
-        experienceManager = FindAnyObjectByType<ExperienceManager>();
-    }
-
-
-    public void Update()
-    {
-        weapon.RotateAround(playerController.position, new Vector3(0,0,1), experienceManager.orbitalSpeed * Time.deltaTime);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (_orbitalAttackInCooldown)
         {
-            EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
-            if (enemyController != null)
-            {
-                enemyController.GetDamaged(playerStats.damageMultiplier * experienceManager.extraOrbitalDamage);
-            }
+            _timeSinceLastOrbitalAttack += Time.deltaTime;
+        }
+
+        if (_timeSinceLastOrbitalAttack > experienceManager._meleeCooldown)
+        {
+            _orbitalAttackInCooldown = false;
+            _timeSinceLastOrbitalAttack = 0f;
         }
     }
 
+    public void Attack()
+    {
+        if (!_orbitalAttackInCooldown)
+        {
+            float angleStep = 360f / numberOfOrbs;
+            float startingAngle = 0f;
 
+            for (int i = 0; i < numberOfOrbs; i++)
+            {
+                float angle = startingAngle + i * angleStep;
+                Vector3 orbPosition = GetPositionAtAngle(attackPosition.position, angle, spawnRadius);
+                GameObject orb = Instantiate(Orbe, orbPosition, Quaternion.identity);
+
+                // Asigna el ángulo inicial al orbe instanciado
+                Orbe orbeScript = orb.GetComponent<Orbe>();
+                if (orbeScript != null)
+                {
+                    orbeScript.SetInitialAngle(angle * Mathf.Deg2Rad);
+                }
+            }
+
+            _orbitalAttackInCooldown = true;
+        }
+    }
+
+    private Vector3 GetPositionAtAngle(Vector3 center, float angleDegrees, float radius)
+    {
+        float angleRadians = angleDegrees * Mathf.Deg2Rad;
+        float x = center.x + Mathf.Cos(angleRadians) * radius;
+        float y = center.y + Mathf.Sin(angleRadians) * radius;
+        return new Vector3(x, y, center.z);
+    }
 }

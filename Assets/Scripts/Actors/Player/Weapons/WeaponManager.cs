@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+    [SerializeField] public List<IWeapon> _manualWeapons = new List<IWeapon>();
+    [SerializeField] public List<IWeapon> _automaticWeapons = new List<IWeapon>();
+    [SerializeField] public int selectedWeapon = 1;
+
     [SerializeField] public PlayerStats playerStats;
     [SerializeField] public PlayerView playerView;
     [SerializeField] public ClassManager playerClassManager;
@@ -12,42 +16,31 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] public Boomerang boomerang;
 
     public bool _isInCombat = false;
-    public int attackType = 0;    
     
     public float _timeSinceLastRangeAttack = 0f;
-    public float _timeSinceLastSlashAttack = 0f;
+    public float _timeSinceLastManualAttack = 0f;
     public float _timeSinceLastOrbitalWeaponAttack = 0f;
     public float _timeSinceLastBoomerangAttack = 0f;
     public float _timeSinceLastCurveSwordAttack = 0f;
-    float _swordSlashDuration = 0.1f;
 
     bool _rangedWeaponInCooldown = true;
-    bool _slashAttackInCooldown = true;
+    bool _manualAttackInCooldown = true;
     bool _orbitalWeaponInCooldown = true;
     bool _boomerangWeaponInCooldown = true;
     bool _curveSwordInCooldown = true;
 
-    public GameObject basicSlash;
     public GameObject orbitalWeapon;
     public GameObject kunaiPrefab;
     public GameObject boomerangPrefab;
     public GameObject curveSword;
 
     public Action OnAttack;
-    private Dictionary<int, System.Action> _attackDictionary = new Dictionary<int, System.Action>();
 
     public bool _meleeCanAttack = false;
     public bool _rangedCanAttack = false;
     public bool _engineerCanAttack = false;
     public bool _boomerangCanAttack = false;
     public bool _curveSwordCanAttack = false;
-
-    private void Awake()
-    {
-        _attackDictionary.Add(1, BasicSlash);
-        _attackDictionary.Add(2, OrbitalWeapon);
-        _attackDictionary.Add(3, CurveSword);
-    }
 
     private void Start()
     {
@@ -63,20 +56,36 @@ public class WeaponManager : MonoBehaviour
 
     private void ActivateWeaponClass()
     {
+        Debug.Log(ClassManager.currentClass);
         switch (ClassManager.currentClass)
         {
             case ClassManager.SelectedClass.Melee:
                 _meleeCanAttack = true;
+                IWeapon sword = FindAnyObjectByType<Sword>();
+                AddWeapon(sword);
                 if(experienceManager != null)experienceManager.MeleeLevelUp();
                 break;
             case ClassManager.SelectedClass.Ranged:
                 _rangedCanAttack = true;
+                IWeapon ranged = FindAnyObjectByType<Sword>();
+                AddWeapon(ranged);
                 if (experienceManager != null)experienceManager.RangedLevelUp();
                 break;
             case ClassManager.SelectedClass.Engineer
                 : _engineerCanAttack = true;
+                IWeapon orbe = FindAnyObjectByType<OrbitalWeapon>();
+                AddWeapon(orbe);
                 if (experienceManager != null)experienceManager.EngineerLevelUp();
                 break;
+        }
+    }
+
+    public void AddWeapon(IWeapon weapon)
+    {
+        if (!_manualWeapons.Contains(weapon))
+        {
+            _manualWeapons.Add(weapon);
+            Debug.Log("arma añadidida" + weapon);
         }
     }
 
@@ -84,25 +93,7 @@ public class WeaponManager : MonoBehaviour
     {
         // Si no estamos atacando, actualizar el tiempo desde el último ataque
         if(experienceManager != null)
-        {
-            if (_slashAttackInCooldown)
-            {
-                _timeSinceLastSlashAttack += Time.deltaTime;
-                if (_timeSinceLastSlashAttack >= experienceManager._meleeCooldown)
-                {
-                    _slashAttackInCooldown = false;
-                }
-            }
-
-            if (_orbitalWeaponInCooldown)
-            {
-                _timeSinceLastOrbitalWeaponAttack += Time.deltaTime;
-                if (_timeSinceLastOrbitalWeaponAttack >= experienceManager._orbitalCooldown && _timeSinceLastOrbitalWeaponAttack >= experienceManager._orbitalDuration)
-                {
-                    _orbitalWeaponInCooldown = false;
-                }
-            }
-
+        {      
             if (_curveSwordInCooldown)
             {
                 _timeSinceLastCurveSwordAttack += Time.deltaTime;
@@ -140,62 +131,27 @@ public class WeaponManager : MonoBehaviour
 
     public void WeaponSelector()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && attackType != 1 && _meleeCanAttack)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-               attackType = 1;
+            selectedWeapon = 1;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && attackType != 2 && _engineerCanAttack)
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            attackType = 2;
+            selectedWeapon = 2;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && attackType != 3 && _curveSwordCanAttack)
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            attackType = 3;
+            selectedWeapon = 3;
         }
     }
 
     public void UseWeapon()
     {
-        if (Input.GetMouseButtonDown(0) && attackType != 0)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (_attackDictionary.ContainsKey(attackType))
-            {
-                _attackDictionary[attackType]?.Invoke();
-            } 
+            _manualWeapons[selectedWeapon-1].Attack();
+            Debug.Log("atacando con:" + _manualWeapons[selectedWeapon - 1]);
         }
-    }
-
-    private void BasicSlash()
-    {
-        if(!_slashAttackInCooldown)
-        {
-            playerView.anim.SetTrigger("AttackMelee");
-            basicSlash.SetActive(true);
-            _timeSinceLastSlashAttack = 0f;
-            _slashAttackInCooldown = true;
-            Invoke("DeactivateBasicSlash", _swordSlashDuration);
-        }        
-    }
-
-    private void DeactivateBasicSlash()
-    {
-        basicSlash.SetActive(false);
-    }
-
-    private void OrbitalWeapon()
-    {
-        if(!_orbitalWeaponInCooldown)
-        {
-            orbitalWeapon.SetActive(true);
-            _timeSinceLastOrbitalWeaponAttack = 0f;
-            _orbitalWeaponInCooldown = true;
-            Invoke("DeactivateOrbitalWeapon", experienceManager._orbitalDuration);
-        }        
-    }
-
-    private void DeactivateOrbitalWeapon()
-    {
-        orbitalWeapon.SetActive(false);
     }
 
     private void CurveSword()

@@ -137,13 +137,17 @@ public class LevelUPScreen : MonoBehaviour
     {
         experienceManager.EngineerLevelUp();
         weaponManager._engineerCanAttack = true;
+        IWeapon orbe = FindAnyObjectByType<OrbitalWeapon>();
+        weaponManager.AddWeapon(orbe);
         AlternateButton(unlockEngineerButton, upgradeEngineerButton);
     }
 
     public void UnlockMelee()
     {
         experienceManager.MeleeLevelUp();
-        weaponManager._meleeCanAttack = true;
+        weaponManager._curveSwordCanAttack = true;
+        IWeapon sword = FindAnyObjectByType<Sword>();
+        weaponManager.AddWeapon(sword);
         AlternateButton(unlockMeleeButton, upgradeMeleeButton);
     }
 

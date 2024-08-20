@@ -1,0 +1,54 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Orbe : MonoBehaviour
+{
+    [SerializeField] public GameObject pivot;
+    [SerializeField] public ExperienceManager experienceManager;
+    [SerializeField] public PlayerStats playerStats;
+
+    private float currentAngle; // Ángulo actual del orbe alrededor del personaje
+    private float orbitalRadius;
+
+    private void Awake()
+    {
+        experienceManager = FindAnyObjectByType<ExperienceManager>();
+        pivot = FindAnyObjectByType<PlayerPivot>().gameObject;
+        orbitalRadius = Vector3.Distance(transform.position, pivot.transform.position); // Distancia inicial
+    }
+
+    private void Start()
+    {
+        Destroy(gameObject, 10f);
+    }
+
+    private void Update()
+    {
+        // Incrementar el ángulo de rotación de manera constante
+        currentAngle += experienceManager.orbitalSpeed * Time.deltaTime;
+
+        // Mantener la posición del orbe en función del ángulo
+        float x = Mathf.Cos(currentAngle) * orbitalRadius;
+        float y = Mathf.Sin(currentAngle) * orbitalRadius;
+        transform.position = pivot.transform.position + new Vector3(x, y, 0);
+    }
+
+    // Método para establecer el ángulo inicial del orbe
+    public void SetInitialAngle(float initialAngle)
+    {
+        currentAngle = initialAngle;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
+            if (enemyController != null)
+            {
+                enemyController.GetDamaged(playerStats.damageMultiplier * experienceManager.extraOrbitalDamage);
+            }
+        }
+    }
+}
