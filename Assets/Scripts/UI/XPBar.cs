@@ -1,42 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class XPBar : MonoBehaviour
 {
-    public Image XpBar;
-    public Image[] XpPoints;
+    public Image XpBar;                   
+    public Image[] XpPoints;              
 
-    public Slider slider;
-    public TextMeshProUGUI textMeshPro;
+    public Slider slider;                 
+    public TextMeshProUGUI textMeshPro;   
 
-    public int _Xp;
-    public int maxXPText;
+    private int _Xp;                      
+    private int maxXPText;                
+    private float _xpPercent;             
 
     public void SetMaxXP(int maxXP)
     {
         slider.maxValue = maxXP;
-        slider.value = 0;
+        slider.value = 0; // Comienza desde 0 experiencia.
         maxXPText = maxXP;
-        textMeshPro.text = "XP" + "0" + "/" + maxXP;
+        textMeshPro.text = "XP " + "0" + "/" + maxXP;
+
+        // Calcula el porcentaje de experiencia por punto.
+        _xpPercent = maxXP / (float)XpPoints.Length;
     }
 
     public void SetXP(int XP)
     {
         _Xp = XP;
 
+        // Actualiza el estado de cada punto de experiencia.
         for (int i = 0; i < XpPoints.Length; i++)
         {
-            XpPoints[i].enabled = !DisplayXpPoints(_Xp, i); 
+            XpPoints[i].enabled = !DisplayXpPoints(_Xp, i);
         }
 
-        textMeshPro.text = "XP" + XP + "/" + maxXPText;
+        // Actualiza el texto con la experiencia actual.
+        textMeshPro.text = "XP " + XP + "/" + maxXPText;
+
+        // Actualiza el valor de la barra.
+        slider.value = XP;
     }
 
     bool DisplayXpPoints(int _Xp, int pointNumber)
     {
-        return ((pointNumber * 6.25) >= _Xp);
+        return _Xp <= ((pointNumber + 1) * _xpPercent);
     }
 }
+
