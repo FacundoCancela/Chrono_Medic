@@ -1853,6 +1853,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 3691414602440998097}
+    - target: {fileID: 5886377957444045883, guid: cf1293ad6e414914883b1829dd94fb86, type: 3}
+      propertyPath: baseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: bf61c40d3e61e3e47aecd2987f029bf2, type: 2}
     - target: {fileID: 8162197984513253660, guid: cf1293ad6e414914883b1829dd94fb86, type: 3}
       propertyPath: m_Name
       value: DataController

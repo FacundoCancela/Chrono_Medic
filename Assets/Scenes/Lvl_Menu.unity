@@ -1733,9 +1733,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 707046083}
     - target: {fileID: 5886377957444045883, guid: cf1293ad6e414914883b1829dd94fb86, type: 3}
-      propertyPath: moneyCount
+      propertyPath: baseStats
       value: 
-      objectReference: {fileID: 1285793408}
+      objectReference: {fileID: 11400000, guid: bf61c40d3e61e3e47aecd2987f029bf2, type: 2}
     - target: {fileID: 8162197984513253660, guid: cf1293ad6e414914883b1829dd94fb86, type: 3}
       propertyPath: m_Name
       value: DataController
@@ -27965,17 +27965,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8412907291690112008, guid: b9c7df1cc4f185044af4501ad0adc27f, type: 3}
   m_PrefabInstance: {fileID: 5858686105609847361}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1285793408 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8759769934588645778, guid: b9c7df1cc4f185044af4501ad0adc27f, type: 3}
-  m_PrefabInstance: {fileID: 5858686105609847361}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3ac6063badadd94e96468acbbf561cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1517850222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28791,13 +28780,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9173776319986179490, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
-      propertyPath: _isInCombat
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2359169247640644333, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63c9bf099ce66de4ea2e04cadb2256b8, type: 3}
@@ -29688,6 +29672,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: addInjections
       objectReference: {fileID: 0}
+    - target: {fileID: 1972802882376618255, guid: b8dbe4787b114104aaee3f544e74cd7a, type: 3}
+      propertyPath: baseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: bf61c40d3e61e3e47aecd2987f029bf2, type: 2}
+    - target: {fileID: 1972802882376618255, guid: b8dbe4787b114104aaee3f544e74cd7a, type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 11400000, guid: bf61c40d3e61e3e47aecd2987f029bf2, type: 2}
     - target: {fileID: 2571076089357680011, guid: b8dbe4787b114104aaee3f544e74cd7a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

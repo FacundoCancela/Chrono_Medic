@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 public class GameDataController : MonoBehaviour
 {
     [SerializeField] public PlayerController player;
-    [SerializeField] public PlayerStats playerStats;
+    [SerializeField] public PlayerStats baseStats;
     [SerializeField] public UpgradePrice upgradePrice;
     
 
@@ -44,27 +44,27 @@ public class GameDataController : MonoBehaviour
             string data = File.ReadAllText(savedFile);
             gameData = JsonConvert.DeserializeObject<GameData>(data);
 
-            playerStats.maxHealth = gameData.maxHealth;
-            playerStats.damageMultiplier = gameData.damageMultiplier;
-            playerStats.money = gameData.money;
-            playerStats.upgradeCost = gameData.upgradeCost;
-            playerStats.InjectionHeal = gameData.InjectionHeal;
-            playerStats.InjectionsLimit = gameData.InjectionsLimit;
+            baseStats.maxHealth = gameData.maxHealth;
+            baseStats.damageMultiplier = gameData.damageMultiplier;
+            baseStats.money = gameData.money;
+            baseStats.upgradeCost = gameData.upgradeCost;
+            baseStats.InjectionHeal = gameData.InjectionHeal;
+            baseStats.InjectionsLimit = gameData.InjectionsLimit;
             
-            player.UpdateStats(playerStats);
+            player.UpdateStats(baseStats);
         }
     }
 
-    private void SaveData()
+    public void SaveData()
     {
         GameData newData = new GameData()
         {
-            maxHealth = playerStats.maxHealth,
-            damageMultiplier = playerStats.damageMultiplier,
-            money = playerStats.money,
-            upgradeCost = playerStats.upgradeCost,
-            InjectionHeal = playerStats.InjectionHeal,
-            InjectionsLimit = playerStats.InjectionsLimit,
+            maxHealth = baseStats.maxHealth,
+            damageMultiplier = baseStats.damageMultiplier,
+            money = baseStats.money,
+            upgradeCost = baseStats.upgradeCost,
+            InjectionHeal = baseStats.InjectionHeal,
+            InjectionsLimit = baseStats.InjectionsLimit,
             
         };
 
@@ -75,16 +75,16 @@ public class GameDataController : MonoBehaviour
 
     public void IncreaseHealth(int moreHealth)
     {
-        if(playerStats.maxHealth >= playerStats.maxBuyHealth)
+        if(baseStats.maxHealth >= baseStats.maxBuyHealth)
         {
             Debug.Log("Vida maxima alcanzada");
         }
-        else if (playerStats.money >= gameData.upgradeCost)
+        else if (baseStats.money >= gameData.upgradeCost)
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.maxHealth += moreHealth;
-            playerStats.maxHealth = gameData.maxHealth;
-            player.UpdateHealth(playerStats);
+            baseStats.maxHealth = gameData.maxHealth;
+            player.UpdateHealth(baseStats);
             SaveData();
         }
         else Debug.Log("te falta plata");
@@ -93,16 +93,16 @@ public class GameDataController : MonoBehaviour
 
     public void IncreaseInjectionHeal(int extraHeal)
     {
-        if (playerStats.InjectionHeal >= playerStats.maxInjectionsHeal)
+        if (baseStats.InjectionHeal >= baseStats.maxInjectionsHeal)
         {
             Debug.Log("Vida maxima alcanzada");
         }
-        else if (playerStats.money >= gameData.upgradeCost)
+        else if (baseStats.money >= gameData.upgradeCost)
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.InjectionHeal += extraHeal;
-            playerStats.InjectionHeal = gameData.InjectionHeal;
-            player.UpdateStats(playerStats);
+            baseStats.InjectionHeal = gameData.InjectionHeal;
+            player.UpdateStats(baseStats);
             SaveData();
         }
         else Debug.Log("te falta plata");
@@ -111,16 +111,16 @@ public class GameDataController : MonoBehaviour
 
     public void IncreaseInjectionLimit(int moreInjections)
     {
-        if (playerStats.InjectionsLimit >= playerStats.maxInjectionsLimit)
+        if (baseStats.InjectionsLimit >= baseStats.maxInjectionsLimit)
         {
             Debug.Log("Vida maxima alcanzada");
         }
-        else if (playerStats.money >= gameData.upgradeCost)
+        else if (baseStats.money >= gameData.upgradeCost)
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.InjectionsLimit += moreInjections;
-            playerStats.InjectionsLimit = gameData.InjectionsLimit;
-            player.UpdateStats(playerStats);
+            baseStats.InjectionsLimit = gameData.InjectionsLimit;
+            player.UpdateStats(baseStats);
             SaveData();
         }
         else Debug.Log("te falta plata");
@@ -129,12 +129,12 @@ public class GameDataController : MonoBehaviour
 
     public void IncreaseDamage(int moreDamage)
     {
-        if(playerStats.money >= gameData.upgradeCost)
+        if(baseStats.money >= gameData.upgradeCost)
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.damageMultiplier += moreDamage;
-            playerStats.damageMultiplier = gameData.damageMultiplier;
-            player.UpdateStats(playerStats);
+            baseStats.damageMultiplier = gameData.damageMultiplier;
+            player.UpdateStats(baseStats);
             SaveData();
         }
         else Debug.Log("te falta plata");
@@ -143,24 +143,24 @@ public class GameDataController : MonoBehaviour
     public void IncreaseMoney(int moreMoney)
     {
         gameData.money += moreMoney;
-        playerStats.money = gameData.money;
-        player.UpdateStats(playerStats);
+        baseStats.money = gameData.money;
+        player.UpdateStats(baseStats);
         SaveData();
     }
 
     public void DecreaseMoney(int spentMoney)
     {
         gameData.money -= spentMoney;
-        playerStats.money = gameData.money;
-        player.UpdateStats(playerStats);
+        baseStats.money = gameData.money;
+        player.UpdateStats(baseStats);
         SaveData();
     }
 
     public void basicUpgradePrice()
     {
         gameData.upgradeCost = 50;
-        playerStats.upgradeCost = gameData.upgradeCost;
-        player.UpdateStats(playerStats);
+        baseStats.upgradeCost = gameData.upgradeCost;
+        player.UpdateStats(baseStats);
         SaveData();
         
     }

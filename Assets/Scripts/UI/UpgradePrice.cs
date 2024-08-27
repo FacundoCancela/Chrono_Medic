@@ -9,7 +9,7 @@ public class UpgradePrice : MonoBehaviour
     public TextMeshProUGUI InjectionHealText;
     public TextMeshProUGUI InjectionLimitText;
     [SerializeField] ShopUpgrade shopUpgrade;
-    [SerializeField] PlayerStats playerStats;
+    [SerializeField] PlayerStats baseStats;
 
     private void Update()
     {
@@ -20,37 +20,37 @@ public class UpgradePrice : MonoBehaviour
 
     public void HealthPrice()
     {
-        if(playerStats.maxHealth >= playerStats.maxBuyHealth)
+        if(baseStats.maxHealth >= baseStats.maxBuyHealth)
         {
             healthText.text = ("Max Level");
         }
         else
         {
-            healthText.text = ("$" + playerStats.upgradeCost + "/+" + shopUpgrade.extraHealthPerLevel);
+            healthText.text = ("$" + baseStats.upgradeCost + "/+" + shopUpgrade.extraHealthPerLevel);
         }
     }
 
     public void InjectionHealPrice()
     {
-        if (playerStats.InjectionHeal >= playerStats.maxInjectionsHeal)
+        if (baseStats.InjectionHeal >= baseStats.maxInjectionsHeal)
         {
             InjectionHealText.text = ("Max Level");
         }
         else
         {
-            InjectionHealText.text = ("$" + playerStats.upgradeCost + "/+" + shopUpgrade.extraInjectionHeal);
+            InjectionHealText.text = ("$" + baseStats.upgradeCost + "/+" + shopUpgrade.extraInjectionHeal);
         }
     }
 
     public void InjectionLimitPrice()
     {
-        if (playerStats.InjectionsLimit >= playerStats.maxInjectionsLimit)
+        if (baseStats.InjectionsLimit >= baseStats.maxInjectionsLimit)
         {
             InjectionLimitText.text = ("Max Level");
         }
         else
         {
-            InjectionLimitText.text = ("$" + playerStats.upgradeCost + "/+" + shopUpgrade.extraInjectionLimit);
+            InjectionLimitText.text = ("$" + baseStats.upgradeCost + "/+" + shopUpgrade.extraInjectionLimit);
         }
     }
 }
