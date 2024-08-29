@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ActorStats", menuName = "ScriptableObjects/ActorStats", order = 1)]
@@ -23,4 +22,5 @@ public class PlayerStats : ScriptableObject
     public int maxInjectionsHeal = 30;
     public int InjectionsLimit = 5;
     public int maxInjectionsLimit = 10;
+
 }

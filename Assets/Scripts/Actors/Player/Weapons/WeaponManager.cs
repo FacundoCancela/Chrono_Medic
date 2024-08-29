@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -22,8 +23,19 @@ public class WeaponManager : MonoBehaviour
     public bool _boomerangCanAttack = false;
     public bool _curveSwordCanAttack = false;
 
-    private void Start()
+    private void Awake()
     {
+        // Check current scene based on name
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (currentScene == "Lvl_Menu")
+        {
+            _isInCombat = false;
+        }
+        else
+        {
+            _isInCombat = true;
+        }
+
         ActivateWeaponClass();
     }
 
