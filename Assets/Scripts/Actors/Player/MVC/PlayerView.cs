@@ -26,7 +26,7 @@ public class PlayerView : MonoBehaviour, IActorView
             anim.SetBool("IsWalking", false);
         }
     }
-
+    
     public void Attack(bool IsAttacking)
     {
         if (IsAttacking)

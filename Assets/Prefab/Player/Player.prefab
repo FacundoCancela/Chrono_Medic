@@ -164,10 +164,10 @@ MonoBehaviour:
   _timeSinceLastBoomerangAttack: 0
   _timeSinceLastCurveSwordAttack: 0
   basicSlash: {fileID: 2359169247640644333}
-  orbitalWeapon: {fileID: 0}
+  orbitalWeapon: {fileID: 8295462121459392274, guid: 0bba2fbba5aa46d40a181586c84720be, type: 3}
   kunaiPrefab: {fileID: 8500496088789214507, guid: 2d5704400104d7546b6b55527ce4fe28, type: 3}
   boomerangPrefab: {fileID: 3929390940216978768, guid: 739d297b2e4b9084ab30ab502ca52461, type: 3}
-  curveSword: {fileID: 0}
+  curveSword: {fileID: 3417331266045153361, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
   _meleeCanAttack: 0
   _rangedCanAttack: 0
   _engineerCanAttack: 0
