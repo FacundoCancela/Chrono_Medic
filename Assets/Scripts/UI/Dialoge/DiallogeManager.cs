@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.IO;
+using UnityEngine.SceneManagement;
+
 
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText; // Campo de texto para mostrar el diálogo.
     public float typingSpeed = 0.05f; // Velocidad de escritura de cada letra.
+    public int dialogueOrder = 1; //Orden del diálogo en la escena(configurable en el inspector)
 
     private Queue<string> sentences; // Cola para almacenar las frases de diálogo.
     private bool isTyping; // Controla si se está escribiendo una frase actualmente.
@@ -16,7 +19,15 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>(); // Inicializa la cola de frases.
 
-        LoadDialogueFromFile("dialogue"); // Carga el diálogo desde un archivo de texto.
+        LoadDialogue(); // Carga el diálogo inicial basado en la escena y el orden.
+    }
+
+    void LoadDialogue()
+    {
+        string sceneName = SceneManager.GetActiveScene().name; // Obtiene el nombre de la escena actual.
+        string dialogueFileName = sceneName + dialogueOrder.ToString(); // Construye el nombre del archivo de texto.
+
+        LoadDialogueFromFile(dialogueFileName); // Carga el diálogo desde el archivo de texto correspondiente.
     }
 
     void LoadDialogueFromFile(string fileName)
@@ -26,6 +37,7 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueFile != null)
         {
+            sentences.Clear(); // Limpia las frases previas antes de cargar nuevas.
             string[] dialogueLines = dialogueFile.text.Split('\n'); // Divide el texto en líneas.
 
             foreach (string line in dialogueLines)
@@ -33,11 +45,11 @@ public class DialogueManager : MonoBehaviour
                 sentences.Enqueue(line.Trim()); // Añade cada línea a la cola.
             }
 
-            DisplayNextSentence(); // Muestra la primera frase.
+            DisplayNextSentence(); // Muestra la primera frase del nuevo diálogo.
         }
         else
         {
-            Debug.LogError("No se encontró el archivo de diálogo en Resources.");
+            Debug.LogError("No se encontró el archivo de diálogo: " + fileName);
         }
     }
 
@@ -87,5 +99,15 @@ public class DialogueManager : MonoBehaviour
         {
             DisplayNextSentence();
         }
+        if (Input.GetKeyDown(KeyCode.K)) // Avanza el diálogo al presionar la tecla Espacio.
+        {
+            SaltaDialogo();
+        }
+    }
+
+    public void SaltaDialogo()
+    {
+        dialogueOrder++; // Incrementa el número de orden del diálogo.
+        LoadDialogue(); // Carga el siguiente diálogo basado en el nuevo número de orden.
     }
 }
