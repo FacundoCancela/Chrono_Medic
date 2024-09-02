@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62723226a3236184e94ab8ce004de605, type: 3}
   m_Name: BaseStats
   m_EditorClassIdentifier: 
-  money: 2210
-  maxHealth: 10
+  money: 2070
+  maxHealth: 20
   maxBuyHealth: 100
   damageMultiplier: 1
-  movementSpeed: 1
+  movementSpeed: 2
   actualLevel: 0
   attackSpeed: 1
   attackRange: 0
   upgradeCost: 50
   InjectionHeal: 15
   maxInjectionsHeal: 30
-  InjectionsLimit: 5
+  InjectionsLimit: 9
   maxInjectionsLimit: 10

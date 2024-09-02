@@ -41,12 +41,10 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateClassStats()
     {
-        // Reiniciar a las estadísticas base
         playerStats.maxHealth = baseStats.maxHealth;
         playerStats.damageMultiplier = baseStats.damageMultiplier;
         playerStats.movementSpeed = baseStats.movementSpeed;
 
-        // Obtener la clase seleccionada
         ClassManager.SelectedClass selectedClass = classManager.GetCurrentClass();
 
         foreach (ClassStats classStat in classManager.stats)
@@ -58,8 +56,6 @@ public class PlayerController : MonoBehaviour
                 playerStats.movementSpeed += classStat.movementSpeed;
             }
         }
-
-        // Actualizar la salud actual
         actualHealth = playerStats.maxHealth;
     }
 
