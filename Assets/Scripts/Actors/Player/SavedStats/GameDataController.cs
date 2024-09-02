@@ -53,26 +53,7 @@ public class GameDataController : MonoBehaviour
             
             player.UpdateStats(baseStats);
         }
-        else
-        {
-            InitializeDefaultData();
-            SaveData();
-        }
     }
-
-    private void InitializeDefaultData()
-    {
-        // Asigna los valores actuales de baseStats a gameData
-        gameData.maxHealth = baseStats.maxHealth;
-        gameData.damageMultiplier = baseStats.damageMultiplier;
-        gameData.money = baseStats.money;
-        gameData.upgradeCost = baseStats.upgradeCost;
-        gameData.InjectionHeal = baseStats.InjectionHeal;
-        gameData.InjectionsLimit = baseStats.InjectionsLimit;
-
-        player.UpdateStats(baseStats);
-    }
-
     public void SaveData()
     {
         GameData newData = new GameData()
