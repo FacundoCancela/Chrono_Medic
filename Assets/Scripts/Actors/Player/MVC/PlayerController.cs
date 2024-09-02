@@ -81,11 +81,6 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E) && inventory != null)
         {
             inventory.useInjection();
-            _playerView.anim.SetBool("Heal",true);
-        }
-        else
-        {
-            _playerView.anim.SetBool("Heal", false);
         }
         if (Input.GetKeyDown(KeyCode.F8))
         {
