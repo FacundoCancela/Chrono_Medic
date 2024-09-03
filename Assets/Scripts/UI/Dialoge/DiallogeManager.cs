@@ -9,8 +9,9 @@ using UnityEngine.SceneManagement;
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText; // Campo de texto para mostrar el diálogo.
+    public TextMeshProUGUI characterNameText; // Campo de texto para mostrar el nombre del personaje.
     public float typingSpeed = 0.05f; // Velocidad de escritura de cada letra.
-    public int dialogueOrder = 1; //Orden del diálogo en la escena(configurable en el inspector)
+    public int dialogueOrder = 1; // Orden del diálogo en la escena (configurable en el inspector)
 
     private Queue<string> sentences; // Cola para almacenar las frases de diálogo.
     private bool isTyping; // Controla si se está escribiendo una frase actualmente.
@@ -70,7 +71,27 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue(); // Toma la siguiente frase de la cola.
-        StartCoroutine(TypeSentence(sentence)); // Comienza la escritura.
+        ParseSentence(sentence); // Analiza y muestra la frase con el nombre del personaje.
+    }
+
+    void ParseSentence(string sentence)
+    {
+        // Separa el nombre del personaje del texto del diálogo usando ":" como delimitador.
+        if (sentence.Contains(":"))
+        {
+            string[] parts = sentence.Split(new char[] { ':' }, 2);
+            string characterName = parts[0].Trim();
+            string dialogue = parts[1].Trim();
+
+            characterNameText.text = characterName; // Muestra el nombre del personaje.
+            StartCoroutine(TypeSentence(dialogue)); // Comienza a escribir el texto del diálogo.
+        }
+        else
+        {
+            // Si no hay un delimitador, se asume que es solo una línea de diálogo sin nombre.
+            characterNameText.text = ""; // No muestra ningún nombre de personaje.
+            StartCoroutine(TypeSentence(sentence)); // Comienza a escribir el texto del diálogo.
+        }
     }
 
     IEnumerator TypeSentence(string sentence)
