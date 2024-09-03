@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
     void LoadDialogue()
     {
         string sceneName = SceneManager.GetActiveScene().name; // Obtiene el nombre de la escena actual.
-        string dialogueFileName = sceneName + dialogueOrder.ToString(); // Construye el nombre del archivo de texto.
+        string dialogueFileName = sceneName + "_" + dialogueOrder.ToString(); // Construye el nombre del archivo de texto.
 
         LoadDialogueFromFile(dialogueFileName); // Carga el diálogo desde el archivo de texto correspondiente.
     }
