@@ -95732,6 +95732,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 4774728955887415790}
+    - target: {fileID: 6281159330125533191, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
+      propertyPath: baseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: bf61c40d3e61e3e47aecd2987f029bf2, type: 2}
     - target: {fileID: 7936213906782573933, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: waveCount
       value: 
@@ -95835,6 +95839,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5757684047417911686, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
+      propertyPath: baseStats
+      value: 
+      objectReference: {fileID: 11400000, guid: bf61c40d3e61e3e47aecd2987f029bf2, type: 2}
     - target: {fileID: 5757684047417911686, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
       propertyPath: healthBar
       value: 

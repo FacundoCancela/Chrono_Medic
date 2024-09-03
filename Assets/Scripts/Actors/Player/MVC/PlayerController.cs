@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public PlayerStats playerStats;
+    public PlayerStats baseStats;
     public HealthBar healthBar;
     public Inventory inventory;
     [SerializeField] public LoseScreen loseScreen;
 
     IActorModel _player;
     PlayerView _playerView;
+    public ClassManager classManager;
 
     public string nombreEscenaAJugar;
 
@@ -22,31 +24,42 @@ public class PlayerController : MonoBehaviour
     {
         _player = GetComponent<IActorModel>();
         _playerView = GetComponent<PlayerView>();
-        actualHealth = playerStats.maxHealth;
         inventory = GetComponent<Inventory>();
+        classManager = GetComponent<ClassManager>();
         Time.timeScale = 1.0f;
+
+        UpdateClassStats();
     }
 
     private void Update()
     {
         Walk();
-        GetMoney();
         UseInventoryItem();
         if(healthBar != null)
             HealthBarManager();
     }
 
-    public void GetMoney()
+    public void UpdateClassStats()
     {
-        if(Input.GetKeyDown(KeyCode.F8))
+        playerStats.maxHealth = baseStats.maxHealth;
+        playerStats.damageMultiplier = baseStats.damageMultiplier;
+        playerStats.movementSpeed = baseStats.movementSpeed;
+
+        ClassManager.SelectedClass selectedClass = classManager.GetCurrentClass();
+
+        foreach (ClassStats classStat in classManager.stats)
         {
-            GameDataController.Instance.IncreaseMoney(1000);
+            if (classStat.selectedClass == selectedClass)
+            {
+                playerStats.maxHealth += classStat.maxHealth;
+                playerStats.damageMultiplier += classStat.damageMultiplier;
+                playerStats.movementSpeed += classStat.movementSpeed;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.F9))
-        {
-            GameDataController.Instance.DecreaseMoney(1000);
-        }
+        actualHealth = playerStats.maxHealth;
     }
+
+
 
 
     public void Walk()
@@ -68,6 +81,10 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E) && inventory != null)
         {
             inventory.useInjection();
+        }
+        if (Input.GetKeyDown(KeyCode.F8))
+        {
+            GameDataController.Instance.SaveData();
         }
     }
 
@@ -105,12 +122,14 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateStats(PlayerStats newStats)
     {
-        playerStats = newStats;
+        baseStats = newStats;
+        UpdateClassStats();
     }
 
     public void UpdateHealth(PlayerStats newStats)
     {
-        playerStats = newStats;
+        baseStats = newStats;
+        UpdateClassStats();
         actualHealth = playerStats.maxHealth;
     }
 }

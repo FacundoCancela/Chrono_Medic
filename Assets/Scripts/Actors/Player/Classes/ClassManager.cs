@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ClassManager : MonoBehaviour
 {
+    [SerializeField] public List<ClassStats> stats = new List<ClassStats>();
     public enum SelectedClass
     {
         Melee,
