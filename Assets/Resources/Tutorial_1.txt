@@ -1,7 +1,7 @@
-Vendedor: ¡Hola! Bienvenido a nuestra tienda. ¿Estás buscando algo en particular?
-Cliente: Sí, estoy buscando un champú que ayude con el cabello seco.
-Vendedor: Tengo justo lo que necesitas. Este champú está hecho con aceite de argán y ayuda a hidratar profundamente el cabello.
-Cliente: Suena genial. ¿Es seguro para el cabello teñido?
-Vendedor: Absolutamente. Es libre de sulfatos y protege el color mientras hidrata.
-Cliente: Perfecto, me llevo uno.
-Vendedor: ¡Buena elección! Estoy seguro de que notarás la diferencia en poco tiempo.
+Nino: Mamá, ¿puedo comprar ese chocolate que vimos en la tienda?
+Mama: ¿Cuál? ¿El de la caja dorada?
+Nino: ¡Sí, ese! Dicen que es el más delicioso del mundo.
+Mama: Bueno, podemos probarlo. Pero recuerda, ¡no puedes comer todo de una vez!
+Nino: ¡Prometido! Pero, ¿puedo comer un poco ahora?
+Mama: Claro, pero solo un pedacito. Hay que compartirlo con papá también.
+Nino: ¡Sí! A papá también le encanta el chocolate.

@@ -12,6 +12,7 @@ TagManager:
   - Lvl_2400
   - SampleScene
   - MapLimit
+  - CharacterImage
   layers:
   - Default
   - TransparentFX

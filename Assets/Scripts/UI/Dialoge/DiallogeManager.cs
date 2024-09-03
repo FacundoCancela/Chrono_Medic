@@ -8,45 +8,74 @@ using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
-    public TextMeshProUGUI dialogueText; // Campo de texto para mostrar el diálogo.
-    public TextMeshProUGUI characterNameText; // Campo de texto para mostrar el nombre del personaje.
-    public float typingSpeed = 0.05f; // Velocidad de escritura de cada letra.
-    public int dialogueOrder = 1; // Orden del diálogo en la escena (configurable en el inspector)
+    public TextMeshProUGUI dialogueText;
+    public TextMeshProUGUI characterNameText; 
+    public float typingSpeed = 0.05f; 
+    public int dialogueOrder = 1; 
 
-    private Queue<string> sentences; // Cola para almacenar las frases de diálogo.
-    private bool isTyping; // Controla si se está escribiendo una frase actualmente.
+    public Dictionary<string, GameObject> characterImages; 
+
+    private Queue<string> sentences; 
+    private bool isTyping; 
 
     void Start()
     {
-        sentences = new Queue<string>(); // Inicializa la cola de frases.
+        sentences = new Queue<string>();
+        characterImages = new Dictionary<string, GameObject>(); 
 
-        LoadDialogue(); // Carga el diálogo inicial basado en la escena y el orden.
+     
+        //LoadCharacterImages();
+
+        //LoadDialogue();
+    }
+
+    void LoadCharacterImages()
+    {
+
+        characterImages.Clear(); 
+
+        
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag("CharacterImage")) 
+            {
+                if (!characterImages.ContainsKey(child.name)) 
+                {
+                    characterImages.Add(child.name, child.gameObject);
+                    child.gameObject.SetActive(false); 
+                }
+                else
+                {
+                    Debug.LogWarning("El personaje " + child.name + " ya existe en el diccionario.");
+                }
+            }
+        }
     }
 
     void LoadDialogue()
     {
-        string sceneName = SceneManager.GetActiveScene().name; // Obtiene el nombre de la escena actual.
-        string dialogueFileName = sceneName + "_" + dialogueOrder.ToString(); // Construye el nombre del archivo de texto.
+        string sceneName = SceneManager.GetActiveScene().name; 
+        string dialogueFileName = sceneName + "_" + dialogueOrder.ToString(); 
 
-        LoadDialogueFromFile(dialogueFileName); // Carga el diálogo desde el archivo de texto correspondiente.
+        LoadDialogueFromFile(dialogueFileName); 
     }
 
     void LoadDialogueFromFile(string fileName)
     {
-        // Carga el archivo de texto desde la carpeta Resources.
+        
         TextAsset dialogueFile = Resources.Load<TextAsset>(fileName);
 
         if (dialogueFile != null)
         {
-            sentences.Clear(); // Limpia las frases previas antes de cargar nuevas.
-            string[] dialogueLines = dialogueFile.text.Split('\n'); // Divide el texto en líneas.
+            sentences.Clear(); 
+            string[] dialogueLines = dialogueFile.text.Split('\n'); 
 
             foreach (string line in dialogueLines)
             {
-                sentences.Enqueue(line.Trim()); // Añade cada línea a la cola.
+                sentences.Enqueue(line.Trim());
             }
 
-            DisplayNextSentence(); // Muestra la primera frase del nuevo diálogo.
+            DisplayNextSentence();
         }
         else
         {
@@ -58,69 +87,105 @@ public class DialogueManager : MonoBehaviour
     {
         if (isTyping)
         {
-            StopAllCoroutines(); // Detiene la escritura si el jugador avanza rápidamente.
-            dialogueText.text = sentences.Peek(); // Completa la frase actual.
+            StopAllCoroutines(); 
+
+            if (sentences.Count > 0)
+            {
+                dialogueText.text = sentences.Peek(); 
+            }
+            else
+            {
+                dialogueText.text = ""; 
+            }
+
             isTyping = false;
             return;
         }
 
         if (sentences.Count == 0)
         {
-            EndDialogue(); // Termina el diálogo si no hay más frases.
+            EndDialogue(); 
             return;
         }
 
-        string sentence = sentences.Dequeue(); // Toma la siguiente frase de la cola.
-        ParseSentence(sentence); // Analiza y muestra la frase con el nombre del personaje.
+        string sentence = sentences.Dequeue(); 
+        ParseSentence(sentence); 
     }
 
     void ParseSentence(string sentence)
     {
-        // Separa el nombre del personaje del texto del diálogo usando ":" como delimitador.
+        
         if (sentence.Contains(":"))
         {
             string[] parts = sentence.Split(new char[] { ':' }, 2);
             string characterName = parts[0].Trim();
             string dialogue = parts[1].Trim();
 
-            characterNameText.text = characterName; // Muestra el nombre del personaje.
-            StartCoroutine(TypeSentence(dialogue)); // Comienza a escribir el texto del diálogo.
+            characterNameText.text = characterName; 
+            ActivateCharacterImage(characterName); 
+            StartCoroutine(TypeSentence(dialogue)); 
         }
         else
         {
-            // Si no hay un delimitador, se asume que es solo una línea de diálogo sin nombre.
-            characterNameText.text = ""; // No muestra ningún nombre de personaje.
-            StartCoroutine(TypeSentence(sentence)); // Comienza a escribir el texto del diálogo.
+            
+            characterNameText.text = ""; 
+            DeactivateAllCharacterImages(); 
+            StartCoroutine(TypeSentence(sentence)); 
+        }
+    }
+
+    void ActivateCharacterImage(string characterName)
+    {
+        DeactivateAllCharacterImages(); 
+
+        if (characterImages.ContainsKey(characterName))
+        {
+            characterImages[characterName].SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró la imagen para el personaje: " + characterName);
+        }
+    }
+
+    void DeactivateAllCharacterImages()
+    {
+        foreach (KeyValuePair<string, GameObject> entry in characterImages)
+        {
+            entry.Value.SetActive(false); 
         }
     }
 
     IEnumerator TypeSentence(string sentence)
     {
-        isTyping = true; // Indica que se está escribiendo una frase.
-        dialogueText.text = ""; // Limpia el texto actual.
+        isTyping = true; 
+        dialogueText.text = ""; 
 
         foreach (char letter in sentence)
         {
-            dialogueText.text += letter; // Agrega cada letra con un retraso.
+            dialogueText.text += letter; 
             yield return new WaitForSeconds(typingSpeed);
         }
 
-        isTyping = false; // Indica que ha terminado la escritura.
+        isTyping = false; 
     }
 
     void EndDialogue()
     {
-        Debug.Log("End of dialogue."); // Muestra un mensaje de fin de diálogo.
-        // Aquí puedes añadir la lógica para cerrar la ventana de diálogo o continuar con el juego.
+        Debug.Log("End of dialogue."); 
+        DeactivateAllCharacterImages();
+        characterNameText.text = "";
+        dialogueText.text = "";
+
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // Avanza el diálogo al presionar la tecla Espacio.
+        if (Input.GetKeyDown(KeyCode.Space)) 
         {
             DisplayNextSentence();
         }
-        if (Input.GetKeyDown(KeyCode.K)) // Avanza el diálogo al presionar la tecla Espacio.
+        if (Input.GetKeyDown(KeyCode.K)) 
         {
             SaltaDialogo();
         }
@@ -128,7 +193,8 @@ public class DialogueManager : MonoBehaviour
 
     public void SaltaDialogo()
     {
-        dialogueOrder++; // Incrementa el número de orden del diálogo.
-        LoadDialogue(); // Carga el siguiente diálogo basado en el nuevo número de orden.
+        dialogueOrder++; 
+        LoadCharacterImages();
+        LoadDialogue(); 
     }
 }
