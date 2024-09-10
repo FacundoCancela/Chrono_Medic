@@ -9,10 +9,18 @@ public class UpgradePrice : MonoBehaviour
     public TextMeshProUGUI InjectionHealText;
     public TextMeshProUGUI InjectionLimitText;
     [SerializeField] ShopUpgrade shopUpgrade;
-    [SerializeField] PlayerStats baseStats;
+
+    private GameDataController gameDataController;
+    private GameData gameData;
+
+    private void Awake()
+    {
+        gameDataController = GameDataController.Instance;
+    }
 
     private void Update()
     {
+        gameData = gameDataController.gameData;
         HealthPrice();
         InjectionHealPrice();
         InjectionLimitPrice();
@@ -20,37 +28,37 @@ public class UpgradePrice : MonoBehaviour
 
     public void HealthPrice()
     {
-        if(baseStats.maxHealth >= baseStats.maxBuyHealth)
+        if (gameData.maxHealth >= gameDataController.playerStats.maxBuyHealth)
         {
             healthText.text = ("Max Level");
         }
         else
         {
-            healthText.text = ("$" + baseStats.upgradeCost + "/+" + shopUpgrade.extraHealthPerLevel);
+            healthText.text = ("$" + gameData.upgradeCost + "/+" + shopUpgrade.extraHealthPerLevel);
         }
     }
 
     public void InjectionHealPrice()
     {
-        if (baseStats.InjectionHeal >= baseStats.maxInjectionsHeal)
+        if (gameData.InjectionHeal >= gameDataController.playerStats.maxInjectionsHeal)
         {
             InjectionHealText.text = ("Max Level");
         }
         else
         {
-            InjectionHealText.text = ("$" + baseStats.upgradeCost + "/+" + shopUpgrade.extraInjectionHeal);
+            InjectionHealText.text = ("$" + gameData.upgradeCost + "/+" + shopUpgrade.extraInjectionHeal);
         }
     }
 
     public void InjectionLimitPrice()
     {
-        if (baseStats.InjectionsLimit >= baseStats.maxInjectionsLimit)
+        if (gameData.InjectionsLimit >= gameDataController.playerStats.maxInjectionsLimit)
         {
             InjectionLimitText.text = ("Max Level");
         }
         else
         {
-            InjectionLimitText.text = ("$" + baseStats.upgradeCost + "/+" + shopUpgrade.extraInjectionLimit);
+            InjectionLimitText.text = ("$" + gameData.upgradeCost + "/+" + shopUpgrade.extraInjectionLimit);
         }
     }
 }

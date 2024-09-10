@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public PlayerStats playerStats;
-    public PlayerStats baseStats;
     public HealthBar healthBar;
     public Inventory inventory;
     [SerializeField] public LoseScreen loseScreen;
@@ -27,8 +26,11 @@ public class PlayerController : MonoBehaviour
         inventory = GetComponent<Inventory>();
         classManager = GetComponent<ClassManager>();
         Time.timeScale = 1.0f;
+    }
 
-        UpdateClassStats();
+    private void Start()
+    {
+        UpdateClassStats(true);
     }
 
     private void Update()
@@ -39,11 +41,25 @@ public class PlayerController : MonoBehaviour
             HealthBarManager();
     }
 
-    public void UpdateClassStats()
+    public void UpdateClassStats(bool updateHeal)
     {
-        playerStats.maxHealth = baseStats.maxHealth;
-        playerStats.damageMultiplier = baseStats.damageMultiplier;
-        playerStats.movementSpeed = baseStats.movementSpeed;
+        if (GameDataController.Instance == null)
+        {
+            Debug.LogError("GameDataController instance is null");
+            return;
+        }
+
+        GameData gameData = GameDataController.Instance.gameData;
+
+        if (gameData == null)
+        {
+            Debug.LogError("GameData is null");
+            return;
+        }
+
+        playerStats.maxHealth = gameData.maxHealth;
+        playerStats.damageMultiplier = gameData.damageMultiplier;
+        playerStats.movementSpeed = gameData.movementSpeed;
 
         ClassManager.SelectedClass selectedClass = classManager.GetCurrentClass();
 
@@ -56,7 +72,11 @@ public class PlayerController : MonoBehaviour
                 playerStats.movementSpeed += classStat.movementSpeed;
             }
         }
-        actualHealth = playerStats.maxHealth;
+
+        if (updateHeal)
+        {
+            actualHealth = playerStats.maxHealth;
+        }
     }
 
 
@@ -118,18 +138,5 @@ public class PlayerController : MonoBehaviour
         HealthBarManager();
         this.gameObject.SetActive(false);
         loseScreen.gameObject.SetActive(true);
-    }
-
-    public void UpdateStats(PlayerStats newStats)
-    {
-        baseStats = newStats;
-        UpdateClassStats();
-    }
-
-    public void UpdateHealth(PlayerStats newStats)
-    {
-        baseStats = newStats;
-        UpdateClassStats();
-        actualHealth = playerStats.maxHealth;
     }
 }

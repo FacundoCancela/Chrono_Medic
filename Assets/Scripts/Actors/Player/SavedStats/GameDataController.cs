@@ -4,17 +4,14 @@ using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
 
-
 public class GameDataController : MonoBehaviour
 {
     [SerializeField] public PlayerController player;
-    [SerializeField] public PlayerStats baseStats;
+    [SerializeField] public PlayerStats playerStats;
     [SerializeField] public UpgradePrice upgradePrice;
-    
 
     public string savedFile;
     public GameData gameData = new GameData();
-
 
     public static GameDataController Instance
     {
@@ -39,128 +36,110 @@ public class GameDataController : MonoBehaviour
 
     private void LoadData()
     {
-        if(File.Exists(savedFile))
+        if (File.Exists(savedFile))
         {
             string data = File.ReadAllText(savedFile);
             gameData = JsonConvert.DeserializeObject<GameData>(data);
 
-            baseStats.maxHealth = gameData.maxHealth;
-            baseStats.damageMultiplier = gameData.damageMultiplier;
-            baseStats.money = gameData.money;
-            baseStats.upgradeCost = gameData.upgradeCost;
-            baseStats.InjectionHeal = gameData.InjectionHeal;
-            baseStats.InjectionsLimit = gameData.InjectionsLimit;
-            
-            player.UpdateStats(baseStats);
+            UpdatePlayerStats();
         }
     }
+
     public void SaveData()
     {
         GameData newData = new GameData()
         {
-            maxHealth = baseStats.maxHealth,
-            damageMultiplier = baseStats.damageMultiplier,
-            money = baseStats.money,
-            upgradeCost = baseStats.upgradeCost,
-            InjectionHeal = baseStats.InjectionHeal,
-            InjectionsLimit = baseStats.InjectionsLimit,
-            
+            maxHealth = gameData.maxHealth,
+            damageMultiplier = gameData.damageMultiplier,
+            money = gameData.money,
+            upgradeCost = gameData.upgradeCost,
+            InjectionHeal = gameData.InjectionHeal,
+            InjectionsLimit = gameData.InjectionsLimit,
         };
 
         string jsonString = JsonConvert.SerializeObject(newData, Formatting.Indented);
         File.WriteAllText(savedFile, jsonString);
 
+        UpdatePlayerStats();
+    }
+
+    private void UpdatePlayerStats(bool updateHealth = false)
+    {
+        player.UpdateClassStats(updateHealth);
     }
 
     public void IncreaseHealth(int moreHealth)
     {
-        if(baseStats.maxHealth >= baseStats.maxBuyHealth)
+        if (gameData.maxHealth >= playerStats.maxBuyHealth)
         {
-            Debug.Log("Vida maxima alcanzada");
+            Debug.Log("Vida máxima alcanzada");
         }
-        else if (baseStats.money >= gameData.upgradeCost)
+        else if (gameData.money >= gameData.upgradeCost)
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.maxHealth += moreHealth;
-            baseStats.maxHealth = gameData.maxHealth;
-            player.UpdateHealth(baseStats);
-            SaveData();
+            SaveData(); // Guardar y actualizar
+            UpdatePlayerStats(true);
         }
-        else Debug.Log("te falta plata");
-
+        else Debug.Log("Te falta plata");
     }
 
     public void IncreaseInjectionHeal(int extraHeal)
     {
-        if (baseStats.InjectionHeal >= baseStats.maxInjectionsHeal)
+        if (gameData.InjectionHeal >= playerStats.maxInjectionsHeal)
         {
-            Debug.Log("Vida maxima alcanzada");
+            Debug.Log("Vida máxima alcanzada");
         }
-        else if (baseStats.money >= gameData.upgradeCost)
+        else if (gameData.money >= gameData.upgradeCost)
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.InjectionHeal += extraHeal;
-            baseStats.InjectionHeal = gameData.InjectionHeal;
-            player.UpdateStats(baseStats);
-            SaveData();
+            SaveData(); // Guardar y actualizar
         }
-        else Debug.Log("te falta plata");
-
+        else Debug.Log("Te falta plata");
     }
 
     public void IncreaseInjectionLimit(int moreInjections)
     {
-        if (baseStats.InjectionsLimit >= baseStats.maxInjectionsLimit)
+        if (gameData.InjectionsLimit >= playerStats.maxInjectionsLimit)
         {
-            Debug.Log("Vida maxima alcanzada");
+            Debug.Log("Vida máxima alcanzada");
         }
-        else if (baseStats.money >= gameData.upgradeCost)
+        else if (gameData.money >= gameData.upgradeCost)
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.InjectionsLimit += moreInjections;
-            baseStats.InjectionsLimit = gameData.InjectionsLimit;
-            player.UpdateStats(baseStats);
-            SaveData();
+            SaveData(); // Guardar y actualizar
         }
-        else Debug.Log("te falta plata");
-
+        else Debug.Log("Te falta plata");
     }
 
     public void IncreaseDamage(int moreDamage)
     {
-        if(baseStats.money >= gameData.upgradeCost)
+        if (gameData.money >= gameData.upgradeCost)
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.damageMultiplier += moreDamage;
-            baseStats.damageMultiplier = gameData.damageMultiplier;
-            player.UpdateStats(baseStats);
-            SaveData();
+            SaveData(); // Guardar y actualizar
         }
-        else Debug.Log("te falta plata");
+        else Debug.Log("Te falta plata");
     }
-    
+
     public void IncreaseMoney(int moreMoney)
     {
         gameData.money += moreMoney;
-        baseStats.money = gameData.money;
-        player.UpdateStats(baseStats);
-        SaveData();
+        SaveData(); // Guardar y actualizar
     }
 
     public void DecreaseMoney(int spentMoney)
     {
         gameData.money -= spentMoney;
-        baseStats.money = gameData.money;
-        player.UpdateStats(baseStats);
-        SaveData();
+        SaveData(); // Guardar y actualizar
     }
 
     public void basicUpgradePrice()
     {
         gameData.upgradeCost = 50;
-        baseStats.upgradeCost = gameData.upgradeCost;
-        player.UpdateStats(baseStats);
-        SaveData();
-        
+        SaveData(); // Guardar y actualizar
     }
 }
