@@ -103,6 +103,7 @@ public class PlayerController : MonoBehaviour
         actualHealth += hpHealed;
         if (actualHealth > playerStats.maxHealth) actualHealth = playerStats.maxHealth;
         healthBar.SetHealth(actualHealth);
+        _playerView.anim.SetTrigger("Heal");
     }
 
     public void GetDamaged(int damage)
