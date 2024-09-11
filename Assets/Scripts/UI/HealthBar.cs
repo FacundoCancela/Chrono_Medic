@@ -36,6 +36,6 @@ public class HealthBar : MonoBehaviour
 
     bool DisplayHealthPoints(int _health, int pointNumber)
     {
-        return _health <= ((pointNumber + 1) * _healthPercent);
+        return _health <= ((pointNumber) * _healthPercent);
     }
 }

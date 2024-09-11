@@ -102,6 +102,7 @@ public class PlayerController : MonoBehaviour
     {
         actualHealth += hpHealed;
         if (actualHealth > playerStats.maxHealth) actualHealth = playerStats.maxHealth;
+        healthBar.SetHealth(actualHealth);
     }
 
     public void GetDamaged(int damage)
