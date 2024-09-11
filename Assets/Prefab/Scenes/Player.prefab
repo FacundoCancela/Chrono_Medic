@@ -342,6 +342,7 @@ MonoBehaviour:
   swordSlash: {fileID: 3368990299770127282, guid: 3531442a7de86a54898fe91aa15a619e, type: 3}
   attackPosition: {fileID: 7644614681997212829}
   _timeSinceLastSlashAttack: 0
+  direction: {fileID: 5045376774622553927}
 --- !u!114 &3571248273786950874
 MonoBehaviour:
   m_ObjectHideFlags: 0
