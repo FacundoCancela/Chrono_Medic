@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public float time = 0.3f;
+
     public GameObject enterMainMenu;
     public GameObject exitMainMenu;
     public void Start()
@@ -13,7 +15,7 @@ public class GameManager : MonoBehaviour
     }
     public IEnumerator Delay(GameObject gameObject)
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(time);
         gameObject.SetActive(false);
     }
 }

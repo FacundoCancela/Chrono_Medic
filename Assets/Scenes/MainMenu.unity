@@ -2976,6 +2976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3306d8168e9954b8f17cc244ed46f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 0.3
   enterMainMenu: {fileID: 1434375483}
   exitMainMenu: {fileID: 5289401831321875426}
 --- !u!4 &1763184771
