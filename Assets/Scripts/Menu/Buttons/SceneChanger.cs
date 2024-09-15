@@ -23,11 +23,8 @@ public class SceneChanger : MonoBehaviour
             gameManager.exitMainMenu.SetActive(true);
 
         SceneManager.LoadScene(nombreEscenaAJugar);
-        if (pauseManager != null)
-        {
+        if (pauseManager != null) 
             pauseManager.canPause = true;
-            pauseManager.Continue();
-        }
     }
 
     public void CambiarEscena(string nombreEscenaAJugar)
@@ -35,10 +32,7 @@ public class SceneChanger : MonoBehaviour
         // Cambiar a la escena especificada
         SceneManager.LoadScene(nombreEscenaAJugar);
         if (pauseManager != null)
-        {
             pauseManager.canPause = true;
-            pauseManager.Continue();
-        }
     }
 
 }

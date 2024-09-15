@@ -6,11 +6,10 @@ using UnityEngine;
 public class MoneyCount : MonoBehaviour
 {
     public TextMeshProUGUI text;
-    private GameData gameData;
+    [SerializeField] public PlayerStats playerStats;
 
     private void Update()
     {
-        gameData = GameDataController.Instance.gameData;
-        text.text = gameData.money.ToString();
+        text.text = ("" + playerStats.money);
     }
 }
