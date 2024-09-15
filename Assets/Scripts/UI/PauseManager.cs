@@ -16,7 +16,7 @@ public class PauseManager : MonoBehaviour
 
     public void PauseKey()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && canPause) 
+        if (Input.GetKeyDown(KeyCode.Escape) && canPause)
         {
             PauseAndContinue();
         }
@@ -24,13 +24,13 @@ public class PauseManager : MonoBehaviour
 
     public void PauseAndContinue()
     {
-        if(!gamePaused)
+        if (!gamePaused)
         {
             Time.timeScale = 0f;
             pauseScreen.SetActive(true);
             gamePaused = true;
         }
-        else if(gamePaused)
+        else if (gamePaused)
         {
             Time.timeScale = 1.0f;
             pauseScreen.SetActive(false);
@@ -41,8 +41,9 @@ public class PauseManager : MonoBehaviour
     public void Continue()
     {
         Time.timeScale = 1.0f;
-        pauseScreen.SetActive(false);
         gamePaused = false;
+        if (pauseScreen != null)
+            pauseScreen.SetActive(false);
     }
 
     public void Surrender()

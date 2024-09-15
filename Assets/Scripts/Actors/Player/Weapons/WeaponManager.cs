@@ -25,7 +25,6 @@ public class WeaponManager : MonoBehaviour
 
     private void Awake()
     {
-        // Check current scene based on name
         string currentScene = SceneManager.GetActiveScene().name;
         if (currentScene == "Lvl_Menu")
         {
@@ -41,7 +40,7 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
-        if(_isInCombat)
+        if(_isInCombat && Time.timeScale != 0)
         {
             WeaponSelector();
             UseWeapon();
