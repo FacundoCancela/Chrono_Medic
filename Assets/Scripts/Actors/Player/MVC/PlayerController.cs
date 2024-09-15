@@ -30,7 +30,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        UpdateClassStats(true);
+        UpdateClassStats();
+        UpdateActualHealth();
     }
 
     private void Update()
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
             HealthBarManager();
     }
 
-    public void UpdateClassStats(bool updateHeal)
+    public void ResetToBasicClass()
     {
         if (GameDataController.Instance == null)
         {
@@ -60,6 +61,11 @@ public class PlayerController : MonoBehaviour
         playerStats.maxHealth = gameData.maxHealth;
         playerStats.damageMultiplier = gameData.damageMultiplier;
         playerStats.movementSpeed = gameData.movementSpeed;
+    }
+
+    public void UpdateClassStats()
+    {
+        ResetToBasicClass();
 
         ClassManager.SelectedClass selectedClass = classManager.GetCurrentClass();
 
@@ -72,15 +78,12 @@ public class PlayerController : MonoBehaviour
                 playerStats.movementSpeed += classStat.movementSpeed;
             }
         }
-
-        if (updateHeal)
-        {
-            actualHealth = playerStats.maxHealth;
-        }
     }
 
-
-
+    public void UpdateActualHealth()
+    {
+        actualHealth = playerStats.maxHealth;
+    }
 
     public void Walk()
     {

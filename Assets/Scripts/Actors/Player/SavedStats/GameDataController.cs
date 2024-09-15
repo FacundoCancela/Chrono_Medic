@@ -8,7 +8,6 @@ public class GameDataController : MonoBehaviour
 {
     [SerializeField] public PlayerController player;
     [SerializeField] public PlayerStats playerStats;
-    [SerializeField] public UpgradePrice upgradePrice;
 
     public string savedFile;
     public GameData gameData = new GameData();
@@ -32,6 +31,12 @@ public class GameDataController : MonoBehaviour
 
         savedFile = Application.dataPath + "/gameData.json";
         LoadData();
+    }
+
+    //Probar cambiar onDestroy por sceneLoaded
+    private void OnDestroy()
+    {
+        SaveData();
     }
 
     private void LoadData()
@@ -63,9 +68,9 @@ public class GameDataController : MonoBehaviour
         UpdatePlayerStats();
     }
 
-    private void UpdatePlayerStats(bool updateHealth = false)
+    private void UpdatePlayerStats()
     {
-        player.UpdateClassStats(updateHealth);
+        player.UpdateClassStats();
     }
 
     public void IncreaseHealth(int moreHealth)
@@ -78,8 +83,8 @@ public class GameDataController : MonoBehaviour
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.maxHealth += moreHealth;
-            SaveData(); // Guardar y actualizar
-            UpdatePlayerStats(true);
+            SaveData();
+            player.UpdateActualHealth();
         }
         else Debug.Log("Te falta plata");
     }
@@ -94,7 +99,7 @@ public class GameDataController : MonoBehaviour
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.InjectionHeal += extraHeal;
-            SaveData(); // Guardar y actualizar
+            SaveData();
         }
         else Debug.Log("Te falta plata");
     }
@@ -109,7 +114,7 @@ public class GameDataController : MonoBehaviour
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.InjectionsLimit += moreInjections;
-            SaveData(); // Guardar y actualizar
+            SaveData();
         }
         else Debug.Log("Te falta plata");
     }
@@ -120,7 +125,7 @@ public class GameDataController : MonoBehaviour
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.damageMultiplier += moreDamage;
-            SaveData(); // Guardar y actualizar
+            SaveData();
         }
         else Debug.Log("Te falta plata");
     }
@@ -128,18 +133,17 @@ public class GameDataController : MonoBehaviour
     public void IncreaseMoney(int moreMoney)
     {
         gameData.money += moreMoney;
-        SaveData(); // Guardar y actualizar
     }
 
     public void DecreaseMoney(int spentMoney)
     {
         gameData.money -= spentMoney;
-        SaveData(); // Guardar y actualizar
+        SaveData();
     }
 
     public void basicUpgradePrice()
     {
         gameData.upgradeCost = 50;
-        SaveData(); // Guardar y actualizar
+        SaveData();
     }
 }
