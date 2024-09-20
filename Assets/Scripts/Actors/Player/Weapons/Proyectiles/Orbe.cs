@@ -44,7 +44,7 @@ public class Orbe : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
+            IEnemyController enemyController = collision.gameObject.GetComponent<IEnemyController>();
             if (enemyController != null)
             {
                 enemyController.GetDamaged(playerStats.damageMultiplier * experienceManager.extraOrbitalDamage);

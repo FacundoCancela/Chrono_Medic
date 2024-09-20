@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
+            IEnemyController enemyController = collision.gameObject.GetComponent<IEnemyController>();
             ExperienceManager experienceManager = FindAnyObjectByType<ExperienceManager>();
             if (enemyController != null)
             {

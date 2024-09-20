@@ -4,21 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.UI.Image;
 
-//Constantes para el blackboard
-public static class EnemyBlackBoardConsts
+public static class BossBlackBoardConsts
 {
     public static string B__IS_DEAD = "bool_IsDead";
 }
 
-public class EnemyController : MonoBehaviour, IEnemyController
+
+public class BossController : MonoBehaviour, IEnemyController
 {
     public EnemyStats enemyStats;
 
     //Variables de IA
-    EnemyModel _model;
-    EnemyView _view;
-    [SerializeField]PlayerController _target;
-    EnemyTree _enemyTree;
+    BossModel _model;
+    BossView _view;
+    [SerializeField] PlayerController _target;
+    BossTree _bossTree;
 
     ObstacleAvoidance _obstacleAvoidance;
     public float angle;
@@ -34,16 +34,16 @@ public class EnemyController : MonoBehaviour, IEnemyController
 
     private Dictionary<string, object> _blackBoardDictionary = new Dictionary<string, object>
     {
-        {EnemyBlackBoardConsts.B__IS_DEAD,false },
+        {BossBlackBoardConsts.B__IS_DEAD,false },
     };
 
     private void Awake()
     {
         //referencias
-        _model = GetComponent<EnemyModel>();
-        _view = GetComponent<EnemyView>();
+        _model = GetComponent<BossModel>();
+        _view = GetComponent<BossView>();
         _target = FindObjectOfType<PlayerController>();
-        
+
         //inicializaciones 
         InitilizeSteering();
         InitializeFSM();
@@ -52,15 +52,15 @@ public class EnemyController : MonoBehaviour, IEnemyController
         shootRange = enemyStats.attackRange;
         actualHealth = enemyStats.maxHealth;
 
-        _enemyTree = new EnemyTree(_fsm, _model.transform, _target.transform, shootRange, ref _blackBoardDictionary);
-        _enemyTree.InitializeTree();
+        _bossTree = new BossTree(_fsm, _model.transform, _target.transform, shootRange, ref _blackBoardDictionary);
+        _bossTree.InitializeTree();
 
     }
 
     void InitilizeSteering()
     {
         var seek = new Seek(_model.transform, _target.transform);
-        
+
         _steering = seek;
         _obstacleAvoidance = new ObstacleAvoidance(_model.transform, angle, radius, obsMask);
     }
@@ -70,9 +70,9 @@ public class EnemyController : MonoBehaviour, IEnemyController
         _fsm = new FSM<EnemyStatesEnum>();
 
         //States
-        var seek = new EnemyStateSteering<EnemyStatesEnum>(_model,_view, _steering, _obstacleAvoidance);
-        var shoot = new EnemyStateShoot<EnemyStatesEnum>(_model, _target.transform, _view);
-        var dead = new EnemyStateDead<EnemyStatesEnum>(_model);
+        var seek = new BossStateSteering<EnemyStatesEnum>(_model, _view, _steering, _obstacleAvoidance);
+        var shoot = new BossStateShoot<EnemyStatesEnum>(_model, _target.transform, _view);
+        var dead = new BossStateDead<EnemyStatesEnum>(_model);
 
         //Transitions
 
@@ -92,14 +92,14 @@ public class EnemyController : MonoBehaviour, IEnemyController
     private void Update()
     {
         _fsm.OnUpdate();
-        _enemyTree.ExecuteTree();
+        _bossTree.ExecuteTree();
     }
 
     private void DeathCheck()
     {
         if (actualHealth <= 0)
         {
-            _blackBoardDictionary[EnemyBlackBoardConsts.B__IS_DEAD] = true;
+            _blackBoardDictionary[BossBlackBoardConsts.B__IS_DEAD] = true;
         }
     }
 
