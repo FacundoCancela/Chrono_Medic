@@ -52,7 +52,7 @@ public class EgyptInteraction : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && hasBeenActivated)
         {
-            EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
+            IEnemyController enemyController = collision.gameObject.GetComponent<IEnemyController>();
             if (enemyController != null)
             {
                 enemyController.GetDamaged(9999);

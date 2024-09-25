@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyView : MonoBehaviour, IActorView
+public class BossView : MonoBehaviour, IActorView
 {
     public GameObject body;
-    public Animator anim;
     private Color colorOriginal;
     private Renderer rend;
-
-
 
     void Start()
     {
@@ -19,7 +16,7 @@ public class EnemyView : MonoBehaviour, IActorView
 
     public void LookDir(Vector2 dir)
     {
-        
+
         if (dir.x > 0)
         {
             body.transform.localScale = new Vector2(1, 1);
@@ -44,14 +41,7 @@ public class EnemyView : MonoBehaviour, IActorView
 
     public void Attack(bool isAttacking)
     {
-        if (isAttacking)
-        {
-            anim.SetBool("isAtaking", true);
-        }
-        else if (isAttacking == false)
-        {
-            anim.SetBool("isAtaking", false);
-        }
+        throw new System.NotImplementedException();
     }
 
     public void Walk(bool IsWalking)
