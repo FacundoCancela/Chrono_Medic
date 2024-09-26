@@ -8,11 +8,13 @@ public class WaveManager : MonoBehaviour
     [SerializeField] WinScreen winScreen;
     [SerializeField] public int maxWave;
     public float waveTimer = 30f;
-    private int actualWave = 1;
+    [SerializeField] public int actualWave = 1;
     private bool waveInProgress;
+    private bool bossBattleInProgress;
 
     [SerializeField] public EnemySpawner enemySpawner;
     [SerializeField] public List<GameObject> enemyPrefabs;
+    [SerializeField] public List<GameObject> bossPrefabs;
     [SerializeField] public int enemiesInThisWave;
     public int enemiesAlive;
 
@@ -54,7 +56,7 @@ public class WaveManager : MonoBehaviour
             waveTimer -= Time.deltaTime;
             waveCount.UpdateTimer(waveTimer);
 
-            if(waveTimer <= 0f)
+            if(waveTimer <= 0f && !bossBattleInProgress)
             {
                 ResetTimerAndEnemies();
                 StartNextWave();
@@ -70,6 +72,13 @@ public class WaveManager : MonoBehaviour
                 }
             }
         }
+
+        if(actualWave == 5 && !bossBattleInProgress)
+        {
+            enemySpawner.SpawnAmmitBoss();
+            bossBattleInProgress = true;
+        }
+
     }
 
     public void StartNextWave()
@@ -99,17 +108,17 @@ public class WaveManager : MonoBehaviour
         switch(actualWave)
         {
             case 1:
-                waveTimer = 30f;
+                waveTimer = 20f;
                 maxEnemiesInThisWave = 15;
                 spawnCooldown = 3;
                 break;
             case 2:
-                waveTimer = 40f;
+                waveTimer = 30f;
                 maxEnemiesInThisWave = 20;
                 spawnCooldown = 3;
                 break;
             case 3:
-                waveTimer = 50f;
+                waveTimer = 40f;
                 maxEnemiesInThisWave = 30;
                 spawnCooldown = 3;
                 break;
@@ -155,6 +164,12 @@ public class WaveManager : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void EndBossBattle()
+    {
+        StartNextWave();
+        bossBattleInProgress = false;
     }
 
     public int GetActualWave()

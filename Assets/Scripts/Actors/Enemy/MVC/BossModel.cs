@@ -23,6 +23,7 @@ public class BossModel : Actor
 
     public void EnemyDeath()
     {
+        WaveManager.Instance.EndBossBattle();
         GameDataController.Instance.IncreaseMoney(enemyStats.moneyDroped);
         DropManager.Instance.DropSomething(transform.position);
         WaveManager.Instance.OnEnemyKilled();

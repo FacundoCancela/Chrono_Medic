@@ -42,6 +42,21 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    public void SpawnAmmitBoss()
+    {
+        if (playerTransform != null)
+        {
+            GameObject nearestPortal = GetNearestPortal();
+
+            if (nearestPortal != null)
+            {
+                GameObject selectedEnemyPrefab = waveManager.bossPrefabs[0];
+                Instantiate(selectedEnemyPrefab, nearestPortal.transform.position, Quaternion.identity);
+            }
+        }
+    }
+
+
     private GameObject GetNearestPortal()
     {
         GameObject nearestPortal = null;
