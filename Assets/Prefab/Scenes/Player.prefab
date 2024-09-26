@@ -40,6 +40,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7644614681997212829}
+  - {fileID: 11058044399516226}
+  - {fileID: 564850219993731697}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3098373609089401595
@@ -289,6 +291,37 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dec842017bb1e474f9d311a357f4141d, type: 2}
   - {fileID: 11400000, guid: d746978a21a2aa84c8f6d4d3fa163e79, type: 2}
   - {fileID: 11400000, guid: d16b04626f9ec9f4994d0eb2ebcc8237, type: 2}
+--- !u!1 &5965469095139817026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 11058044399516226}
+  m_Layer: 0
+  m_Name: RangeAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &11058044399516226
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5965469095139817026}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.022, y: 0.04, z: -0.0016658343}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5045376774622553927}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7200365487648235339
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +410,7 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: 91da14b5e2e7db44ea9f049a89a4d62d, type: 2}
   experienceManager: {fileID: 0}
   curveSword: {fileID: 3417331266045153361, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
-  attackPosition: {fileID: 7644614681997212829}
+  attackPosition: {fileID: 564850219993731697}
   _timeSinceLastCurveAttack: 0
 --- !u!114 &4143787429510404568
 MonoBehaviour:
@@ -411,5 +444,36 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: 91da14b5e2e7db44ea9f049a89a4d62d, type: 2}
   experienceManager: {fileID: 0}
   rangedPrefab: {fileID: 8500496088789214507, guid: 2d5704400104d7546b6b55527ce4fe28, type: 3}
-  attackPosition: {fileID: 7644614681997212829}
+  attackPosition: {fileID: 11058044399516226}
   _timeSinceLastRangedAttack: 0
+--- !u!1 &7330107177123346530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 564850219993731697}
+  m_Layer: 0
+  m_Name: CurveAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &564850219993731697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7330107177123346530}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.248, y: -0.198, z: -0.001665834}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5045376774622553927}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

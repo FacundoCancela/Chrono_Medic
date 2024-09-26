@@ -51,11 +51,11 @@ public class RangedAttack : MonoBehaviour, IWeapon
             // Si se encontró un enemigo, atacar en su dirección
             if (closestEnemy != null)
             {
-                Vector2 direction = (closestEnemy.transform.position - transform.position).normalized;
+                Vector2 direction = (closestEnemy.transform.position - attackPosition.transform.position).normalized;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-                Instantiate(rangedPrefab, transform.position, rotation).GetComponent<Rigidbody2D>().velocity = direction * 10f; // Velocidad del proyectil
+                Instantiate(rangedPrefab, attackPosition.transform.position, rotation).GetComponent<Rigidbody2D>().velocity = direction * 10f; // Velocidad del proyectil
             }
 
             _rangedAttackInCooldown = true;
