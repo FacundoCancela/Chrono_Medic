@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class WeaponManager : MonoBehaviour
 {
-    [SerializeField] public List<IWeapon> _manualWeapons = new List<IWeapon>();
     [SerializeField] public List<IWeapon> _automaticWeapons = new List<IWeapon>();
-    [SerializeField] public int selectedWeapon = 1;
 
     [SerializeField] public PlayerStats playerStats;
     [SerializeField] public PlayerView playerView;
@@ -42,7 +40,6 @@ public class WeaponManager : MonoBehaviour
     {
         if(_isInCombat && Time.timeScale != 0)
         {
-            WeaponSelector();
             UseWeapon();
         }
     }
@@ -55,7 +52,7 @@ public class WeaponManager : MonoBehaviour
             case ClassManager.SelectedClass.Melee:
                 _meleeCanAttack = true;
                 IWeapon sword = FindAnyObjectByType<SwordAttack>();
-                AddManualWeapon(sword);
+                AddAutomaticWeapon(sword);
                 if(experienceManager != null)experienceManager.MeleeLevelUp();
                 break;
             case ClassManager.SelectedClass.Ranged:
@@ -67,17 +64,9 @@ public class WeaponManager : MonoBehaviour
             case ClassManager.SelectedClass.Engineer
                 : _engineerCanAttack = true;
                 IWeapon orbe = FindAnyObjectByType<OrbeAttack>();
-                AddManualWeapon(orbe);
+                AddAutomaticWeapon(orbe);
                 if (experienceManager != null)experienceManager.EngineerLevelUp();
                 break;
-        }
-    }
-
-    public void AddManualWeapon(IWeapon weapon)
-    {
-        if (!_manualWeapons.Contains(weapon))
-        {
-            _manualWeapons.Add(weapon);
         }
     }
 
@@ -90,28 +79,8 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    public void WeaponSelector()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            selectedWeapon = 1;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            selectedWeapon = 2;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            selectedWeapon = 3;
-        }
-    }
-
     public void UseWeapon()
     {
-        if (Input.GetMouseButtonDown(0) && selectedWeapon <= _manualWeapons.Count)
-        {
-            _manualWeapons[selectedWeapon-1].Attack();
-        }
         foreach (IWeapon autoWeapon in _automaticWeapons)
         {
             autoWeapon.Attack();

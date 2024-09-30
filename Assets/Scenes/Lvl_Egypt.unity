@@ -95745,6 +95745,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 926509912}
     - target: {fileID: 7936213906782573933, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
+      propertyPath: actualWave
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936213906782573933, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: spawnInterval
       value: 2
       objectReference: {fileID: 0}

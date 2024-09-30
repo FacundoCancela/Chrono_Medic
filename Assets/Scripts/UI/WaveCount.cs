@@ -23,9 +23,8 @@ public class WaveCount : MonoBehaviour
 
     public void UpdateTimer(float timer)
     {
-        int intTimer = Mathf.RoundToInt(timer);
-        timerText.text = ("Time left:" + intTimer.ToString());
+        int intTimer = Mathf.RoundToInt(Mathf.Max(0, timer));
+        timerText.text = ("Time left: " + intTimer.ToString());
     }
-
 
 }

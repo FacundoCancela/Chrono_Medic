@@ -83,35 +83,35 @@ public class ExperienceManager : MonoBehaviour
         {
             case 1:
                 extraMeleeDamage = 10;
-                _meleeCooldown = 4f;
+                _meleeCooldown = 2f;
                 break;
             case 2:
                 extraMeleeDamage = 15;
-                _meleeCooldown = 4f;
+                _meleeCooldown = 2f;
                 break;
             case 3:
                 extraMeleeDamage = 15;
-                _meleeCooldown = 3.5f;
+                _meleeCooldown = 1.5f;
                 break;
             case 4:
                 extraMeleeDamage = 25;
-                _meleeCooldown = 3.5f;
+                _meleeCooldown = 1.5f;
                 break;
             case 5:
                 extraMeleeDamage = 25;
-                _meleeCooldown = 3f;
+                _meleeCooldown = 1f;
                 break;
             case 6:
                 extraMeleeDamage = 30;
-                _meleeCooldown = 3f;
+                _meleeCooldown = 1f;
                 break;
             case 7:
                 extraMeleeDamage = 30;
-                _meleeCooldown = 2.5f;
+                _meleeCooldown = 0.75f;
                 break;
             case 8:
                 extraMeleeDamage = 35;
-                _meleeCooldown = 2f;
+                _meleeCooldown = 0.5f;
                 break;
         }
     }
