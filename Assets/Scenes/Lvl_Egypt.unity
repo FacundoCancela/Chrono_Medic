@@ -95941,14 +95941,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 810357069811632158, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
-      propertyPath: m_Name
-      value: MainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325956121711597133, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1325956121711597133, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -95957,10 +95949,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 155018610}
-    - target: {fileID: 2864920377820792309, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
-      propertyPath: m_Name
-      value: HealthBar
-      objectReference: {fileID: 0}
     - target: {fileID: 4747914344824847522, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -95976,14 +95964,6 @@ PrefabInstance:
     - target: {fileID: 5473757200338523792, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
       propertyPath: m_Name
       value: Interface
-      objectReference: {fileID: 0}
-    - target: {fileID: 5655137189103985174, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
-      propertyPath: playerStats
-      value: 
-      objectReference: {fileID: 11400000, guid: bf61c40d3e61e3e47aecd2987f029bf2, type: 2}
-    - target: {fileID: 5874009938546530796, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
-      propertyPath: m_Name
-      value: XPBar
       objectReference: {fileID: 0}
     - target: {fileID: 7558132525555761476, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
