@@ -19,6 +19,8 @@ public class SwordSlash : MonoBehaviour
             ExperienceManager experienceManager = FindAnyObjectByType<ExperienceManager>();
             if (enemyController != null)
             {
+                Debug.Log("damage multiplayer: " + playerStats.damageMultiplier);
+                Debug.Log("experience damage multiplayer: " + experienceManager.extraMeleeDamage);
                 enemyController.GetDamaged(playerStats.damageMultiplier * experienceManager.extraMeleeDamage);
             }
         }
