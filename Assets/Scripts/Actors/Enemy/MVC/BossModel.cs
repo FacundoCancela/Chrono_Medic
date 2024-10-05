@@ -11,14 +11,7 @@ public class BossModel : Actor
 
     public void Shoot(Vector2 targetDir)
     {
-        if (bossWeapon.CanUseSpecialAttack)
-        {
-            bossWeapon.SpecialAttack(targetDir);
-        }
-        else if (bossWeapon.CanUseWeapon)
-        {
-            bossWeapon.FireWeapon(targetDir);
-        }
+        bossWeapon.Attack(targetDir);
     }
 
     public void EnemyDeath()
