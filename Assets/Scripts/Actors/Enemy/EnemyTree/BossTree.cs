@@ -50,7 +50,7 @@ public class BossTree : MonoBehaviour
 
     private bool Question_IsDead()
     {
-        return (bool)_blackboardDictionary[EnemyBlackBoardConsts.B__IS_DEAD];
+        return (bool)_blackboardDictionary[BossBlackBoardConsts.B__IS_DEAD];
     }
 
     private bool Question_IsInShootingRange()

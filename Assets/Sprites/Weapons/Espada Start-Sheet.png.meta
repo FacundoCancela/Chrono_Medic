@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,7 +108,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Espada Start-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 24
+        width: 15
+        height: 14
+      alignment: 9
+      pivot: {x: 0.1566727, y: 0.4509539}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86ce75a8bb95cad46b244b8ecdfa5c4c
+      internalID: -601865295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espada Start-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 24
+        width: 26
+        height: 15
+      alignment: 9
+      pivot: {x: 0.10521522, y: 0.3809921}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d7c442a210a2f24c8e30e363001ed0f
+      internalID: -332000276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espada Start-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 19
+        width: 38
+        height: 18
+      alignment: 9
+      pivot: {x: 0.038535267, y: 0.5908154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d10827bcef443349bde2e7e8fcd0b1a
+      internalID: -909396776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espada Start-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 22
+        width: 41
+        height: 17
+      alignment: 9
+      pivot: {x: 0.097673, y: 0.4475504}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9f910ecf0152a34f8a94dc2e673051c
+      internalID: 1387960659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espada Start-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 19
+        width: 51
+        height: 20
+      alignment: 9
+      pivot: {x: 0.033781163, y: 0.52972126}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a386960d0846f2a4aa57004bd6d72136
+      internalID: 1789359501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espada Start-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 13
+        width: 46
+        height: 26
+      alignment: 9
+      pivot: {x: 0.056996223, y: 0.64289147}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1b26a28af7f33a4fa36e7437bc7aae6
+      internalID: 752242369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espada Start-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 10
+        width: 56
+        height: 29
+      alignment: 9
+      pivot: {x: 0.048870087, y: 0.68447787}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4465eaa17110fdc4caf4061292eb047e
+      internalID: 1032041606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Espada Start-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 13
+        width: 64
+        height: 27
+      alignment: 9
+      pivot: {x: 0.05842781, y: 0.6210872}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21e08b1f8ce08a14080214b3fc27a57b
+      internalID: 643081789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +287,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Espada Start-Sheet_0: -601865295
+      Espada Start-Sheet_1: -332000276
+      Espada Start-Sheet_2: -909396776
+      Espada Start-Sheet_3: 1387960659
+      Espada Start-Sheet_4: 1789359501
+      Espada Start-Sheet_5: 752242369
+      Espada Start-Sheet_6: 1032041606
+      Espada Start-Sheet_7: 643081789
+      Espada Start-Sheet_8: 1790035878
+      Espada Start-Sheet_9: -1504835289
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

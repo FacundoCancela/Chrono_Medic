@@ -15,7 +15,6 @@ public class BossStateDead<T> : State<T>
     {
         base.Execute();
         _model.EnemyDeath();
-        GameObject.Destroy(_model.gameObject);
     }
 
 }

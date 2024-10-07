@@ -8,9 +8,10 @@ public class WaveManager : MonoBehaviour
     [SerializeField] WinScreen winScreen;
     [SerializeField] public int maxWave;
     public float waveTimer = 30f;
-    [SerializeField] public int actualWave = 1;
+    [SerializeField] public int actualWave = 0;
     private bool waveInProgress;
     private bool bossBattleInProgress;
+    private bool ammitAlreadySpawned;
 
     [SerializeField] public EnemySpawner enemySpawner;
     [SerializeField] public List<GameObject> enemyPrefabs;
@@ -65,7 +66,7 @@ public class WaveManager : MonoBehaviour
             if (spawnCooldown >= spawnInterval)
             {
                 spawnCooldown = 0f;
-                if (enemiesAlive < maxEnemiesInThisWave)
+                if (enemiesAlive < maxEnemiesInThisWave && !bossBattleInProgress)
                 {
                     enemySpawner.SpawnEnemy();
                     enemiesAlive++;
@@ -73,19 +74,18 @@ public class WaveManager : MonoBehaviour
             }
         }
 
-        if(actualWave == 5 && !bossBattleInProgress)
-        {
-            enemySpawner.SpawnAmmitBoss();
-            bossBattleInProgress = true;
-        }
+        //if (actualWave == 5 && !bossBattleInProgress)
+        //{
+        //    enemySpawner.SpawnAmmitBoss();
+        //    bossBattleInProgress = true;
+        //}
 
     }
 
     public void StartNextWave()
     {
-        waveCount.updateWave(actualWave, maxWave);
 
-        if (actualWave <= maxWave)
+        if (actualWave < maxWave)
         {
             actualWave++;
             waveInProgress = true;
@@ -96,6 +96,16 @@ public class WaveManager : MonoBehaviour
             waveInProgress = false;
             Win();
         }
+
+        if (actualWave == 5 && !ammitAlreadySpawned)
+        {
+            enemySpawner.SpawnAmmitBoss();
+            bossBattleInProgress = true;
+            ammitAlreadySpawned = true;
+        }
+
+        waveCount.updateWave(actualWave, maxWave);
+
     }
 
     public void OnEnemyKilled()

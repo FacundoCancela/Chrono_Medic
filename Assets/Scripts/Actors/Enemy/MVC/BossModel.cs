@@ -28,5 +28,6 @@ public class BossModel : Actor
         DropManager.Instance.DropSomething(transform.position);
         WaveManager.Instance.OnEnemyKilled();
         experiencePoint.ExperienceDrop(enemyStats.experienceDropped);
+        Destroy(gameObject);
     }
 }

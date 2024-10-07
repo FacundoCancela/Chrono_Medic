@@ -138,7 +138,7 @@ public class LevelUPScreen : MonoBehaviour
         experienceManager.EngineerLevelUp();
         weaponManager._engineerCanAttack = true;
         IWeapon orbe = FindAnyObjectByType<OrbeAttack>();
-        weaponManager.AddManualWeapon(orbe);
+        weaponManager.AddAutomaticWeapon(orbe);
         AlternateButton(unlockEngineerButton, upgradeEngineerButton);
     }
 
@@ -147,7 +147,7 @@ public class LevelUPScreen : MonoBehaviour
         experienceManager.MeleeLevelUp();
         weaponManager._meleeCanAttack = true;
         IWeapon sword = FindAnyObjectByType<SwordAttack>();
-        weaponManager.AddManualWeapon(sword);
+        weaponManager.AddAutomaticWeapon(sword);
         AlternateButton(unlockMeleeButton, upgradeMeleeButton);
     }
     public void UnlockCurveSword()
@@ -155,7 +155,7 @@ public class LevelUPScreen : MonoBehaviour
         experienceManager.CurveSwordLevelUp();
         weaponManager._curveSwordCanAttack = true;
         IWeapon curveSword = FindAnyObjectByType<CurveAttack>();
-        weaponManager.AddManualWeapon(curveSword);
+        weaponManager.AddAutomaticWeapon(curveSword);
         AlternateButton(unlockCurveSwordButton, upgradeCurveSwordButton);
     }
 

@@ -9,7 +9,6 @@ public static class BossBlackBoardConsts
     public static string B__IS_DEAD = "bool_IsDead";
 }
 
-
 public class BossController : MonoBehaviour, IEnemyController
 {
     public EnemyStats enemyStats;
