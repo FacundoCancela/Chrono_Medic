@@ -1,7 +1,7 @@
-Nino: Mamá, ¿puedo comprar ese chocolate que vimos en la tienda?
-Mama: ¿Cuál? ¿El de la caja dorada?
-Nino: ¡Sí, ese! Dicen que es el más delicioso del mundo.
-Mama: Bueno, podemos probarlo. Pero recuerda, ¡no puedes comer todo de una vez!
-Nino: ¡Prometido! Pero, ¿puedo comer un poco ahora?
-Mama: Claro, pero solo un pedacito. Hay que compartirlo con papá también.
-Nino: ¡Sí! A papá también le encanta el chocolate.
+Child: Mom, can I buy that chocolate we saw in the store?
+Mom: Which one? The one with the golden box?
+Child: Yes! They say it's the most delicious in the world.
+Mom: Well, we can try it. But remember, you can't eat it all at once!
+Child: I promise! But can I have a little now?
+Mom: Sure, but just a small piece. We need to share with Dad too.
+Child: Yes! Dad loves chocolate as well.

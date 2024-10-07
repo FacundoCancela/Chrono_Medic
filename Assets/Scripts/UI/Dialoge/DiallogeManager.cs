@@ -9,192 +9,87 @@ using UnityEngine.SceneManagement;
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
-    public TextMeshProUGUI characterNameText; 
-    public float typingSpeed = 0.05f; 
-    public int dialogueOrder = 1; 
+    private Coroutine typingCoroutine;
+    private string[] dialogueLines;
+    private int currentLineIndex = 0;
+    private bool isTyping = false;
+    private bool lineFullyDisplayed = false;
 
-    public Dictionary<string, GameObject> characterImages; 
-
-    private Queue<string> sentences; 
-    private bool isTyping; 
-
-    void Start()
+    // Método para iniciar el diálogo, pasando las líneas del texto
+    public void StartDialogue(string text)
     {
-        sentences = new Queue<string>();
-        characterImages = new Dictionary<string, GameObject>(); 
-
-     
-        //LoadCharacterImages();
-
-        //LoadDialogue();
+        dialogueLines = text.Split(new[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries); // Divide el texto en líneas
+        currentLineIndex = 0;
+        ShowNextLine();
     }
 
-    void LoadCharacterImages()
+    // Muestra la siguiente línea de texto
+    private void ShowNextLine()
     {
-
-        characterImages.Clear(); 
-
-        
-        foreach (Transform child in transform)
+        if (currentLineIndex < dialogueLines.Length)
         {
-            if (child.CompareTag("CharacterImage")) 
+            if (typingCoroutine != null)
             {
-                if (!characterImages.ContainsKey(child.name)) 
-                {
-                    characterImages.Add(child.name, child.gameObject);
-                    child.gameObject.SetActive(false); 
-                }
-                else
-                {
-                    Debug.LogWarning("El personaje " + child.name + " ya existe en el diccionario.");
-                }
+                StopCoroutine(typingCoroutine);
             }
-        }
-    }
-
-    void LoadDialogue()
-    {
-        string sceneName = SceneManager.GetActiveScene().name; 
-        string dialogueFileName = sceneName + "_" + dialogueOrder.ToString(); 
-
-        LoadDialogueFromFile(dialogueFileName); 
-    }
-
-    void LoadDialogueFromFile(string fileName)
-    {
-        
-        TextAsset dialogueFile = Resources.Load<TextAsset>(fileName);
-
-        if (dialogueFile != null)
-        {
-            sentences.Clear(); 
-            string[] dialogueLines = dialogueFile.text.Split('\n'); 
-
-            foreach (string line in dialogueLines)
-            {
-                sentences.Enqueue(line.Trim());
-            }
-
-            DisplayNextSentence();
+            typingCoroutine = StartCoroutine(TypeSentence(dialogueLines[currentLineIndex]));
         }
         else
         {
-            Debug.LogError("No se encontró el archivo de diálogo: " + fileName);
+            // Si se completan todas las líneas, limpia el texto
+            dialogueText.text = "";
         }
     }
 
-    public void DisplayNextSentence()
+    // Corrutina para escribir el texto letra por letra
+    private IEnumerator TypeSentence(string sentence)
+    {
+        isTyping = true;
+        lineFullyDisplayed = false;
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(0.05f); // Controla la velocidad del texto
+        }
+        lineFullyDisplayed = true;
+        isTyping = false;
+    }
+
+    // Método para completar inmediatamente la línea actual
+    private void CompleteLine()
     {
         if (isTyping)
         {
-            StopAllCoroutines(); 
-
-            if (sentences.Count > 0)
-            {
-                dialogueText.text = sentences.Peek(); 
-            }
-            else
-            {
-                dialogueText.text = ""; 
-            }
-
+            StopCoroutine(typingCoroutine);
+            dialogueText.text = dialogueLines[currentLineIndex]; // Completa la línea de inmediato
             isTyping = false;
-            return;
+            lineFullyDisplayed = true;
         }
-
-        if (sentences.Count == 0)
-        {
-            EndDialogue(); 
-            return;
-        }
-
-        string sentence = sentences.Dequeue(); 
-        ParseSentence(sentence); 
     }
 
-    void ParseSentence(string sentence)
+    public void ClearText()
     {
-        
-        if (sentence.Contains(":"))
+        if (typingCoroutine != null)
         {
-            string[] parts = sentence.Split(new char[] { ':' }, 2);
-            string characterName = parts[0].Trim();
-            string dialogue = parts[1].Trim();
+            StopCoroutine(typingCoroutine); // Detiene la escritura progresiva si está en curso
+        }
+        dialogueText.text = ""; // Vacía el texto en pantalla
+        isTyping = false; // Asegura que el sistema sepa que ya no se está escribiendo
+        lineFullyDisplayed = false; // Resetea el estado de la línea actual
+    }
 
-            characterNameText.text = characterName; 
-            ActivateCharacterImage(characterName); 
-            StartCoroutine(TypeSentence(dialogue)); 
+    // Método para avanzar al siguiente renglón cuando el actual está completo
+    public void OnSpacePressed()
+    {
+        if (!lineFullyDisplayed)
+        {
+            CompleteLine(); // Completa la línea si aún se está escribiendo
         }
         else
         {
-            
-            characterNameText.text = ""; 
-            DeactivateAllCharacterImages(); 
-            StartCoroutine(TypeSentence(sentence)); 
+            currentLineIndex++;
+            ShowNextLine(); // Pasa a la siguiente línea
         }
-    }
-
-    void ActivateCharacterImage(string characterName)
-    {
-        DeactivateAllCharacterImages(); 
-
-        if (characterImages.ContainsKey(characterName))
-        {
-            characterImages[characterName].SetActive(true);
-        }
-        else
-        {
-            Debug.LogWarning("No se encontró la imagen para el personaje: " + characterName);
-        }
-    }
-
-    void DeactivateAllCharacterImages()
-    {
-        foreach (KeyValuePair<string, GameObject> entry in characterImages)
-        {
-            entry.Value.SetActive(false); 
-        }
-    }
-
-    IEnumerator TypeSentence(string sentence)
-    {
-        isTyping = true; 
-        dialogueText.text = ""; 
-
-        foreach (char letter in sentence)
-        {
-            dialogueText.text += letter; 
-            yield return new WaitForSeconds(typingSpeed);
-        }
-
-        isTyping = false; 
-    }
-
-    void EndDialogue()
-    {
-        Debug.Log("End of dialogue."); 
-        DeactivateAllCharacterImages();
-        characterNameText.text = "";
-        dialogueText.text = "";
-
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) 
-        {
-            DisplayNextSentence();
-        }
-        if (Input.GetKeyDown(KeyCode.K)) 
-        {
-            SaltaDialogo();
-        }
-    }
-
-    public void SaltaDialogo()
-    {
-        dialogueOrder++; 
-        LoadCharacterImages();
-        LoadDialogue(); 
     }
 }
