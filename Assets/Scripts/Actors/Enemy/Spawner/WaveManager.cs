@@ -15,7 +15,7 @@ public class WaveManager : MonoBehaviour
     private bool anubisAlreadySpawned;
 
     [SerializeField] public EnemySpawner enemySpawner;
-    [SerializeField] public List<GameObject> enemyPrefabs;
+    //[SerializeField] public List<GameObject> enemyPrefabs;
     [SerializeField] public List<GameObject> bossPrefabs;
     [SerializeField] public int enemiesInThisWave;
     public int enemiesAlive;

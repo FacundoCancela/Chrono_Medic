@@ -6,7 +6,8 @@ public class EnemySpawner : MonoBehaviour
 {
     private Transform playerTransform;
     [SerializeField] WaveManager waveManager;
-    [SerializeField] List<GameObject> portals; 
+    [SerializeField] List<GameObject> portals;
+    [SerializeField] List<SpawnList> spawnList;
 
     private void Start()
     {
@@ -15,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        if (playerTransform != null && waveManager.enemyPrefabs.Count > 0)
+        if (playerTransform != null && spawnList[waveManager.actualWave].enemyPrefabs.Count > 0)
         {
             GameObject nearestPortal = GetNearestPortal();
 
@@ -30,8 +31,8 @@ public class EnemySpawner : MonoBehaviour
                     }
                 }
 
-                int randomIndex = Random.Range(0, waveManager.enemyPrefabs.Count);
-                GameObject selectedEnemyPrefab = waveManager.enemyPrefabs[randomIndex];
+                int randomIndex = Random.Range(0, spawnList[waveManager.actualWave].enemyPrefabs.Count);
+                GameObject selectedEnemyPrefab = spawnList[waveManager.actualWave].enemyPrefabs[randomIndex];
 
                 Instantiate(selectedEnemyPrefab, nearestPortal.transform.position, Quaternion.identity);
             }
