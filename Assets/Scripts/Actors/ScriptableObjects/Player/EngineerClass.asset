@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc480558a0f574745a206e999706a09a, type: 3}
   m_Name: EngineerClass
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  damageMultiplier: 2
-  movementSpeed: 1
-  attackSpeed: 1
+  maxHealth: 130
+  damageMultiplier: 3
+  movementSpeed: 6
+  attackSpeed: 2
   selectedClass: 2

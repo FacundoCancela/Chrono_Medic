@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d21dd8259b418542bea633a0d82d9c5, type: 3}
   m_Name: RangedStats
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  damage: 2
+  maxHealth: 40
+  damage: 5
   attackRange: 5
-  attackCooldown: 3
+  attackCooldown: 2
   experienceDropped: 10
   moneyDroped: 20

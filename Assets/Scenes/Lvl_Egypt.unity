@@ -113136,9 +113136,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 705972102830129676}
     - target: {fileID: 3097872738857627252, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
+      propertyPath: orbitalSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097872738857627252, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: levelUPScreen
       value: 
       objectReference: {fileID: 217340050676602813}
+    - target: {fileID: 3097872738857627252, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
+      propertyPath: maxExperience
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097872738857627252, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
+      propertyPath: extraExperiencePerLevel
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6281159330125533191, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: player
       value: 

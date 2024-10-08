@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62723226a3236184e94ab8ce004de605, type: 3}
   m_Name: BaseStats
   m_EditorClassIdentifier: 
-  money: 2070
+  money: 0
   maxHealth: 20
   maxBuyHealth: 100
   damageMultiplier: 1
