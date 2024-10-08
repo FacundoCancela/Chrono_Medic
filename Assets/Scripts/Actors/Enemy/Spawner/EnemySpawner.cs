@@ -6,23 +6,21 @@ public class EnemySpawner : MonoBehaviour
 {
     private Transform playerTransform;
     [SerializeField] WaveManager waveManager;
-    [SerializeField] List<GameObject> portals; // Lista de portales
+    [SerializeField] List<GameObject> portals; 
 
     private void Start()
     {
-        playerTransform = FindObjectOfType<PlayerController>().transform; // Encuentra el jugador y obtén su transform
+        playerTransform = FindObjectOfType<PlayerController>().transform; 
     }
 
     public void SpawnEnemy()
     {
         if (playerTransform != null && waveManager.enemyPrefabs.Count > 0)
         {
-            // Encuentra el portal más cercano al jugador
             GameObject nearestPortal = GetNearestPortal();
 
             if (nearestPortal != null)
             {
-                // Desactiva los sprites de todos los portales excepto el más cercano
                 foreach (GameObject portal in portals)
                 {
                     SpriteRenderer spriteRenderer = portal.GetComponent<SpriteRenderer>();
@@ -32,11 +30,9 @@ public class EnemySpawner : MonoBehaviour
                     }
                 }
 
-                // Selecciona un índice aleatorio de la lista de prefabs de enemigos
                 int randomIndex = Random.Range(0, waveManager.enemyPrefabs.Count);
                 GameObject selectedEnemyPrefab = waveManager.enemyPrefabs[randomIndex];
 
-                // Instancia el enemigo en la posición del portal más cercano
                 Instantiate(selectedEnemyPrefab, nearestPortal.transform.position, Quaternion.identity);
             }
         }
@@ -55,6 +51,22 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+
+    public void SpawnAnubisBoss()
+    {
+        if (playerTransform != null)
+        {
+            GameObject nearestPortal = GetNearestPortal();
+
+            if (nearestPortal != null)
+            {
+                GameObject selectedEnemyPrefab = waveManager.bossPrefabs[1];
+                Instantiate(selectedEnemyPrefab, nearestPortal.transform.position, Quaternion.identity);
+            }
+        }
+    }
+
+
 
 
     private GameObject GetNearestPortal()

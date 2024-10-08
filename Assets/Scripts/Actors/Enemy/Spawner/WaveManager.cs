@@ -12,6 +12,7 @@ public class WaveManager : MonoBehaviour
     private bool waveInProgress;
     private bool bossBattleInProgress;
     private bool ammitAlreadySpawned;
+    private bool anubisAlreadySpawned;
 
     [SerializeField] public EnemySpawner enemySpawner;
     [SerializeField] public List<GameObject> enemyPrefabs;
@@ -73,13 +74,6 @@ public class WaveManager : MonoBehaviour
                 }
             }
         }
-
-        //if (actualWave == 5 && !bossBattleInProgress)
-        //{
-        //    enemySpawner.SpawnAmmitBoss();
-        //    bossBattleInProgress = true;
-        //}
-
     }
 
     public void StartNextWave()
@@ -103,6 +97,14 @@ public class WaveManager : MonoBehaviour
             bossBattleInProgress = true;
             ammitAlreadySpawned = true;
         }
+
+        if (actualWave == 10 && !anubisAlreadySpawned)
+        {
+            enemySpawner.SpawnAnubisBoss();
+            bossBattleInProgress = true;
+            anubisAlreadySpawned = true;
+        }
+
 
         waveCount.updateWave(actualWave, maxWave);
 

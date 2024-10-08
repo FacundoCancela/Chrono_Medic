@@ -60,15 +60,7 @@ public class BossWeapon : MonoBehaviour
     {
         if (CanUseSpecialAttack)
         {
-            switch(bossType)
-            {
-                case BossType.Ammit:
-                    AmmitSpecial(targetDir);
-                    break;
-                case BossType.Anubis:
-                    AnubisSpecial();
-                    break;
-            }
+            SpecialAttack(targetDir);
         }
         else if (CanUseWeapon)
         {
@@ -78,7 +70,6 @@ public class BossWeapon : MonoBehaviour
 
     public void FireWeapon(Vector2 targetDir)
     {
-        Debug.Log("ataque normal");
         Vector2 dir = (targetDir - (Vector2)transform.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -89,21 +80,11 @@ public class BossWeapon : MonoBehaviour
         canUseWeapon = false;
     }
 
-    public void AmmitSpecial(Vector2 targetDir)
+    public void SpecialAttack(Vector2 targetDir)
     {
         Instantiate(specialBulletPrefab, targetDir, Quaternion.identity);
         canUseSpecialAttack = false;
         canUseWeapon = false;
 
     }
-
-    public void AnubisSpecial()
-    {
-        Debug.Log("ataque especial");
-        Instantiate(specialBulletPrefab, transform.position, Quaternion.identity);
-        canUseSpecialAttack = false;
-        canUseWeapon = false;
-
-    }
-
 }

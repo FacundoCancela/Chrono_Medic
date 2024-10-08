@@ -18,7 +18,7 @@ public class AnubisSlashAttack : MonoBehaviour
     private void Update()
     {
         // Incrementar el ángulo hasta alcanzar 270 grados
-        if (currentAngle < 270f)
+        if (currentAngle < 450f)
         {
             currentAngle += slashSpeed * Time.deltaTime;
 
