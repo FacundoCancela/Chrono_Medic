@@ -7,39 +7,48 @@ public class ExperienceManager : MonoBehaviour
     [SerializeField] LevelUPScreen levelUPScreen;
     [SerializeField] PauseManager pausedManager;
     [SerializeField] XPBar XpBar;
-
     public int actualExperience;
     public int maxExperience;
     public int extraExperiencePerLevel;
     public int level;
     public int maxUpgradeableLevel = 8;
 
+    [Header("Weapon scriptable objects")]
+
+    [SerializeField] ClassManager classManager;
+    [SerializeField] WeaponStatsPerLevel meleeWeapon;
+    [SerializeField] WeaponStatsPerLevel rangeWeapon;
+    [SerializeField] WeaponStatsPerLevel engenieerWeapon;
+    [SerializeField] WeaponStatsPerLevel BoomerangWeapon;
+    [SerializeField] WeaponStatsPerLevel CurveWeapon;
+
     [Header("Melee")]
     public int actualMeleeLevel = 0;
-    public int extraMeleeDamage = 1;
-    public float _meleeCooldown = 1f;
+    public int meleeDamage = 1;
+    public float meleeCooldown = 1f;
     [Header("Ranged")]
     public int actualRangedLevel = 0;
-    public int extraRangedDamage = 1;
-    public float _rangedCooldown = 1f;
+    public int rangedDamage = 1;
+    public float rangedCooldown = 1f;
     [Header("Engineer")]
     public int actualEngineerLevel = 0;
-    public int extraOrbitalDamage = 1;
-    public float _orbitalCooldown = 1f;
-    public float _orbitalDuration = 5f;
+    public int engineerDamage = 1;
+    public float orbitalCooldown = 1f;
+    public float orbitalDuration = 5f;
     public int orbitalSpeed = 100;
     public int orbitalRange = 1;
     public int numberOfOrbs = 1;
     [Header("Curve")]
     public int actualCurveSwordLevel = 0;
-    public int extraCurveSwordDamage = 1;
-    public float _curveSwordCooldown = 4f;
-    public float _curveSwordDuration = 4f;
+    public int curveSwordDamage = 1;
+    public float curveSwordCooldown = 4f;
+    public float curveSwordDuration = 4f;
     public int curveSwordSpeed = 1000;
     [Header("Boomerang")]
     public int actualBoomerangLevel = 0;
-    public int extraBoomerangDamage = 1;
-    public float _boomerangCooldown = 1f;
+    public int boomerangDamage = 1;
+    public float boomerangCooldown = 1f;
+
 
     private void Awake()
     {
@@ -49,6 +58,20 @@ public class ExperienceManager : MonoBehaviour
     private void Start()
     {
         ResetTemporalStats();
+
+        switch (ClassManager.currentClass)
+        {
+            case ClassManager.SelectedClass.Melee:
+                MeleeLevelUp();
+                break;
+            case ClassManager.SelectedClass.Ranged:
+                RangedLevelUp();
+                break;
+            case ClassManager.SelectedClass.Engineer:
+                EngineerLevelUp();
+                break;
+        }
+
     }
 
     public void gainExperience(int experienceGained)
@@ -65,7 +88,7 @@ public class ExperienceManager : MonoBehaviour
 
         pausedManager.canPause = false;
         Time.timeScale = 0f;
-        
+
         actualExperience = 0;
         maxExperience += extraExperiencePerLevel;
         level++;
@@ -78,215 +101,41 @@ public class ExperienceManager : MonoBehaviour
     public void MeleeLevelUp()
     {
         actualMeleeLevel++;
-        switch (actualMeleeLevel)
-        {
-            case 1:
-                extraMeleeDamage = 10;
-                _meleeCooldown = 2f;
-                break;
-            case 2:
-                extraMeleeDamage = 15;
-                _meleeCooldown = 2f;
-                break;
-            case 3:
-                extraMeleeDamage = 15;
-                _meleeCooldown = 1.5f;
-                break;
-            case 4:
-                extraMeleeDamage = 25;
-                _meleeCooldown = 1.5f;
-                break;
-            case 5:
-                extraMeleeDamage = 25;
-                _meleeCooldown = 1f;
-                break;
-            case 6:
-                extraMeleeDamage = 30;
-                _meleeCooldown = 1f;
-                break;
-            case 7:
-                extraMeleeDamage = 30;
-                _meleeCooldown = 0.75f;
-                break;
-            case 8:
-                extraMeleeDamage = 35;
-                _meleeCooldown = 0.5f;
-                break;
-        }
+        meleeDamage = meleeWeapon.weaponDamage[actualMeleeLevel];
+        meleeCooldown = meleeWeapon.cooldown[actualMeleeLevel];
     }
 
     public void RangedLevelUp()
     {
         actualRangedLevel++;
-        switch (actualRangedLevel)
-        {
-            case 1:
-                extraRangedDamage = 5;
-                _rangedCooldown = 1f;
-                break;
-            case 2:
-                extraRangedDamage = 7;
-                _rangedCooldown = 1f;
-                break;
-            case 3:
-                extraRangedDamage = 9;
-                _rangedCooldown = 1f;
-                break;
-            case 4:
-                extraRangedDamage = 9;
-                _rangedCooldown = 1f;
-                break;
-            case 5:
-                extraRangedDamage = 13;
-                _rangedCooldown = 1f;
-                break;
-            case 6:
-                extraRangedDamage = 13;
-                _rangedCooldown = 1f;
-                break;
-            case 7:
-                extraRangedDamage = 17;
-                _rangedCooldown = 1f;
-                break;
-            case 8:
-                extraRangedDamage = 19;
-                _rangedCooldown = 1f;
-                break;
-        }
+        rangedDamage = rangeWeapon.weaponDamage[actualRangedLevel];
+        rangedCooldown = rangeWeapon.cooldown[actualRangedLevel];
     }
 
     public void EngineerLevelUp()
     {
         actualEngineerLevel++;
-        switch (actualEngineerLevel)
-        {
-            case 1:
-                extraOrbitalDamage = 3;
-                _orbitalCooldown = 15f;
-                _orbitalDuration = 4f;
-                break;
-            case 2:
-                extraOrbitalDamage = 3;
-                _orbitalCooldown = 15f;
-                _orbitalDuration = 5f;
-                break;
-            case 3:
-                extraOrbitalDamage = 3;
-                _orbitalCooldown = 13f;
-                _orbitalDuration = 5f;
-                break;
-            case 4:
-                extraOrbitalDamage = 6;
-                _orbitalCooldown = 13f;
-                _orbitalDuration = 5f;
-                break;
-            case 5:
-                extraOrbitalDamage = 6;
-                _orbitalCooldown = 13f;
-                _orbitalDuration = 6f;
-                break;
-            case 6:
-                extraOrbitalDamage = 6;
-                _orbitalCooldown = 11f;
-                _orbitalDuration = 6f;
-                break;
-            case 7:
-                extraOrbitalDamage = 12;
-                _orbitalCooldown = 11f;
-                _orbitalDuration = 6f;
-                break;
-            case 8:
-                extraOrbitalDamage = 24;
-                _orbitalCooldown = 10f;
-                _orbitalDuration = 8f;
-                break;
-        }
+        engineerDamage = engenieerWeapon.weaponDamage[actualEngineerLevel];
+        orbitalCooldown = engenieerWeapon.cooldown[actualEngineerLevel];
+        orbitalDuration = engenieerWeapon.duration[actualEngineerLevel];
+        orbitalSpeed = engenieerWeapon.rotationSpeed[actualEngineerLevel];
+        orbitalRange = engenieerWeapon.rotationRange[actualEngineerLevel];
+        numberOfOrbs = engenieerWeapon.numberOfOrbs[actualEngineerLevel];
     }
+
     public void BoomerangLevelUp()
     {
         actualBoomerangLevel++;
-        switch (actualBoomerangLevel)
-        {
-            case 1:
-                extraBoomerangDamage = 5;
-                _boomerangCooldown = 1f;
-                break;
-            case 2:
-                extraBoomerangDamage = 7;
-                _boomerangCooldown = 1f;
-                break;
-            case 3:
-                extraBoomerangDamage = 9;
-                _boomerangCooldown = 1f;
-                break;
-            case 4:
-                extraBoomerangDamage = 9;
-                _boomerangCooldown = 1f;
-                break;
-            case 5:
-                extraBoomerangDamage = 13;
-                _boomerangCooldown = 1f;
-                break;
-            case 6:
-                extraBoomerangDamage = 13;
-                _boomerangCooldown = 1f;
-                break;
-            case 7:
-                extraBoomerangDamage = 17;
-                _boomerangCooldown = 1f;
-                break;
-            case 8:
-                extraBoomerangDamage = 19;
-                _boomerangCooldown = 1f;
-                break;
-        }
+        boomerangDamage = BoomerangWeapon.weaponDamage[actualBoomerangLevel];
+        boomerangCooldown = BoomerangWeapon.cooldown[actualBoomerangLevel];
     }
     public void CurveSwordLevelUp()
     {
         actualCurveSwordLevel++;
-        switch (actualCurveSwordLevel)
-        {
-            case 1:
-                extraCurveSwordDamage = 3;
-                _curveSwordCooldown = 25f;
-                _curveSwordDuration = 4f;
-                break;
-            case 2:
-                extraCurveSwordDamage = 3;
-                _curveSwordCooldown = 25f;
-                _curveSwordDuration = 5f;
-                break;
-            case 3:
-                extraCurveSwordDamage = 3;
-                _curveSwordCooldown = 23f;
-                _curveSwordDuration = 5f;
-                break;
-            case 4:
-                extraCurveSwordDamage = 6;
-                _curveSwordCooldown = 23f;
-                _curveSwordDuration = 5f;
-                break;
-            case 5:
-                extraCurveSwordDamage = 6;
-                _curveSwordCooldown = 21f;
-                _curveSwordDuration = 6f;
-                break;
-            case 6:
-                extraCurveSwordDamage = 6;
-                _curveSwordCooldown = 21f;
-                _curveSwordDuration = 6f;
-                break;
-            case 7:
-                extraCurveSwordDamage = 12;
-                _curveSwordCooldown = 19f;
-                _curveSwordDuration = 6f;
-                break;
-            case 8:
-                extraCurveSwordDamage = 24;
-                _curveSwordCooldown = 18f;
-                _curveSwordDuration = 8f;
-                break;
-        }
+        curveSwordDamage = CurveWeapon.weaponDamage[actualCurveSwordLevel];
+        curveSwordCooldown = CurveWeapon.cooldown[actualCurveSwordLevel];
+        curveSwordDuration = CurveWeapon.duration[actualCurveSwordLevel];
+        curveSwordSpeed = CurveWeapon.rotationSpeed[actualCurveSwordLevel];
     }
 
     public void ResetTemporalStats()

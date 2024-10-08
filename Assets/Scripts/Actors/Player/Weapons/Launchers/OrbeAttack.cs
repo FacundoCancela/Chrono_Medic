@@ -21,7 +21,7 @@ public class OrbeAttack : MonoBehaviour, IWeapon
         }
         if (experienceManager != null)
         {
-            if (_timeSinceLastOrbitalAttack > experienceManager._orbitalCooldown)
+            if (_timeSinceLastOrbitalAttack > experienceManager.orbitalCooldown)
             {
                 _orbitalAttackInCooldown = false;
                 _timeSinceLastOrbitalAttack = 0f;

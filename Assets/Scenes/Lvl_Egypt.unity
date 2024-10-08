@@ -113079,9 +113079,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 705972102830129676}
     - target: {fileID: 3097872738857627252, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
+      propertyPath: CurveWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e8510a2aac229e4ca9e8b55469dd393, type: 2}
+    - target: {fileID: 3097872738857627252, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
+      propertyPath: meleeWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 71bd06b7c0c3dab48a8fd1058449ec7c, type: 2}
+    - target: {fileID: 3097872738857627252, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
+      propertyPath: rangeWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ea306a123e43284d8490c3e8b052791, type: 2}
+    - target: {fileID: 3097872738857627252, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: levelUPScreen
       value: 
       objectReference: {fileID: 217340050676602813}
+    - target: {fileID: 3097872738857627252, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
+      propertyPath: BoomerangWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: d5191778c5da6dc4d95c65d649ec7181, type: 2}
+    - target: {fileID: 3097872738857627252, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
+      propertyPath: engenieerWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: b7658d4990431964dabb3d4fd640bfe6, type: 2}
     - target: {fileID: 6281159330125533191, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: player
       value: 
@@ -113164,6 +113184,10 @@ PrefabInstance:
     - target: {fileID: 2516428403863709618, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571248273786950874, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
+      propertyPath: spawnRadius
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3571248273786950874, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
       propertyPath: attackPosition

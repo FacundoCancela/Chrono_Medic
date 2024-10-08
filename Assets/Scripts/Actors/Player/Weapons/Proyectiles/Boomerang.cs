@@ -55,7 +55,7 @@ public class Boomerang : MonoBehaviour
             ExperienceManager experienceManager = FindAnyObjectByType<ExperienceManager>();
             if (enemyController != null)
             {
-                enemyController.GetDamaged(playerStats.damageMultiplier * experienceManager.extraBoomerangDamage);
+                enemyController.GetDamaged(playerStats.damageMultiplier * experienceManager.boomerangDamage);
             }
         }
     }

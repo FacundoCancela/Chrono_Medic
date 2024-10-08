@@ -31,7 +31,7 @@ public class Curve : MonoBehaviour
             ExperienceManager experienceManager = FindAnyObjectByType<ExperienceManager>();
             if (enemyController != null)
             {
-                enemyController.GetDamaged(playerStats.damageMultiplier * experienceManager.extraCurveSwordDamage);
+                enemyController.GetDamaged(playerStats.damageMultiplier * experienceManager.curveSwordDamage);
             }
         }
     }
