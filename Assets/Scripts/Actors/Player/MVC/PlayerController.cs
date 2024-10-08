@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
         _playerView = GetComponent<PlayerView>();
         inventory = GetComponent<Inventory>();
         classManager = GetComponent<ClassManager>();
+        string currentScene = SceneManager.GetActiveScene().name;
+
         Time.timeScale = 1.0f;
 
         UpdateClassStats();
@@ -134,4 +136,5 @@ public class PlayerController : MonoBehaviour
         UpdateClassStats();
         actualHealth = playerStats.maxHealth;
     }
+
 }
