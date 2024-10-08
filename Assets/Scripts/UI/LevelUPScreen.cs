@@ -65,26 +65,31 @@ public class LevelUPScreen : MonoBehaviour
             button.gameObject.SetActive(false);
         }
 
+        availableButtons = new List<Button>(unlockButtons);
+
+
         switch (ClassManager.currentClass)
         {
             case ClassManager.SelectedClass.Melee:
-                unlockButtons.Remove(unlockMeleeButton);
+                availableButtons.Remove(unlockMeleeButton);
+                availableButtons.Add(upgradeMeleeButton);
                 weaponUnlockCount++;
                 unlockMeleeButton.gameObject.SetActive(false);
                 break;
             case ClassManager.SelectedClass.Ranged:
-                unlockButtons.Remove(unlockRangedButton);
+                availableButtons.Remove(unlockRangedButton);
+                availableButtons.Add(upgradeRangedButton);
                 weaponUnlockCount++;
                 unlockRangedButton.gameObject.SetActive(false);
                 break;
             case ClassManager.SelectedClass.Engineer:
-                unlockButtons.Remove(unlockEngineerButton);
+                availableButtons.Remove(unlockEngineerButton);
+                availableButtons.Add(upgradeEngineerButton);
                 weaponUnlockCount++;
                 unlockEngineerButton.gameObject.SetActive(false);
                 break;
         }
 
-        availableButtons = new List<Button>(unlockButtons);
 
         ShuffleAndDisplayButtons();        
     }
