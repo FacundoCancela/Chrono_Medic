@@ -54,19 +54,16 @@ public class WeaponManager : MonoBehaviour
                 _meleeCanAttack = true;
                 IWeapon sword = FindAnyObjectByType<SwordAttack>();
                 AddAutomaticWeapon(sword);
-                if(experienceManager != null)experienceManager.MeleeLevelUp();
                 break;
             case ClassManager.SelectedClass.Ranged:
                 _rangedCanAttack = true;
                 IWeapon ranged = FindAnyObjectByType<RangedAttack>();
                 AddAutomaticWeapon(ranged);
-                if (experienceManager != null)experienceManager.RangedLevelUp();
                 break;
-            case ClassManager.SelectedClass.Engineer
-                : _engineerCanAttack = true;
+            case ClassManager.SelectedClass.Engineer:
+                _engineerCanAttack = true;
                 IWeapon orbe = FindAnyObjectByType<OrbeAttack>();
                 AddAutomaticWeapon(orbe);
-                if (experienceManager != null)experienceManager.EngineerLevelUp();
                 break;
         }
     }

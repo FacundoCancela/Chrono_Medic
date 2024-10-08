@@ -1,12 +1,12 @@
 {
   "maxHealth": 130,
   "damageMultiplier": 1,
-  "money": 3630,
+  "money": 27760,
   "movementSpeed": 0,
   "actualLevel": 0,
   "attackSpeed": 0.0,
   "attackRange": 0.0,
-  "upgradeCost": 70,
+  "upgradeCost": 50,
   "InjectionHeal": 15,
   "InjectionsLimit": 9
 }

@@ -19,7 +19,7 @@ public class BoomerangAttack : MonoBehaviour, IWeapon
         }
         if (experienceManager != null)
         {
-            if (_timeSinceLastBoomerangAttack > experienceManager._meleeCooldown)
+            if (_timeSinceLastBoomerangAttack > experienceManager.boomerangCooldown)
             {
                 _boomerangAttackInCooldown = false;
                 _timeSinceLastBoomerangAttack = 0f;

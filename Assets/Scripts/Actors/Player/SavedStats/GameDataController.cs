@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
+using UnityEngine.SceneManagement;
 
 
 public class GameDataController : MonoBehaviour
@@ -143,7 +144,6 @@ public class GameDataController : MonoBehaviour
     {
         gameData.money += moreMoney;
         baseStats.money = gameData.money;
-        player.UpdateStats(baseStats);
         SaveData();
     }
 
