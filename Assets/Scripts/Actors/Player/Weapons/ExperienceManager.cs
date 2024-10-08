@@ -12,35 +12,34 @@ public class ExperienceManager : MonoBehaviour
     public int maxExperience;
     public int extraExperiencePerLevel;
     public int level;
-
-    public int extraMeleeDamage = 1;
-    public int extraRangedDamage = 1;
-    public int extraOrbitalDamage = 1;
-    public int extraCurveSwordDamage = 1;
-    public int extraBoomerangDamage = 1;
-
-    public int orbitalSpeed = 100;
-    public int curveSwordSpeed = 1000;
-
-    public float _meleeCooldown = 1f;
-    public float _rangedCooldown = 1f;
-    public float _orbitalCooldown = 1f;
-    public float _boomerangCooldown = 1f;
-    public float _curveSwordCooldown = 1f;
-
-    public float _orbitalDuration = 5f;
-    public float _curveSwordDuration = 4f;
-
-
-    public int actualMeleeLevel = 0;
-    public int actualRangedLevel = 0;
-    public int actualEngineerLevel = 0;
-    public int actualBoomerangLevel = 0;
-    public int actualCurveSwordLevel = 0;
-
     public int maxUpgradeableLevel = 8;
 
-
+    [Header("Melee")]
+    public int actualMeleeLevel = 0;
+    public int extraMeleeDamage = 1;
+    public float _meleeCooldown = 1f;
+    [Header("Ranged")]
+    public int actualRangedLevel = 0;
+    public int extraRangedDamage = 1;
+    public float _rangedCooldown = 1f;
+    [Header("Engineer")]
+    public int actualEngineerLevel = 0;
+    public int extraOrbitalDamage = 1;
+    public float _orbitalCooldown = 1f;
+    public float _orbitalDuration = 5f;
+    public int orbitalSpeed = 100;
+    public int orbitalRange = 1;
+    public int numberOfOrbs = 1;
+    [Header("Curve")]
+    public int actualCurveSwordLevel = 0;
+    public int extraCurveSwordDamage = 1;
+    public float _curveSwordCooldown = 4f;
+    public float _curveSwordDuration = 4f;
+    public int curveSwordSpeed = 1000;
+    [Header("Boomerang")]
+    public int actualBoomerangLevel = 0;
+    public int extraBoomerangDamage = 1;
+    public float _boomerangCooldown = 1f;
 
     private void Awake()
     {

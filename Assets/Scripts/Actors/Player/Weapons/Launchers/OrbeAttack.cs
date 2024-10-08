@@ -9,8 +9,8 @@ public class OrbeAttack : MonoBehaviour, IWeapon
     [SerializeField] public GameObject Orbe;
     [SerializeField] public Transform attackPosition;
     [SerializeField] public float _timeSinceLastOrbitalAttack = 0f;
-    [SerializeField] public int numberOfOrbs = 1; // Cantidad de orbes a instanciar
-    [SerializeField] public float spawnRadius = 1f; // Radio de aparición de los orbes
+    //[SerializeField] public int numberOfOrbs = 1;
+    //[SerializeField] public float spawnRadius = 1f; 
     bool _orbitalAttackInCooldown = false;
 
     private void Update()
@@ -35,13 +35,13 @@ public class OrbeAttack : MonoBehaviour, IWeapon
     {
         if (!_orbitalAttackInCooldown)
         {
-            float angleStep = 360f / numberOfOrbs;
+            float angleStep = 360f / experienceManager.numberOfOrbs;
             float startingAngle = 0f;
 
-            for (int i = 0; i < numberOfOrbs; i++)
+            for (int i = 0; i < experienceManager.numberOfOrbs; i++)
             {
                 float angle = startingAngle + i * angleStep;
-                Vector3 orbPosition = GetPositionAtAngle(attackPosition.position, angle, spawnRadius);
+                Vector3 orbPosition = GetPositionAtAngle(attackPosition.position, angle, experienceManager.orbitalRange);
                 GameObject orb = Instantiate(Orbe, orbPosition, Quaternion.identity);
 
                 // Asigna el ángulo inicial al orbe instanciado

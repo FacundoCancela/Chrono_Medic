@@ -7,9 +7,9 @@ public class ClassManager : MonoBehaviour
     [SerializeField] public List<ClassStats> stats = new List<ClassStats>();
     public enum SelectedClass
     {
+        Engineer,
         Melee,
         Ranged,
-        Engineer,
     }
 
     public static SelectedClass currentClass;
