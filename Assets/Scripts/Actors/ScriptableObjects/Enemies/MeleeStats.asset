@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d21dd8259b418542bea633a0d82d9c5, type: 3}
   m_Name: MeleeStats
   m_EditorClassIdentifier: 
-  maxHealth: 80
+  maxHealth: 100
   damage: 10
   attackRange: 2
   attackCooldown: 3

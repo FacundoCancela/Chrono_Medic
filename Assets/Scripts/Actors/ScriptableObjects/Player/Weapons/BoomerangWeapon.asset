@@ -12,9 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b94c94c42347449b638852682d4666, type: 3}
   m_Name: BoomerangWeapon
   m_EditorClassIdentifier: 
-  weaponDamagePerLevel: 
-  extraDamagePerLevel: 
-  cooldown: []
+  weaponDamage: 0400000004000000080000000c0000000c00000010000000140000001400000018000000
+  cooldown:
+  - 4
+  - 4
+  - 4
+  - 3.5
+  - 3.5
+  - 3.5
+  - 3
+  - 3
+  - 3
   duration: []
   rotationSpeed: 
   rotationRange: 

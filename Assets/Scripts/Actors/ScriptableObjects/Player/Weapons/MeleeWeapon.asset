@@ -12,9 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b94c94c42347449b638852682d4666, type: 3}
   m_Name: MeleeWeapon
   m_EditorClassIdentifier: 
-  weaponDamagePerLevel: 
-  extraDamagePerLevel: 
-  cooldown: []
+  weaponDamage: 000000001400000019000000190000002300000023000000280000002800000037000000
+  cooldown:
+  - 0
+  - 4
+  - 3.5
+  - 3.5
+  - 3
+  - 3
+  - 2.5
+  - 2.5
+  - 2
   duration: []
   rotationSpeed: 
   rotationRange: 
