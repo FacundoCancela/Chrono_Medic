@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc480558a0f574745a206e999706a09a, type: 3}
-  m_Name: RangedClass
+  m_Script: {fileID: 11500000, guid: 03876826f62cab046a4ffaaa35841385, type: 3}
+  m_Name: SpawnWaveAnubis
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  damageMultiplier: 0
-  movementSpeed: 2
-  attackSpeed: 2
-  selectedClass: 1
+  enemyPrefabs:
+  - {fileID: 1130082731687103583, guid: 88d016d7685f7e24998eac434acec23d, type: 3}

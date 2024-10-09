@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EngineerClass
   m_EditorClassIdentifier: 
   maxHealth: 130
-  damageMultiplier: 3
+  damageMultiplier: 0
   movementSpeed: 6
   attackSpeed: 2
   selectedClass: 2

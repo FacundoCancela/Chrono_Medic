@@ -113085,39 +113085,39 @@ PrefabInstance:
     - target: {fileID: 1385405630757943611, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: spawnList.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: a919b03ae38027b4fa24562afa22bc18, type: 2}
+      objectReference: {fileID: 11400000, guid: 0729b30bbb9309c4296fbbb0bc9f6ae3, type: 2}
     - target: {fileID: 1385405630757943611, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: spawnList.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 046201a4771100145b21a5f0ac459fde, type: 2}
+      objectReference: {fileID: 11400000, guid: a919b03ae38027b4fa24562afa22bc18, type: 2}
     - target: {fileID: 1385405630757943611, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: spawnList.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 0729b30bbb9309c4296fbbb0bc9f6ae3, type: 2}
+      objectReference: {fileID: 11400000, guid: a919b03ae38027b4fa24562afa22bc18, type: 2}
     - target: {fileID: 1385405630757943611, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: spawnList.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: 0729b30bbb9309c4296fbbb0bc9f6ae3, type: 2}
+      objectReference: {fileID: 11400000, guid: f34ef8175c951d34fb340df864e81e15, type: 2}
     - target: {fileID: 1385405630757943611, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: spawnList.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: 0729b30bbb9309c4296fbbb0bc9f6ae3, type: 2}
+      objectReference: {fileID: 11400000, guid: 046201a4771100145b21a5f0ac459fde, type: 2}
     - target: {fileID: 1385405630757943611, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: spawnList.Array.data[7]
       value: 
-      objectReference: {fileID: 11400000, guid: 0729b30bbb9309c4296fbbb0bc9f6ae3, type: 2}
+      objectReference: {fileID: 11400000, guid: 046201a4771100145b21a5f0ac459fde, type: 2}
     - target: {fileID: 1385405630757943611, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: spawnList.Array.data[8]
       value: 
-      objectReference: {fileID: 11400000, guid: 0729b30bbb9309c4296fbbb0bc9f6ae3, type: 2}
+      objectReference: {fileID: 11400000, guid: 06c81338aa50a4b42b07dbd7ac6d277e, type: 2}
     - target: {fileID: 1385405630757943611, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: spawnList.Array.data[9]
       value: 
-      objectReference: {fileID: 11400000, guid: 0729b30bbb9309c4296fbbb0bc9f6ae3, type: 2}
+      objectReference: {fileID: 11400000, guid: 06c81338aa50a4b42b07dbd7ac6d277e, type: 2}
     - target: {fileID: 1385405630757943611, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: spawnList.Array.data[10]
       value: 
-      objectReference: {fileID: 11400000, guid: 0729b30bbb9309c4296fbbb0bc9f6ae3, type: 2}
+      objectReference: {fileID: 11400000, guid: bb02e9ad4583d3248a3cf66b74ab8e7c, type: 2}
     - target: {fileID: 2215124221339938374, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: m_Name
       value: Managers
@@ -113144,7 +113144,7 @@ PrefabInstance:
       objectReference: {fileID: 217340050676602813}
     - target: {fileID: 3097872738857627252, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: maxExperience
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3097872738857627252, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: BoomerangWeapon

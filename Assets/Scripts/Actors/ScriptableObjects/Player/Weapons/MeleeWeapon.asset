@@ -15,14 +15,14 @@ MonoBehaviour:
   weaponDamage: 000000001400000019000000190000002300000023000000280000002800000037000000
   cooldown:
   - 0
-  - 4
-  - 3.5
-  - 3.5
-  - 3
   - 3
   - 2.5
   - 2.5
   - 2
+  - 2
+  - 1.5
+  - 1.5
+  - 1
   duration: []
   rotationSpeed: 
   rotationRange: 
