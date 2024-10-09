@@ -17,6 +17,12 @@ public class Curve : MonoBehaviour
         curveAttack = FindAnyObjectByType<CurveAttack>();
     }
 
+    private void Start()
+    {
+        Destroy(gameObject, experienceManager.curveSwordDuration);
+    }
+
+
     public void Update()
     {
         transform.position = curveAttack.attackPosition.transform.position;

@@ -113337,6 +113337,10 @@ PrefabInstance:
       propertyPath: experienceManager
       value: 
       objectReference: {fileID: 1261455809}
+    - target: {fileID: 8548196589946156421, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
+      propertyPath: _curveSwordCanAttack
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
