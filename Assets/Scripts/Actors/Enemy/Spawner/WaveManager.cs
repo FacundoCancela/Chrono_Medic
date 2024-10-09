@@ -65,13 +65,10 @@ public class WaveManager : MonoBehaviour
             if (spawnCooldown >= waveStats.spawnInteval[actualWave])
             {
                 spawnCooldown = 0f;
-                Debug.Log("oleada actual"+actualWave);
-                Debug.Log("enemigos maximos" + waveStats.maxEnemiesInThisWave[actualWave]);
                 if (enemiesAlive < waveStats.maxEnemiesInThisWave[actualWave] && !bossBattleInProgress)
                 {
                     enemySpawner.SpawnEnemy();
                     enemiesAlive++;
-                    Debug.Log("enemigos vivos" + enemiesAlive);
                 }
             }
         }

@@ -90,7 +90,6 @@ public class LevelUPScreen : MonoBehaviour
                 break;
         }
 
-
         ShuffleAndDisplayButtons();        
     }
 
@@ -99,40 +98,56 @@ public class LevelUPScreen : MonoBehaviour
     public void MeleeLevel()
     {
         experienceManager.MeleeLevelUp();
+        if (experienceManager.actualMeleeLevel >= experienceManager.maxUpgradeableLevel)
+        {
+            availableButtons.Remove(upgradeMeleeButton);
+            upgradeMeleeButton.gameObject.SetActive(false);
+        }
         ContinueGame();
-        gameObject.SetActive(false);
-        
     }
 
     public void RangedLevel()
     {
         experienceManager.RangedLevelUp();
+        if (experienceManager.actualRangedLevel >= experienceManager.maxUpgradeableLevel)
+        {
+            availableButtons.Remove(upgradeRangedButton);
+            upgradeRangedButton.gameObject.SetActive(false);
+        }
         ContinueGame();
-        gameObject.SetActive(false);
     }
 
     public void EngineerLevel()
     {
         experienceManager.EngineerLevelUp();
+        if (experienceManager.actualEngineerLevel >= experienceManager.maxUpgradeableLevel)
+        {
+            availableButtons.Remove(upgradeEngineerButton);
+            upgradeEngineerButton.gameObject.SetActive(false);
+        }
         ContinueGame();
-        gameObject.SetActive(false);
-        
     }
 
     public void BoomerangLevel()
     {
         experienceManager.BoomerangLevelUp();
+        if (experienceManager.actualBoomerangLevel >= experienceManager.maxUpgradeableLevel)
+        {
+            availableButtons.Remove(upgradeBoomerangButton);
+            upgradeBoomerangButton.gameObject.SetActive(false);
+        }
         ContinueGame();
-        gameObject.SetActive(false);
-
     }
 
     public void CurveSwordLevel()
     {
         experienceManager.CurveSwordLevelUp();
+        if (experienceManager.actualCurveSwordLevel >= experienceManager.maxUpgradeableLevel)
+        {
+            availableButtons.Remove(upgradeCurveSwordButton);
+            upgradeCurveSwordButton.gameObject.SetActive(false);
+        }
         ContinueGame();
-        gameObject.SetActive(false);
-
     }
 
     //Weapon unlock
@@ -186,20 +201,20 @@ public class LevelUPScreen : MonoBehaviour
     public void AlternateButton(Button unlockButton, Button upgradeButton)
     {
         ContinueGame();
-        gameObject.SetActive(false);
         availableButtons.Remove(unlockButton);
         availableButtons.Add(upgradeButton);
         unlockButton.gameObject.SetActive(false);
         weaponUnlockCount++;
-        ShuffleAndDisplayButtons();
     }
 
 
     //Extra features
     public void ContinueGame()
     {
+        ShuffleAndDisplayButtons();
         pauseManager.canPause = true;
         Time.timeScale = 1.0f;
+        gameObject.SetActive(false);
     }
 
     private void ShuffleAndDisplayButtons()
@@ -213,6 +228,8 @@ public class LevelUPScreen : MonoBehaviour
         {
             availableButtons.RemoveAll(button => unlockButtons.Contains(button));
         }
+
+        Debug.Log("armas disponibles: "+availableButtons.Count);
 
         for (int i = 0; i < availableButtons.Count; i++)
         {

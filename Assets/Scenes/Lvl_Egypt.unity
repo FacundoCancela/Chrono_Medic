@@ -113144,7 +113144,7 @@ PrefabInstance:
       objectReference: {fileID: 217340050676602813}
     - target: {fileID: 3097872738857627252, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: maxExperience
-      value: 80
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3097872738857627252, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: BoomerangWeapon
@@ -113156,7 +113156,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: b7658d4990431964dabb3d4fd640bfe6, type: 2}
     - target: {fileID: 3097872738857627252, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: extraExperiencePerLevel
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6281159330125533191, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: player

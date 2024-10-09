@@ -23,7 +23,6 @@ public class WeaponManager : MonoBehaviour
 
     private void Awake()
     {
-        // Check current scene based on name
         string currentScene = SceneManager.GetActiveScene().name;
         if (currentScene == "Lvl_Menu")
         {
@@ -47,7 +46,6 @@ public class WeaponManager : MonoBehaviour
 
     private void ActivateWeaponClass()
     {
-        Debug.Log(ClassManager.currentClass);
         switch (ClassManager.currentClass)
         {
             case ClassManager.SelectedClass.Melee:
@@ -73,7 +71,6 @@ public class WeaponManager : MonoBehaviour
         if (!_automaticWeapons.Contains(weapon))
         {
             _automaticWeapons.Add(weapon);
-            Debug.Log("arma añadidida" + weapon);
         }
     }
 

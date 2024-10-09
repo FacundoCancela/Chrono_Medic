@@ -105,7 +105,6 @@ public class EnemyController : MonoBehaviour, IEnemyController
 
     public void GetDamaged(int damage)
     {
-        Debug.Log(damage);
         _view.GetDamaged();
         actualHealth -= damage;
         DeathCheck();
