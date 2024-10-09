@@ -21,6 +21,7 @@ public class WaveManager : MonoBehaviour
     public float waveTimer = 30f;
 
     private float spawnCooldown = 0f;
+    [SerializeField] private bool noSpawnEnemies = true;
 
     public static WaveManager Instance
     {
@@ -49,7 +50,7 @@ public class WaveManager : MonoBehaviour
 
     private void Update()
     {
-        if (waveInProgress)
+        if (waveInProgress && !noSpawnEnemies)
         {
             spawnCooldown += Time.deltaTime;
             waveTimer -= Time.deltaTime;

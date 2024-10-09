@@ -20,9 +20,11 @@ public class BossWeapon : MonoBehaviour
     [SerializeField] private float bulletSpeed = 10.0f;
     [SerializeField] private float fireRate;
     [SerializeField] private float specialAttackCooldown = 10.0f;
+    [SerializeField] private float accuracyOffset = 3f;
 
     private float fireRateTimer = 0.0f;
     private float specialAttackTimer = 0.0f;
+    
 
     private void Awake()
     {
@@ -70,15 +72,17 @@ public class BossWeapon : MonoBehaviour
 
     public void FireWeapon(Vector2 targetDir)
     {
-        Vector2 dir = (targetDir - (Vector2)transform.position).normalized;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Vector2 randomOffset = Random.insideUnitCircle * accuracyOffset;
+        Vector2 adjustedDir = (targetDir + randomOffset - (Vector2)transform.position).normalized;
+        float angle = Mathf.Atan2(adjustedDir.y, adjustedDir.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, rotation);
-        bullet.GetComponent<Rigidbody2D>().velocity = dir * bulletSpeed;
+        bullet.GetComponent<Rigidbody2D>().velocity = adjustedDir * bulletSpeed;
 
         canUseWeapon = false;
     }
+
 
     public void SpecialAttack(Vector2 targetDir)
     {
