@@ -113175,6 +113175,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1918639880}
     - target: {fileID: 7936213906782573933, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
+      propertyPath: waveStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c64dca68c61b9a4fb86c188a789119c, type: 2}
+    - target: {fileID: 7936213906782573933, guid: 6e848eb9bdac85e4888a3d08e14782f0, type: 3}
       propertyPath: winScreen
       value: 
       objectReference: {fileID: 926509912}
