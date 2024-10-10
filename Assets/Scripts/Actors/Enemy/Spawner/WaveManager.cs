@@ -7,22 +7,21 @@ public class WaveManager : MonoBehaviour
     [SerializeField] WaveCount waveCount;
     [SerializeField] WinScreen winScreen;
     [SerializeField] public int maxWave;
-    public float waveTimer = 30f;
     [SerializeField] public int actualWave = 0;
     private bool waveInProgress;
     private bool bossBattleInProgress;
     private bool ammitAlreadySpawned;
+    private bool anubisAlreadySpawned;
 
     [SerializeField] public EnemySpawner enemySpawner;
-    [SerializeField] public List<GameObject> enemyPrefabs;
     [SerializeField] public List<GameObject> bossPrefabs;
-    [SerializeField] public int enemiesInThisWave;
     public int enemiesAlive;
 
-    [SerializeField] public float spawnInterval = 1f;
-    [SerializeField] public int maxEnemiesInThisWave = 15;
+    [SerializeField] WaveStats waveStats;
+    public float waveTimer = 30f;
 
     private float spawnCooldown = 0f;
+    [SerializeField] private bool noSpawnEnemies = true;
 
     public static WaveManager Instance
     {
@@ -51,7 +50,7 @@ public class WaveManager : MonoBehaviour
 
     private void Update()
     {
-        if (waveInProgress)
+        if (waveInProgress && !noSpawnEnemies)
         {
             spawnCooldown += Time.deltaTime;
             waveTimer -= Time.deltaTime;
@@ -63,23 +62,16 @@ public class WaveManager : MonoBehaviour
                 StartNextWave();
             }
 
-            if (spawnCooldown >= spawnInterval)
+            if (spawnCooldown >= waveStats.spawnInteval[actualWave])
             {
                 spawnCooldown = 0f;
-                if (enemiesAlive < maxEnemiesInThisWave && !bossBattleInProgress)
+                if (enemiesAlive < waveStats.maxEnemiesInThisWave[actualWave] && !bossBattleInProgress)
                 {
                     enemySpawner.SpawnEnemy();
                     enemiesAlive++;
                 }
             }
         }
-
-        //if (actualWave == 5 && !bossBattleInProgress)
-        //{
-        //    enemySpawner.SpawnAmmitBoss();
-        //    bossBattleInProgress = true;
-        //}
-
     }
 
     public void StartNextWave()
@@ -104,6 +96,14 @@ public class WaveManager : MonoBehaviour
             ammitAlreadySpawned = true;
         }
 
+        if (actualWave == 10 && !anubisAlreadySpawned)
+        {
+            enemySpawner.SpawnAnubisBoss();
+            bossBattleInProgress = true;
+            anubisAlreadySpawned = true;
+        }
+
+
         waveCount.updateWave(actualWave, maxWave);
 
     }
@@ -115,65 +115,7 @@ public class WaveManager : MonoBehaviour
 
     public void ResetTimerAndEnemies()
     {
-        switch(actualWave)
-        {
-            case 1:
-                waveTimer = 20f;
-                maxEnemiesInThisWave = 15;
-                spawnCooldown = 3;
-                break;
-            case 2:
-                waveTimer = 30f;
-                maxEnemiesInThisWave = 20;
-                spawnCooldown = 3;
-                break;
-            case 3:
-                waveTimer = 40f;
-                maxEnemiesInThisWave = 30;
-                spawnCooldown = 3;
-                break;
-            case 4:
-                waveTimer = 50f;
-                maxEnemiesInThisWave = 40;
-                spawnCooldown = 2.5f;
-                break;
-            case 5:
-                waveTimer = 60f;
-                maxEnemiesInThisWave = 50;
-                spawnCooldown = 2.5f;
-                break;
-            case 6:
-                waveTimer = 70f;
-                maxEnemiesInThisWave = 55;
-                spawnCooldown = 2.5f;
-                break;
-            case 7:
-                waveTimer = 80f;
-                maxEnemiesInThisWave = 60;
-                spawnCooldown = 2;
-                break;
-            case 8:
-                waveTimer = 85f;
-                maxEnemiesInThisWave = 65;
-                spawnCooldown = 2;
-                break;
-            case 9:
-                waveTimer = 90f;
-                maxEnemiesInThisWave = 65;
-                spawnCooldown = 2;
-                break;
-            case 10:
-                waveTimer = 180f;
-                maxEnemiesInThisWave = 60;
-                spawnCooldown = 2;
-                break;
-            default:
-                waveTimer = 30f;
-                maxEnemiesInThisWave = 60;
-                spawnCooldown = 2;
-                break;
-
-        }
+        waveTimer = waveStats.waveTimer[actualWave + 1];
     }
 
     public void EndBossBattle()

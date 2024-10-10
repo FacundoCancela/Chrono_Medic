@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d21dd8259b418542bea633a0d82d9c5, type: 3}
-  m_Name: RangedStats
+  m_Name: Corrupted Stats
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  damage: 2
-  attackRange: 5
+  maxHealth: 150
+  damage: 15
+  attackRange: 2
   attackCooldown: 3
-  experienceDropped: 10
-  moneyDroped: 20
+  experienceDropped: 20
+  moneyDroped: 10

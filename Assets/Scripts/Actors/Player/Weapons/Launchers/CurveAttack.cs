@@ -19,7 +19,7 @@ public class CurveAttack : MonoBehaviour, IWeapon
         }
         if (experienceManager != null)
         {
-            if (_timeSinceLastCurveAttack > experienceManager._curveSwordCooldown)
+            if (_timeSinceLastCurveAttack > experienceManager.curveSwordCooldown + experienceManager.curveSwordDuration)
             {
                 _curveAttackInCooldown = false;
                 _timeSinceLastCurveAttack = 0f;

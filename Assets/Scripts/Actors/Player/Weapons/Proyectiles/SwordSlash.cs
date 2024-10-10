@@ -20,8 +20,8 @@ public class SwordSlash : MonoBehaviour
             if (enemyController != null)
             {
                 Debug.Log("damage multiplayer: " + playerStats.damageMultiplier);
-                Debug.Log("experience damage multiplayer: " + experienceManager.extraMeleeDamage);
-                enemyController.GetDamaged(playerStats.damageMultiplier * experienceManager.extraMeleeDamage);
+                Debug.Log("experience damage multiplayer: " + experienceManager.meleeDamage);
+                enemyController.GetDamaged(playerStats.damageMultiplier * experienceManager.meleeDamage);
             }
         }
     }

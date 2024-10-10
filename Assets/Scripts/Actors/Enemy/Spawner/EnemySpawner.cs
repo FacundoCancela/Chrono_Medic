@@ -6,72 +6,79 @@ public class EnemySpawner : MonoBehaviour
 {
     private Transform playerTransform;
     [SerializeField] WaveManager waveManager;
-    [SerializeField] List<GameObject> portals; // Lista de portales
+    [SerializeField] List<GameObject> portals;
+    [SerializeField] List<SpawnList> spawnList;
+    private GameObject activePortal;
+    private float portalChangeTimer = 0f;
+    [SerializeField] private float portalChangeInterval = 5f; 
 
     private void Start()
     {
-        playerTransform = FindObjectOfType<PlayerController>().transform; // Encuentra el jugador y obtén su transform
+        playerTransform = FindObjectOfType<PlayerController>().transform;
+        ChangeActivePortal(); 
+    }
+
+    private void Update()
+    {
+        portalChangeTimer += Time.deltaTime;
+        if (portalChangeTimer >= portalChangeInterval)
+        {
+            ChangeActivePortal(); 
+            portalChangeTimer = 0f; 
+        }
     }
 
     public void SpawnEnemy()
     {
-        if (playerTransform != null && waveManager.enemyPrefabs.Count > 0)
+        if (playerTransform != null && spawnList[waveManager.actualWave].enemyPrefabs.Count > 0)
         {
-            // Encuentra el portal más cercano al jugador
-            GameObject nearestPortal = GetNearestPortal();
-
-            if (nearestPortal != null)
+            if (activePortal != null)
             {
-                // Desactiva los sprites de todos los portales excepto el más cercano
-                foreach (GameObject portal in portals)
-                {
-                    SpriteRenderer spriteRenderer = portal.GetComponent<SpriteRenderer>();
-                    if (spriteRenderer != null)
-                    {
-                        spriteRenderer.enabled = portal == nearestPortal;
-                    }
-                }
+                int randomIndex = Random.Range(0, spawnList[waveManager.actualWave].enemyPrefabs.Count);
+                GameObject selectedEnemyPrefab = spawnList[waveManager.actualWave].enemyPrefabs[randomIndex];
 
-                // Selecciona un índice aleatorio de la lista de prefabs de enemigos
-                int randomIndex = Random.Range(0, waveManager.enemyPrefabs.Count);
-                GameObject selectedEnemyPrefab = waveManager.enemyPrefabs[randomIndex];
-
-                // Instancia el enemigo en la posición del portal más cercano
-                Instantiate(selectedEnemyPrefab, nearestPortal.transform.position, Quaternion.identity);
+                Instantiate(selectedEnemyPrefab, activePortal.transform.position, Quaternion.identity);
             }
+        }
+    }
+
+    private void ChangeActivePortal()
+    {
+
+        foreach (GameObject portal in portals)
+        {
+            SpriteRenderer spriteRenderer = portal.GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.enabled = false;
+            }
+        }
+
+        int randomPortalIndex = Random.Range(0, portals.Count);
+        activePortal = portals[randomPortalIndex];
+
+        SpriteRenderer activeSpriteRenderer = activePortal.GetComponent<SpriteRenderer>();
+        if (activeSpriteRenderer != null)
+        {
+            activeSpriteRenderer.enabled = true;
         }
     }
 
     public void SpawnAmmitBoss()
     {
-        if (playerTransform != null)
+        if (playerTransform != null && activePortal != null)
         {
-            GameObject nearestPortal = GetNearestPortal();
-
-            if (nearestPortal != null)
-            {
-                GameObject selectedEnemyPrefab = waveManager.bossPrefabs[0];
-                Instantiate(selectedEnemyPrefab, nearestPortal.transform.position, Quaternion.identity);
-            }
+            GameObject selectedEnemyPrefab = waveManager.bossPrefabs[0];
+            Instantiate(selectedEnemyPrefab, activePortal.transform.position, Quaternion.identity);
         }
     }
 
-
-    private GameObject GetNearestPortal()
+    public void SpawnAnubisBoss()
     {
-        GameObject nearestPortal = null;
-        float closestDistance = Mathf.Infinity;
-
-        foreach (GameObject portal in portals)
+        if (playerTransform != null && activePortal != null)
         {
-            float distanceToPortal = Vector2.Distance(playerTransform.position, portal.transform.position);
-            if (distanceToPortal < closestDistance)
-            {
-                closestDistance = distanceToPortal;
-                nearestPortal = portal;
-            }
+            GameObject selectedEnemyPrefab = waveManager.bossPrefabs[1];
+            Instantiate(selectedEnemyPrefab, activePortal.transform.position, Quaternion.identity);
         }
-
-        return nearestPortal;
     }
 }

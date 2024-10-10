@@ -15,7 +15,7 @@ MonoBehaviour:
   money: 0
   maxHealth: 330
   maxBuyHealth: 200
-  damageMultiplier: 2
+  damageMultiplier: 1
   movementSpeed: 1
   actualLevel: 0
   attackSpeed: 1

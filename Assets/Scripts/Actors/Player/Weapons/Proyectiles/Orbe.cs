@@ -20,7 +20,7 @@ public class Orbe : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, experienceManager.orbitalDuration);
     }
 
     private void Update()
@@ -47,7 +47,7 @@ public class Orbe : MonoBehaviour
             IEnemyController enemyController = collision.gameObject.GetComponent<IEnemyController>();
             if (enemyController != null)
             {
-                enemyController.GetDamaged(playerStats.damageMultiplier * experienceManager.extraOrbitalDamage);
+                enemyController.GetDamaged(playerStats.damageMultiplier * experienceManager.engineerDamage);
             }
         }
     }

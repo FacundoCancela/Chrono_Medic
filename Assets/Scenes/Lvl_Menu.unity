@@ -27997,6 +27997,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShopUI: {fileID: 4849722877212980213}
   pauseManager: {fileID: 124936087}
+  inShopZone: 0
+  shopOpen: 0
 --- !u!61 &1063402433
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28029,7 +28031,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0062458515, y: -0.11251359}
+  m_Offset: {x: 0.0038563013, y: -0.12059522}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -28040,7 +28042,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6240458, y: 0.9637697}
+  m_Size: {x: 2.096822, y: 1.3112807}
   m_EdgeRadius: 0
 --- !u!224 &1285793407 stripped
 RectTransform:
@@ -30368,6 +30370,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8759769934588645778, guid: b9c7df1cc4f185044af4501ad0adc27f, type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 11400000, guid: bf61c40d3e61e3e47aecd2987f029bf2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

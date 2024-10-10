@@ -23,7 +23,6 @@ public class WeaponManager : MonoBehaviour
 
     private void Awake()
     {
-        // Check current scene based on name
         string currentScene = SceneManager.GetActiveScene().name;
         if (currentScene == "Lvl_Menu")
         {
@@ -47,26 +46,22 @@ public class WeaponManager : MonoBehaviour
 
     private void ActivateWeaponClass()
     {
-        Debug.Log(ClassManager.currentClass);
         switch (ClassManager.currentClass)
         {
             case ClassManager.SelectedClass.Melee:
                 _meleeCanAttack = true;
                 IWeapon sword = FindAnyObjectByType<SwordAttack>();
                 AddAutomaticWeapon(sword);
-                if(experienceManager != null)experienceManager.MeleeLevelUp();
                 break;
             case ClassManager.SelectedClass.Ranged:
                 _rangedCanAttack = true;
                 IWeapon ranged = FindAnyObjectByType<RangedAttack>();
                 AddAutomaticWeapon(ranged);
-                if (experienceManager != null)experienceManager.RangedLevelUp();
                 break;
-            case ClassManager.SelectedClass.Engineer
-                : _engineerCanAttack = true;
+            case ClassManager.SelectedClass.Engineer:
+                _engineerCanAttack = true;
                 IWeapon orbe = FindAnyObjectByType<OrbeAttack>();
                 AddAutomaticWeapon(orbe);
-                if (experienceManager != null)experienceManager.EngineerLevelUp();
                 break;
         }
     }
@@ -76,7 +71,6 @@ public class WeaponManager : MonoBehaviour
         if (!_automaticWeapons.Contains(weapon))
         {
             _automaticWeapons.Add(weapon);
-            Debug.Log("arma añadidida" + weapon);
         }
     }
 

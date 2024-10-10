@@ -19,7 +19,7 @@ public class RangedAttack : MonoBehaviour, IWeapon
         }
         if (experienceManager != null)
         {
-            if (_timeSinceLastRangedAttack > experienceManager._rangedCooldown)
+            if (_timeSinceLastRangedAttack > experienceManager.rangedCooldown)
             {
                 _rangedAttackInCooldown = false;
                 _timeSinceLastRangedAttack = 0f;

@@ -21,7 +21,7 @@ public class SwordAttack : MonoBehaviour, IWeapon
         }
         if(experienceManager != null)
         {
-            if (_timeSinceLastSlashAttack > experienceManager._meleeCooldown)
+            if (_timeSinceLastSlashAttack > experienceManager.meleeCooldown)
             {
                 _slashAttackInCooldown = false;
                 _timeSinceLastSlashAttack = 0f;

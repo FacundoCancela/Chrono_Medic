@@ -8,8 +8,8 @@ public class ClassManager : MonoBehaviour
     public enum SelectedClass
     {
         Melee,
-        Ranged,
         Engineer,
+        Ranged,
     }
 
     public static SelectedClass currentClass;

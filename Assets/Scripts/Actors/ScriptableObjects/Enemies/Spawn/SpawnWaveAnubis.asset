@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d21dd8259b418542bea633a0d82d9c5, type: 3}
-  m_Name: Corrupted Stats
+  m_Script: {fileID: 11500000, guid: 03876826f62cab046a4ffaaa35841385, type: 3}
+  m_Name: SpawnWaveAnubis
   m_EditorClassIdentifier: 
-  maxHealth: 30
-  damage: 2
-  attackRange: 2
-  attackCooldown: 3
-  experienceDropped: 20
-  moneyDroped: 10
+  enemyPrefabs:
+  - {fileID: 1130082731687103583, guid: 88d016d7685f7e24998eac434acec23d, type: 3}
