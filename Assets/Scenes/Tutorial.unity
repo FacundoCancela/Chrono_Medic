@@ -1755,9 +1755,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5467415590541180640, guid: 3b96ac1fa4732cc48a0496226ae1a86b, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467415590541180640, guid: 3b96ac1fa4732cc48a0496226ae1a86b, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467415590541180640, guid: 3b96ac1fa4732cc48a0496226ae1a86b, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7566412417530420832, guid: 3b96ac1fa4732cc48a0496226ae1a86b, type: 3}
       propertyPath: m_Name
       value: DialogueSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714384347101677914, guid: 3b96ac1fa4732cc48a0496226ae1a86b, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714384347101677914, guid: 3b96ac1fa4732cc48a0496226ae1a86b, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714384347101677914, guid: 3b96ac1fa4732cc48a0496226ae1a86b, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
