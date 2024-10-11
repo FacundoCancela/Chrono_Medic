@@ -1253,7 +1253,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8937343538456689583, guid: 79278eb53ede1944bbc6d771231e24d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1340840286}
   m_SourcePrefab: {fileID: 100100000, guid: 79278eb53ede1944bbc6d771231e24d0, type: 3}
 --- !u!213 &392393013
 Sprite:
@@ -76036,6 +76039,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1340840281 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8937343538456689583, guid: 79278eb53ede1944bbc6d771231e24d0, type: 3}
+  m_PrefabInstance: {fileID: 192351405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1340840286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340840281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5108fb6ff725a4a4abd8fcb288a14a9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: c0a11aab7b6c9654394254001b7a8b5b, type: 3}
+  intensity: 0.65
+  color: {r: 1, g: 0.5330188, b: 0.9645093, a: 0}
 --- !u!1 &1354222432
 GameObject:
   m_ObjectHideFlags: 0
