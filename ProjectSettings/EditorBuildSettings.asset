@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 8bffc803e8eb2a4468f2e6fb246ebd13
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Lvl_Menu.unity
     guid: 71ee06f9135e2b44a90f87b7f79026b1
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Lvl_Egypt.unity
     guid: 50a73805715e1f44b90349f1afef25dc
   - enabled: 0
@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Lvl_2400.unity
     guid: 9dc2f4de31c8ebc47a45c4a0e805eeee
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tutorial.unity
     guid: 3db38eb450adc354b9419aa261d9fb7a
   m_configObjects: {}
