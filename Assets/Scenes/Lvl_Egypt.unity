@@ -114465,6 +114465,10 @@ PrefabInstance:
       propertyPath: experienceManager
       value: 
       objectReference: {fileID: 1261455809}
+    - target: {fileID: 8041027089336846611, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
+      propertyPath: specialAttackMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8548196589946156421, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
       propertyPath: experienceManager
       value: 

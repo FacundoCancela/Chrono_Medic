@@ -21,6 +21,16 @@ public class WeaponManager : MonoBehaviour
     public bool _boomerangCanAttack = false;
     public bool _curveSwordCanAttack = false;
 
+    private bool _specialModeActive = false;
+    private float _specialDuration = 5f;
+    private float _specialCooldownTime = 10f;
+    private float _timeSinceLastSpecial = 0f;
+    private bool _canUseSpecial = true;
+
+    private IWeapon currentClassWeapon;
+
+
+
     private void Awake()
     {
         string currentScene = SceneManager.GetActiveScene().name;
@@ -42,6 +52,20 @@ public class WeaponManager : MonoBehaviour
         {
             UseWeapon();
         }
+
+        if (!_canUseSpecial)
+        {
+            _timeSinceLastSpecial -= Time.deltaTime;
+            if (_timeSinceLastSpecial <= 0)
+            {
+                _canUseSpecial = true; // Se puede volver a activar
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && _canUseSpecial)
+        {
+            StartCoroutine(ActivateSpecialMode());
+        }
     }
 
     private void ActivateWeaponClass()
@@ -50,18 +74,18 @@ public class WeaponManager : MonoBehaviour
         {
             case ClassManager.SelectedClass.Melee:
                 _meleeCanAttack = true;
-                IWeapon sword = FindAnyObjectByType<SwordAttack>();
-                AddAutomaticWeapon(sword);
+                currentClassWeapon = FindAnyObjectByType<SwordAttack>();
+                AddAutomaticWeapon(currentClassWeapon);
                 break;
             case ClassManager.SelectedClass.Ranged:
                 _rangedCanAttack = true;
-                IWeapon ranged = FindAnyObjectByType<RangedAttack>();
-                AddAutomaticWeapon(ranged);
+                currentClassWeapon = FindAnyObjectByType<RangedAttack>();
+                AddAutomaticWeapon(currentClassWeapon);
                 break;
             case ClassManager.SelectedClass.Engineer:
                 _engineerCanAttack = true;
-                IWeapon orbe = FindAnyObjectByType<OrbeAttack>();
-                AddAutomaticWeapon(orbe);
+                currentClassWeapon = FindAnyObjectByType<OrbeAttack>();
+                AddAutomaticWeapon(currentClassWeapon);
                 break;
         }
     }
@@ -81,5 +105,41 @@ public class WeaponManager : MonoBehaviour
             autoWeapon.Attack();
         }
     }
-    
+
+    private IEnumerator ActivateSpecialMode()
+    {
+        if (currentClassWeapon is RangedAttack rangedWeapon)
+        {
+            _specialModeActive = true;
+            rangedWeapon.specialAttackMode = true;
+        }
+
+        else if (currentClassWeapon is OrbeAttack orbeWeapon)
+        {
+            _specialModeActive = true;
+            orbeWeapon.specialAttackMode = true;  // Activamos modo especial en orbes
+        }
+
+        else if (currentClassWeapon is SwordAttack swordWeapon)
+        {
+            _specialModeActive = true;
+            swordWeapon.specialAttackMode = true;
+        }
+
+        yield return new WaitForSeconds(_specialDuration);
+
+        if (currentClassWeapon is RangedAttack rangedWeapon2)
+        {
+            _specialModeActive = false;
+            rangedWeapon2.specialAttackMode = false;
+        }
+        else if (currentClassWeapon is SwordAttack swordWeapon2)
+        {
+            _specialModeActive = false;
+            swordWeapon2.specialAttackMode = false;
+        }
+
+        _canUseSpecial = false;
+        _timeSinceLastSpecial = _specialCooldownTime;
+    }
 }

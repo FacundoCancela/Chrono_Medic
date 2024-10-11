@@ -11,6 +11,9 @@ public class SwordAttack : MonoBehaviour, IWeapon
     [SerializeField] public float _timeSinceLastSlashAttack = 0f;
     bool _slashAttackInCooldown = false;
 
+    public bool specialAttackMode = false;
+
+
     public Transform direction;
     
     private void Update()
@@ -33,13 +36,15 @@ public class SwordAttack : MonoBehaviour, IWeapon
     {
         if (!_slashAttackInCooldown)
         {
+            float sizeMultiplier = specialAttackMode ? 3f : 1f;
+
             GameObject Attack = Instantiate(swordSlash, attackPosition.position,Quaternion.identity);
             
             Attack.transform.SetParent(null);
 
             Vector3 newScale = Attack.transform.localScale;
             newScale.x = direction.localScale.x; 
-            Attack.transform.localScale = newScale;
+            Attack.transform.localScale = newScale * sizeMultiplier;
 
             _slashAttackInCooldown = true;
         }
