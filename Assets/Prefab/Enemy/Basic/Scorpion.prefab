@@ -337,3 +337,4 @@ MonoBehaviour:
   shootPoint: {fileID: 6762171844737374789}
   bulletSpeed: 10
   fireRate: 1
+  accuracyOffset: 3
