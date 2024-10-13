@@ -67,15 +67,20 @@ public class PlayerController : MonoBehaviour
     public void Walk()
     {
         _playerView.Walk(true);
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+
         Vector2 dir = new Vector2(x, y).normalized;
         _player.Move(dir);
         _playerView.LookDir(dir);
+
         if (x == 0 && y == 0)
         {
+            Debug.Log("WalkFalse");
             _playerView.Walk(false);
         }
+        
     }
 
     public void UseInventoryItem()
