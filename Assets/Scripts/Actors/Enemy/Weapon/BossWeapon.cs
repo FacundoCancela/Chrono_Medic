@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossWeapon : MonoBehaviour
 {
-    public enum BossType { Ammit, Anubis }
+    public enum BossType { Ammit, AmmitAndAnubis, Anubis,  }
     public BossType bossType;
 
     public EnemyStats enemyStats;

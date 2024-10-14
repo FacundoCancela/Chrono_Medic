@@ -98,7 +98,7 @@ public class WaveManager : MonoBehaviour
 
         if (actualWave == 10 && !anubisAlreadySpawned)
         {
-            enemySpawner.SpawnAnubisBoss();
+            enemySpawner.SpawnAmmitAndAnubisBoss();
             bossBattleInProgress = true;
             anubisAlreadySpawned = true;
         }

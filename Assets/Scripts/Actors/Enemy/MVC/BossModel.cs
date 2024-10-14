@@ -16,11 +16,18 @@ public class BossModel : Actor
 
     public void EnemyDeath()
     {
-        WaveManager.Instance.EndBossBattle();
         GameDataController.Instance.IncreaseMoney(enemyStats.moneyDroped);
         DropManager.Instance.DropSomething(transform.position);
         WaveManager.Instance.OnEnemyKilled();
         experiencePoint.ExperienceDrop(enemyStats.experienceDropped);
         Destroy(gameObject);
+
+        if (bossWeapon.bossType == BossWeapon.BossType.AmmitAndAnubis)
+        {
+            EnemySpawner.Instance.SpawnAnubisBoss(transform.position);
+            return;
+        }
+
+        WaveManager.Instance.EndBossBattle();
     }
 }
