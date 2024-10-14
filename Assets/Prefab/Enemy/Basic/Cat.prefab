@@ -102,6 +102,7 @@ MonoBehaviour:
   shootPoint: {fileID: 2675757563063010893}
   bulletSpeed: 10
   fireRate: 1
+  accuracyOffset: 3
 --- !u!1 &4220072662542796888
 GameObject:
   m_ObjectHideFlags: 0
