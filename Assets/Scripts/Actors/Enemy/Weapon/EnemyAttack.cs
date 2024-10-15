@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMeleeAttack : MonoBehaviour
+public class EnemyAttack : MonoBehaviour
 {
     public EnemyStats enemyStats;
 
     private int damage;
 
-    private void Awake()
+    public void SetDamage(int damageAmount)
     {
-        damage = enemyStats.damage;
+        damage = damageAmount;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

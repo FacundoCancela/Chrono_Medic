@@ -47,6 +47,9 @@ public class EnemyWeapon : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, transform.position, rotation);
         bullet.GetComponent<Rigidbody2D>().velocity = adjustedDir * bulletSpeed;
 
+        EnemyAttack enemyAttack = bullet.GetComponent<EnemyAttack>();
+        enemyAttack.SetDamage(enemyStats.damage);
+
         canUseWeapon = false;
     }
 }
