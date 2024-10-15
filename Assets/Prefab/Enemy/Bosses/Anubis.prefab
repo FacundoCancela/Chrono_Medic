@@ -309,8 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce8d41befd52d64eb2a65511bbbb217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossType: 1
-  enemyStats: {fileID: 11400000, guid: 310496c5a5a60d043897097abed4f426, type: 2}
+  bossType: 2
+  enemyStats: {fileID: 11400000, guid: 6a174fc34b035d542b620c29068ef3aa, type: 2}
   bulletPrefab: {fileID: 1367665112320747349, guid: 04b116890cad21d49aac670aec16b011, type: 3}
   specialBulletPrefab: {fileID: 1367665112320747349, guid: 78fd781a16fa15140aa50203566eb359, type: 3}
   shootPoint: {fileID: 1591282576986889045}

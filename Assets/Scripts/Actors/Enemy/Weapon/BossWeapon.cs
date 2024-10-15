@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossWeapon : MonoBehaviour
 {
-    public enum BossType { Ammit, Anubis }
+    public enum BossType { Ammit, AmmitAndAnubis, Anubis,  }
     public BossType bossType;
 
     public EnemyStats enemyStats;
@@ -20,7 +20,6 @@ public class BossWeapon : MonoBehaviour
     [SerializeField] private float bulletSpeed = 10.0f;
     [SerializeField] private float fireRate;
     [SerializeField] private float specialAttackCooldown = 10.0f;
-    [SerializeField] private float accuracyOffset = 3f;
 
     private float fireRateTimer = 0.0f;
     private float specialAttackTimer = 0.0f;
@@ -72,7 +71,7 @@ public class BossWeapon : MonoBehaviour
 
     public void FireWeapon(Vector2 targetDir)
     {
-        Vector2 randomOffset = Random.insideUnitCircle * accuracyOffset;
+        Vector2 randomOffset = Random.insideUnitCircle * enemyStats.accuracyOffset;
         Vector2 adjustedDir = (targetDir + randomOffset - (Vector2)transform.position).normalized;
         float angle = Mathf.Atan2(adjustedDir.y, adjustedDir.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
