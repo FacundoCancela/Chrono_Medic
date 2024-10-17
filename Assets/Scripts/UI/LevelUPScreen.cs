@@ -26,8 +26,12 @@ public class LevelUPScreen : MonoBehaviour
     [SerializeField] Button upgradeBoomerangButton;
     [SerializeField] Button upgradeCurveSwordButton;
 
+    //Extra buttons
+    [SerializeField] Button moneyButton;
+
     private List<Button> unlockButtons;
     private List<Button> upgradeButtons;
+    private List<Button> extraButtons;
     private List<Button> availableButtons;
 
     public int weaponUnlockOptions = 3;
@@ -55,6 +59,11 @@ public class LevelUPScreen : MonoBehaviour
            upgradeCurveSwordButton,
         };
 
+        extraButtons = new List<Button>
+        {
+            moneyButton,
+        };
+
         foreach (var button in upgradeButtons)
         {
             button.gameObject.SetActive(false);
@@ -64,6 +73,12 @@ public class LevelUPScreen : MonoBehaviour
         {
             button.gameObject.SetActive(false);
         }
+
+        foreach (var button in extraButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
+
 
         availableButtons = new List<Button>(unlockButtons);
 
@@ -207,6 +222,14 @@ public class LevelUPScreen : MonoBehaviour
         ContinueGame();
     }
 
+    //Last Level
+
+    public void Money()
+    {
+        GameDataController.Instance.IncreaseMoney(100);
+        ContinueGame();
+    }
+
 
     //Extra features
     public void ContinueGame()
@@ -227,6 +250,11 @@ public class LevelUPScreen : MonoBehaviour
         if (weaponUnlockCount >= maxUnlockeableWeapons)
         {
             availableButtons.RemoveAll(button => unlockButtons.Contains(button));
+        }
+
+        if (availableButtons.Count == 0)
+        {
+            availableButtons.AddRange(extraButtons);
         }
 
         Debug.Log("armas disponibles: "+availableButtons.Count);

@@ -55,6 +55,14 @@ public class ExperienceManager : MonoBehaviour
         XpBar.SetMaxXP(maxExperience);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F8))
+        {
+            LevelUp();
+        }
+    }
+
     private void Start()
     {
         ResetTemporalStats();
