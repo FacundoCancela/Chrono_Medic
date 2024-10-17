@@ -8,6 +8,11 @@ public class EnemyAttack : MonoBehaviour
 
     private int damage;
 
+    private void Start()
+    {
+        Destroy(gameObject, 1f);
+    }
+
     public void SetDamage(int damageAmount)
     {
         damage = damageAmount;

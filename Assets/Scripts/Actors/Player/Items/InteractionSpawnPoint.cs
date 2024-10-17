@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EgyptInteractionSpawnPoint : MonoBehaviour
+public class InteractionSpawnPoint : MonoBehaviour
 {
-    [SerializeField] EgyptInteraction egyptInteraction;
+    [SerializeField] DamageInteraction Interaction;
     [SerializeField] Transform spawnPoint;
     [SerializeField] int interactionCooldown = 2;
 
@@ -20,9 +20,10 @@ public class EgyptInteractionSpawnPoint : MonoBehaviour
             ReactivateInteraction();
         }
     }
+
     public void ReactivateInteraction()
     {
-        egyptInteraction.gameObject.SetActive(true);
+        Interaction.gameObject.SetActive(true);
     }
 
     public void GetRespawnWave()

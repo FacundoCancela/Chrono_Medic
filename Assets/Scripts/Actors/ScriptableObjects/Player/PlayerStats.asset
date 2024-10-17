@@ -16,7 +16,7 @@ MonoBehaviour:
   maxHealth: 330
   maxBuyHealth: 200
   damageMultiplier: 1
-  movementSpeed: 1
+  movementSpeed: 3
   actualLevel: 0
   attackSpeed: 1
   attackRange: 0

@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EgyptInteraction : MonoBehaviour
+public class DamageInteraction : MonoBehaviour
 {
     private bool canBeActivated = false;
     private bool hasBeenActivated = false;
     private float activationTime = 0f;
     [SerializeField] public float duration;
-    [SerializeField] EgyptInteractionSpawnPoint spawnPoint;
+    [SerializeField] InteractionSpawnPoint spawnPoint;
+    [SerializeField] private Direction moveDirection;
     private Vector3 initialPosition;
+
+    public enum Direction
+    {
+        Right,
+        Left,
+        Up,
+        Down
+    }
 
     private void Start()
     {
@@ -27,7 +36,7 @@ public class EgyptInteraction : MonoBehaviour
 
         if (hasBeenActivated)
         {
-            transform.Translate(Vector2.right * Time.deltaTime * 5f);
+            MoveObject();
             activationTime += Time.deltaTime;
 
             if (activationTime >= duration)
@@ -36,9 +45,30 @@ public class EgyptInteraction : MonoBehaviour
                 activationTime = 0f;
             }
         }
-
     }
 
+    private void MoveObject()
+    {
+        Vector2 direction = Vector2.zero;
+
+        switch (moveDirection)
+        {
+            case Direction.Right:
+                direction = Vector2.right;
+                break;
+            case Direction.Left:
+                direction = Vector2.left;
+                break;
+            case Direction.Up:
+                direction = Vector2.up;
+                break;
+            case Direction.Down:
+                direction = Vector2.down;
+                break;
+        }
+
+        transform.Translate(direction * Time.deltaTime * 5f);
+    }
 
     private void StopInteraction()
     {
