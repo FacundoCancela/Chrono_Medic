@@ -200,11 +200,11 @@ public class LevelUPScreen : MonoBehaviour
 
     public void AlternateButton(Button unlockButton, Button upgradeButton)
     {
-        ContinueGame();
         availableButtons.Remove(unlockButton);
         availableButtons.Add(upgradeButton);
         unlockButton.gameObject.SetActive(false);
         weaponUnlockCount++;
+        ContinueGame();
     }
 
 

@@ -21,7 +21,6 @@ public class WeaponManager : MonoBehaviour
     public bool _boomerangCanAttack = false;
     public bool _curveSwordCanAttack = false;
 
-    private bool _specialModeActive = false;
     private float _specialDuration = 5f;
     private float _specialCooldownTime = 10f;
     private float _timeSinceLastSpecial = 0f;
@@ -108,21 +107,18 @@ public class WeaponManager : MonoBehaviour
 
     private IEnumerator ActivateSpecialMode()
     {
-        if (currentClassWeapon is RangedAttack rangedWeapon)
+        if (currentClassWeapon is RangedAttack rangedWeapon && experienceManager.actualRangedLevel == experienceManager.maxUpgradeableLevel)
         {
-            _specialModeActive = true;
             rangedWeapon.specialAttackMode = true;
         }
 
-        else if (currentClassWeapon is OrbeAttack orbeWeapon)
+        else if (currentClassWeapon is OrbeAttack orbeWeapon && experienceManager.actualEngineerLevel == experienceManager.maxUpgradeableLevel)
         {
-            _specialModeActive = true;
             orbeWeapon.specialAttackMode = true;  // Activamos modo especial en orbes
         }
 
-        else if (currentClassWeapon is SwordAttack swordWeapon)
+        else if (currentClassWeapon is SwordAttack swordWeapon && experienceManager.actualMeleeLevel == experienceManager.maxUpgradeableLevel)
         {
-            _specialModeActive = true;
             swordWeapon.specialAttackMode = true;
         }
 
@@ -130,12 +126,10 @@ public class WeaponManager : MonoBehaviour
 
         if (currentClassWeapon is RangedAttack rangedWeapon2)
         {
-            _specialModeActive = false;
             rangedWeapon2.specialAttackMode = false;
         }
         else if (currentClassWeapon is SwordAttack swordWeapon2)
         {
-            _specialModeActive = false;
             swordWeapon2.specialAttackMode = false;
         }
 

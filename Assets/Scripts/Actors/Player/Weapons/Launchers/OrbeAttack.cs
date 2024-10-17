@@ -36,30 +36,40 @@ public class OrbeAttack : MonoBehaviour, IWeapon
     {
         if (!_orbitalAttackInCooldown)
         {
-            // Si está en modo especial, el rango y tamaño son el doble
-            float rangeMultiplier = specialAttackMode ? 2f : 1f;
-            float sizeMultiplier = specialAttackMode ? 2f : 1f;
-
             float angleStep = 360f / experienceManager.numberOfOrbs;
             float startingAngle = 0f;
 
             for (int i = 0; i < experienceManager.numberOfOrbs; i++)
             {
                 float angle = startingAngle + i * angleStep;
-                Vector3 orbPosition = GetPositionAtAngle(attackPosition.position, angle, experienceManager.orbitalRange * rangeMultiplier);
+
+                // Crear orbe normal
+                Vector3 orbPosition = GetPositionAtAngle(attackPosition.position, angle, experienceManager.orbitalRange);
                 GameObject orb = Instantiate(Orbe, orbPosition, Quaternion.identity);
-
-                // Ajustamos el tamaño del orbe
-                orb.transform.localScale *= sizeMultiplier;
-
-                // Asigna el ángulo inicial al orbe instanciado
                 Orbe orbeScript = orb.GetComponent<Orbe>();
                 if (orbeScript != null)
                 {
                     orbeScript.SetInitialAngle(angle * Mathf.Deg2Rad);
                 }
+
+                // Crear orbe especial si está activado
+                if (specialAttackMode)
+                {
+                    Vector3 specialOrbPosition = GetPositionAtAngle(attackPosition.position, angle, experienceManager.orbitalRange * 2f);
+                    GameObject specialOrb = Instantiate(Orbe, specialOrbPosition, Quaternion.identity);
+
+                    // Ajustar tamaño del orbe especial
+                    specialOrb.transform.localScale *= 2f;
+
+                    Orbe specialOrbeScript = specialOrb.GetComponent<Orbe>();
+                    if (specialOrbeScript != null)
+                    {
+                        specialOrbeScript.SetInitialAngle(angle * Mathf.Deg2Rad);
+                    }
+                }
             }
-            if(specialAttackMode)
+
+            if (specialAttackMode)
                 specialAttackMode = false;
 
             _orbitalAttackInCooldown = true;
