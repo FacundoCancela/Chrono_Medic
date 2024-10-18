@@ -1905,6 +1905,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1196346630946708009}
+  - {fileID: 5751274081821392268}
   - {fileID: 6515651002047101201}
   - {fileID: 8466085968704005064}
   - {fileID: 3684970855421302566}
@@ -1913,8 +1915,6 @@ RectTransform:
   - {fileID: 852610634654060129}
   - {fileID: 8583977500330671791}
   - {fileID: 8658906103078824515}
-  - {fileID: 5751274081821392268}
-  - {fileID: 1196346630946708009}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2184,6 +2184,7 @@ MonoBehaviour:
   upgradeEngineerButton: {fileID: 855040889227337772}
   upgradeBoomerangButton: {fileID: 6499042911228331525}
   upgradeCurveSwordButton: {fileID: 877038121886806619}
+  moneyButton: {fileID: 0}
   weaponUnlockOptions: 3
   weaponUnlockCount: 0
   maxUnlockeableWeapons: 4

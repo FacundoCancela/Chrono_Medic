@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
+        if(injectionsText != null)
         injectionsText.text = (injections.ToString() + "/" + playerStats.InjectionsLimit);
     }
 
