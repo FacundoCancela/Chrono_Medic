@@ -18,4 +18,4 @@ MonoBehaviour:
   attackCooldown: 3
   experienceDropped: 20
   moneyDroped: 10
-  accuracyOffset: 0
+  accuracyOffset: 3

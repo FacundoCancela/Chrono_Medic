@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d21dd8259b418542bea633a0d82d9c5, type: 3}
   m_Name: AnubisStats
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  damage: 2
+  maxHealth: 1000
+  damage: 50
   attackRange: 8
   attackCooldown: 3
   experienceDropped: 100
