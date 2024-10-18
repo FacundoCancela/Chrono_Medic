@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyTree
@@ -7,19 +8,19 @@ public class EnemyTree
     private FSM<EnemyStatesEnum> _fsm;
 
     private Transform _target;
-    private Transform _model;
     private float _shootRange;
+    private EnemyModel _enemyModel;
 
     private ITreeNode _root;
 
     private Dictionary<string, object> _blackboardDictionary;
 
-    public EnemyTree(FSM<EnemyStatesEnum> fsm,Transform model ,Transform target, float shootRange,ref Dictionary<string, object> blackboardDictionary)
+    public EnemyTree(FSM<EnemyStatesEnum> fsm,EnemyModel enemyModel,Transform target, float shootRange,ref Dictionary<string, object> blackboardDictionary)
     {
         _fsm = fsm;
         _target = target;
         _shootRange = shootRange;
-        _model = model;
+        _enemyModel = enemyModel;
 
         _blackboardDictionary = blackboardDictionary;
     }
@@ -27,12 +28,14 @@ public class EnemyTree
     public void InitializeTree()
     {
         //Actions
+        ITreeNode idle = new ActionNode(() => _fsm.Transition(EnemyStatesEnum.idle));
         ITreeNode seek = new ActionNode(() => _fsm.Transition(EnemyStatesEnum.Seek));
         ITreeNode shoot = new ActionNode(() => _fsm.Transition(EnemyStatesEnum.Shoot));
         ITreeNode dead = new ActionNode(() => _fsm.Transition(EnemyStatesEnum.Dead));
 
         //Questions
-        ITreeNode questionShootingRange = new QuestionNode(Question_IsInShootingRange, shoot, seek);
+        ITreeNode questionIsCooldown = new QuestionNode(Question_IsInCooldown, shoot, idle);
+        ITreeNode questionShootingRange = new QuestionNode(Question_IsInShootingRange, questionIsCooldown, seek);
         ITreeNode questionIsDead = new QuestionNode(Question_IsDead, dead,questionShootingRange);
 
         _root = questionIsDead;
@@ -55,6 +58,17 @@ public class EnemyTree
 
     private bool Question_IsInShootingRange()
     {
-        return (Vector2.Distance(_target.position,_model.position) <= _shootRange );
+        return (Vector2.Distance(_target.position,_enemyModel.transform.position) <= _shootRange );
+    }
+    private bool Question_IsInCooldown()
+    {
+        if (_enemyModel.enemyWeapon.canUseWeapon == true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

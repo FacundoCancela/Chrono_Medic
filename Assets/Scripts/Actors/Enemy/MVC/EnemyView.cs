@@ -58,4 +58,8 @@ public class EnemyView : MonoBehaviour, IActorView
     {
         throw new System.NotImplementedException();
     }
+    public void Walk(float IsWalking)
+    {
+        anim.SetFloat("Walking",IsWalking);
+    }
 }

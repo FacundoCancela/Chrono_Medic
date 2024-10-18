@@ -52,7 +52,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
         shootRange = enemyStats.attackRange;
         actualHealth = enemyStats.maxHealth;
 
-        _enemyTree = new EnemyTree(_fsm, _model.transform, _target.transform, shootRange, ref _blackBoardDictionary);
+        _enemyTree = new EnemyTree(_fsm,_model, _target.transform, shootRange, ref _blackBoardDictionary);
         _enemyTree.InitializeTree();
 
     }
@@ -70,6 +70,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
         _fsm = new FSM<EnemyStatesEnum>();
 
         //States
+        var idle = new EnemyStateSteering<EnemyStatesEnum>(_model, _view, _steering, _obstacleAvoidance);
         var seek = new EnemyStateSteering<EnemyStatesEnum>(_model,_view, _steering, _obstacleAvoidance);
         var shoot = new EnemyStateShoot<EnemyStatesEnum>(_model, _target.transform, _view);
         var dead = new EnemyStateDead<EnemyStatesEnum>(_model);
@@ -99,6 +100,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
     {
         if (actualHealth <= 0)
         {
+            _view.anim.SetTrigger("Dead");
             _blackBoardDictionary[EnemyBlackBoardConsts.B__IS_DEAD] = true;
         }
     }

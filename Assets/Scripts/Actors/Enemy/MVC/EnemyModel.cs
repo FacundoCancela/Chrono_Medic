@@ -8,7 +8,7 @@ public class EnemyModel : Actor
 {
     //public Animator animator;
 
-    [SerializeField] private EnemyWeapon enemyWeapon;
+    [SerializeField] public EnemyWeapon enemyWeapon;
     [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private ExperiencePoint experiencePoint;
     [SerializeField] private GameObject experiencePrefab;

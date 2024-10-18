@@ -16,7 +16,8 @@ public class HealthBar : MonoBehaviour
     public void SetMaxHealth(int maxHealth)
     {
         maxHealthText = maxHealth;
-        textMeshPro.text = "HP " + maxHealth + "/" + maxHealth;
+        if(textMeshPro != null)
+            textMeshPro.text = "HP " + maxHealth + "/" + maxHealth;
         _healthPercent = maxHealth / (float)healthPoints.Length;
     }
 
@@ -25,7 +26,8 @@ public class HealthBar : MonoBehaviour
         _health = health;
 
         // Actualiza el texto con la salud actual.
-        textMeshPro.text = "HP " + _health + "/" + maxHealthText;
+        if (textMeshPro != null)
+            textMeshPro.text = "HP " + _health + "/" + maxHealthText;
 
         // Actualiza el estado de cada punto de salud.
         for (int i = 0; i < healthPoints.Length; i++)

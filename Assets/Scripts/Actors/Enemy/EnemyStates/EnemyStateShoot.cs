@@ -21,16 +21,7 @@ public class EnemyStateShoot<T> : State<T>
         base.Execute();
 
         _view.Attack(true);
-        //Anim
-        //_model.animator.SetTrigger("Attack");
-        //Dispara con autoaim al jugador
         _model.Move(Vector2.zero);
         _model.Shoot(_shootTarget.position);
-    }
-
-    public override void Sleep()
-    {
-        base.Sleep();
-        _view.Attack(false);
     }
 }

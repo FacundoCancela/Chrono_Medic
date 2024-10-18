@@ -22,5 +22,6 @@ public class EnemyStateSteering<T> : State<T>
         var dir = _obs.GetDir(_steering.GetDir());
         _enemy.Move(dir);
         _enemyView.LookDir(dir);
+        _enemyView.Walk(_enemy.speed);
     }
 }

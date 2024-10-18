@@ -7,7 +7,7 @@ public class EnemyWeapon : MonoBehaviour
     public EnemyStats enemyStats;
     public bool CanUseWeapon => canUseWeapon;
 
-    private bool canUseWeapon = true;
+    public bool canUseWeapon = true;
 
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform shootPoint;
