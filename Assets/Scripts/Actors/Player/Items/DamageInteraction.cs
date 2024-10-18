@@ -12,6 +12,7 @@ public class DamageInteraction : MonoBehaviour
     [SerializeField] InteractionSpawnPoint spawnPoint;
     [SerializeField] private Direction moveDirection;
     private Vector3 initialPosition;
+    public List<Animator> animations;
 
     public enum Direction
     {
@@ -30,6 +31,10 @@ public class DamageInteraction : MonoBehaviour
     {
         if (canBeActivated && Input.GetKeyDown(KeyCode.F))
         {
+            foreach (var anim in animations)
+            {
+                anim.SetBool("Run", true);
+            }
             hasBeenActivated = true;
             Debug.Log("activado");
         }
@@ -72,6 +77,10 @@ public class DamageInteraction : MonoBehaviour
 
     private void StopInteraction()
     {
+        foreach (var anim in animations)
+        {
+            anim.SetBool("Run", false);
+        }
         hasBeenActivated = false;
         transform.position = initialPosition;
         spawnPoint.GetRespawnWave();
@@ -90,6 +99,10 @@ public class DamageInteraction : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Player"))
         {
+            foreach (var anim in animations)
+            {
+                anim.SetBool("Interact", true);
+            }
             canBeActivated = true;
         }
     }
@@ -98,6 +111,10 @@ public class DamageInteraction : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            foreach (var anim in animations)
+            {
+                anim.SetBool("Interact", false);
+            }
             canBeActivated = false;
         }
     }
