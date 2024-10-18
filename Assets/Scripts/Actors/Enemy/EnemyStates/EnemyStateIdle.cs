@@ -18,7 +18,6 @@ public class EnemyStateIdle<T> : State<T>
         base.Execute();
 
         _model.Move(Vector2.zero);
-        _view.Attack(false);
     }
 
 }
