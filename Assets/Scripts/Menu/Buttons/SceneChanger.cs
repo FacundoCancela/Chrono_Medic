@@ -23,6 +23,7 @@ public class SceneChanger : MonoBehaviour
             gameManager.exitMainMenu.SetActive(true);
 
         SceneManager.LoadScene(nombreEscenaAJugar);
+        Time.timeScale = 1.0f;
         if (pauseManager != null) 
             pauseManager.canPause = true;
     }
@@ -31,6 +32,7 @@ public class SceneChanger : MonoBehaviour
     {
         // Cambiar a la escena especificada
         SceneManager.LoadScene(nombreEscenaAJugar);
+        Time.timeScale = 1.0f;
         if (pauseManager != null)
             pauseManager.canPause = true;
     }
