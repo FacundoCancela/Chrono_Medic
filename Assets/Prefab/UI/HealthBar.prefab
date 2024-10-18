@@ -423,6 +423,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185631bca48bb3847bd1bd650e883e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 588343818907742441}
+  healthBar: {fileID: 0}
+  healthPoints: []
   textMeshPro: {fileID: 3834633692666404451}
+  _health: 0
   maxHealthText: 0

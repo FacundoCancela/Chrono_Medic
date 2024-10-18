@@ -118,7 +118,10 @@ public class PlayerController : MonoBehaviour
         _playerView.GetDamaged();
         actualHealth -= damage;
         if (actualHealth <= 0)
+        {
+            _playerView.anim.SetTrigger("Dead");
             Die();
+        }
         
     }
 
