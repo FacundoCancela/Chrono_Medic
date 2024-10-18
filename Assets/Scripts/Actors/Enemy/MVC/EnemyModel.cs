@@ -13,12 +13,35 @@ public class EnemyModel : Actor
     [SerializeField] private ExperiencePoint experiencePoint;
     [SerializeField] private GameObject experiencePrefab;
 
+    private float fireRateTimer = 0.0f;
+    public bool canUseWeapon = true;
+
+    private void Update()
+    {
+        HandleCooldown();
+    }
+
+    private void HandleCooldown()
+    {
+        if (!canUseWeapon)
+        {
+            fireRateTimer += Time.deltaTime;
+
+            if (fireRateTimer >= enemyStats.attackCooldown)
+            {
+                canUseWeapon = true;
+                fireRateTimer = 0.0f;
+            }
+        }
+    }
+
     public void Shoot(Vector2 targetDir)
     {
-         if(enemyWeapon.CanUseWeapon)
-         {
+        if (canUseWeapon)
+        {
             enemyWeapon.FireWeapon(targetDir);
-         }
+            canUseWeapon = false;
+        }
     }
 
     public void EnemyDeath()

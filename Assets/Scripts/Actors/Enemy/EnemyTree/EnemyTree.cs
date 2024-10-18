@@ -62,7 +62,7 @@ public class EnemyTree
     }
     private bool Question_IsInCooldown()
     {
-        if (_enemyModel.enemyWeapon.canUseWeapon == true)
+        if (_enemyModel.canUseWeapon == true)
         {
             return true;
         }

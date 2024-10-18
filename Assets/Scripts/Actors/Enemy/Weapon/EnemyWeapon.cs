@@ -5,37 +5,10 @@ using UnityEngine;
 public class EnemyWeapon : MonoBehaviour
 {
     public EnemyStats enemyStats;
-    public bool CanUseWeapon => canUseWeapon;
-
-    public bool canUseWeapon = true;
 
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform shootPoint;
     [SerializeField] private float bulletSpeed = 10.0f;
-    [SerializeField] private float fireRate;
-
-    private float fireRateTimer = 0.0f;
-
-    private void Awake()
-    {
-        fireRate = enemyStats.attackCooldown;
-    }
-
-
-    private void Update()
-    {
-        //enfriamiento del arma
-        if(!canUseWeapon)
-        {
-            fireRateTimer += Time.deltaTime;
-
-            if(fireRateTimer >= fireRate)
-            {
-                canUseWeapon = true;
-                fireRateTimer = 0.0f;
-            }
-        }
-    }
 
     public void FireWeapon(Vector2 targetDir)
     {
@@ -49,7 +22,5 @@ public class EnemyWeapon : MonoBehaviour
 
         EnemyAttack enemyAttack = bullet.GetComponent<EnemyAttack>();
         enemyAttack.SetDamage(enemyStats.damage);
-
-        canUseWeapon = false;
     }
 }
