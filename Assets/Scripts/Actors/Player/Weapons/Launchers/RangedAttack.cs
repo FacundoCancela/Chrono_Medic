@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RangedAttack : MonoBehaviour, IWeapon
@@ -11,7 +12,7 @@ public class RangedAttack : MonoBehaviour, IWeapon
     [SerializeField] public float _timeSinceLastRangedAttack = 0f;
     bool _rangedAttackInCooldown = false;
 
-    public bool specialAttackMode = false; // Temporal, siempre activado por ahora
+    public bool specialAttackMode = false;
 
     private void Update()
     {
@@ -48,20 +49,7 @@ public class RangedAttack : MonoBehaviour, IWeapon
 
     private void NormalAttack()
     {
-        EnemyController[] enemies = FindObjectsOfType<EnemyController>();
-        EnemyController closestEnemy = null;
-        float closestDistance = Mathf.Infinity;
-
-        foreach (EnemyController enemy in enemies)
-        {
-            float distance = Vector2.Distance(transform.position, enemy.transform.position);
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                closestEnemy = enemy;
-            }
-        }
-
+        IEnemyController closestEnemy = FindClosestEnemy();
         if (closestEnemy != null)
         {
             Vector2 direction = (closestEnemy.transform.position - attackPosition.transform.position).normalized;
@@ -74,26 +62,30 @@ public class RangedAttack : MonoBehaviour, IWeapon
 
     private void SpecialAttack()
     {
-        Vector2 enemyDirection = FindClosestEnemyDirection().normalized;
-        float baseAngle = Mathf.Atan2(enemyDirection.y, enemyDirection.x) * Mathf.Rad2Deg;
-
-        for (int i = 0; i < 4; i++)
+        IEnemyController closestEnemy = FindClosestEnemy();
+        if (closestEnemy != null)
         {
-            float angle = baseAngle + (i * 90); // Ángulos de 0°, 90°, 180°, 270°
-            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            Vector2 enemyDirection = (closestEnemy.transform.position - attackPosition.transform.position).normalized;
+            float baseAngle = Mathf.Atan2(enemyDirection.y, enemyDirection.x) * Mathf.Rad2Deg;
 
-            Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
-            Instantiate(rangedPrefab, attackPosition.transform.position, rotation).GetComponent<Rigidbody2D>().velocity = direction * 10f;
+            for (int i = 0; i < 4; i++)
+            {
+                float angle = baseAngle + (i * 90); // Ángulos de 0°, 90°, 180°, 270°
+                Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+                Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
+                Instantiate(rangedPrefab, attackPosition.transform.position, rotation).GetComponent<Rigidbody2D>().velocity = direction * 10f;
+            }
         }
     }
 
-    private Vector2 FindClosestEnemyDirection()
+    private IEnemyController FindClosestEnemy()
     {
-        EnemyController[] enemies = FindObjectsOfType<EnemyController>();
-        EnemyController closestEnemy = null;
+        IEnemyController[] enemies = FindObjectsOfType<MonoBehaviour>().OfType<IEnemyController>().ToArray();
+        IEnemyController closestEnemy = null;
         float closestDistance = Mathf.Infinity;
 
-        foreach (EnemyController enemy in enemies)
+        foreach (IEnemyController enemy in enemies)
         {
             float distance = Vector2.Distance(transform.position, enemy.transform.position);
             if (distance < closestDistance)
@@ -103,11 +95,6 @@ public class RangedAttack : MonoBehaviour, IWeapon
             }
         }
 
-        if (closestEnemy != null)
-        {
-            return closestEnemy.transform.position - attackPosition.transform.position;
-        }
-
-        return Vector2.right; // Direccion por defecto si no hay enemigos
+        return closestEnemy;
     }
 }
