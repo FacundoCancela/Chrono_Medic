@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     private void Update()
     {
         if(injectionsText != null)
-        injectionsText.text = (injections.ToString() + "/" + playerStats.InjectionsLimit);
+        injectionsText.text = (injections.ToString() + "/" + playerStats.ActualInjectionsLimit);
     }
 
     private void Awake()
@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour
 
     public void saveInjection()
     {
-        if (injections < playerStats.InjectionsLimit)
+        if (injections < playerStats.ActualInjectionsLimit)
         {
             injections++;
         }        
@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
         if (injections > 0) 
         {
             injections--;
-            float healAmount = (playerStats.maxHealth * playerStats.InjectionHeal / 100);
+            float healAmount = (playerStats.maxHealth * playerStats.ActualInjectionHeal / 100);
             playerController.GetHealed((int)healAmount);
         }
     }

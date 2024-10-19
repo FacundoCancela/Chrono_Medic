@@ -5,23 +5,21 @@ using UnityEngine;
 public class ShopUpgrade : MonoBehaviour
 {
     [SerializeField] GameDataController dataController;
-    [SerializeField] public int extraHealthPerLevel;
-    [SerializeField] public int extraInjectionLimit;
-    [SerializeField] public int extraInjectionHeal;
+    [SerializeField] PlayerStats shopStats;
 
 
     public void addHealth()
     {
-        dataController.IncreaseHealth(extraHealthPerLevel);
+        dataController.IncreaseHealth(shopStats.ExtraBuyHealth);
     }
 
     public void addInjections()
     {
-        dataController.IncreaseInjectionLimit(extraInjectionLimit);
+        dataController.IncreaseInjectionLimit(shopStats.ExtraInjectionsLimit);
     }
 
     public void extraInjectionsHeal()
     {
-        dataController.IncreaseInjectionHeal(extraInjectionHeal);
+        dataController.IncreaseInjectionHeal(shopStats.ExtraInjectionHeal);
     }
 }

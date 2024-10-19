@@ -49,8 +49,8 @@ public class GameDataController : MonoBehaviour
             baseStats.damageMultiplier = gameData.damageMultiplier;
             baseStats.money = gameData.money;
             baseStats.upgradeCost = gameData.upgradeCost;
-            baseStats.InjectionHeal = gameData.InjectionHeal;
-            baseStats.InjectionsLimit = gameData.InjectionsLimit;
+            baseStats.ActualInjectionHeal = gameData.InjectionHeal;
+            baseStats.ActualInjectionsLimit = gameData.InjectionsLimit;
             
             player.UpdateStats(baseStats);
         }
@@ -63,8 +63,8 @@ public class GameDataController : MonoBehaviour
             damageMultiplier = baseStats.damageMultiplier,
             money = baseStats.money,
             upgradeCost = baseStats.upgradeCost,
-            InjectionHeal = baseStats.InjectionHeal,
-            InjectionsLimit = baseStats.InjectionsLimit,
+            InjectionHeal = baseStats.ActualInjectionHeal,
+            InjectionsLimit = baseStats.ActualInjectionsLimit,
             
         };
 
@@ -93,7 +93,7 @@ public class GameDataController : MonoBehaviour
 
     public void IncreaseInjectionHeal(int extraHeal)
     {
-        if (baseStats.InjectionHeal >= baseStats.maxInjectionsHeal)
+        if (baseStats.ActualInjectionHeal >= baseStats.maxInjectionsHeal)
         {
             Debug.Log("Vida maxima alcanzada");
         }
@@ -101,7 +101,7 @@ public class GameDataController : MonoBehaviour
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.InjectionHeal += extraHeal;
-            baseStats.InjectionHeal = gameData.InjectionHeal;
+            baseStats.ActualInjectionHeal = gameData.InjectionHeal;
             player.UpdateStats(baseStats);
             SaveData();
         }
@@ -111,7 +111,7 @@ public class GameDataController : MonoBehaviour
 
     public void IncreaseInjectionLimit(int moreInjections)
     {
-        if (baseStats.InjectionsLimit >= baseStats.maxInjectionsLimit)
+        if (baseStats.ActualInjectionsLimit >= baseStats.maxInjectionsLimit)
         {
             Debug.Log("Vida maxima alcanzada");
         }
@@ -119,7 +119,7 @@ public class GameDataController : MonoBehaviour
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.InjectionsLimit += moreInjections;
-            baseStats.InjectionsLimit = gameData.InjectionsLimit;
+            baseStats.ActualInjectionsLimit = gameData.InjectionsLimit;
             player.UpdateStats(baseStats);
             SaveData();
         }

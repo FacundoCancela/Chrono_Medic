@@ -26,31 +26,31 @@ public class UpgradePrice : MonoBehaviour
         }
         else
         {
-            healthText.text = ("$" + baseStats.upgradeCost + "/+" + shopUpgrade.extraHealthPerLevel);
+            healthText.text = ("$" + baseStats.upgradeCost + "/+" + baseStats.ExtraBuyHealth);
         }
     }
 
     public void InjectionHealPrice()
     {
-        if (baseStats.InjectionHeal >= baseStats.maxInjectionsHeal)
+        if (baseStats.ActualInjectionHeal >= baseStats.maxInjectionsHeal)
         {
             InjectionHealText.text = ("Max Level");
         }
         else
         {
-            InjectionHealText.text = ("$" + baseStats.upgradeCost + "/+" + shopUpgrade.extraInjectionHeal);
+            InjectionHealText.text = ("$" + baseStats.upgradeCost + "/+" + baseStats.ExtraInjectionHeal);
         }
     }
 
     public void InjectionLimitPrice()
     {
-        if (baseStats.InjectionsLimit >= baseStats.maxInjectionsLimit)
+        if (baseStats.ActualInjectionsLimit >= baseStats.maxInjectionsLimit)
         {
             InjectionLimitText.text = ("Max Level");
         }
         else
         {
-            InjectionLimitText.text = ("$" + baseStats.upgradeCost + "/+" + shopUpgrade.extraInjectionLimit);
+            InjectionLimitText.text = ("$" + baseStats.upgradeCost + "/+" + baseStats.ExtraInjectionsLimit);
         }
     }
 }
