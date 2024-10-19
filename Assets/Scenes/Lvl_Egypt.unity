@@ -115139,6 +115139,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4229976322338045675, guid: 4d670e532ec70c347a8ca65c3e6f18a9, type: 3}
+      propertyPath: weaponManager
+      value: 
+      objectReference: {fileID: 9173776319580894571}
     - target: {fileID: 8089600639512247781, guid: 4d670e532ec70c347a8ca65c3e6f18a9, type: 3}
       propertyPath: m_Name
       value: AbilityCooldown (1)
