@@ -52,7 +52,7 @@ public class DialogeColl : MonoBehaviour
 
     private void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.T)) // Detecta la tecla "T"
+        if (playerInRange && Input.GetKeyDown(KeyCode.F)) // Detecta la tecla "T"
         {
             pressTText.gameObject.SetActive(false); // Oculta el mensaje "Presiona T" cuando se presiona T
             dialogueManager.StartDialogue(dialogueText); // Comienza el diálogo
