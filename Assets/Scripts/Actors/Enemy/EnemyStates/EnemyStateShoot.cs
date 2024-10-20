@@ -24,4 +24,9 @@ public class EnemyStateShoot<T> : State<T>
         _model.Move(Vector2.zero);
         _model.Shoot(_shootTarget.position);
     }
+    public override void Sleep()
+    {
+        base.Sleep();
+        _view.Attack(false);
+    }
 }
