@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
         {
             inventory.useInjection();
         }
-        if (Input.GetKeyDown(KeyCode.F8))
+        if (Input.GetKeyDown(KeyCode.F9))
         {
             GameDataController.Instance.SaveData();
         }
