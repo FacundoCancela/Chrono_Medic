@@ -1166,7 +1166,10 @@ MonoBehaviour:
 
     Interact: F
 
-    Heal: E'
+    Heal: E
+
+    Special:
+    Q'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 800d7832a8c1f3b4eb5a79223a811d7b, type: 2}
   m_sharedMaterial: {fileID: -7358445405995520181, guid: 800d7832a8c1f3b4eb5a79223a811d7b, type: 2}

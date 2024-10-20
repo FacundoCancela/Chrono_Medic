@@ -111,6 +111,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   actualHealth: 0
+  personalSpaceRadius: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  separationStrength: 2
 --- !u!114 &6663684604217561763
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -61,7 +61,7 @@ public class WeaponManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && _canUseSpecial)
+        if (Input.GetKeyDown(KeyCode.Q) && _canUseSpecial && _isInCombat)
         {
             StartCoroutine(ActivateSpecialMode());
         }

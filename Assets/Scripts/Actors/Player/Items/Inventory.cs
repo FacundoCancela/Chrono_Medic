@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Inventory : MonoBehaviour
 {
@@ -10,16 +11,29 @@ public class Inventory : MonoBehaviour
     public TextMeshProUGUI injectionsText;
 
     public int injections;
+    public bool _isInCombat = false;
+
+    private void Awake()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (currentScene == "Lvl_Menu")
+        {
+            _isInCombat = false;
+        }
+        else
+        {
+            _isInCombat = true;
+        }
+
+        playerController = GetComponent<PlayerController>();
+
+    }
+
 
     private void Update()
     {
         if(injectionsText != null)
         injectionsText.text = (injections.ToString() + "/" + playerStats.ActualInjectionsLimit);
-    }
-
-    private void Awake()
-    {
-        playerController = GetComponent<PlayerController>();        
     }
 
     public void saveInjection()
@@ -32,7 +46,7 @@ public class Inventory : MonoBehaviour
 
     public void useInjection()
     {
-        if (injections > 0) 
+        if (injections > 0 && _isInCombat) 
         {
             injections--;
             float healAmount = (playerStats.maxHealth * playerStats.ActualInjectionHeal / 100);
