@@ -22,6 +22,11 @@ public class EnemyStateSteering<T> : State<T>
         var dir = _obs.GetDir(_steering.GetDir());
         _enemy.Move(dir);
         _enemyView.LookDir(dir);
-        _enemyView.Walk(_enemy.speed);
+        _enemyView.Walk(true);
+    }
+    public override void Sleep()
+    {
+        base.Sleep();
+        _enemyView.Walk(false);
     }
 }

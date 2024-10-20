@@ -70,12 +70,14 @@ public class EnemyController : MonoBehaviour, IEnemyController
         _fsm = new FSM<EnemyStatesEnum>();
 
         //States
-        var idle = new EnemyStateSteering<EnemyStatesEnum>(_model, _view, _steering, _obstacleAvoidance);
+        var idle = new EnemyStateIdle<EnemyStatesEnum>(_model, _view);
         var seek = new EnemyStateSteering<EnemyStatesEnum>(_model,_view, _steering, _obstacleAvoidance);
         var shoot = new EnemyStateShoot<EnemyStatesEnum>(_model, _target.transform, _view);
         var dead = new EnemyStateDead<EnemyStatesEnum>(_model);
 
         //Transitions
+        idle.AddTransition(EnemyStatesEnum.idle, seek);
+        idle.AddTransition(EnemyStatesEnum.idle, shoot);
 
         seek.AddTransition(EnemyStatesEnum.Shoot, shoot);
         seek.AddTransition(EnemyStatesEnum.Dead, dead);
