@@ -77,7 +77,6 @@ public class PlayerController : MonoBehaviour
 
         if (x == 0 && y == 0)
         {
-            Debug.Log("WalkFalse");
             _playerView.Walk(false);
         }
         
