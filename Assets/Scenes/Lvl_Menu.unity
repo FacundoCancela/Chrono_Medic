@@ -40318,7 +40318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0682516aaf2058949b4cb7105d87be1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Lvl_Egypt
+  sceneName: Lvl_RealEgypt
   portalUnlocked: 1
   unlockedPortal: {fileID: 1371046789, guid: fd44355e8a4c89c4fb9df7cb0eba3631, type: 3}
   lockedPortal: {fileID: 21300000, guid: 12b8f51d5a6b9144ca3820fbc2e787f2, type: 3}
