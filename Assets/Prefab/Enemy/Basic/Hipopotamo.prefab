@@ -101,7 +101,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1367665112320747349, guid: 530a509c6271933499be5ed18225bf23, type: 3}
   shootPoint: {fileID: 8370865109594408365}
   bulletSpeed: 10
-  fireRate: 1
 --- !u!1 &6057087403127246776
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +186,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.4, y: 7.4}
+  m_Size: {x: 2.8125, y: 1.59375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -213,6 +212,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   actualHealth: 0
+  personalSpaceRadius: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  separationStrength: 2
 --- !u!114 &3074548930121986803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +234,7 @@ MonoBehaviour:
   enemyStats: {fileID: 11400000, guid: 5cd9aa2d200e18c47b5a954ba3ab6b00, type: 2}
   experiencePoint: {fileID: 7819564320793251449, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
   experiencePrefab: {fileID: 1229584106086249656, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
+  canUseWeapon: 1
 --- !u!114 &3356763239288504912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +286,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.8125, y: 1.59375}
-    newSize: {x: 7.4, y: 7.4}
+    newSize: {x: 2.8125, y: 1.59375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

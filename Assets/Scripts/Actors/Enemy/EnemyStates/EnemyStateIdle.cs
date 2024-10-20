@@ -13,11 +13,4 @@ public class EnemyStateIdle<T> : State<T>
         _view = view;
     }
 
-    public override void Execute()
-    {
-        base.Execute();
-
-        _model.Move(Vector2.zero);
-    }
-
 }

@@ -111,6 +111,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   actualHealth: 0
+  personalSpaceRadius: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  separationStrength: 2
 --- !u!114 &770504144821543967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +133,7 @@ MonoBehaviour:
   enemyStats: {fileID: 11400000, guid: 879384cec3c68e44a87b4324a91e5836, type: 2}
   experiencePoint: {fileID: 7819564320793251449, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
   experiencePrefab: {fileID: 1229584106086249656, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
+  canUseWeapon: 1
 --- !u!114 &7597117603724665905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,4 +342,3 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1367665112320747349, guid: 530a509c6271933499be5ed18225bf23, type: 3}
   shootPoint: {fileID: 6762171844737374789}
   bulletSpeed: 10
-  fireRate: 1
