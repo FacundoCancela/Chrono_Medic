@@ -37,30 +37,34 @@ public class EnemyController : MonoBehaviour, IEnemyController
         {EnemyBlackBoardConsts.B__IS_DEAD,false },
     };
 
+    // Flocking
+    public float personalSpaceRadius = 2.0f; // Radio del área personal
+    public LayerMask enemyLayer; // Capa que define qué son enemigos
+    public float separationStrength = 1.0f; // Fuerza de separación
+
     private void Awake()
     {
-        //referencias
+        // Referencias
         _model = GetComponent<EnemyModel>();
         _view = GetComponent<EnemyView>();
         _target = FindObjectOfType<PlayerController>();
-        
-        //inicializaciones 
+
+        // Inicializaciones 
         InitilizeSteering();
         InitializeFSM();
 
-        //EnemyStats
+        // EnemyStats
         shootRange = enemyStats.attackRange;
         actualHealth = enemyStats.maxHealth;
 
-        _enemyTree = new EnemyTree(_fsm,_model, _target.transform, shootRange, ref _blackBoardDictionary);
+        _enemyTree = new EnemyTree(_fsm, _model, _target.transform, shootRange, ref _blackBoardDictionary);
         _enemyTree.InitializeTree();
-
     }
 
     void InitilizeSteering()
     {
         var seek = new Seek(_model.transform, _target.transform);
-        
+
         _steering = seek;
         _obstacleAvoidance = new ObstacleAvoidance(_model.transform, angle, radius, obsMask);
     }
@@ -69,14 +73,13 @@ public class EnemyController : MonoBehaviour, IEnemyController
     {
         _fsm = new FSM<EnemyStatesEnum>();
 
-        //States
+        // States
         var idle = new EnemyStateSteering<EnemyStatesEnum>(_model, _view, _steering, _obstacleAvoidance);
-        var seek = new EnemyStateSteering<EnemyStatesEnum>(_model,_view, _steering, _obstacleAvoidance);
+        var seek = new EnemyStateSteering<EnemyStatesEnum>(_model, _view, _steering, _obstacleAvoidance);
         var shoot = new EnemyStateShoot<EnemyStatesEnum>(_model, _target.transform, _view);
         var dead = new EnemyStateDead<EnemyStatesEnum>(_model);
 
-        //Transitions
-
+        // Transitions
         seek.AddTransition(EnemyStatesEnum.Shoot, shoot);
         seek.AddTransition(EnemyStatesEnum.Dead, dead);
 
@@ -89,11 +92,44 @@ public class EnemyController : MonoBehaviour, IEnemyController
         _fsm.SetInit(seek);
     }
 
-
     private void Update()
     {
         _fsm.OnUpdate();
         _enemyTree.ExecuteTree();
+
+        // Verificar si el enemigo está en estado de disparo
+        if (!(_fsm.CurrentState is EnemyStateShoot<EnemyStatesEnum>))
+        {
+            ApplyFlocking(); 
+        }
+    }
+
+    private void ApplyFlocking()
+    {
+        Vector2 separationForce = Separation();
+
+        if (separationForce != Vector2.zero)
+        {
+            _model.transform.position += (Vector3)separationForce * Time.deltaTime;
+        }
+    }
+
+    private Vector2 Separation()
+    {
+        Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, personalSpaceRadius, enemyLayer);
+        Vector2 separationForce = Vector2.zero;
+
+        foreach (Collider2D enemy in nearbyEnemies)
+        {
+            if (enemy.transform != transform)
+            {
+                Vector2 directionAway = (Vector2)(transform.position - enemy.transform.position);
+                float distance = directionAway.magnitude;
+                separationForce += directionAway.normalized / distance;
+            }
+        }
+
+        return separationForce * separationStrength;
     }
 
     private void DeathCheck()
@@ -116,5 +152,8 @@ public class EnemyController : MonoBehaviour, IEnemyController
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, shootRange);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, personalSpaceRadius);
     }
 }
