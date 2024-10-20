@@ -46,20 +46,16 @@ public class EnemyView : MonoBehaviour, IActorView
     {
         if (isAttacking)
         {
-            anim.SetBool("isAtaking", true);
+            anim.SetBool("isAttaking", true);
         }
-        else if (isAttacking == false)
+        else
         {
-            anim.SetBool("isAtaking", false);
+            anim.SetBool("isAttaking", false);
         }
     }
 
     public void Walk(bool IsWalking)
     {
-        throw new System.NotImplementedException();
-    }
-    public void Walk(float IsWalking)
-    {
-        anim.SetFloat("Walking",IsWalking);
+        anim.SetBool("isWalking",IsWalking);
     }
 }
