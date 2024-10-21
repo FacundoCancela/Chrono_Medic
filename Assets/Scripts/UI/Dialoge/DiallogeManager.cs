@@ -98,4 +98,5 @@ public class DialogueManager : MonoBehaviour
         isTyping = false;
         lineFullyDisplayed = true;
     }
+
 }

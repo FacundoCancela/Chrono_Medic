@@ -1,7 +1,19 @@
-Child: Mom, can I buy that chocolate we saw in the store?
-Mom: Which one? The one with the golden box?
-Child: Yes! They say it's the most delicious in the world.
-Mom: Well, we can try it. But remember, you can't eat it all at once!
-Child: I promise! But can I have a little now?
-Mom: Sure, but just a small piece. We need to share with Dad too.
-Child: Yes! Dad loves chocolate as well.
+A.E.O.N: Dr. Emilssen, I know this might seem sudden and confusing, but there’s no time for a full explanation.
+A.E.O.N: The cyclical pandemics that ravaged humanity, leading to its downfall, were orchestrated by an entity known as The Organization.
+A.E.O.N: It’s an alliance between humans and The Primordials, an ancient species with unparalleled knowledge, especially in genetics. Together, they engineered these plagues.
+A.E.O.N: But there is a way to stop them—a way to HEAL the world.
+A.E.O.N: You must travel through time to key locations that were at the heart of these outbreaks.
+A.E.O.N: Your mission is to find the original carriers of each disease and collect their DNA samples.
+A.E.O.N: With those samples, I can synthesize a cure that will undo what they’ve done.
+A.E.O.N: But be warned—The Organization will be anticipating this. You need to be ready to fight.
+A.E.O.N: When you step through the portal, you’ll need to choose a “class,” which will determine your weapon and combat style.
+A.E.O.N: I’ll equip you with a gauntlet that handles the attacks automatically; all you have to do is move.
+A.E.O.N: Defeating enemies will allow you to upgrade your class weapon or unlock new ones.
+A.E.O.N: When your class weapon is fully upgraded, it gains a special ability. Press "Q" to activate it.
+A.E.O.N: I’ll also provide you with syringes for healing. Press "E" to use them.
+A.E.O.N: If you’re defeated, I’ll bring you back here, to the Time Chamber.
+A.E.O.N: On the table in this room, you can upgrade your health and healing abilities.
+A.E.O.N: Just approach it and press "F".
+A.E.O.N: Upgrades require DNA samples, which you can collect from the enemies you defeat.
+A.E.O.N: That’s all you need to know for now.
+A.E.O.N: The fate of the world is in your hands. Be careful out there.
