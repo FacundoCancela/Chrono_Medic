@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 57587367
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 68309ee29cdf9d2429b8a4e5f41d4d41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac1655d0efc680847afffc3f52ceb167, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
   enemyStats: {fileID: 11400000, guid: 6a174fc34b035d542b620c29068ef3aa, type: 2}
   experiencePoint: {fileID: 7819564320793251449, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
   experiencePrefab: {fileID: 1229584106086249656, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
-  objectToSpawnOnDeath: {fileID: 4303190228736383399, guid: ec0afabb7f3064248b82ce7ad4186672, type: 3}
+  objectToSpawnOnDeath: {fileID: 307302429681084238, guid: 467bc126141690546a41cb4c25486754, type: 3}
 --- !u!114 &4832437244012864484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 2.56, y: 1.92}
     newSize: {x: 7.4, y: 7.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
