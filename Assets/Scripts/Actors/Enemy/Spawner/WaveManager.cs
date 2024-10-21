@@ -13,7 +13,7 @@ public class WaveManager : MonoBehaviour
     private bool ammitAlreadySpawned;
     private bool anubisAlreadySpawned;
 
-    public bool EndDialogueBos;
+    public bool EndDialogueBos; // Este bool será true solo después del diálogo de Molo
 
     [SerializeField] public EnemySpawner enemySpawner;
     [SerializeField] public List<GameObject> bossPrefabs;
@@ -49,7 +49,6 @@ public class WaveManager : MonoBehaviour
         StartNextWave();
     }
 
-
     private void Update()
     {
         if (waveInProgress && !noSpawnEnemies)
@@ -58,10 +57,16 @@ public class WaveManager : MonoBehaviour
             waveTimer -= Time.deltaTime;
             waveCount.UpdateTimer(waveTimer);
 
-            if(waveTimer <= 0f && !bossBattleInProgress)
+            if (waveTimer <= 0f && !bossBattleInProgress)
             {
                 ResetTimerAndEnemies();
                 StartNextWave();
+            }
+
+            if (EndDialogueBos) // Verifica si es el final del diálogo de Molo
+            {
+                Win();
+                Debug.Log("Win");
             }
 
             if (spawnCooldown >= waveStats.spawnInteval[actualWave])
@@ -78,22 +83,15 @@ public class WaveManager : MonoBehaviour
 
     public void StartNextWave()
     {
-
         if (actualWave < maxWave)
         {
             actualWave++;
             waveInProgress = true;
         }
-        else
-        {
-            // All waves completed
-            waveInProgress = false;
-
-            if (EndDialogueBos)
-            {
-                Win();
-            }
-        }
+        
+          
+            
+        
 
         if (actualWave == 5 && !ammitAlreadySpawned)
         {
@@ -109,14 +107,12 @@ public class WaveManager : MonoBehaviour
             anubisAlreadySpawned = true;
         }
 
-
         waveCount.updateWave(actualWave, maxWave);
-
     }
 
     public void OnEnemyKilled()
     {
-        enemiesAlive--;               
+        enemiesAlive--;
     }
 
     public void ResetTimerAndEnemies()
