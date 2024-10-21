@@ -1,0 +1,197 @@
+fileFormatVersion: 2
+guid: e530645acddf9834cb4453978373fe49
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ammyt10_45
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 6
+        width: 345
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dbe25b5445c66746a345ce19e7e8810
+      internalID: -838902509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Ammyt10_0: -446134004
+      Ammyt10_1: -170606822
+      Ammyt10_10: 1388927020
+      Ammyt10_11: -1403732935
+      Ammyt10_12: 1812542924
+      Ammyt10_13: -529554277
+      Ammyt10_14: 1082696189
+      Ammyt10_15: -1369506758
+      Ammyt10_16: 2038990130
+      Ammyt10_17: -2128640803
+      Ammyt10_18: 259171435
+      Ammyt10_19: 1683808279
+      Ammyt10_2: -732083369
+      Ammyt10_20: -1352670354
+      Ammyt10_21: -1380245394
+      Ammyt10_22: -494845033
+      Ammyt10_23: -600275505
+      Ammyt10_24: 1730371927
+      Ammyt10_25: 966095207
+      Ammyt10_26: -70065634
+      Ammyt10_27: 1589785566
+      Ammyt10_28: -243367891
+      Ammyt10_29: -1409556051
+      Ammyt10_3: -1072082057
+      Ammyt10_30: -1226008930
+      Ammyt10_31: 1343405352
+      Ammyt10_32: 1040756222
+      Ammyt10_33: -758592399
+      Ammyt10_34: 1515821126
+      Ammyt10_35: 881397075
+      Ammyt10_36: -1242804052
+      Ammyt10_37: -1436339058
+      Ammyt10_38: 986033479
+      Ammyt10_39: -1471884231
+      Ammyt10_4: 855290540
+      Ammyt10_40: 940476607
+      Ammyt10_41: -986869909
+      Ammyt10_42: 662448036
+      Ammyt10_43: 626779944
+      Ammyt10_44: -443438849
+      Ammyt10_45: -838902509
+      Ammyt10_46: -400667833
+      Ammyt10_47: -1471705945
+      Ammyt10_48: 1617500064
+      Ammyt10_5: -950550359
+      Ammyt10_6: -1686676527
+      Ammyt10_7: 1569345195
+      Ammyt10_8: -2052293383
+      Ammyt10_9: 2034068115
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

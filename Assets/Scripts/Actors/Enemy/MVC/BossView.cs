@@ -7,6 +7,7 @@ public class BossView : MonoBehaviour, IActorView
     public GameObject body;
     private Color colorOriginal;
     private Renderer rend;
+    Animator anim;
 
     void Start()
     {
@@ -41,11 +42,18 @@ public class BossView : MonoBehaviour, IActorView
 
     public void Attack(bool isAttacking)
     {
-        throw new System.NotImplementedException();
+        if (isAttacking)
+        {
+            anim.SetBool("isAttaking", true);
+        }
+        else
+        {
+            anim.SetBool("isAttaking", false);
+        }
     }
 
     public void Walk(bool IsWalking)
     {
-        throw new System.NotImplementedException();
+        anim.SetBool("isWalking", IsWalking);
     }
 }
