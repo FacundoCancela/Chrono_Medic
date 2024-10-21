@@ -6,7 +6,7 @@ using UnityEngine;
 public class DialogeColl : MonoBehaviour
 {
     public TextAsset textFile; // Asigna el archivo .txt desde el inspector
-    public TextMeshProUGUI pressTText; // Referencia al TextMeshPro para la indicación de "Presiona T"
+    public GameObject pressTObject; // Referencia al GameObject que indica "Presiona T"
     private bool playerInRange = false;
     private DialogueManager dialogueManager;
     private string dialogueText;
@@ -16,9 +16,17 @@ public class DialogeColl : MonoBehaviour
 
     private void Start()
     {
+        // Buscar el GameObject que contiene el texto "Indicate" directamente
+        pressTObject = GameObject.Find("Interaccion"); // Busca el GameObject por su nombre
+
+        if (pressTObject == null)
+        {
+            Debug.LogError("No se encontró el GameObject 'Interaccion' en la escena.");
+        }
+
         dialogueManager = FindObjectOfType<DialogueManager>(); // Busca el DialogueManager en la escena
         LoadDialogueFromFile();
-        pressTText.gameObject.SetActive(false); // Oculta el mensaje al inicio
+        pressTObject.SetActive(false); // Oculta el mensaje al inicio
     }
 
     // Método para cargar el texto desde el TextAsset
@@ -39,7 +47,7 @@ public class DialogeColl : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true; // Detecta si el jugador está en el rango
-            pressTText.gameObject.SetActive(true); // Muestra el mensaje "Presiona T"
+            pressTObject.SetActive(true); // Muestra el GameObject "Indicate"
         }
     }
 
@@ -48,16 +56,16 @@ public class DialogeColl : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false; // Sale del rango
-            pressTText.gameObject.SetActive(false); // Oculta el mensaje "Presiona T"
+            pressTObject.SetActive(false); // Oculta el GameObject "Indicate"
             dialogueManager.ClearText(); // Limpia el texto en pantalla y detiene la escritura progresiva
         }
     }
 
     private void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.F)) // Detecta la tecla "T"
+        if (playerInRange && Input.GetKeyDown(KeyCode.F)) // Detecta la tecla "F"
         {
-            pressTText.gameObject.SetActive(false); // Oculta el mensaje "Presiona T" cuando se presiona T
+            pressTObject.SetActive(false); // Oculta el GameObject "Indicate" cuando se presiona F
             dialogueManager.StartDialogue(dialogueText, isMoloDialogue); // Pasa el bool que indica si es diálogo de Molo
         }
 

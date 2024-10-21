@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9837196832668ce4abbd31a80343e2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textFile: {fileID: 4900000, guid: 36cf9122547670446af346f6de61b9eb, type: 3}
+  textFile: {fileID: 4900000, guid: 728887cbf2b53b740b8bcff4e78e3013, type: 3}
   pressTText: {fileID: 0}
   isMoloDialogue: 1
 --- !u!70 &7962417563536943760

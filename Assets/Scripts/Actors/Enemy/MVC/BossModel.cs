@@ -24,10 +24,11 @@ public class BossModel : Actor
         WaveManager.Instance.OnEnemyKilled();
         experiencePoint.ExperienceDrop(enemyStats.experienceDropped);
 
-        // Instanciar el objeto justo antes de que el jefe se destruya
+        // Instanciar el objeto y ajustar la escala para que sea la misma que la del jefe
         if (objectToSpawnOnDeath != null)
         {
-            Instantiate(objectToSpawnOnDeath, transform.position, Quaternion.identity);
+            GameObject spawnedObject = Instantiate(objectToSpawnOnDeath, transform.position, Quaternion.identity);
+            spawnedObject.transform.localScale = transform.localScale; // Ajustar la escala
         }
 
         // Condición especial para Ammit y Anubis
