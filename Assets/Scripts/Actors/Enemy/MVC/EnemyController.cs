@@ -28,6 +28,10 @@ public class EnemyController : MonoBehaviour, IEnemyController
     FSM<EnemyStatesEnum> _fsm;
     ISteering _steering;
 
+    public float personalSpaceRadius = 2.0f; // Radio del rea personal
+    public LayerMask enemyLayer; // Capa que define qu son enemigos
+    public float separationStrength = 1.0f; // Fuerza de separacin
+
     //Variables
     private float shootRange;
     public int actualHealth;
@@ -96,9 +100,41 @@ public class EnemyController : MonoBehaviour, IEnemyController
     {
         _fsm.OnUpdate();
         _enemyTree.ExecuteTree();
+        if (!(_fsm.CurrentState is EnemyStateShoot<EnemyStatesEnum>))
+        {
+            ApplyFlocking();
+        }
     }
 
-    private void DeathCheck()
+    private void ApplyFlocking()
+    {
+        Vector2 separationForce = Separation();
+
+        if (separationForce != Vector2.zero)
+        {
+            _model.transform.position += (Vector3)separationForce * Time.deltaTime;
+        }
+    }
+
+    private Vector2 Separation()
+    {
+        Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, personalSpaceRadius, enemyLayer);
+        Vector2 separationForce = Vector2.zero;
+
+        foreach (Collider2D enemy in nearbyEnemies)
+        {
+            if (enemy.transform != transform)
+            {
+                Vector2 directionAway = (Vector2)(transform.position - enemy.transform.position);
+                float distance = directionAway.magnitude;
+                separationForce += directionAway.normalized / distance;
+            }
+        }
+
+        return separationForce * separationStrength;
+    }
+
+        private void DeathCheck()
     {
         if (actualHealth <= 0)
         {
