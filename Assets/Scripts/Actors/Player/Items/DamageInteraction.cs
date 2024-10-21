@@ -13,6 +13,8 @@ public class DamageInteraction : MonoBehaviour
     [SerializeField] private Direction moveDirection;
     private Vector3 initialPosition;
     public List<Animator> animations;
+    public AudioSource audioSource;
+    public AudioClip clip;
 
     public enum Direction
     {
@@ -25,6 +27,7 @@ public class DamageInteraction : MonoBehaviour
     private void Start()
     {
         initialPosition = transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -36,7 +39,6 @@ public class DamageInteraction : MonoBehaviour
                 anim.SetBool("Run", true);
             }
             hasBeenActivated = true;
-            Debug.Log("activado");
         }
 
         if (hasBeenActivated)
@@ -71,7 +73,10 @@ public class DamageInteraction : MonoBehaviour
                 direction = Vector2.down;
                 break;
         }
-
+        if(audioSource !=null || clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
         transform.Translate(direction * Time.deltaTime * 5f);
     }
 

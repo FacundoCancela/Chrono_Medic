@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6105781712097338423}
   - component: {fileID: 2768134985506922455}
   - component: {fileID: 5850184223555605315}
+  - component: {fileID: 5143523241589270404}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -122,9 +123,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 248199773418365585}
         m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: PauseAndContinue
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -155,6 +156,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5143523241589270404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248199773418365585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52ac458c5abfbf4bb9d1caba31a98a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreEscenaAJugar: 
 --- !u!1 &3900017879264268970
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7341043083772533176
 RectTransform:
   m_ObjectHideFlags: 0
@@ -459,8 +473,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 959.97485, y: 540}
-  m_SizeDelta: {x: 1920.1, y: 1078}
+  m_AnchoredPosition: {x: -0.037598, y: 0.5}
+  m_SizeDelta: {x: 0.075195, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6766423621571111063
 GameObject:

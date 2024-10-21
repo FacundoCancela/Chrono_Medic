@@ -17,10 +17,14 @@ public class Level_Portal : MonoBehaviour
 
     Animator animator;
 
+    public AudioClip clip;
+    public AudioSource source;
+
     void Start()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        source = GetComponent<AudioSource>();
         if (portalUnlocked)
         {
             spriteRenderer.sprite = unlockedPortal;
@@ -39,6 +43,10 @@ public class Level_Portal : MonoBehaviour
         {
             if(classSelector != null)
             {
+                if (source != null && clip !=null)
+                {
+                    source.PlayOneShot(clip);
+                }
                 classSelector.gameObject.SetActive(true);
                 classSelector.sceneName = sceneName;
             }            
