@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4832437244012864484}
   - component: {fileID: 2081250994260454005}
   - component: {fileID: 6220062889391689488}
-  - component: {fileID: -4837532086274155271}
+  - component: {fileID: 1789783562338274211}
   m_Layer: 6
   m_Name: Anubis
   m_TagString: Enemy
@@ -80,12 +80,12 @@ SpriteRenderer:
   m_SortingLayerID: 57587367
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 68309ee29cdf9d2429b8a4e5f41d4d41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac1655d0efc680847afffc3f52ceb167, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.4, y: 7.4}
+  m_Size: {x: 2, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -128,7 +128,6 @@ MonoBehaviour:
   enemyStats: {fileID: 11400000, guid: 6a174fc34b035d542b620c29068ef3aa, type: 2}
   experiencePoint: {fileID: 7819564320793251449, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
   experiencePrefab: {fileID: 1229584106086249656, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
-  objectToSpawnOnDeath: {fileID: 4303190228736383399, guid: ec0afabb7f3064248b82ce7ad4186672, type: 3}
 --- !u!114 &4832437244012864484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,8 +177,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
-    newSize: {x: 7.4, y: 7.4}
+    oldSize: {x: 2, y: 1.5}
+    newSize: {x: 2, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -214,21 +213,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-4837532086274155271
-MonoBehaviour:
+--- !u!95 &1789783562338274211
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130082731687103583}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9837196832668ce4abbd31a80343e2f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textFile: {fileID: 0}
-  pressTText: {fileID: 0}
-  isMoloDialogue: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: faec3e1de94f38a4a81a7478fad48ed0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2377739668335863612
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class ShopScreen : MonoBehaviour
     [SerializeField] PauseManager pauseManager;
     [SerializeField] public bool inShopZone = false;
     [SerializeField] public bool shopOpen = false;
+    public GameObject interaccion;
 
     private void Update()
     {
@@ -36,6 +37,10 @@ public class ShopScreen : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if (interaccion != null)
+            {
+                interaccion.SetActive(true);
+            }
             inShopZone = true;
         }
     }
@@ -43,6 +48,10 @@ public class ShopScreen : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if (interaccion != null)
+            {
+                interaccion.SetActive(false);
+            }
             inShopZone = false;
         }
     }

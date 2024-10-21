@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4832437244012864484}
   - component: {fileID: 2081250994260454005}
   - component: {fileID: 6220062889391689488}
+  - component: {fileID: 6163716214124185923}
   m_Layer: 6
   m_Name: Ammit
   m_TagString: Enemy
@@ -79,12 +80,12 @@ SpriteRenderer:
   m_SortingLayerID: 57587367
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5ffc7fbc3bfef9541aabda183cb1f374, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3edc4291dc009084fa1e73b48b25c57c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.4, y: 7.4}
+  m_Size: {x: 5.6875, y: 2.5625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -172,18 +173,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.001183033, y: -0.00116539}
+  m_Offset: {x: 0.58, y: 0.09}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.176, y: 2.112}
-    newSize: {x: 7.4, y: 7.4}
+    oldSize: {x: 10.21875, y: 4.0625}
+    newSize: {x: 5.6875, y: 2.5625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2061863, y: 2.1505475}
+  m_Size: {x: 5.71, y: 2.3}
   m_EdgeRadius: 0
 --- !u!50 &6220062889391689488
 Rigidbody2D:
@@ -212,6 +213,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &6163716214124185923
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130082731687103583}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a66b5b575ef068a43bc5ce0b7eec555e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2377739668335863612
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,6 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce8d41befd52d64eb2a65511bbbb217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossType: 0
   enemyStats: {fileID: 11400000, guid: 310496c5a5a60d043897097abed4f426, type: 2}
   bulletPrefab: {fileID: 1367665112320747349, guid: 530a509c6271933499be5ed18225bf23, type: 3}
   specialBulletPrefab: {fileID: 1367665112320747349, guid: 413f09624d449ca4c9d2299f5c76dd57, type: 3}

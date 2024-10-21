@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c9fadd6f029f6084aa09bd7d5be8d2c5
+guid: eb53f6539d980154bae3139586c3bbdc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Ammyt2_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 24
+        width: 194
+        height: 82
+      alignment: 9
+      pivot: {x: 0.547869, y: 0.48828423}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b486401613fc6324fa5615062733e41b
+      internalID: -1216669241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +140,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ammyt2_0: 2142650614
+      Ammyt2_1: -1216669241
+      Ammyt2_2: 1247668220
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
