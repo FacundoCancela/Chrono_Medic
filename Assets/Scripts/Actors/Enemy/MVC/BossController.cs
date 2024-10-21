@@ -99,6 +99,7 @@ public class BossController : MonoBehaviour, IEnemyController
         if (actualHealth <= 0)
         {
             _blackBoardDictionary[BossBlackBoardConsts.B__IS_DEAD] = true;
+            
         }
     }
 

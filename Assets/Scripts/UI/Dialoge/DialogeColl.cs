@@ -11,6 +11,9 @@ public class DialogeColl : MonoBehaviour
     private DialogueManager dialogueManager;
     private string dialogueText;
 
+    // Nuevo campo para identificar si el diálogo es con el jefe final
+    public bool isMoloDialogue = false;
+
     private void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>(); // Busca el DialogueManager en la escena
@@ -55,7 +58,7 @@ public class DialogeColl : MonoBehaviour
         if (playerInRange && Input.GetKeyDown(KeyCode.F)) // Detecta la tecla "T"
         {
             pressTText.gameObject.SetActive(false); // Oculta el mensaje "Presiona T" cuando se presiona T
-            dialogueManager.StartDialogue(dialogueText); // Comienza el diálogo
+            dialogueManager.StartDialogue(dialogueText, isMoloDialogue); // Pasa el bool que indica si es diálogo de Molo
         }
 
         if (playerInRange && Input.GetKeyDown(KeyCode.Space)) // Detecta la barra espaciadora

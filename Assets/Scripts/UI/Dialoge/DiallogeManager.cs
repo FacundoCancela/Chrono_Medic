@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.IO;
 using UnityEngine.SceneManagement;
+using System;
 
 
 public class DialogueManager : MonoBehaviour
@@ -15,11 +16,17 @@ public class DialogueManager : MonoBehaviour
     private bool isTyping = false;
     private bool lineFullyDisplayed = false;
 
-    // Método para iniciar el diálogo, pasando las líneas del texto
-    public void StartDialogue(string text)
+    private bool isMoloDialogue = false; // Nuevo campo para saber si es el diálogo de Molo
+
+    // Evento que se dispara al finalizar el diálogo
+    public event Action OnDialogueEnd;
+
+    // Método para iniciar el diálogo, pasando las líneas del texto y si es el jefe final
+    public void StartDialogue(string text, bool isMolo)
     {
-        dialogueLines = text.Split(new[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries); // Divide el texto en líneas
+        dialogueLines = text.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries); // Divide el texto en líneas
         currentLineIndex = 0;
+        isMoloDialogue = isMolo; // Se asigna si es diálogo de Molo
         ShowNextLine();
     }
 
@@ -36,60 +43,59 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            // Si se completan todas las líneas, limpia el texto
             dialogueText.text = "";
+            OnDialogueEnd?.Invoke(); // Dispara el evento cuando se completan todas las líneas
+
+            if (isMoloDialogue)
+            {
+                WaveManager.Instance.EndDialogueBos = true; // Activa el bool solo si es el jefe final
+                Debug.Log("El diálogo con Molo ha terminado. EndDialogueBos = true");
+            }
         }
     }
 
-    // Corrutina para escribir el texto letra por letra
+    // Método para gestionar cuando se presiona la barra espaciadora
+    public void OnSpacePressed()
+    {
+        if (isTyping && !lineFullyDisplayed)
+        {
+            // Completa la línea actual inmediatamente
+            CompleteCurrentLine();
+        }
+        else if (!isTyping)
+        {
+            // Muestra la siguiente línea
+            currentLineIndex++;
+            ShowNextLine();
+        }
+    }
+
+    // Método para limpiar el texto
+    public void ClearText()
+    {
+        dialogueText.text = "";
+    }
+
+    // Método para completar la línea actual de inmediato
+    private void CompleteCurrentLine()
+    {
+        StopCoroutine(typingCoroutine);
+        dialogueText.text = dialogueLines[currentLineIndex];
+        isTyping = false;
+        lineFullyDisplayed = true;
+    }
+
+    // Corrutina para mostrar el texto progresivamente
     private IEnumerator TypeSentence(string sentence)
     {
         isTyping = true;
-        lineFullyDisplayed = false;
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.05f); // Controla la velocidad del texto
+            yield return new WaitForSeconds(0.05f); // Controla la velocidad de tipeo
         }
-        lineFullyDisplayed = true;
         isTyping = false;
-    }
-
-    // Método para completar inmediatamente la línea actual
-    private void CompleteLine()
-    {
-        if (isTyping)
-        {
-            StopCoroutine(typingCoroutine);
-            dialogueText.text = dialogueLines[currentLineIndex]; // Completa la línea de inmediato
-            isTyping = false;
-            lineFullyDisplayed = true;
-        }
-    }
-
-    public void ClearText()
-    {
-        if (typingCoroutine != null)
-        {
-            StopCoroutine(typingCoroutine); // Detiene la escritura progresiva si está en curso
-        }
-        dialogueText.text = ""; // Vacía el texto en pantalla
-        isTyping = false; // Asegura que el sistema sepa que ya no se está escribiendo
-        lineFullyDisplayed = false; // Resetea el estado de la línea actual
-    }
-
-    // Método para avanzar al siguiente renglón cuando el actual está completo
-    public void OnSpacePressed()
-    {
-        if (!lineFullyDisplayed)
-        {
-            CompleteLine(); // Completa la línea si aún se está escribiendo
-        }
-        else
-        {
-            currentLineIndex++;
-            ShowNextLine(); // Pasa a la siguiente línea
-        }
+        lineFullyDisplayed = true;
     }
 }

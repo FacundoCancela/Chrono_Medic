@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4832437244012864484}
   - component: {fileID: 2081250994260454005}
   - component: {fileID: 6220062889391689488}
+  - component: {fileID: -4837532086274155271}
   m_Layer: 6
   m_Name: Anubis
   m_TagString: Enemy
@@ -127,6 +128,7 @@ MonoBehaviour:
   enemyStats: {fileID: 11400000, guid: 6a174fc34b035d542b620c29068ef3aa, type: 2}
   experiencePoint: {fileID: 7819564320793251449, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
   experiencePrefab: {fileID: 1229584106086249656, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
+  objectToSpawnOnDeath: {fileID: 4303190228736383399, guid: ec0afabb7f3064248b82ce7ad4186672, type: 3}
 --- !u!114 &4832437244012864484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +214,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-4837532086274155271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130082731687103583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9837196832668ce4abbd31a80343e2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textFile: {fileID: 0}
+  pressTText: {fileID: 0}
+  isMoloDialogue: 1
 --- !u!1 &2377739668335863612
 GameObject:
   m_ObjectHideFlags: 0
