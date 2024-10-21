@@ -15,6 +15,7 @@ public class DamageInteraction : MonoBehaviour
     public List<Animator> animations;
     public AudioSource audioSource;
     public AudioClip clip;
+    public GameObject interaccion;
 
     public enum Direction
     {
@@ -37,6 +38,10 @@ public class DamageInteraction : MonoBehaviour
             foreach (var anim in animations)
             {
                 anim.SetBool("Run", true);
+            }
+            if (audioSource != null || clip != null)
+            {
+                audioSource.PlayOneShot(clip);
             }
             hasBeenActivated = true;
         }
@@ -73,10 +78,7 @@ public class DamageInteraction : MonoBehaviour
                 direction = Vector2.down;
                 break;
         }
-        if(audioSource !=null || clip != null)
-        {
-            audioSource.PlayOneShot(clip);
-        }
+        
         transform.Translate(direction * Time.deltaTime * 5f);
     }
 
@@ -108,6 +110,10 @@ public class DamageInteraction : MonoBehaviour
             {
                 anim.SetBool("Interact", true);
             }
+            if (interaccion != null)
+            {
+                interaccion.SetActive(true);
+            }
             canBeActivated = true;
         }
     }
@@ -119,6 +125,10 @@ public class DamageInteraction : MonoBehaviour
             foreach (var anim in animations)
             {
                 anim.SetBool("Interact", false);
+            }
+            if (interaccion != null)
+            {
+                interaccion.SetActive(false);
             }
             canBeActivated = false;
         }

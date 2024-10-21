@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c9fadd6f029f6084aa09bd7d5be8d2c5
+guid: 650c1717b3928ef459c0fc2d9f3c025c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Ammyt11_32
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 8
+        width: 346
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be0c7b4382ab834ebcfa984c08c6cb5
+      internalID: -2002562365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +140,44 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ammyt11_0: 1981034224
+      Ammyt11_1: 960952366
+      Ammyt11_10: -1108653996
+      Ammyt11_11: 565790149
+      Ammyt11_12: 1562187670
+      Ammyt11_13: 817824196
+      Ammyt11_14: 452173571
+      Ammyt11_15: 1692271629
+      Ammyt11_16: -896162625
+      Ammyt11_17: 1396797700
+      Ammyt11_18: 828858185
+      Ammyt11_19: 370814582
+      Ammyt11_2: 797474516
+      Ammyt11_20: -1297807607
+      Ammyt11_21: 947598007
+      Ammyt11_22: -2116663881
+      Ammyt11_23: -1403281018
+      Ammyt11_24: -801675784
+      Ammyt11_25: 1817495028
+      Ammyt11_26: 750368893
+      Ammyt11_27: 91642790
+      Ammyt11_28: 659849624
+      Ammyt11_29: 946046935
+      Ammyt11_3: -2146422239
+      Ammyt11_30: 2016921791
+      Ammyt11_31: 2048529264
+      Ammyt11_32: -2002562365
+      Ammyt11_33: -65257986
+      Ammyt11_34: 896546179
+      Ammyt11_35: 969051555
+      Ammyt11_36: 1981868293
+      Ammyt11_4: 59750301
+      Ammyt11_5: -1349171437
+      Ammyt11_6: -1502000531
+      Ammyt11_7: -1615105804
+      Ammyt11_8: -1049494822
+      Ammyt11_9: -128476097
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
