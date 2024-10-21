@@ -13,6 +13,8 @@ public class WaveManager : MonoBehaviour
     private bool ammitAlreadySpawned;
     private bool anubisAlreadySpawned;
 
+    public bool EndDialogueBos;
+
     [SerializeField] public EnemySpawner enemySpawner;
     [SerializeField] public List<GameObject> bossPrefabs;
     public int enemiesAlive;
@@ -86,7 +88,11 @@ public class WaveManager : MonoBehaviour
         {
             // All waves completed
             waveInProgress = false;
-            Win();
+
+            if (EndDialogueBos)
+            {
+                Win();
+            }
         }
 
         if (actualWave == 5 && !ammitAlreadySpawned)
