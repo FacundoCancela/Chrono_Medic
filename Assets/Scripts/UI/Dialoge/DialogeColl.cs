@@ -16,13 +16,7 @@ public class DialogeColl : MonoBehaviour
 
     private void Start()
     {
-        // Buscar el GameObject que contiene el texto "Indicate" directamente
-        pressTObject = GameObject.Find("Interaccion"); // Busca el GameObject por su nombre
-
-        if (pressTObject == null)
-        {
-            Debug.LogError("No se encontró el GameObject 'Interaccion' en la escena.");
-        }
+     
 
         dialogueManager = FindObjectOfType<DialogueManager>(); // Busca el DialogueManager en la escena
         LoadDialogueFromFile();
