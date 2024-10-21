@@ -128,6 +128,7 @@ MonoBehaviour:
   enemyStats: {fileID: 11400000, guid: 6a174fc34b035d542b620c29068ef3aa, type: 2}
   experiencePoint: {fileID: 7819564320793251449, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
   experiencePrefab: {fileID: 1229584106086249656, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
+  objectToSpawnOnDeath: {fileID: 0}
 --- !u!114 &4832437244012864484
 MonoBehaviour:
   m_ObjectHideFlags: 0
