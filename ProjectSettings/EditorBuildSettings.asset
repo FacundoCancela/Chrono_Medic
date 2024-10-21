@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lvl_Menu.unity
     guid: 71ee06f9135e2b44a90f87b7f79026b1
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Lvl_RealEgypt.unity
     guid: 52dffa97b3d67e74095507fe84c51822
   - enabled: 1
