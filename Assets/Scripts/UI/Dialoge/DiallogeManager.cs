@@ -16,18 +16,21 @@ public class DialogueManager : MonoBehaviour
     private bool isTyping = false;
     private bool lineFullyDisplayed = false;
 
-    private bool isMoloDialogue = false; // Nuevo campo para saber si es el diálogo de Molo
+    // Nuevo campo para identificar si el diálogo es con el jefe final
+    public bool EndDialogueBos = false;
 
-    // Evento que se dispara al finalizar el diálogo
-    public event Action OnDialogueEnd;
-
-    // Método para iniciar el diálogo, pasando las líneas del texto y si es el jefe final
-    public void StartDialogue(string text, bool isMolo)
+    // Método para iniciar el diálogo, pasando las líneas del texto
+    public void StartDialogue(string text, bool isFinalBossDialogue)
     {
-        dialogueLines = text.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries); // Divide el texto en líneas
+        dialogueLines = text.Split(new[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries); // Divide el texto en líneas
         currentLineIndex = 0;
-        isMoloDialogue = isMolo; // Se asigna si es diálogo de Molo
         ShowNextLine();
+
+        // Si es diálogo con el jefe final, no se establece el booleano hasta que termine el diálogo
+        if (isFinalBossDialogue)
+        {
+            EndDialogueBos = false; // Asegura que comience como false
+        }
     }
 
     // Muestra la siguiente línea de texto
@@ -43,60 +46,72 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+            // Si se completan todas las líneas, limpia el texto y actualiza el estado
             dialogueText.text = "";
-            OnDialogueEnd?.Invoke(); // Dispara el evento cuando se completan todas las líneas
-
-            if (isMoloDialogue)
+            if (EndDialogueBos)
             {
-                WaveManager.Instance.EndDialogueBos = true; // Activa el bool solo si es el jefe final
-                Debug.Log("El diálogo con Molo ha terminado. EndDialogueBos = true");
+                EndDialogueBos = true; // Establece el booleano si se ha terminado el diálogo del jefe final
             }
         }
     }
 
-    // Método para gestionar cuando se presiona la barra espaciadora
-    public void OnSpacePressed()
-    {
-        if (isTyping && !lineFullyDisplayed)
-        {
-            // Completa la línea actual inmediatamente
-            CompleteCurrentLine();
-        }
-        else if (!isTyping)
-        {
-            // Muestra la siguiente línea
-            currentLineIndex++;
-            ShowNextLine();
-        }
-    }
-
-    // Método para limpiar el texto
-    public void ClearText()
-    {
-        dialogueText.text = "";
-    }
-
-    // Método para completar la línea actual de inmediato
-    private void CompleteCurrentLine()
-    {
-        StopCoroutine(typingCoroutine);
-        dialogueText.text = dialogueLines[currentLineIndex];
-        isTyping = false;
-        lineFullyDisplayed = true;
-    }
-
-    // Corrutina para mostrar el texto progresivamente
+    // Corrutina para escribir el texto letra por letra
     private IEnumerator TypeSentence(string sentence)
     {
         isTyping = true;
+        lineFullyDisplayed = false;
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.05f); // Controla la velocidad de tipeo
+            yield return new WaitForSeconds(0.05f); // Controla la velocidad del texto
         }
-        isTyping = false;
         lineFullyDisplayed = true;
+        isTyping = false;
     }
 
+    // Método para completar inmediatamente la línea actual
+    private void CompleteLine()
+    {
+        if (isTyping)
+        {
+            StopCoroutine(typingCoroutine);
+            dialogueText.text = dialogueLines[currentLineIndex]; // Completa la línea de inmediato
+            isTyping = false;
+            lineFullyDisplayed = true;
+        }
+    }
+
+    public void ClearText()
+    {
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine); // Detiene la escritura progresiva si está en curso
+        }
+        dialogueText.text = ""; // Vacía el texto en pantalla
+        isTyping = false; // Asegura que el sistema sepa que ya no se está escribiendo
+        lineFullyDisplayed = false; // Resetea el estado de la línea actual
+    }
+
+    // Método para reiniciar el diálogo
+    public void ResetDialogue()
+    {
+        currentLineIndex = 0; // Reinicia el índice
+        ClearText(); // Limpia el texto actual
+        EndDialogueBos = false; // Resetea el booleano al salir
+    }
+
+    // Método para avanzar al siguiente renglón cuando el actual está completo
+    public void OnSpacePressed()
+    {
+        if (!lineFullyDisplayed)
+        {
+            CompleteLine(); // Completa la línea si aún se está escribiendo
+        }
+        else
+        {
+            currentLineIndex++;
+            ShowNextLine(); // Pasa a la siguiente línea
+        }
+    }
 }

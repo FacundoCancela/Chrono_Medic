@@ -36602,6 +36602,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 7714384347101677914, guid: 3b96ac1fa4732cc48a0496226ae1a86b, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ef1a1352fd5540c4fa7918386e973c71, type: 2}
+    - target: {fileID: 7714384347101677914, guid: 3b96ac1fa4732cc48a0496226ae1a86b, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 74872712845569165, guid: ef1a1352fd5540c4fa7918386e973c71, type: 2}
+    - target: {fileID: 7714384347101677914, guid: 3b96ac1fa4732cc48a0496226ae1a86b, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3600985387295563673, guid: 3b96ac1fa4732cc48a0496226ae1a86b, type: 3}
