@@ -35,6 +35,7 @@ public class BossModel : Actor
         if (bossWeapon.bossType == BossWeapon.BossType.AmmitAndAnubis)
         {
             EnemySpawner.Instance.SpawnAnubisBoss(transform.position);
+            Destroy(gameObject);
             return;
         }
 
