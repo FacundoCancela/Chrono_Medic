@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03876826f62cab046a4ffaaa35841385, type: 3}
   m_Name: SpawnWaveAnubis
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 1130082731687103583, guid: 88d016d7685f7e24998eac434acec23d, type: 3}
+  enemyPrefabs: []

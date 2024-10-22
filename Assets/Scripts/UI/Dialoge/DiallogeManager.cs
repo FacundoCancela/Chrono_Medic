@@ -15,22 +15,24 @@ public class DialogueManager : MonoBehaviour
     private int currentLineIndex = 0;
     private bool isTyping = false;
     private bool lineFullyDisplayed = false;
+    private bool isMoloDialogue; // Indica si es diálogo con Molo
 
-    // Nuevo campo para identificar si el diálogo es con el jefe final
-    public bool EndDialogueBos = false;
+    // Referencia a WaveManager
+    private WaveManager waveManager;
 
-    // Método para iniciar el diálogo, pasando las líneas del texto
-    public void StartDialogue(string text, bool isFinalBossDialogue)
+    private void Start()
+    {
+        // Buscar WaveManager en la escena
+        waveManager = WaveManager.Instance;
+    }
+
+    // Método para iniciar el diálogo, incluyendo si es diálogo con el jefe Molo
+    public void StartDialogue(string text, bool isMolo)
     {
         dialogueLines = text.Split(new[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries); // Divide el texto en líneas
         currentLineIndex = 0;
+        isMoloDialogue = isMolo; // Marca si es diálogo de Molo
         ShowNextLine();
-
-        // Si es diálogo con el jefe final, no se establece el booleano hasta que termine el diálogo
-        if (isFinalBossDialogue)
-        {
-            EndDialogueBos = false; // Asegura que comience como false
-        }
     }
 
     // Muestra la siguiente línea de texto
@@ -46,11 +48,13 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            // Si se completan todas las líneas, limpia el texto y actualiza el estado
+            // Si se completan todas las líneas, limpia el texto y verifica el diálogo con Molo
             dialogueText.text = "";
-            if (EndDialogueBos)
+
+            if (isMoloDialogue)
             {
-                EndDialogueBos = true; // Establece el booleano si se ha terminado el diálogo del jefe final
+                // Si el diálogo es con Molo, actualizar EndDialogueBos en WaveManager
+                waveManager.EndDialogueBos = true;
             }
         }
     }
@@ -93,12 +97,21 @@ public class DialogueManager : MonoBehaviour
         lineFullyDisplayed = false; // Resetea el estado de la línea actual
     }
 
-    // Método para reiniciar el diálogo
     public void ResetDialogue()
     {
-        currentLineIndex = 0; // Reinicia el índice
-        ClearText(); // Limpia el texto actual
-        EndDialogueBos = false; // Resetea el booleano al salir
+        // Detiene cualquier corrutina de escritura en curso
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+        }
+
+        // Restablece todas las variables internas del diálogo
+        dialogueText.text = "";
+        currentLineIndex = 0;
+        isTyping = false;
+        lineFullyDisplayed = false;
+        dialogueLines = null;
     }
 
     // Método para avanzar al siguiente renglón cuando el actual está completo

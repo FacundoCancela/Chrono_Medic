@@ -51,6 +51,15 @@ public class WaveManager : MonoBehaviour
 
     private void Update()
     {
+
+
+        if (EndDialogueBos) // Verifica si es el final del diálogo de Molo
+        {
+            Win();
+            Debug.Log("Win");
+        }
+
+
         if (waveInProgress && !noSpawnEnemies)
         {
             spawnCooldown += Time.deltaTime;
@@ -63,11 +72,7 @@ public class WaveManager : MonoBehaviour
                 StartNextWave();
             }
 
-            if (EndDialogueBos) // Verifica si es el final del diálogo de Molo
-            {
-                Win();
-                Debug.Log("Win");
-            }
+            
 
             if (spawnCooldown >= waveStats.spawnInteval[actualWave])
             {
