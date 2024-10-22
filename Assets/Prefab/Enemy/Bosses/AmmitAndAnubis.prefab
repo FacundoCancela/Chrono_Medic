@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 57587367
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 68309ee29cdf9d2429b8a4e5f41d4d41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 27aa9fd50019b014dabb4ab766784fe1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   enemyStats: {fileID: 11400000, guid: 6a174fc34b035d542b620c29068ef3aa, type: 2}
   experiencePoint: {fileID: 7819564320793251449, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
   experiencePrefab: {fileID: 1229584106086249656, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
+  objectToSpawnOnDeath: {fileID: 0}
 --- !u!114 &4832437244012864484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,18 +174,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.001183033, y: 0.019381702}
+  m_Offset: {x: 0.02300644, y: -2.9447231}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 19.05, y: 14.05}
     newSize: {x: 7.4, y: 7.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2061863, y: 2.6231308}
+  m_Size: {x: 8.8815, y: 5.21583}
   m_EdgeRadius: 0
 --- !u!50 &6220062889391689488
 Rigidbody2D:
@@ -240,7 +241,7 @@ Transform:
   m_GameObject: {fileID: 2377739668335863612}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.05, y: -0.3, z: 0}
+  m_LocalPosition: {x: 1.21, y: -1.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -344,7 +345,7 @@ Transform:
   m_GameObject: {fileID: 5761577385231551578}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.29, y: -1.32, z: 0}
+  m_LocalPosition: {x: 0.74, y: -3.91, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -391,7 +392,7 @@ SpriteRenderer:
   m_SortingLayerID: 57587367
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7d06254ced374dc48bf4aecb81d9b38f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -399,6 +400,6 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
