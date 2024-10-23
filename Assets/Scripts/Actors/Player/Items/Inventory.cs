@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Inventory : MonoBehaviour
 {
     public PlayerController playerController;
+    public PlayerStats baseStats;
     public PlayerStats playerStats;
     public TextMeshProUGUI injectionsText;
 
@@ -49,7 +50,7 @@ public class Inventory : MonoBehaviour
         if (injections > 0 && _isInCombat) 
         {
             injections--;
-            float healAmount = (playerStats.maxHealth * playerStats.ActualInjectionHeal / 100);
+            float healAmount = (playerStats.maxHealth * baseStats.ActualInjectionHeal / 100);
             playerController.GetHealed((int)healAmount);
         }
     }

@@ -47,6 +47,7 @@ public class GameDataController : MonoBehaviour
 
             baseStats.maxHealth = gameData.maxHealth;
             baseStats.damageMultiplier = gameData.damageMultiplier;
+            baseStats.defensePercentage = gameData.defensePercentage;
             baseStats.money = gameData.money;
             baseStats.upgradeCost = gameData.upgradeCost;
             baseStats.ActualInjectionHeal = gameData.InjectionHeal;
@@ -61,6 +62,7 @@ public class GameDataController : MonoBehaviour
         {
             maxHealth = baseStats.maxHealth,
             damageMultiplier = baseStats.damageMultiplier,
+            defensePercentage = baseStats.defensePercentage,
             money = baseStats.money,
             upgradeCost = baseStats.upgradeCost,
             InjectionHeal = baseStats.ActualInjectionHeal,

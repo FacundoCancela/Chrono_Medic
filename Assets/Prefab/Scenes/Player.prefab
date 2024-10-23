@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b57d9c0bc9e4a4e408561efaf830265f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  stats: {fileID: 11400000, guid: 91da14b5e2e7db44ea9f049a89a4d62d, type: 2}
 --- !u!114 &8869320743403595204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 5757684047417911686}
-  playerStats: {fileID: 11400000, guid: bf61c40d3e61e3e47aecd2987f029bf2, type: 2}
+  baseStats: {fileID: 11400000, guid: bf61c40d3e61e3e47aecd2987f029bf2, type: 2}
+  playerStats: {fileID: 11400000, guid: 91da14b5e2e7db44ea9f049a89a4d62d, type: 2}
   injectionsText: {fileID: 0}
   injections: 3
   _isInCombat: 0

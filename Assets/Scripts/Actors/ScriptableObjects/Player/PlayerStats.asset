@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   money: 0
-  maxHealth: 270
+  maxHealth: 300
   damageMultiplier: 1
-  movementSpeed: 3
+  defensePercentage: 50
+  movementSpeed: 1
   actualLevel: 0
   attackSpeed: 1
   attackRange: 0

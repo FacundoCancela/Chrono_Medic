@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
         playerStats.maxHealth = baseStats.maxHealth;
         playerStats.damageMultiplier = baseStats.damageMultiplier;
         playerStats.movementSpeed = baseStats.movementSpeed;
+        playerStats.defensePercentage = baseStats.defensePercentage;
 
         ClassManager.SelectedClass selectedClass = classManager.GetCurrentClass();
 
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
                 playerStats.maxHealth += classStat.maxHealth;
                 playerStats.damageMultiplier += classStat.damageMultiplier;
                 playerStats.movementSpeed += classStat.movementSpeed;
+                playerStats.defensePercentage += classStat.defensePercentage;
             }
         }
         actualHealth = playerStats.maxHealth;
@@ -115,13 +117,13 @@ public class PlayerController : MonoBehaviour
     public void GetDamaged(int damage)
     {
         _playerView.GetDamaged();
-        actualHealth -= damage;
+        int reducedDamage = damage - (damage * playerStats.defensePercentage / 100);
+        actualHealth -= reducedDamage;
         if (actualHealth <= 0)
         {
             _playerView.anim.SetTrigger("Dead");
             Die();
         }
-        
     }
 
     public void Die()

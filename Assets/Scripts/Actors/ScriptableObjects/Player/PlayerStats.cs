@@ -8,6 +8,7 @@ public class PlayerStats : ScriptableObject
     public int money = 0;
     public int maxHealth = 100;
     public int damageMultiplier = 1;
+    public int defensePercentage = 0;
     public int movementSpeed = 1;
     public int actualLevel;
     public float attackSpeed = 1;

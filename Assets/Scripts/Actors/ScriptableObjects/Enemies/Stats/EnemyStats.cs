@@ -6,6 +6,7 @@ public class EnemyStats : ScriptableObject
 {
     public int maxHealth = 5;
     public int damage = 1;
+    public float movementSpeed = 1;
     public float attackRange;
     public float attackCooldown = 3;
     public int experienceDropped = 10;

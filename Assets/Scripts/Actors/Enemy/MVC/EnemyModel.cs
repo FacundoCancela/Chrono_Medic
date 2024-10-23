@@ -35,6 +35,12 @@ public class EnemyModel : Actor
         }
     }
 
+    public override void Move(Vector2 dir)
+    {
+        dir *= enemyStats.movementSpeed;
+        base.Move(dir);
+    }
+
     public void Shoot(Vector2 targetDir)
     {
         if (canUseWeapon)

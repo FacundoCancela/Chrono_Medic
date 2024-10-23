@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Actor : MonoBehaviour, IActorModel
 {
-    public float speed;
-
     Rigidbody2D _rb;
 
     private void Awake()
@@ -13,9 +11,8 @@ public class Actor : MonoBehaviour, IActorModel
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Move(Vector2 dir)
+    public virtual void Move(Vector2 dir)
     {
-        dir *= speed;
         _rb.velocity = dir;
     }
 }

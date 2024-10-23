@@ -7,6 +7,6 @@
   "attackSpeed": 0.0,
   "attackRange": 0.0,
   "upgradeCost": 1500,
-  "InjectionHeal": 150,
+  "InjectionHeal": 10,
   "InjectionsLimit": 5
 }

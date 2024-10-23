@@ -8,6 +8,7 @@ public class GameData
     //Player stats
     public int maxHealth;
     public int damageMultiplier;
+    public int defensePercentage;
     public int money;
     public int movementSpeed;
     public int actualLevel;
