@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4832437244012864484}
   - component: {fileID: 2081250994260454005}
   - component: {fileID: 6220062889391689488}
+  - component: {fileID: 3304189713786306657}
   m_Layer: 6
   m_Name: AmmitAndAnubis
   m_TagString: Enemy
@@ -80,12 +81,12 @@ SpriteRenderer:
   m_SortingLayerID: 57587367
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 27aa9fd50019b014dabb4ab766784fe1, type: 3}
+  m_Sprite: {fileID: -227332924, guid: 27aa9fd50019b014dabb4ab766784fe1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.4, y: 7.4}
+  m_Size: {x: 5.5, y: 3.09375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -123,7 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399436628c1303b4c9034b5686cd35c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
   bossWeapon: {fileID: 1022760589938574172}
   enemyStats: {fileID: 11400000, guid: 6a174fc34b035d542b620c29068ef3aa, type: 2}
   experiencePoint: {fileID: 7819564320793251449, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1130082731687103583}
+  anim: {fileID: 3304189713786306657}
 --- !u!61 &2081250994260454005
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -174,18 +175,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02300644, y: -2.9447231}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 19.05, y: 14.05}
-    newSize: {x: 7.4, y: 7.4}
+    oldSize: {x: 5.5, y: 3.09375}
+    newSize: {x: 5.5, y: 3.09375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.8815, y: 5.21583}
+  m_Size: {x: 5.5, y: 3.09375}
   m_EdgeRadius: 0
 --- !u!50 &6220062889391689488
 Rigidbody2D:
@@ -214,6 +215,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &3304189713786306657
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130082731687103583}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13d4f04cff503734183c00d200793144, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2377739668335863612
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +335,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossType: 1
   enemyStats: {fileID: 11400000, guid: 6a174fc34b035d542b620c29068ef3aa, type: 2}
+  canUseWeapon: 1
+  canUseSpecialAttack: 0
   bulletPrefab: {fileID: 1367665112320747349, guid: 04b116890cad21d49aac670aec16b011, type: 3}
   specialBulletPrefab: {fileID: 1367665112320747349, guid: 78fd781a16fa15140aa50203566eb359, type: 3}
   shootPoint: {fileID: 1591282576986889045}

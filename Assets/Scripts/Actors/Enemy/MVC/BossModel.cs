@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossModel : Actor
 {
-    [SerializeField] private BossWeapon bossWeapon;
+    [SerializeField] public BossWeapon bossWeapon;
     [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private ExperiencePoint experiencePoint;
     [SerializeField] private GameObject experiencePrefab;

@@ -11,8 +11,8 @@ public class BossWeapon : MonoBehaviour
     public bool CanUseWeapon => canUseWeapon;
     public bool CanUseSpecialAttack => canUseSpecialAttack;
 
-    private bool canUseWeapon = true;
-    private bool canUseSpecialAttack = false;
+    public bool canUseWeapon = true;
+    public bool canUseSpecialAttack = false;
 
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject specialBulletPrefab;

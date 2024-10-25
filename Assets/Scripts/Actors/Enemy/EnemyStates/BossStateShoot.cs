@@ -18,6 +18,7 @@ public class BossStateShoot<T> : State<T>
     public override void Execute()
     {
         base.Execute();
+        _view.Attack(true);
         _model.Move(Vector2.zero);
         _model.Shoot(_shootTarget.position);
     }
@@ -25,5 +26,6 @@ public class BossStateShoot<T> : State<T>
     public override void Sleep()
     {
         base.Sleep();
+        _view.Attack(true);
     }
 }

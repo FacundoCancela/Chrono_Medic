@@ -19,8 +19,14 @@ public class BossStateSteering<T> : State<T>
 
     public override void Execute()
     {
+        _enemyView.Walk(true);
         var dir = _obs.GetDir(_steering.GetDir());
         _enemy.Move(dir);
         _enemyView.LookDir(dir);
+    }
+    public override void Sleep()
+    {
+        base.Sleep();
+        _enemyView.Walk(false);
     }
 }

@@ -53,6 +53,7 @@ public class ExperienceManager : MonoBehaviour
     private void Awake()
     {
         XpBar.SetMaxXP(maxExperience);
+        XpBar.SetXP(actualExperience);
     }
 
     private void Update()

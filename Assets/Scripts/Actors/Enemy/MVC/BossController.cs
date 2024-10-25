@@ -51,7 +51,7 @@ public class BossController : MonoBehaviour, IEnemyController
         shootRange = enemyStats.attackRange;
         actualHealth = enemyStats.maxHealth;
 
-        _bossTree = new BossTree(_fsm, _model.transform, _target.transform, shootRange, ref _blackBoardDictionary);
+        _bossTree = new BossTree(_fsm, _model, _target.transform, shootRange, ref _blackBoardDictionary);
         _bossTree.InitializeTree();
 
     }
@@ -69,11 +69,15 @@ public class BossController : MonoBehaviour, IEnemyController
         _fsm = new FSM<EnemyStatesEnum>();
 
         //States
+        var idle = new BossStateIdle<EnemyStatesEnum>(_model, _view);
         var seek = new BossStateSteering<EnemyStatesEnum>(_model, _view, _steering, _obstacleAvoidance);
         var shoot = new BossStateShoot<EnemyStatesEnum>(_model, _target.transform, _view);
         var dead = new BossStateDead<EnemyStatesEnum>(_model);
 
         //Transitions
+
+        idle.AddTransition(EnemyStatesEnum.idle, seek);
+        idle.AddTransition(EnemyStatesEnum.idle, shoot);
 
         seek.AddTransition(EnemyStatesEnum.Shoot, shoot);
         seek.AddTransition(EnemyStatesEnum.Dead, dead);
@@ -98,8 +102,8 @@ public class BossController : MonoBehaviour, IEnemyController
     {
         if (actualHealth <= 0)
         {
+            _view.anim.SetTrigger("Dead");
             _blackBoardDictionary[BossBlackBoardConsts.B__IS_DEAD] = true;
-            
         }
     }
 
