@@ -7,22 +7,20 @@ public class SwordAttack : MonoBehaviour, IWeapon
     [SerializeField] public PlayerStats playerStats;
     [SerializeField] public ExperienceManager experienceManager;
     [SerializeField] public GameObject swordSlash;
+    [SerializeField] public GameObject specialSwordSlash;
     [SerializeField] public Transform attackPosition;
     [SerializeField] public float _timeSinceLastSlashAttack = 0f;
     bool _slashAttackInCooldown = false;
 
     public bool specialAttackMode = false;
 
-
-    public Transform direction;
-    
     private void Update()
     {
         if (_slashAttackInCooldown)
         {
             _timeSinceLastSlashAttack += Time.deltaTime;
         }
-        if(experienceManager != null)
+        if (experienceManager != null)
         {
             if (_timeSinceLastSlashAttack > experienceManager.meleeCooldown)
             {
@@ -36,15 +34,12 @@ public class SwordAttack : MonoBehaviour, IWeapon
     {
         if (!_slashAttackInCooldown)
         {
-            float sizeMultiplier = specialAttackMode ? 3f : 1f;
+            GameObject selectedPrefab = specialAttackMode ? specialSwordSlash : swordSlash;
+            GameObject attackInstance = Instantiate(selectedPrefab, attackPosition.position, Quaternion.identity);
 
-            GameObject Attack = Instantiate(swordSlash, attackPosition.position,Quaternion.identity);
-            
-            Attack.transform.SetParent(null);
-
-            Vector3 newScale = Attack.transform.localScale;
-            newScale.x = direction.localScale.x; 
-            Attack.transform.localScale = newScale * sizeMultiplier;
+            // Ajustar la rotación del ataque basado en la dirección del padre
+            Vector3 attackDirection = transform.parent.localScale.x > 0 ? Vector3.right : Vector3.left;
+            attackInstance.transform.right = attackDirection;
 
             _slashAttackInCooldown = true;
         }

@@ -12,6 +12,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] public PlayerView playerView;
     [SerializeField] public ClassManager playerClassManager;
     [SerializeField] public ExperienceManager experienceManager;
+    [SerializeField] public PlayerController playerController;
 
     public bool _isInCombat = false;
     
@@ -47,7 +48,7 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
-        if(_isInCombat)
+        if(_isInCombat && playerController.playerAlive)
         {
             UseWeapon();
         }
