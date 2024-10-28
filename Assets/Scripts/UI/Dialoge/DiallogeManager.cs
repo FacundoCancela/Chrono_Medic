@@ -26,6 +26,14 @@ public class DialogueManager : MonoBehaviour
         waveManager = WaveManager.Instance;
     }
 
+    public bool IsDialogueActive
+    {
+        get
+        {
+            return dialogueLines != null && currentLineIndex < dialogueLines.Length;
+        }
+    }
+
     // Método para iniciar el diálogo, incluyendo si es diálogo con el jefe Molo
     public void StartDialogue(string text, bool isMolo)
     {
