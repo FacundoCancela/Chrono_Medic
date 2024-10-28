@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: SpawnWave4
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 1130082731687103583, guid: 968caa023c0cbc74386d93142e5e5a2c, type: 3}
-  - {fileID: 6057087403127246776, guid: 87a1a59e076ad2c4f8380a0ea08442a2, type: 3}
-  - {fileID: 4220072662542796888, guid: e6deab9f79d2b754db329e68c17ae4bd, type: 3}
   - {fileID: 1054879955747311416, guid: b91527e4bf290be499a60b85006500bf, type: 3}
+  - {fileID: 6057087403127246776, guid: 87a1a59e076ad2c4f8380a0ea08442a2, type: 3}
   - {fileID: 2116919776860850430, guid: 66f984b4689bf2e4bad022d6e486b9dd, type: 3}

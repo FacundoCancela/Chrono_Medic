@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 40
   damage: 5
-  movementSpeed: 1
+  movementSpeed: 4
   attackRange: 5
   attackCooldown: 2
   experienceDropped: 10
   moneyDroped: 20
-  accuracyOffset: 2
+  accuracyOffset: 3

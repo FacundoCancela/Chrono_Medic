@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage: 7
+  movementSpeed: 4
   attackRange: 2
   attackCooldown: 3
   experienceDropped: 20

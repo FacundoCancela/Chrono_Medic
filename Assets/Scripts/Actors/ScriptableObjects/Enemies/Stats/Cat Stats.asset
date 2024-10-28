@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d21dd8259b418542bea633a0d82d9c5, type: 3}
   m_Name: Cat Stats
   m_EditorClassIdentifier: 
-  maxHealth: 35
+  maxHealth: 25
   damage: 7
+  movementSpeed: 5
   attackRange: 2
   attackCooldown: 3
   experienceDropped: 20
