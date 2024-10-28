@@ -11,6 +11,12 @@ public class BossModel : Actor
 
     [SerializeField] private GameObject objectToSpawnOnDeath;
 
+    public override void Move(Vector2 dir)
+    {
+        dir *= enemyStats.movementSpeed;
+        base.Move(dir);
+    }
+
     public void Shoot(Vector2 targetDir)
     {
         bossWeapon.Attack(targetDir);
