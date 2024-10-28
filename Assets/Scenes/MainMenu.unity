@@ -2997,6 +2997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1763184771}
   - component: {fileID: 1763184770}
+  - component: {fileID: 1763184772}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3034,6 +3035,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1763184772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763184769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27302854b761f04287491b06422bfa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialGameData: {fileID: 11400000, guid: 1776504d0943570439500335325bc3f1, type: 2}
 --- !u!1 &1802737053
 GameObject:
   m_ObjectHideFlags: 0
@@ -3180,6 +3194,7 @@ GameObject:
   - component: {fileID: 1804232903}
   - component: {fileID: 1804232902}
   - component: {fileID: 1804232901}
+  - component: {fileID: 1804232904}
   m_Layer: 5
   m_Name: NewGame
   m_TagString: Untagged
@@ -3250,7 +3265,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1804232902}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1763184772}
+        m_TargetAssemblyTypeName: GameDataRestart, Assembly-CSharp
+        m_MethodName: ResetGameData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1804232904}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: CambiarEscenaDefault
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1804232902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3289,6 +3328,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804232898}
   m_CullTransparentMesh: 1
+--- !u!114 &1804232904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804232898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52ac458c5abfbf4bb9d1caba31a98a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreEscenaAJugar: Lvl_Menu
 --- !u!224 &337984177664551689 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7816839498074359624, guid: cda9d5aaa118d984f8e87e3af94b6907, type: 3}
