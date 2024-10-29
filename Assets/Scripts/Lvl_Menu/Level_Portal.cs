@@ -15,21 +15,50 @@ public class Level_Portal : MonoBehaviour
 
     [SerializeField] ClassSelector classSelector;
 
+    [SerializeField] PauseManager pauseManager;
+
+    [SerializeField] public bool inPortalZone = false;
+    public GameObject interaccion;
+
     Animator animator;
+
+    private bool isInteracting = false;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
         if (portalUnlocked)
         {
             spriteRenderer.sprite = unlockedPortal;
             animator.SetTrigger("Idle");
         }
-
-        if (!portalUnlocked)
+        else
         {
             spriteRenderer.sprite = lockedPortal;
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F) && inPortalZone)
+        {
+            isInteracting = !isInteracting;
+            interaccion.SetActive(false);
+            if (isInteracting && classSelector != null)
+            {
+                classSelector.gameObject.SetActive(true);
+                classSelector.sceneName = sceneName;
+                Time.timeScale = 0f;
+            }
+            else if (classSelector != null)
+            {
+                pauseManager.canPause = true;
+                Time.timeScale = 1f;
+                classSelector.gameObject.SetActive(false);
+                interaccion.SetActive(true);
+            }
         }
     }
 
@@ -37,11 +66,11 @@ public class Level_Portal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && portalUnlocked)
         {
-            if(classSelector != null)
+            if (interaccion != null)
             {
-                classSelector.gameObject.SetActive(true);
-                classSelector.sceneName = sceneName;
-            }            
+                interaccion.SetActive(true);
+            }
+            inPortalZone = true;
         }
     }
 
@@ -49,9 +78,11 @@ public class Level_Portal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if(classSelector != null)
+            inPortalZone = false;
+            isInteracting = false;  // Reset the interaction state
+            if (interaccion != null)
             {
-                classSelector.gameObject.SetActive(false);
+                interaccion.SetActive(false);
             }
         }
     }

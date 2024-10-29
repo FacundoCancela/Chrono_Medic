@@ -115094,10 +115094,6 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3571248273786950874, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
-      propertyPath: spawnRadius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3571248273786950874, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
       propertyPath: attackPosition
       value: 
       objectReference: {fileID: 1297411953448466548}
@@ -115150,10 +115146,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5757684047417911686, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
-      propertyPath: baseStats
-      value: 
-      objectReference: {fileID: 11400000, guid: bf61c40d3e61e3e47aecd2987f029bf2, type: 2}
-    - target: {fileID: 5757684047417911686, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1123466844}
@@ -115177,18 +115169,10 @@ PrefabInstance:
       propertyPath: experienceManager
       value: 
       objectReference: {fileID: 1261455809}
-    - target: {fileID: 8041027089336846611, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
-      propertyPath: specialAttackMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8548196589946156421, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
       propertyPath: experienceManager
       value: 
       objectReference: {fileID: 1261455809}
-    - target: {fileID: 8548196589946156421, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
-      propertyPath: _curveSwordCanAttack
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

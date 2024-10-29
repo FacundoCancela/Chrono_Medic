@@ -10212,6 +10212,10 @@ PrefabInstance:
       propertyPath: baseStats
       value: 
       objectReference: {fileID: 11400000, guid: bf61c40d3e61e3e47aecd2987f029bf2, type: 2}
+    - target: {fileID: 5886377957444045883, guid: cf1293ad6e414914883b1829dd94fb86, type: 3}
+      propertyPath: initialGameData
+      value: 
+      objectReference: {fileID: 11400000, guid: 1776504d0943570439500335325bc3f1, type: 2}
     - target: {fileID: 8162197984513253660, guid: cf1293ad6e414914883b1829dd94fb86, type: 3}
       propertyPath: m_Name
       value: DataController
@@ -36291,18 +36295,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5133965519047481615, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
-      propertyPath: m_Mass
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 5757684047417911686, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1625050571}
-    - target: {fileID: 6336426011545973726, guid: 08447b43abc47f4438a38c33c713a0cf, type: 3}
-      propertyPath: injectionsText
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36669,6 +36665,9 @@ MonoBehaviour:
   lockedPortal: {fileID: 21300000, guid: 12b8f51d5a6b9144ca3820fbc2e787f2, type: 3}
   spriteRenderer: {fileID: 526723041744953780}
   classSelector: {fileID: 7883696928364657984}
+  pauseManager: {fileID: 124936087}
+  inPortalZone: 0
+  interaccion: {fileID: 814033905}
 --- !u!1001 &1625050569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37006,6 +37005,9 @@ MonoBehaviour:
   lockedPortal: {fileID: 21300000, guid: 12b8f51d5a6b9144ca3820fbc2e787f2, type: 3}
   spriteRenderer: {fileID: 1782079964}
   classSelector: {fileID: 7883696928364657984}
+  pauseManager: {fileID: 124936087}
+  inPortalZone: 0
+  interaccion: {fileID: 814033905}
 --- !u!61 &1782079963
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38314,6 +38316,9 @@ MonoBehaviour:
   lockedPortal: {fileID: 21300000, guid: 12b8f51d5a6b9144ca3820fbc2e787f2, type: 3}
   spriteRenderer: {fileID: 6306273722470590672}
   classSelector: {fileID: 7883696928364657984}
+  pauseManager: {fileID: 124936087}
+  inPortalZone: 0
+  interaccion: {fileID: 814033905}
 --- !u!82 &8793301873910013029
 AudioSource:
   m_ObjectHideFlags: 0

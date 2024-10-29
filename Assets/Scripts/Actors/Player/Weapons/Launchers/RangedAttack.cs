@@ -10,6 +10,7 @@ public class RangedAttack : MonoBehaviour, IWeapon
     [SerializeField] public GameObject rangedPrefab;
     [SerializeField] public Transform attackPosition;
     [SerializeField] public float _timeSinceLastRangedAttack = 0f;
+    [SerializeField] public float extraAttackSpeed = 1f;
     bool _rangedAttackInCooldown = false;
 
     public bool specialAttackMode = false;
@@ -22,7 +23,12 @@ public class RangedAttack : MonoBehaviour, IWeapon
         }
         if (experienceManager != null)
         {
-            if (_timeSinceLastRangedAttack > experienceManager.rangedCooldown)
+            float cooldown = experienceManager.rangedCooldown;
+            if (specialAttackMode)
+            {
+                cooldown /= extraAttackSpeed;
+            }
+            if (_timeSinceLastRangedAttack > cooldown)
             {
                 _rangedAttackInCooldown = false;
                 _timeSinceLastRangedAttack = 0f;
@@ -67,16 +73,19 @@ public class RangedAttack : MonoBehaviour, IWeapon
         {
             Vector2 enemyDirection = (closestEnemy.transform.position - attackPosition.transform.position).normalized;
             float baseAngle = Mathf.Atan2(enemyDirection.y, enemyDirection.x) * Mathf.Rad2Deg;
-
-            for (int i = 0; i < 4; i++)
-            {
-                float angle = baseAngle + (i * 90); // Ángulos de 0°, 90°, 180°, 270°
-                Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-                Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
-                Instantiate(rangedPrefab, attackPosition.transform.position, rotation).GetComponent<Rigidbody2D>().velocity = direction * 10f;
-            }
+            FireProjectile(baseAngle);
+            float randomUpAngle = Random.Range(0f, 30f);
+            FireProjectile(baseAngle + randomUpAngle);
+            float randomDownAngle = Random.Range(-30f, 0f);
+            FireProjectile(baseAngle + randomDownAngle);
         }
+    }
+
+    private void FireProjectile(float angle)
+    {
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
+        Instantiate(rangedPrefab, attackPosition.transform.position, rotation).GetComponent<Rigidbody2D>().velocity = direction * 10f;
     }
 
     private IEnemyController FindClosestEnemy()

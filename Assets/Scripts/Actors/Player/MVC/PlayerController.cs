@@ -17,7 +17,9 @@ public class PlayerController : MonoBehaviour
 
     public string nombreEscenaAJugar;
 
-    public int actualHealth;
+    public int actualHealth;    
+
+    public bool playerAlive = true;
 
 
     private void Awake()
@@ -35,9 +37,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Walk();
-        UseInventoryItem();
-        if(healthBar != null)
+        if (playerAlive)
+        {
+            Walk();
+            UseInventoryItem();
+        }
+
+        if (healthBar != null)
             HealthBarManager();
     }
 
@@ -128,7 +134,14 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        playerAlive = false;
+        _player.Move(Vector2.zero);
         HealthBarManager();
+        StartCoroutine(DeathCoroutine());
+    }
+    private IEnumerator DeathCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
         this.gameObject.SetActive(false);
         loseScreen.gameObject.SetActive(true);
     }

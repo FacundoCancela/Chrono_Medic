@@ -5,28 +5,35 @@ using UnityEngine;
 
 public class DialogeColl : MonoBehaviour
 {
-    public TextAsset textFile; // Asigna el archivo .txt desde el inspector
-    public GameObject pressTObject; // Referencia al GameObject que indica "Presiona T"
+    public TextAsset textFile; 
+    public GameObject pressTObject; 
     private bool playerInRange = false;
     private DialogueManager dialogueManager;
     private string dialogueText;
 
-    // Nuevo campo para identificar si el diálogo es con el jefe final
     public bool isMoloDialogue = false;
 
     private void Start()
     {
-        dialogueManager = FindObjectOfType<DialogueManager>(); // Busca el DialogueManager en la escena
+        dialogueManager = FindObjectOfType<DialogueManager>(); 
+        if (dialogueManager == null)
+        {
+            Debug.LogError("DialogueManager no encontrado en la escena.");
+        }
+
         LoadDialogueFromFile();
-        pressTObject.SetActive(false); // Oculta el mensaje al inicio
+        if (pressTObject != null)
+        {
+            pressTObject.SetActive(false); 
+        }
     }
 
-    // Método para cargar el texto desde el TextAsset
+    
     private void LoadDialogueFromFile()
     {
         if (textFile != null)
         {
-            dialogueText = textFile.text; // Lee el contenido del archivo .txt
+            dialogueText = textFile.text; 
         }
         else
         {
@@ -38,8 +45,11 @@ public class DialogeColl : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = true; // Detecta si el jugador está en el rango
-            pressTObject.SetActive(true); // Muestra el mensaje "Presiona T"
+            playerInRange = true; 
+            if (pressTObject != null)
+            {
+                pressTObject.SetActive(true); 
+            }
         }
     }
 
@@ -47,24 +57,40 @@ public class DialogeColl : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = false; // Sale del rango
-            pressTObject.SetActive(false); // Oculta el mensaje "Presiona T"
-            dialogueManager.ClearText(); // Limpia el texto en pantalla y detiene la escritura progresiva
-            dialogueManager.ResetDialogue(); // Reinicia el diálogo
+            playerInRange = false; 
+            if (pressTObject != null)
+            {
+                pressTObject.SetActive(false); 
+            }
+
+            if (dialogueManager != null)
+            {
+                dialogueManager.ClearText(); 
+                dialogueManager.ResetDialogue(); 
+            }
         }
     }
 
     private void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.F)) // Detecta la tecla "F"
+        if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
-            pressTObject.SetActive(false); // Oculta el mensaje "Presiona T" cuando se presiona F
-            dialogueManager.StartDialogue(dialogueText, isMoloDialogue); // Comienza el diálogo
-        }
-
-        if (playerInRange && Input.GetKeyDown(KeyCode.Space)) // Detecta la barra espaciadora
-        {
-            dialogueManager.OnSpacePressed(); // Completa o avanza el diálogo
+            if (pressTObject != null)
+            {
+                pressTObject.SetActive(false); 
+            }
+            if (dialogueManager != null)
+            {
+                // Verificación si el diálogo está en curso
+                if (dialogueManager.IsDialogueActive)
+                {
+                    dialogueManager.OnSpacePressed(); 
+                }
+                else
+                {
+                    dialogueManager.StartDialogue(dialogueText, isMoloDialogue); 
+                }
+            }
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CrocodileInteraction : MonoBehaviour
 {
-    [SerializeField] private GameObject crocodile;
+    [SerializeField] private GameObject crocodileWarning;
     [SerializeField] public Transform player;
     [SerializeField] private bool playerInWater;
     [SerializeField] private float spawnChance;
@@ -22,7 +22,7 @@ public class CrocodileInteraction : MonoBehaviour
                 float randomValue = Random.Range(0f, 100f);
                 if (randomValue <= spawnChance)
                 {
-                    Instantiate(crocodile, player.position, Quaternion.identity);
+                    Instantiate(crocodileWarning, player.position, Quaternion.identity);
                 }
             }
         }
