@@ -163,7 +163,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.35981262, y: 0.15914816}
   m_AnchorMax: {x: 0.6444586, y: 0.24185187}
-  m_AnchoredPosition: {x: -1.9999084, y: -0.5}
+  m_AnchoredPosition: {x: 578, y: -18}
   m_SizeDelta: {x: 54, y: 11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &47926563
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1953830461, guid: fb744e016b76403469f6365408cdadfe, type: 3}
+  m_Sprite: {fileID: -937168000, guid: fcf6e7542338e9543a3cc17987dd506c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1656166225, guid: fcf6e7542338e9543a3cc17987dd506c, type: 3}
+  m_Sprite: {fileID: -937168000, guid: fcf6e7542338e9543a3cc17987dd506c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1250,7 +1250,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22960418, y: 0.21685186}
   m_AnchorMax: {x: 0.7694581, y: 0.78418523}
-  m_AnchoredPosition: {x: 1.0001831, y: -0.5799866}
+  m_AnchoredPosition: {x: 450, y: 71}
   m_SizeDelta: {x: 585.90015, y: 345.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &755792590
@@ -1273,9 +1273,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Programming: Facundo Cancela\nProduct Manager: Nicolas Alici\nGame Design:
-    Manuel Capaccio\nArt: Matias Long / Alexis Yakimchuk \n/ Yuuji Matuoka\nNarrative
-    Design: Elian embon\nQA: Yuuji Matuoka\n"
+  m_text: "Product Manager: Nicolas Alici\nProgramming: Facundo Cancela\n / Elian
+    Embon\n / Yuuji Matuoka\nGame Design: Manuel Capaccio\nArt: Matias Long \n/ Alexis
+    Yakimchuk \n/ Yuuji Matuoka\nNarrative Design: Elian Embon\nQA: Nicolas Alici\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 800d7832a8c1f3b4eb5a79223a811d7b, type: 2}
   m_sharedMaterial: {fileID: -7358445405995520181, guid: 800d7832a8c1f3b4eb5a79223a811d7b, type: 2}
@@ -1338,7 +1338,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -6.860779, y: -5.8967285, z: -5.89209, w: -6.28714}
+  m_margin: {x: 79.4715, y: -5.8967285, z: 129.77283, w: -6.28714}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2676,7 +2676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -969392091, guid: 21071567d702a8543a7585cd96665c2b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72e7c51178b11f64e9300a692cf6578d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3195,6 +3195,10 @@ GameObject:
   - component: {fileID: 1804232902}
   - component: {fileID: 1804232901}
   - component: {fileID: 1804232904}
+<<<<<<< HEAD
+=======
+  - component: {fileID: 1804232906}
+>>>>>>> Interface
   - component: {fileID: 1804232905}
   m_Layer: 5
   m_Name: NewGame
@@ -3311,7 +3315,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2040665648, guid: fcf6e7542338e9543a3cc17987dd506c, type: 3}
+  m_Sprite: {fileID: -937168000, guid: fcf6e7542338e9543a3cc17987dd506c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3363,6 +3367,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+<<<<<<< HEAD
+=======
+--- !u!114 &1804232906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804232898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305764ba75fd25e4eaa3a31254da9e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1377653924}
+  onClick: {fileID: 8300000, guid: 03bc1ac7be7a2bd40adddd6146892fb4, type: 3}
+  onHover: {fileID: 0}
+>>>>>>> Interface
 --- !u!224 &337984177664551689 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7816839498074359624, guid: cda9d5aaa118d984f8e87e3af94b6907, type: 3}
