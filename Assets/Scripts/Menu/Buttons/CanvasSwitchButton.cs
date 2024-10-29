@@ -22,7 +22,7 @@ public class CanvasSwitchButton : MonoBehaviour
 
     public IEnumerator SwitchDelay(GameObject gameObject)
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0f);
         gameObject.SetActive(false);
         previousCanvas.gameObject.SetActive(false);
         previousBackground.gameObject.SetActive(false);
