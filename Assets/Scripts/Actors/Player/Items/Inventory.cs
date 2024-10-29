@@ -34,12 +34,12 @@ public class Inventory : MonoBehaviour
     private void Update()
     {
         if(injectionsText != null)
-        injectionsText.text = (injections.ToString() + "/" + playerStats.ActualInjectionsLimit);
+        injectionsText.text = (injections.ToString() + "/" + baseStats.ActualInjectionsLimit);
     }
 
     public void saveInjection()
     {
-        if (injections < playerStats.ActualInjectionsLimit)
+        if (injections < baseStats.ActualInjectionsLimit)
         {
             injections++;
         }        

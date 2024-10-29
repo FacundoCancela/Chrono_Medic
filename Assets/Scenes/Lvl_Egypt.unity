@@ -115469,6 +115469,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1196346630946708009, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -80
+      objectReference: {fileID: 0}
     - target: {fileID: 1325956121711597133, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -115548,6 +115552,26 @@ PrefabInstance:
     - target: {fileID: 3272184833058883349, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -555
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684970855421302566, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684970855421302566, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684970855421302566, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684970855421302566, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684970855421302566, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 4747914344824847522, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -115665,6 +115689,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 155018610}
+    - target: {fileID: 7584241086307871929, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
+      propertyPath: m_text
+      value: Waves 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584241086307871929, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
+      propertyPath: m_margin.x
+      value: 0.37121582
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584241086307871929, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
+      propertyPath: m_margin.z
+      value: 0.43170166
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584241086307871929, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7751412059025607069, guid: 822b9dd448b6f6242b6b4524be8d3d45, type: 3}
       propertyPath: moneyButton
       value: 
