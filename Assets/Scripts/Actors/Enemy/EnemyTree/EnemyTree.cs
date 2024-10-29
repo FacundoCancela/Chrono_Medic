@@ -35,7 +35,7 @@ public class EnemyTree
 
         //Questions
         ITreeNode questionIsCooldown = new QuestionNode(Question_IsInCooldown, shoot, idle);
-        ITreeNode questionShootingRange = new QuestionNode(Question_IsInShootingRange, questionIsCooldown, seek);
+        ITreeNode questionShootingRange = new QuestionNode(Question_IsInShootingRange, shoot, seek);
         ITreeNode questionIsDead = new QuestionNode(Question_IsDead, dead,questionShootingRange);
 
         _root = questionIsDead;
@@ -58,7 +58,7 @@ public class EnemyTree
 
     private bool Question_IsInShootingRange()
     {
-        return (Vector2.Distance(_target.position,_enemyModel.transform.position) <= _shootRange );
+        return Vector2.Distance(_target.position,_enemyModel.transform.position) <= _shootRange ;
     }
     private bool Question_IsInCooldown()
     {

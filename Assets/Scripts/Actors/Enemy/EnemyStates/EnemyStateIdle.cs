@@ -12,5 +12,15 @@ public class EnemyStateIdle<T> : State<T>
         _model = model;
         _view = view;
     }
+    public override void Execute()
+    {
+        base.Execute();
+        _model.Move(Vector2.zero);
+    }
+    public override void Sleep()
+    {
+        base.Sleep();
+        _model.Move(new Vector2(_model.enemyStats.movementSpeed, _model.enemyStats.movementSpeed));
+    }
 
 }
