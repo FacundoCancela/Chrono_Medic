@@ -163,7 +163,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.35981262, y: 0.15914816}
   m_AnchorMax: {x: 0.6444586, y: 0.24185187}
-  m_AnchoredPosition: {x: -1.9999084, y: -0.5}
+  m_AnchoredPosition: {x: 433, y: -0.5}
   m_SizeDelta: {x: 54, y: 11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &47926563
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1953830461, guid: fb744e016b76403469f6365408cdadfe, type: 3}
+  m_Sprite: {fileID: -937168000, guid: fcf6e7542338e9543a3cc17987dd506c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1042,14 +1042,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5754717, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1656166225, guid: fcf6e7542338e9543a3cc17987dd506c, type: 3}
+  m_Sprite: {fileID: -937168000, guid: fcf6e7542338e9543a3cc17987dd506c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1250,7 +1250,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22960418, y: 0.21685186}
   m_AnchorMax: {x: 0.7694581, y: 0.78418523}
-  m_AnchoredPosition: {x: 1.0001831, y: -0.5799866}
+  m_AnchoredPosition: {x: 487, y: 94}
   m_SizeDelta: {x: 585.90015, y: 345.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &755792590
@@ -1273,9 +1273,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Programming: Facundo Cancela\nProduct Manager: Nicolas Alici\nGame Design:
-    Manuel Capaccio\nArt: Matias Long / Alexis Yakimchuk \n/ Yuuji Matuoka\nNarrative
-    Design: Elian embon\nQA: Yuuji Matuoka\n"
+  m_text: "Product Manager: Nicolas Alici\nProgramming: Facundo Cancela \n/ Elian
+    Embon / Yuuji Matuoka\nGame Design: Manuel Capaccio\nArt: Matias Long \n/ Alexis
+    Yakimchuk / Yuuji Matuoka\nNarrative Design: Elian Embon\nQA: Nicolas Alici\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 800d7832a8c1f3b4eb5a79223a811d7b, type: 2}
   m_sharedMaterial: {fileID: -7358445405995520181, guid: 800d7832a8c1f3b4eb5a79223a811d7b, type: 2}
@@ -1302,12 +1302,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 160
+  m_fontSize: 150
   m_fontSizeBase: 160
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 72
+  m_fontSizeMax: 150
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1338,7 +1338,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -6.860779, y: -5.8967285, z: -5.89209, w: -6.28714}
+  m_margin: {x: -6.860779, y: -5.8967285, z: 19.047974, w: 12.418121}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2615,7 +2615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1473411923
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2676,7 +2676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -969392091, guid: 21071567d702a8543a7585cd96665c2b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72e7c51178b11f64e9300a692cf6578d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2825,7 +2825,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -970552448, guid: fcf6e7542338e9543a3cc17987dd506c, type: 3}
+  m_Sprite: {fileID: -937168000, guid: fcf6e7542338e9543a3cc17987dd506c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3311,7 +3311,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2040665648, guid: fcf6e7542338e9543a3cc17987dd506c, type: 3}
+  m_Sprite: {fileID: -937168000, guid: fcf6e7542338e9543a3cc17987dd506c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
