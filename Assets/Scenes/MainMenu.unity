@@ -3195,7 +3195,10 @@ GameObject:
   - component: {fileID: 1804232902}
   - component: {fileID: 1804232901}
   - component: {fileID: 1804232904}
+<<<<<<< HEAD
   - component: {fileID: 1804232905}
+=======
+>>>>>>> parent of bae2c0e (MainMenu)
   m_Layer: 5
   m_Name: NewGame
   m_TagString: Untagged
@@ -3342,6 +3345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreEscenaAJugar: Lvl_Menu
+<<<<<<< HEAD
 --- !u!95 &1804232905
 Animator:
   serializedVersion: 5
@@ -3363,6 +3367,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+=======
+>>>>>>> parent of bae2c0e (MainMenu)
 --- !u!224 &337984177664551689 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7816839498074359624, guid: cda9d5aaa118d984f8e87e3af94b6907, type: 3}
