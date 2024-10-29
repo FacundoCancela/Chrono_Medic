@@ -3,20 +3,11 @@
   "damageMultiplier": 1,
   "defensePercentage": 0,
   "money": 0,
-<<<<<<< HEAD
   "movementSpeed": 3,
   "actualLevel": 0,
   "attackSpeed": 0.0,
   "attackRange": 0.0,
   "upgradeCost": 250,
   "InjectionHeal": 30,
-=======
-  "movementSpeed": 1,
-  "actualLevel": 0,
-  "attackSpeed": 0.0,
-  "attackRange": 0.0,
-  "upgradeCost": 1500,
-  "InjectionHeal": 10,
->>>>>>> Interface
   "InjectionsLimit": 5
 }
