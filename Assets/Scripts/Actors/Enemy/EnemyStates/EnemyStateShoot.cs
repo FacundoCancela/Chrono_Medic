@@ -15,18 +15,28 @@ public class EnemyStateShoot<T> : State<T>
         _model = model;
         _view = view;
     }
-
+    public override void Enter()
+    {
+        base.Enter();
+        _model.Move(Vector2.zero);
+    }
     public override void Execute()
     {
         base.Execute();
+        if (_model.canUseWeapon)
+        {
+            _view.Attack(true);
+            _model.Shoot(_shootTarget.position);
+        }
+        else
+        {
+            _view.Attack(false);
+        }
 
-        _view.Attack(true);
-        _model.Move(Vector2.zero);
-        _model.Shoot(_shootTarget.position);
     }
     public override void Sleep()
     {
         base.Sleep();
-        _view.Attack(false);
+        _model.Move(new Vector2(_model.enemyStats.movementSpeed, _model.enemyStats.movementSpeed));
     }
 }
