@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
     //Variables de IA
     EnemyModel _model;
     EnemyView _view;
-    [SerializeField]PlayerController _target;
+    [SerializeField] PlayerController _target;
     EnemyTree _enemyTree;
 
     ObstacleAvoidance _obstacleAvoidance;
@@ -47,7 +47,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
         _model = GetComponent<EnemyModel>();
         _view = GetComponent<EnemyView>();
         _target = FindObjectOfType<PlayerController>();
-        
+
         //inicializaciones 
         InitilizeSteering();
         InitializeFSM();
@@ -56,7 +56,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
         shootRange = enemyStats.attackRange;
         actualHealth = enemyStats.maxHealth;
 
-        _enemyTree = new EnemyTree(_fsm,_model, _target.transform, shootRange, ref _blackBoardDictionary);
+        _enemyTree = new EnemyTree(_fsm, _model, _target.transform, shootRange, ref _blackBoardDictionary);
         _enemyTree.InitializeTree();
 
     }
@@ -64,7 +64,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
     void InitilizeSteering()
     {
         var seek = new Seek(_model.transform, _target.transform);
-        
+
         _steering = seek;
         _obstacleAvoidance = new ObstacleAvoidance(_model.transform, angle, radius, obsMask);
     }
@@ -75,7 +75,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
 
         //States
         var idle = new EnemyStateIdle<EnemyStatesEnum>(_model, _view);
-        var seek = new EnemyStateSteering<EnemyStatesEnum>(_model,_view, _steering, _obstacleAvoidance);
+        var seek = new EnemyStateSteering<EnemyStatesEnum>(_model, _view, _steering, _obstacleAvoidance);
         var shoot = new EnemyStateShoot<EnemyStatesEnum>(_model, _target.transform, _view);
         var dead = new EnemyStateDead<EnemyStatesEnum>(_model);
 
@@ -134,7 +134,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
         return separationForce * separationStrength;
     }
 
-        private void DeathCheck()
+    private void DeathCheck()
     {
         if (actualHealth <= 0)
         {

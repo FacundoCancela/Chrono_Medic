@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using static DropManager;
 
 public class EnemyModel : Actor
 {
@@ -53,7 +54,7 @@ public class EnemyModel : Actor
     public void EnemyDeath()
     {
         GameDataController.Instance.IncreaseMoney(enemyStats.moneyDroped);
-        DropManager.Instance.DropSomething(transform.position);
+        DropManager.Instance.DropSomething(transform.position, DropType.Enemy);
         WaveManager.Instance.OnEnemyKilled();
         experiencePoint.ExperienceDrop(enemyStats.experienceDropped);
     }

@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class DropManager : MonoBehaviour
 {
+    public enum DropType
+    {
+        Enemy,
+        Boss,
+        Vase
+    }
+
     public List<GameObject> dropPrefabs;
-    public List<int> dropWeights;
+
+    public List<int> enemyDropWeights;
+    public List<int> bossDropWeights;
+    public List<int> vaseDropWeights;
+
 
     public static DropManager Instance
     {
@@ -25,28 +36,41 @@ public class DropManager : MonoBehaviour
         }
     }
 
-    public void DropSomething(Vector3 dropPosition)
+    public void DropSomething(Vector3 dropPosition, DropType dropType)
     {
-        if (dropPrefabs.Count != dropWeights.Count)
+        List<int> selectedDropWeights;
+
+        switch (dropType)
+        {
+            case DropType.Enemy:
+                selectedDropWeights = enemyDropWeights;
+                break;
+            case DropType.Boss:
+                selectedDropWeights = bossDropWeights;
+                break;
+            case DropType.Vase:
+                selectedDropWeights = vaseDropWeights;
+                break;
+            default:
+                return;
+        }
+
+        if (dropPrefabs.Count != selectedDropWeights.Count)
         {
             return;
         }
 
-        // Calculate the total weight
         int totalWeight = 0;
-        for (int i = 0; i < dropWeights.Count; i++)
+        for (int i = 0; i < selectedDropWeights.Count; i++)
         {
-            totalWeight += dropWeights[i];
+            totalWeight += selectedDropWeights[i];
         }
 
-        // Generate a random number between 0 and the total weight
         int randomWeight = Random.Range(0, totalWeight);
-
-        // Determine which item to drop based on the random weight
         int cumulativeWeight = 0;
         for (int i = 0; i < dropPrefabs.Count; i++)
         {
-            cumulativeWeight += dropWeights[i];
+            cumulativeWeight += selectedDropWeights[i];
             if (randomWeight < cumulativeWeight)
             {
                 Instantiate(dropPrefabs[i], dropPosition, Quaternion.identity);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static DropManager;
 
 public class BossModel : Actor
 {
@@ -26,7 +27,7 @@ public class BossModel : Actor
     {
         // Incrementa dinero y experiencia, y gestiona el drop del enemigo
         GameDataController.Instance.IncreaseMoney(enemyStats.moneyDroped);
-        DropManager.Instance.DropSomething(transform.position);
+        DropManager.Instance.DropSomething(transform.position, DropType.Boss);
         WaveManager.Instance.OnEnemyKilled();
         experiencePoint.ExperienceDrop(enemyStats.experienceDropped);
 
