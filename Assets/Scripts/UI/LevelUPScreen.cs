@@ -109,6 +109,23 @@ public class LevelUPScreen : MonoBehaviour
         ShuffleAndDisplayButtons();        
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1) && availableButtons.Count > 0)
+        {
+            availableButtons[0].onClick.Invoke();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2) && availableButtons.Count > 1)
+        {
+            availableButtons[1].onClick.Invoke();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3) && availableButtons.Count > 2)
+        {
+            availableButtons[2].onClick.Invoke();
+        }
+    }
+
+
     //Weapon upgrade
 
     public void MeleeLevel()
@@ -288,9 +305,12 @@ public class LevelUPScreen : MonoBehaviour
 
         int buttonsToShow = Mathf.Min(weaponUnlockOptions, availableButtons.Count);
 
-        for (int i = 0; i < buttonsToShow; i++)
+        for (int i = buttonsToShow - 1; i >= 0; i--)
         {
             availableButtons[i].gameObject.SetActive(true);
+
+            // Reordenar los botones en la jerarquía
+            availableButtons[i].transform.SetSiblingIndex(i);
         }
     }
 
