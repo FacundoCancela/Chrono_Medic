@@ -12,7 +12,7 @@ public class ShopScreen : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F) && inShopZone)
+        if(Input.GetKeyDown(KeyCode.F) && inShopZone || (Input.GetKeyDown(KeyCode.Escape) && shopOpen))
         {
             shopOpen = !shopOpen;
             if(shopOpen)

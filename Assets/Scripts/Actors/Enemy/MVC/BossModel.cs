@@ -45,6 +45,12 @@ public class BossModel : Actor
             return;
         }
 
+        if (bossWeapon.bossType == BossWeapon.BossType.Anubis)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         // Finalizar la batalla de jefe y destruir al jefe
         WaveManager.Instance.EndBossBattle();
         Destroy(gameObject);

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -257,12 +258,30 @@ public class LevelUPScreen : MonoBehaviour
             availableButtons.AddRange(extraButtons);
         }
 
-        Debug.Log("armas disponibles: "+availableButtons.Count);
-
-        for (int i = 0; i < availableButtons.Count; i++)
+        Button classButton = null;
+        switch (ClassManager.currentClass)
         {
-            Button temp = availableButtons[i];
+            case ClassManager.SelectedClass.Melee:
+                classButton = upgradeMeleeButton;
+                break;
+            case ClassManager.SelectedClass.Ranged:
+                classButton = upgradeRangedButton;
+                break;
+            case ClassManager.SelectedClass.Engineer:
+                classButton = upgradeEngineerButton;
+                break;
+        }
+
+        if (classButton != null && availableButtons.Contains(classButton))
+        {
+            availableButtons.Remove(classButton);
+            availableButtons.Insert(0, classButton);
+        }
+
+        for (int i = 1; i < availableButtons.Count; i++)
+        {
             int randomIndex = Random.Range(i, availableButtons.Count);
+            Button temp = availableButtons[i];
             availableButtons[i] = availableButtons[randomIndex];
             availableButtons[randomIndex] = temp;
         }

@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public int actualHealth;    
 
     public bool playerAlive = true;
+    public bool playerControllable = true;
 
 
     private void Awake()
@@ -39,12 +40,33 @@ public class PlayerController : MonoBehaviour
     {
         if (playerAlive)
         {
-            Walk();
-            UseInventoryItem();
+            UpdateCursorState();
+
+            if (playerControllable)
+            {
+                Walk();
+                UseInventoryItem();
+            }
         }
 
         if (healthBar != null)
             HealthBarManager();
+
+        
+    }
+
+    private void UpdateCursorState()
+    {
+        if (playerControllable)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     public void UpdateClassStats()
@@ -135,6 +157,8 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         playerAlive = false;
+        playerControllable = false;
+        UpdateCursorState();
         _player.Move(Vector2.zero);
         HealthBarManager();
         StartCoroutine(DeathCoroutine());

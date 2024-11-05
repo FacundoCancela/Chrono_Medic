@@ -51,8 +51,6 @@ public class WaveManager : MonoBehaviour
 
     private void Update()
     {
-
-
         if (EndDialogueBos) // Verifica si es el final del diálogo de Molo
         {
             Win();

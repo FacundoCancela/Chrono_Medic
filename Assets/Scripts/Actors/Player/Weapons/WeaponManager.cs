@@ -48,7 +48,7 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
-        if(_isInCombat && playerController.playerAlive)
+        if(_isInCombat && playerController.playerAlive && playerController.playerControllable)
         {
             UseWeapon();
         }

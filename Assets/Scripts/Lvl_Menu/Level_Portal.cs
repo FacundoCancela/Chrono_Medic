@@ -42,12 +42,13 @@ public class Level_Portal : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && inPortalZone)
+        if (Input.GetKeyDown(KeyCode.F) && inPortalZone || (Input.GetKeyDown(KeyCode.Escape) && isInteracting))
         {
             isInteracting = !isInteracting;
             interaccion.SetActive(false);
             if (isInteracting && classSelector != null)
             {
+                pauseManager.canPause = false;
                 classSelector.gameObject.SetActive(true);
                 classSelector.sceneName = sceneName;
                 Time.timeScale = 0f;

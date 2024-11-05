@@ -115094,11 +115094,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5367917890646460229, guid: 911b07e2e9f6e0e49a0d1d1ab0f26ffe, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7782890944015653431, guid: 911b07e2e9f6e0e49a0d1d1ab0f26ffe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782890944015653431, guid: 911b07e2e9f6e0e49a0d1d1ab0f26ffe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782890944015653431, guid: 911b07e2e9f6e0e49a0d1d1ab0f26ffe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CambiarEscena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782890944015653431, guid: 911b07e2e9f6e0e49a0d1d1ab0f26ffe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneChanger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782890944015653431, guid: 911b07e2e9f6e0e49a0d1d1ab0f26ffe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Lvl_
       objectReference: {fileID: 0}
     - target: {fileID: 8735176548148622997, guid: 911b07e2e9f6e0e49a0d1d1ab0f26ffe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
