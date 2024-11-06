@@ -18,9 +18,9 @@ public class BossModel : Actor
         base.Move(dir);
     }
 
-    public void Shoot(Vector2 targetDir)
+    public void Shoot(Vector2 targetDir, Rigidbody2D targetRigidbody)
     {
-        bossWeapon.Attack(targetDir);
+        bossWeapon.Attack(targetDir, targetRigidbody);
     }
 
     public void EnemyDeath()

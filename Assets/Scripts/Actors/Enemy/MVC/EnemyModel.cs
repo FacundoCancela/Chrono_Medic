@@ -42,11 +42,11 @@ public class EnemyModel : Actor
         base.Move(dir);
     }
 
-    public void Shoot(Vector2 targetDir)
+    public void Shoot(Vector2 targetDir, Rigidbody2D targetRigidbody)
     {
         if (canUseWeapon)
         {
-            enemyWeapon.FireWeapon(targetDir);
+            enemyWeapon.FireWeapon(targetDir, targetRigidbody);
             canUseWeapon = false;
         }
     }

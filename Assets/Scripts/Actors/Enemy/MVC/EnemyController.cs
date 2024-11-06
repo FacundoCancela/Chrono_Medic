@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
     EnemyModel _model;
     EnemyView _view;
     [SerializeField] PlayerController _target;
+    [SerializeField] Rigidbody2D _targetRb;
     EnemyTree _enemyTree;
 
     ObstacleAvoidance _obstacleAvoidance;
@@ -48,6 +49,11 @@ public class EnemyController : MonoBehaviour, IEnemyController
         _view = GetComponent<EnemyView>();
         _target = FindObjectOfType<PlayerController>();
 
+        if (_target != null)
+        {
+            _targetRb = _target.GetComponent<Rigidbody2D>();
+        }
+
         //inicializaciones 
         InitilizeSteering();
         InitializeFSM();
@@ -76,7 +82,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
         //States
         var idle = new EnemyStateIdle<EnemyStatesEnum>(_model, _view);
         var seek = new EnemyStateSteering<EnemyStatesEnum>(_model, _view, _steering, _obstacleAvoidance);
-        var shoot = new EnemyStateShoot<EnemyStatesEnum>(_model, _target.transform, _view);
+        var shoot = new EnemyStateShoot<EnemyStatesEnum>(_model, _target.transform, _view, _targetRb);
         var dead = new EnemyStateDead<EnemyStatesEnum>(_model);
 
         //Transitions

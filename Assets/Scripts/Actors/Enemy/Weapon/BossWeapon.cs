@@ -57,7 +57,7 @@ public class BossWeapon : MonoBehaviour
         }
     }
 
-    public void Attack(Vector2 targetDir)
+    public void Attack(Vector2 targetDir, Rigidbody2D targetRigidbody)
     {
         if (CanUseSpecialAttack)
         {
@@ -65,13 +65,15 @@ public class BossWeapon : MonoBehaviour
         }
         else if (CanUseWeapon)
         {
-            FireWeapon(targetDir);
+            FireWeapon(targetDir, targetRigidbody);
         }
     }
 
-    public void FireWeapon(Vector2 targetDir)
+    public void FireWeapon(Vector2 targetDir, Rigidbody2D targetRigidbody)
     {
-        Vector2 randomOffset = Random.insideUnitCircle * enemyStats.accuracyOffset;
+        float accuracyOffset = targetRigidbody.velocity == Vector2.zero ? 0 : enemyStats.accuracyOffset;
+
+        Vector2 randomOffset = Random.insideUnitCircle * accuracyOffset;
         Vector2 adjustedDir = (targetDir + randomOffset - (Vector2)transform.position).normalized;
         float angle = Mathf.Atan2(adjustedDir.y, adjustedDir.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);

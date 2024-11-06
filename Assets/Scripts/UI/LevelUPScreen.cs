@@ -29,6 +29,7 @@ public class LevelUPScreen : MonoBehaviour
 
     //Extra buttons
     [SerializeField] Button moneyButton;
+    [SerializeField] List<GameObject> numbersObjects;
 
     private List<Button> unlockButtons;
     private List<Button> upgradeButtons;
@@ -124,7 +125,6 @@ public class LevelUPScreen : MonoBehaviour
             availableButtons[2].onClick.Invoke();
         }
     }
-
 
     //Weapon upgrade
 
@@ -308,10 +308,16 @@ public class LevelUPScreen : MonoBehaviour
         for (int i = buttonsToShow - 1; i >= 0; i--)
         {
             availableButtons[i].gameObject.SetActive(true);
-
-            // Reordenar los botones en la jerarquía
             availableButtons[i].transform.SetSiblingIndex(i);
         }
+
+        int buttonsToActivate = Mathf.Min(weaponUnlockOptions, availableButtons.Count);
+
+        for (int i = buttonsToActivate; i < numbersObjects.Count; i++)
+        {
+            numbersObjects[i].SetActive(false);
+        }
+
     }
 
 }

@@ -17,6 +17,7 @@ public class BossController : MonoBehaviour, IEnemyController
     BossModel _model;
     BossView _view;
     [SerializeField] PlayerController _target;
+    [SerializeField] Rigidbody2D _targetRb;
     BossTree _bossTree;
 
     ObstacleAvoidance _obstacleAvoidance;
@@ -42,6 +43,12 @@ public class BossController : MonoBehaviour, IEnemyController
         _model = GetComponent<BossModel>();
         _view = GetComponent<BossView>();
         _target = FindObjectOfType<PlayerController>();
+
+        if (_target != null)
+        {
+            _targetRb = _target.GetComponent<Rigidbody2D>();
+        }
+
 
         //inicializaciones 
         InitilizeSteering();
@@ -71,7 +78,7 @@ public class BossController : MonoBehaviour, IEnemyController
         //States
         var idle = new BossStateIdle<EnemyStatesEnum>(_model, _view);
         var seek = new BossStateSteering<EnemyStatesEnum>(_model, _view, _steering, _obstacleAvoidance);
-        var shoot = new BossStateShoot<EnemyStatesEnum>(_model, _target.transform, _view);
+        var shoot = new BossStateShoot<EnemyStatesEnum>(_model, _target.transform, _view, _targetRb);
         var dead = new BossStateDead<EnemyStatesEnum>(_model);
 
         //Transitions
