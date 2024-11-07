@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d21dd8259b418542bea633a0d82d9c5, type: 3}
   m_Name: AmmitStats
   m_EditorClassIdentifier: 
-  maxHealth: 500
-  damage: 35
+  maxHealth: 800
+  damage: 45
   movementSpeed: 5.1
   attackRange: 2.5
-  attackCooldown: 2.5
-  experienceDropped: 100
+  attackCooldown: 2.3
+  experienceDropped: 1000
   moneyDroped: 10
   accuracyOffset: 4

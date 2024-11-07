@@ -20,12 +20,12 @@ MonoBehaviour:
   actualLevel: 0
   attackSpeed: 1
   attackRange: 0
-  upgradeCost: 1500
+  upgradeCost: 250
   ActualInjectionHeal: 20
-  ExtraInjectionHeal: 10
-  maxInjectionsHeal: 50
+  ExtraInjectionHeal: 5
+  maxInjectionsHeal: 60
   ActualInjectionsLimit: 5
   ExtraInjectionsLimit: 5
-  maxInjectionsLimit: 15
-  ExtraBuyHealth: 500
-  maxBuyHealth: 10000
+  maxInjectionsLimit: 20
+  ExtraBuyHealth: 50
+  maxBuyHealth: 500
