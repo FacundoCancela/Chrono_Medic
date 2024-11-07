@@ -88,7 +88,7 @@ public class DialogeColl : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
-
+            
 
             if (pressTObject != null)
             {
@@ -100,21 +100,11 @@ public class DialogeColl : MonoBehaviour
                 // Verificación si el diálogo está en curso
                 if (dialogueManager.IsDialogueActive)
                 {
-                    
-                    
-                        
-                    
-
+                    Dialoge.SetActive(true);
                     dialogueManager.OnSpacePressed(); 
                 }
                 else
                 {
-                    
-                    if (Dialoge.activeSelf == true)
-                    {
-                        Dialoge.SetActive(false);
-                    }
-
                     dialogueManager.StartDialogue(dialogueText, isMoloDialogue); 
                 }
             }
