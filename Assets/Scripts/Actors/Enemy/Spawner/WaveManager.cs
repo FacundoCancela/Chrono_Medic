@@ -24,6 +24,7 @@ public class WaveManager : MonoBehaviour
 
     private float spawnCooldown = 0f;
     [SerializeField] private bool noSpawnEnemies = true;
+    [SerializeField] GameObject playerPortal;
 
     public static WaveManager Instance
     {
@@ -91,10 +92,6 @@ public class WaveManager : MonoBehaviour
             actualWave++;
             waveInProgress = true;
         }
-        
-          
-            
-        
 
         if (actualWave == 5 && !ammitAlreadySpawned)
         {
@@ -105,7 +102,7 @@ public class WaveManager : MonoBehaviour
 
         if (actualWave == 10 && !anubisAlreadySpawned)
         {
-            enemySpawner.SpawnAmmitAndAnubisBoss();
+            playerPortal.SetActive(true);
             bossBattleInProgress = true;
             anubisAlreadySpawned = true;
         }
