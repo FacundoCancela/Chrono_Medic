@@ -22,4 +22,7 @@ public class GameData
     public int InjectionHeal = 5;
     public int InjectionsLimit = 5;
 
+    //Game
+    public bool GameStarted = false;
+
 }
