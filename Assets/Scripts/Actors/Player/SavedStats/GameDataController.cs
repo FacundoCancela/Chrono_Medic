@@ -50,8 +50,10 @@ public class GameDataController : MonoBehaviour
             baseStats.upgradeCost = gameData.upgradeCost;
             baseStats.ActualInjectionHeal = gameData.InjectionHeal;
             baseStats.ActualInjectionsLimit = gameData.InjectionsLimit;
+            baseStats.GameStarted = gameData.GameStarted;
             
-            player.UpdateStats(baseStats);
+            if(player  != null)
+                player.UpdateStats(baseStats);
         }
     }
     public void SaveData()
@@ -65,6 +67,7 @@ public class GameDataController : MonoBehaviour
             upgradeCost = baseStats.upgradeCost,
             InjectionHeal = baseStats.ActualInjectionHeal,
             InjectionsLimit = baseStats.ActualInjectionsLimit,
+            GameStarted = baseStats.GameStarted,
             
         };
 
@@ -155,7 +158,7 @@ public class GameDataController : MonoBehaviour
         SaveData();
     }
 
-    public void basicUpgradePrice()
+    public void BasicUpgradePrice()
     {
         gameData.upgradeCost = 50;
         baseStats.upgradeCost = gameData.upgradeCost;
@@ -163,4 +166,18 @@ public class GameDataController : MonoBehaviour
         SaveData();
         
     }
+
+    public bool gameStarted()
+    {
+        return gameData.GameStarted;
+    }
+
+    public void StartGame()
+    {
+        gameData.GameStarted = true;
+        baseStats.GameStarted = true;
+        SaveData();
+    }
+
+
 }

@@ -27,4 +27,7 @@ public class PlayerStats : ScriptableObject
     public int ExtraBuyHealth = 100;
     public float maxBuyHealth = 100;
 
+    [Header("Others")]
+    public bool GameStarted = false;
+
 }
