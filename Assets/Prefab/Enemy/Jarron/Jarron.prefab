@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8139687008320910016}
   - component: {fileID: 660810222101553983}
   - component: {fileID: 555101989145165333}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Jarron
   m_TagString: Enemy
   m_Icon: {fileID: 0}
