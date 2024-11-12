@@ -61,7 +61,10 @@ public class BossWeapon : MonoBehaviour
     {
         if (CanUseSpecialAttack)
         {
-            SpecialAttack(targetDir);
+            if(bossType == BossType.Ammit)
+                AmmitSpecialAttack(targetDir);
+            else
+                SpecialAttack(targetDir);
         }
         else if (CanUseWeapon)
         {
@@ -90,6 +93,14 @@ public class BossWeapon : MonoBehaviour
         Instantiate(specialBulletPrefab, targetDir, Quaternion.identity);
         canUseSpecialAttack = false;
         canUseWeapon = false;
-
     }
+
+    public void AmmitSpecialAttack(Vector2 targetDir)
+    {
+        //Ejecutar animacion ademas de esto
+        Instantiate(specialBulletPrefab, targetDir, Quaternion.identity);
+        canUseSpecialAttack = false;
+        canUseWeapon = false;
+    }
+
 }
