@@ -42,6 +42,13 @@ public class Level_Portal : MonoBehaviour
 
     private void Update()
     {
+
+        if (pauseManager != null && pauseManager.gamePaused)
+        {
+            return; // Salir del Update si el juego está pausado
+        }
+
+
         if (Input.GetKeyDown(KeyCode.F) && inPortalZone || (Input.GetKeyDown(KeyCode.Escape) && isInteracting))
         {
             isInteracting = !isInteracting;

@@ -8,6 +8,8 @@ public class DamageInteraction : MonoBehaviour
     private bool canBeActivated = false;
     private bool hasBeenActivated = false;
     private float activationTime = 0f;
+    private PauseManager pauseManager;
+
     [SerializeField] public float duration;
     [SerializeField] InteractionSpawnPoint spawnPoint;
     [SerializeField] private Direction moveDirection;
@@ -27,12 +29,19 @@ public class DamageInteraction : MonoBehaviour
 
     private void Start()
     {
+        pauseManager = FindObjectOfType<PauseManager>();
         initialPosition = transform.position;
         audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
+
+        if (pauseManager != null && pauseManager.gamePaused)
+        {
+            return; // Salir del Update si el juego está pausado
+        }
+
         if (canBeActivated && Input.GetKeyDown(KeyCode.F))
         {
             foreach (var anim in animations)

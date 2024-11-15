@@ -10,10 +10,16 @@ public class DialogeColl : MonoBehaviour
     private bool playerInRange = false;
     private DialogueManager dialogueManager;
     private string dialogueText;
+    private PauseManager pauseManager;
+
     public bool isMoloDialogue = false;
 
     private void Start()
     {
+
+        pauseManager = FindObjectOfType<PauseManager>();
+
+
         dialogueManager = FindObjectOfType<DialogueManager>();
         if (dialogueManager == null)
         {
@@ -76,6 +82,14 @@ public class DialogeColl : MonoBehaviour
 
     private void Update()
     {
+        if (pauseManager != null && pauseManager.gamePaused)
+        {
+            return; // Salir del Update si el juego está pausado
+        }
+
+
+
+
         if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
             if (pressTObject != null)

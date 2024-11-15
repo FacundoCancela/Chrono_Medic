@@ -10026,7 +10026,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textFile: {fileID: 4900000, guid: 36cf9122547670446af346f6de61b9eb, type: 3}
   pressTObject: {fileID: 814033905}
-  Dialoge: {fileID: 0}
   isMoloDialogue: 0
 --- !u!212 &523000596
 SpriteRenderer:
@@ -37361,7 +37360,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1817743665
 RectTransform:
