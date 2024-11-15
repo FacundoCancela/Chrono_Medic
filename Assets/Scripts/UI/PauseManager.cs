@@ -46,6 +46,7 @@ public class PauseManager : MonoBehaviour
             playerController.playerControllable = true;
 
         }
+        playerController.UpdateCursorState();
     }
 
     public void Continue()

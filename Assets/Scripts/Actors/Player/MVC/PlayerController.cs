@@ -72,8 +72,10 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void UpdateCursorState()
+    public void UpdateCursorState()
     {
+        Debug.Log(Cursor.lockState);
+
         if (playerControllable)
         {
             Cursor.visible = false;
