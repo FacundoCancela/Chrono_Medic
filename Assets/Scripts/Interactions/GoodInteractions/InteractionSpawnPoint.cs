@@ -7,6 +7,7 @@ public class InteractionSpawnPoint : MonoBehaviour
     [SerializeField] DamageInteraction Interaction;
     [SerializeField] Transform spawnPoint;
     [SerializeField] int interactionCooldown = 2;
+    public GameObject baca;
 
     private int actualWave;
     public int respawnWave;
@@ -19,11 +20,26 @@ public class InteractionSpawnPoint : MonoBehaviour
         {
             ReactivateInteraction();
         }
+
+        if (actualWave == 5 || actualWave == 10)
+        {
+
+            baca.gameObject.SetActive(false);
+
+        }
+        else
+        {
+
+            baca.gameObject.SetActive(true);
+        }
+
     }
 
     public void ReactivateInteraction()
     {
-        Interaction.gameObject.SetActive(true);
+
+            Interaction.gameObject.SetActive(true);
+         
     }
 
     public void GetRespawnWave()

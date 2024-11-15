@@ -6,6 +6,7 @@ public class WinScreen : MonoBehaviour
 {
     [SerializeField] WinScreen winScreen;
     private PauseManager pauseManager;
+    public bool winScreens = false;
 
     private void Start()
     {

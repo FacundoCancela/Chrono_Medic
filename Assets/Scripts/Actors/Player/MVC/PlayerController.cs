@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    private PauseManager pauseManager;
+    private DialogueManager dialogueManager;
+
     public PlayerStats playerStats;
     public PlayerStats baseStats;
     public HealthBar healthBar;
@@ -25,6 +28,10 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        pauseManager = FindObjectOfType<PauseManager>();
+        dialogueManager = FindObjectOfType<DialogueManager>();
+
+
         _player = GetComponent<IActorModel>();
         _playerView = GetComponent<PlayerView>();
         inventory = GetComponent<Inventory>();
@@ -38,6 +45,16 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (pauseManager != null && pauseManager.gamePaused)
+        {
+            return; // Salir del Update si el juego está pausado
+        }
+
+        if (dialogueManager != null && dialogueManager.DialogeActive)
+        {
+            return; // Salir del Update si el juego está pausado
+        }
+
         if (playerAlive)
         {
             UpdateCursorState();

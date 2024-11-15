@@ -88,7 +88,7 @@ public class DamageInteraction : MonoBehaviour
                 break;
         }
         
-        transform.Translate(direction * Time.deltaTime * 5f);
+        transform.Translate(direction * Time.deltaTime * 6f);
     }
 
     private void StopInteraction()

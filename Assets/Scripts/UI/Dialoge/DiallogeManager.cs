@@ -11,6 +11,9 @@ public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
     public GameObject Dialoge; 
+    public GameObject avilityBar;
+
+
     private Coroutine typingCoroutine;
     private string[] dialogueLines;
     private int currentLineIndex = 0;
@@ -18,8 +21,11 @@ public class DialogueManager : MonoBehaviour
     private bool lineFullyDisplayed = false;
     private bool isMoloDialogue;
 
+    public bool ultimoDialogo = false;
+
     public event System.Action OnDialogueEnd;
 
+    public bool DialogeActive = false;
     // Referencia a WaveManager
     private WaveManager waveManager;
 
@@ -44,7 +50,9 @@ public class DialogueManager : MonoBehaviour
     {
         if (Dialoge != null)
         {
+            avilityBar.SetActive(false);
             Dialoge.SetActive(true);
+            DialogeActive = true;
         }
     }
 
@@ -52,7 +60,9 @@ public class DialogueManager : MonoBehaviour
     {
         if (Dialoge != null)
         {
+            avilityBar.SetActive(true);
             Dialoge.SetActive(false);
+            DialogeActive = false;
         }
     }
 
@@ -81,6 +91,9 @@ public class DialogueManager : MonoBehaviour
             if (isMoloDialogue)
             {
                 waveManager.EndDialogueBos = true;
+
+                ultimoDialogo = true;
+                //......................................................................................................................................................
             }
             OnDialogueEnd?.Invoke();
             DeactivateDialogue(); 

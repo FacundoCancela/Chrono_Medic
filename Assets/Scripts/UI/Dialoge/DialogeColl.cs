@@ -14,6 +14,7 @@ public class DialogeColl : MonoBehaviour
 
     public bool isMoloDialogue = false;
 
+    private int PAUSE = 0;
     private void Start()
     {
 
@@ -84,7 +85,27 @@ public class DialogeColl : MonoBehaviour
     {
         if (pauseManager != null && pauseManager.gamePaused)
         {
+
+            dialogueManager.DeactivateDialogue();
+            PAUSE = 1;
             return; // Salir del Update si el juego está pausado
+        }
+
+
+        if (pauseManager != null && pauseManager.gamePaused == false && PAUSE == 1)
+        {
+
+            dialogueManager.ActivateDialogue();
+            PAUSE = 0;
+
+
+        }
+
+        
+
+            if (dialogueManager != null && dialogueManager.ultimoDialogo == true)
+        {
+            return;
         }
 
 

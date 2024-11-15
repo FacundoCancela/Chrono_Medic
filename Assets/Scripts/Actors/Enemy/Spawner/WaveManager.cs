@@ -13,6 +13,8 @@ public class WaveManager : MonoBehaviour
     private bool ammitAlreadySpawned;
     private bool anubisAlreadySpawned;
 
+    private DialogueManager dialogueManager;
+
     public bool EndDialogueBos; // Este bool será true solo después del diálogo de Molo
 
     [SerializeField] public EnemySpawner enemySpawner;
@@ -34,6 +36,8 @@ public class WaveManager : MonoBehaviour
 
     private void Awake()
     {
+        dialogueManager = FindObjectOfType<DialogueManager>();
+
         if (instance == null)
         {
             instance = this;
@@ -58,6 +62,11 @@ public class WaveManager : MonoBehaviour
             Debug.Log("Win");
         }
 
+
+        if (dialogueManager != null && dialogueManager.DialogeActive)
+        {
+            return; // Salir del Update si el juego está pausado
+        }
 
         if (waveInProgress && !noSpawnEnemies)
         {
