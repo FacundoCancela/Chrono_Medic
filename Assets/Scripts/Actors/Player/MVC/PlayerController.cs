@@ -103,6 +103,8 @@ public class PlayerController : MonoBehaviour
                 playerStats.damageMultiplier += classStat.damageMultiplier;
                 playerStats.movementSpeed += classStat.movementSpeed;
                 playerStats.defensePercentage += classStat.defensePercentage;
+                playerStats.ultimateCooldown = classStat.ultimateCooldown;
+                playerStats.ultimateDuration = classStat.ultimateDuration;
             }
         }
         actualHealth = playerStats.maxHealth;
