@@ -92,7 +92,7 @@ public class DialogeColl : MonoBehaviour
         }
 
 
-        if (pauseManager != null && pauseManager.gamePaused == false && PAUSE == 1)
+        if (pauseManager != null && pauseManager.gamePaused == false && PAUSE == 1 && dialogueManager.IsDialogueActive)
         {
 
             dialogueManager.ActivateDialogue();
