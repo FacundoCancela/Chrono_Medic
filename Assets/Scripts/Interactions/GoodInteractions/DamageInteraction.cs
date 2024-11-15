@@ -10,6 +10,9 @@ public class DamageInteraction : MonoBehaviour
     private float activationTime = 0f;
     private PauseManager pauseManager;
 
+    private bool weyFreeToUse = true;
+
+
     [SerializeField] public float duration;
     [SerializeField] InteractionSpawnPoint spawnPoint;
     [SerializeField] private Direction moveDirection;
@@ -42,18 +45,26 @@ public class DamageInteraction : MonoBehaviour
             return; // Salir del Update si el juego está pausado
         }
 
-        if (canBeActivated && Input.GetKeyDown(KeyCode.F))
+
+
+        if (weyFreeToUse)
         {
-            foreach (var anim in animations)
+            if (canBeActivated && Input.GetKeyDown(KeyCode.F))
             {
-                anim.SetBool("Run", true);
+                foreach (var anim in animations)
+                {
+                    anim.SetBool("Run", true);
+                }
+                if (audioSource != null || clip != null)
+                {
+                    audioSource.PlayOneShot(clip);
+                }
+                hasBeenActivated = true;
+                weyFreeToUse = false;
             }
-            if (audioSource != null || clip != null)
-            {
-                audioSource.PlayOneShot(clip);
-            }
-            hasBeenActivated = true;
         }
+
+        
 
         if (hasBeenActivated)
         {
@@ -101,6 +112,9 @@ public class DamageInteraction : MonoBehaviour
         transform.position = initialPosition;
         spawnPoint.GetRespawnWave();
         gameObject.SetActive(false);
+
+
+        weyFreeToUse = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
