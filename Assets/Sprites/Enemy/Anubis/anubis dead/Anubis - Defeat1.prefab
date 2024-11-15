@@ -34,7 +34,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4619150316908927385}
+  - {fileID: 5046264212955318715}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6021066691016967785
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 57587367
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dc23c2cc570b2254fa7f197af7902d14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textFile: {fileID: 4900000, guid: 728887cbf2b53b740b8bcff4e78e3013, type: 3}
-  pressTObject: {fileID: 1041122416183023483}
+  pressTObject: {fileID: 607886442227795801}
   isMoloDialogue: 1
 --- !u!70 &7962417563536943760
 CapsuleCollider2D:
@@ -195,7 +195,7 @@ CircleCollider2D:
   m_Offset: {x: -0.06, y: -0.31}
   serializedVersion: 2
   m_Radius: 1.28
---- !u!1001 &8039293817837179593
+--- !u!1001 &7605494621198041835
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -205,15 +205,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3426055826552425296, guid: cdbfc37f6ca278742bcee966f57d2f67, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -26.452124
       objectReference: {fileID: 0}
     - target: {fileID: 3426055826552425296, guid: cdbfc37f6ca278742bcee966f57d2f67, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4.0916395
       objectReference: {fileID: 0}
     - target: {fileID: 3426055826552425296, guid: cdbfc37f6ca278742bcee966f57d2f67, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.3896253
       objectReference: {fileID: 0}
     - target: {fileID: 3426055826552425296, guid: cdbfc37f6ca278742bcee966f57d2f67, type: 3}
       propertyPath: m_LocalRotation.w
@@ -247,18 +247,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interaccion
       objectReference: {fileID: 0}
+    - target: {fileID: 7053622661685233074, guid: cdbfc37f6ca278742bcee966f57d2f67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdbfc37f6ca278742bcee966f57d2f67, type: 3}
---- !u!1 &1041122416183023483 stripped
+--- !u!1 &607886442227795801 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7053622661685233074, guid: cdbfc37f6ca278742bcee966f57d2f67, type: 3}
-  m_PrefabInstance: {fileID: 8039293817837179593}
+  m_PrefabInstance: {fileID: 7605494621198041835}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4619150316908927385 stripped
+--- !u!4 &5046264212955318715 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3426055826552425296, guid: cdbfc37f6ca278742bcee966f57d2f67, type: 3}
-  m_PrefabInstance: {fileID: 8039293817837179593}
+  m_PrefabInstance: {fileID: 7605494621198041835}
   m_PrefabAsset: {fileID: 0}

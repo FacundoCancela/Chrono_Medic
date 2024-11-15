@@ -5,15 +5,11 @@ using UnityEngine;
 
 public class DialogeColl : MonoBehaviour
 {
-    public TextAsset textFile; 
-    public GameObject pressTObject; 
+    public TextAsset textFile;
+    public GameObject pressTObject;
     private bool playerInRange = false;
     private DialogueManager dialogueManager;
-     
-    public GameObject Dialoge;
-
     private string dialogueText;
-
     public bool isMoloDialogue = false;
 
     private void Start()
@@ -22,31 +18,24 @@ public class DialogeColl : MonoBehaviour
         if (dialogueManager == null)
         {
             Debug.LogError("DialogueManager no encontrado en la escena.");
+            return;
         }
 
+        
+
         LoadDialogueFromFile();
+
         if (pressTObject != null)
         {
             pressTObject.SetActive(false);
         }
-
-        
-        Dialoge = GameObject.Find("Dialoge");
-
-        if (Dialoge != null)
-        {
-            
-            Dialoge.SetActive(false);
-        }
-
-
     }
 
     private void LoadDialogueFromFile()
     {
         if (textFile != null)
         {
-            dialogueText = textFile.text; 
+            dialogueText = textFile.text;
         }
         else
         {
@@ -58,10 +47,10 @@ public class DialogeColl : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = true; 
+            playerInRange = true;
             if (pressTObject != null)
             {
-                pressTObject.SetActive(true); 
+                pressTObject.SetActive(true);
             }
         }
     }
@@ -70,16 +59,17 @@ public class DialogeColl : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = false; 
+            playerInRange = false;
             if (pressTObject != null)
             {
-                pressTObject.SetActive(false); 
+                pressTObject.SetActive(false);
             }
 
             if (dialogueManager != null)
             {
-                dialogueManager.ClearText(); 
-                dialogueManager.ResetDialogue(); 
+                dialogueManager.DeactivateDialogue();
+                dialogueManager.ClearText();
+                dialogueManager.ResetDialogue();
             }
         }
     }
@@ -88,24 +78,20 @@ public class DialogeColl : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
-            
-
             if (pressTObject != null)
             {
                 pressTObject.SetActive(false);
-                
             }
+
             if (dialogueManager != null)
             {
-                // Verificación si el diálogo está en curso
                 if (dialogueManager.IsDialogueActive)
                 {
-                    Dialoge.SetActive(true);
-                    dialogueManager.OnSpacePressed(); 
+                    dialogueManager.OnSpacePressed();
                 }
                 else
                 {
-                    dialogueManager.StartDialogue(dialogueText, isMoloDialogue); 
+                    dialogueManager.StartDialogue(dialogueText, isMoloDialogue);
                 }
             }
         }

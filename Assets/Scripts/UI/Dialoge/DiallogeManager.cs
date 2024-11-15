@@ -10,20 +10,26 @@ using System;
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
+    public GameObject Dialoge; 
     private Coroutine typingCoroutine;
     private string[] dialogueLines;
     private int currentLineIndex = 0;
     private bool isTyping = false;
     private bool lineFullyDisplayed = false;
-    private bool isMoloDialogue; // Indica si es diálogo con Molo
+    private bool isMoloDialogue;
+
+    public event System.Action OnDialogueEnd;
 
     // Referencia a WaveManager
     private WaveManager waveManager;
 
     private void Start()
     {
-        // Buscar WaveManager en la escena
         waveManager = WaveManager.Instance;
+        if (Dialoge != null)
+        {
+            Dialoge.SetActive(false); 
+        }
     }
 
     public bool IsDialogueActive
@@ -34,16 +40,31 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // Método para iniciar el diálogo, incluyendo si es diálogo con el jefe Molo
+    public void ActivateDialogue()
+    {
+        if (Dialoge != null)
+        {
+            Dialoge.SetActive(true);
+        }
+    }
+
+    public void DeactivateDialogue()
+    {
+        if (Dialoge != null)
+        {
+            Dialoge.SetActive(false);
+        }
+    }
+
     public void StartDialogue(string text, bool isMolo)
     {
-        dialogueLines = text.Split(new[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries); // Divide el texto en líneas
+        dialogueLines = text.Split(new[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
         currentLineIndex = 0;
-        isMoloDialogue = isMolo; // Marca si es diálogo de Molo
+        isMoloDialogue = isMolo;
+        ActivateDialogue(); 
         ShowNextLine();
     }
 
-    // Muestra la siguiente línea de texto
     private void ShowNextLine()
     {
         if (currentLineIndex < dialogueLines.Length)
@@ -56,18 +77,16 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            // Si se completan todas las líneas, limpia el texto y verifica el diálogo con Molo
             dialogueText.text = "";
-
             if (isMoloDialogue)
             {
-                // Si el diálogo es con Molo, actualizar EndDialogueBos en WaveManager
                 waveManager.EndDialogueBos = true;
             }
+            OnDialogueEnd?.Invoke();
+            DeactivateDialogue(); 
         }
     }
 
-    // Corrutina para escribir el texto letra por letra
     private IEnumerator TypeSentence(string sentence)
     {
         isTyping = true;
@@ -76,19 +95,18 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.05f); // Controla la velocidad del texto
+            yield return new WaitForSeconds(0.05f);
         }
         lineFullyDisplayed = true;
         isTyping = false;
     }
 
-    // Método para completar inmediatamente la línea actual
     private void CompleteLine()
     {
         if (isTyping)
         {
             StopCoroutine(typingCoroutine);
-            dialogueText.text = dialogueLines[currentLineIndex]; // Completa la línea de inmediato
+            dialogueText.text = dialogueLines[currentLineIndex];
             isTyping = false;
             lineFullyDisplayed = true;
         }
@@ -98,23 +116,20 @@ public class DialogueManager : MonoBehaviour
     {
         if (typingCoroutine != null)
         {
-            StopCoroutine(typingCoroutine); // Detiene la escritura progresiva si está en curso
+            StopCoroutine(typingCoroutine);
         }
-        dialogueText.text = ""; // Vacía el texto en pantalla
-        isTyping = false; // Asegura que el sistema sepa que ya no se está escribiendo
-        lineFullyDisplayed = false; // Resetea el estado de la línea actual
+        dialogueText.text = "";
+        isTyping = false;
+        lineFullyDisplayed = false;
     }
 
     public void ResetDialogue()
     {
-        // Detiene cualquier corrutina de escritura en curso
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
             typingCoroutine = null;
         }
-
-        // Restablece todas las variables internas del diálogo
         dialogueText.text = "";
         currentLineIndex = 0;
         isTyping = false;
@@ -122,17 +137,16 @@ public class DialogueManager : MonoBehaviour
         dialogueLines = null;
     }
 
-    // Método para avanzar al siguiente renglón cuando el actual está completo
     public void OnSpacePressed()
     {
         if (!lineFullyDisplayed)
         {
-            CompleteLine(); // Completa la línea si aún se está escribiendo
+            CompleteLine();
         }
         else
         {
             currentLineIndex++;
-            ShowNextLine(); // Pasa a la siguiente línea
+            ShowNextLine();
         }
     }
 }
