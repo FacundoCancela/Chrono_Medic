@@ -7,6 +7,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField] GameObject pauseScreen;
     [SerializeField] PlayerController playerController;
     [SerializeField] SceneChanger sceneChanger;
+    [SerializeField] AudioSource levelMusic;
     public bool gamePaused;
     public bool canPause = true;
 
@@ -19,6 +20,16 @@ public class PauseManager : MonoBehaviour
             if (canPause) playerController.playerControllable = true;
             else playerController.playerControllable = false;
         }
+
+        if (gamePaused && levelMusic != null)
+        {
+            levelMusic.mute = true;
+        }
+        else if (!gamePaused && levelMusic != null)
+        {
+            levelMusic.mute = false;
+        }
+
     }
 
     public void PauseKey()

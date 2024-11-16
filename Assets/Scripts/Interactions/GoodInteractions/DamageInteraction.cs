@@ -60,6 +60,7 @@ public class DamageInteraction : MonoBehaviour
                     audioSource.PlayOneShot(clip);
                 }
                 hasBeenActivated = true;
+                interaccion.SetActive(false);
                 weyFreeToUse = false;
             }
         }
