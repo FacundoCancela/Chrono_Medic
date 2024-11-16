@@ -92,6 +92,11 @@ public class WaveManager : MonoBehaviour
                 }
             }
         }
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            StartNextWave();
+        }
+
     }
 
     public void StartNextWave()
