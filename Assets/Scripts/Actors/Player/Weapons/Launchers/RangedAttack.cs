@@ -11,7 +11,7 @@ public class RangedAttack : MonoBehaviour, IWeapon
     [SerializeField] public Transform attackPosition;
     [SerializeField] public float _timeSinceLastRangedAttack = 0f;
     [SerializeField] public float extraAttackSpeed = 1f;
-    bool _rangedAttackInCooldown = false;
+    public bool _rangedAttackInCooldown = false;
 
     public bool specialAttackMode = false;
 

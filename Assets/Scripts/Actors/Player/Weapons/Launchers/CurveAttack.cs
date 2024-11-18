@@ -9,7 +9,7 @@ public class CurveAttack : MonoBehaviour, IWeapon
     [SerializeField] public GameObject curveSword;
     [SerializeField] public Transform attackPosition;
     [SerializeField] public float _timeSinceLastCurveAttack = 0f;
-    bool _curveAttackInCooldown = false;
+    public bool _curveAttackInCooldown = false;
 
     private void Update()
     {

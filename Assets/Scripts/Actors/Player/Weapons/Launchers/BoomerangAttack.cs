@@ -9,7 +9,7 @@ public class BoomerangAttack : MonoBehaviour, IWeapon
     [SerializeField] public GameObject boomerang;
     [SerializeField] public Transform attackPosition;
     [SerializeField] public float _timeSinceLastBoomerangAttack = 0f;
-    bool _boomerangAttackInCooldown = false;
+    public bool _boomerangAttackInCooldown = false;
 
     private void Update()
     {

@@ -9,7 +9,7 @@ public class OrbeAttack : MonoBehaviour, IWeapon
     [SerializeField] public GameObject Orbe;
     [SerializeField] public Transform attackPosition;
     [SerializeField] public float _timeSinceLastOrbitalAttack = 0f;
-    bool _orbitalAttackInCooldown = false;
+    public bool _orbitalAttackInCooldown = false;
 
     // Controla si está en modo especial
     public bool specialAttackMode = false;

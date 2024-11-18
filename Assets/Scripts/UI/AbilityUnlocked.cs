@@ -6,7 +6,7 @@ public class AbilityUnlocked : MonoBehaviour
 {
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private WeaponManager weaponManager;
-    [SerializeField] private List<GameObject> abilityObjects;
+    [SerializeField] public List<GameObject> abilityObjects;
     [SerializeField] private List<Sprite> abilitySprites;
 
     private HashSet<int> activatedSprites = new HashSet<int>();

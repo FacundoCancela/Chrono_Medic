@@ -10,7 +10,7 @@ public class SwordAttack : MonoBehaviour, IWeapon
     [SerializeField] public GameObject specialSwordSlash;
     [SerializeField] public Transform attackPosition;
     [SerializeField] public float _timeSinceLastSlashAttack = 0f;
-    bool _slashAttackInCooldown = false;
+    public bool _slashAttackInCooldown = false;
 
     public bool specialAttackMode = false;
 
