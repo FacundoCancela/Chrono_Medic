@@ -32,10 +32,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2571076089357680011}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 149.99998, y: -73.5}
-  m_SizeDelta: {x: 60, y: 60}
+  m_AnchorMin: {x: 0.39333338, y: 0.38000003}
+  m_AnchorMax: {x: 0.5966667, y: 0.7266667}
+  m_AnchoredPosition: {x: 1.4999847, y: 0.51472473}
+  m_SizeDelta: {x: -1, y: -0.18560028}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2111774205217296945
 CanvasRenderer:
@@ -200,9 +200,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1671918868748463897}
-        m_TargetAssemblyTypeName: ShopUpgrade, Assembly-CSharp
-        m_MethodName: addInjections
+      - m_Target: {fileID: 6209606254597511247}
+        m_TargetAssemblyTypeName: SFXButtons, Assembly-CSharp
+        m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -212,9 +212,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6209606254597511247}
-        m_TargetAssemblyTypeName: SFXButtons, Assembly-CSharp
-        m_MethodName: ClickSound
+      - m_Target: {fileID: 1671918868748463897}
+        m_TargetAssemblyTypeName: ShopUpgrade, Assembly-CSharp
+        m_MethodName: addInjections
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -367,10 +367,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5569292656290862513}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0.4166667, y: 0.4}
+  m_AnchorMax: {x: 0.57000005, y: 0.7066667}
+  m_AnchoredPosition: {x: 0.44210052, y: 0.043800354}
+  m_SizeDelta: {x: 0.88420105, y: -1.7123985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1061542781748069800
 CanvasRenderer:
@@ -582,6 +582,7 @@ RectTransform:
   - {fileID: 7129948922107354334}
   - {fileID: 2980992826350198261}
   - {fileID: 2604663388500499008}
+  - {fileID: 1061708284431647212}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -721,7 +722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8554376090599545011
 RectTransform:
   m_ObjectHideFlags: 0
@@ -855,7 +856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2948113821447276533
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1097,9 +1098,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1671918868748463897}
-        m_TargetAssemblyTypeName: ShopUpgrade, Assembly-CSharp
-        m_MethodName: extraInjectionsHeal
+      - m_Target: {fileID: 8654988899341458336}
+        m_TargetAssemblyTypeName: SFXButtons, Assembly-CSharp
+        m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1109,9 +1110,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8654988899341458336}
-        m_TargetAssemblyTypeName: SFXButtons, Assembly-CSharp
-        m_MethodName: ClickSound
+      - m_Target: {fileID: 1671918868748463897}
+        m_TargetAssemblyTypeName: ShopUpgrade, Assembly-CSharp
+        m_MethodName: extraInjectionsHeal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1491,9 +1492,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1671918868748463897}
-        m_TargetAssemblyTypeName: ShopUpgrade, Assembly-CSharp
-        m_MethodName: addHealth
+      - m_Target: {fileID: 2034205981789640608}
+        m_TargetAssemblyTypeName: SFXButtons, Assembly-CSharp
+        m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1503,9 +1504,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2034205981789640608}
-        m_TargetAssemblyTypeName: SFXButtons, Assembly-CSharp
-        m_MethodName: ClickSound
+      - m_Target: {fileID: 1671918868748463897}
+        m_TargetAssemblyTypeName: ShopUpgrade, Assembly-CSharp
+        m_MethodName: addHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1792,10 +1793,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5938852204475966637}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 152, y: -75}
-  m_SizeDelta: {x: 60, y: 60}
+  m_AnchorMin: {x: 0.42000002, y: 0.4}
+  m_AnchorMax: {x: 0.5833334, y: 0.71333337}
+  m_AnchoredPosition: {x: 0.3999939, y: 0.1689148}
+  m_SizeDelta: {x: -0.83190155, y: 1.5377998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &546188834131179009
 CanvasRenderer:
@@ -1915,7 +1916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3467853127113321428
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2472,3 +2473,117 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1001 &4997512371453671902
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1097713586245270103}
+    m_Modifications:
+    - target: {fileID: 5338961545275311340, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_Name
+      value: ADNIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.13840744
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.91300005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 238.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.8000488
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.3000488
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043526327065094385, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043526327065094385, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252631596095955175, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 153.6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+--- !u!224 &1061708284431647212 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5467731726174189618, guid: ad3f5493a59da38429bc6d245a5c0df6, type: 3}
+  m_PrefabInstance: {fileID: 4997512371453671902}
+  m_PrefabAsset: {fileID: 0}

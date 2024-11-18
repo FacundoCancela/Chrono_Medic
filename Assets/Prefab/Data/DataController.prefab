@@ -45,12 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  baseStats: {fileID: 0}
-  upgradePrice: {fileID: 0}
+  baseStats: {fileID: 11400000, guid: bf61c40d3e61e3e47aecd2987f029bf2, type: 2}
   savedFile: 
+  maxHealthButton: {fileID: 0}
+  maxInjectionsButton: {fileID: 0}
+  maxInjectionHealButton: {fileID: 0}
   gameData:
     maxHealth: 0
     damageMultiplier: 0
+    defensePercentage: 0
     money: 0
     movementSpeed: 0
     actualLevel: 0
@@ -59,3 +62,4 @@ MonoBehaviour:
     upgradeCost: 0
     InjectionHeal: 5
     InjectionsLimit: 5
+    GameStarted: 0
