@@ -18,14 +18,14 @@ public class OrbeAttack : MonoBehaviour, IWeapon
     {
         if (_orbitalAttackInCooldown)
         {
-            _timeSinceLastOrbitalAttack += Time.deltaTime;
+            _timeSinceLastOrbitalAttack -= Time.deltaTime;
         }
         if (experienceManager != null)
         {
-            if (_timeSinceLastOrbitalAttack > experienceManager.orbitalCooldown + experienceManager.orbitalDuration)
+            if (_timeSinceLastOrbitalAttack <= 0f)
             {
                 _orbitalAttackInCooldown = false;
-                _timeSinceLastOrbitalAttack = 0f;
+                _timeSinceLastOrbitalAttack = experienceManager.orbitalCooldown + experienceManager.orbitalDuration;
             }
 
         }

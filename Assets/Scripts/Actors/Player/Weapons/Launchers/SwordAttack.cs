@@ -18,14 +18,14 @@ public class SwordAttack : MonoBehaviour, IWeapon
     {
         if (_slashAttackInCooldown)
         {
-            _timeSinceLastSlashAttack += Time.deltaTime;
+            _timeSinceLastSlashAttack -= Time.deltaTime;
         }
         if (experienceManager != null)
         {
-            if (_timeSinceLastSlashAttack > experienceManager.meleeCooldown)
+            if (_timeSinceLastSlashAttack <= 0f)
             {
                 _slashAttackInCooldown = false;
-                _timeSinceLastSlashAttack = 0f;
+                _timeSinceLastSlashAttack = experienceManager.meleeCooldown;
             }
         }
     }

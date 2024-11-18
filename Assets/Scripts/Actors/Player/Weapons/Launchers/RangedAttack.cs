@@ -19,7 +19,7 @@ public class RangedAttack : MonoBehaviour, IWeapon
     {
         if (_rangedAttackInCooldown)
         {
-            _timeSinceLastRangedAttack += Time.deltaTime;
+            _timeSinceLastRangedAttack -= Time.deltaTime;
         }
         if (experienceManager != null)
         {
@@ -28,10 +28,10 @@ public class RangedAttack : MonoBehaviour, IWeapon
             {
                 cooldown /= extraAttackSpeed;
             }
-            if (_timeSinceLastRangedAttack > cooldown)
+            if (_timeSinceLastRangedAttack <= 0f)
             {
                 _rangedAttackInCooldown = false;
-                _timeSinceLastRangedAttack = 0f;
+                _timeSinceLastRangedAttack = cooldown;
             }
         }
     }

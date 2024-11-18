@@ -15,14 +15,14 @@ public class CurveAttack : MonoBehaviour, IWeapon
     {
         if (_curveAttackInCooldown)
         {
-            _timeSinceLastCurveAttack += Time.deltaTime;
+            _timeSinceLastCurveAttack -= Time.deltaTime;
         }
         if (experienceManager != null)
         {
-            if (_timeSinceLastCurveAttack > experienceManager.curveSwordCooldown + experienceManager.curveSwordDuration)
+            if (_timeSinceLastCurveAttack <= 0f)
             {
                 _curveAttackInCooldown = false;
-                _timeSinceLastCurveAttack = 0f;
+                _timeSinceLastCurveAttack = experienceManager.curveSwordCooldown + experienceManager.curveSwordDuration;
             }
         }
         
