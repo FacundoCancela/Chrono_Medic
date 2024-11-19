@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public Inventory inventory;
     [SerializeField] public LoseScreen loseScreen;
 
+    public Animator animHealth;
+
     IActorModel _player;
     PlayerView _playerView;
     public ClassManager classManager;
@@ -30,7 +32,6 @@ public class PlayerController : MonoBehaviour
     {
         pauseManager = FindObjectOfType<PauseManager>();
         dialogueManager = FindObjectOfType<DialogueManager>();
-
 
         _player = GetComponent<IActorModel>();
         _playerView = GetComponent<PlayerView>();
@@ -152,7 +153,12 @@ public class PlayerController : MonoBehaviour
         {
             healthBar.SetMaxHealth(actualHealth);
         }
-        else healthBar.SetHealth(actualHealth);    
+        else healthBar.SetHealth(actualHealth);
+
+        if (animHealth != null)
+        {
+            SetAnim();
+        }
     }
    
     public void GetHealed(int hpHealed)
@@ -202,6 +208,27 @@ public class PlayerController : MonoBehaviour
         baseStats = newStats;
         UpdateClassStats();
         actualHealth = playerStats.maxHealth;
+    }
+    public void SetAnim()
+    {
+        if (actualHealth >= (playerStats.maxHealth * 7) / 10)
+        {
+            animHealth.SetBool("Azul", true);
+            animHealth.SetBool("Amarillo", false);
+            animHealth.SetBool("Rojo", false);
+        }
+        else if (actualHealth >= (playerStats.maxHealth * 5) / 10)
+        {
+            animHealth.SetBool("Azul", false);
+            animHealth.SetBool("Amarillo", true);
+            animHealth.SetBool("Rojo", false);
+        }
+        else 
+        {
+            animHealth.SetBool("Azul", false);
+            animHealth.SetBool("Amarillo", false);
+            animHealth.SetBool("Rojo", true);
+        }
     }
 
 }

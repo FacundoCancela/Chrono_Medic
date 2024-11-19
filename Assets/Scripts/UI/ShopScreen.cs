@@ -28,6 +28,7 @@ public class ShopScreen : MonoBehaviour
                     pauseManager.canPause = false;
                     Time.timeScale = 0f;
                     ShopUI.gameObject.SetActive(true);
+                    interaccion.SetActive(false);
                 }
             }
             else
@@ -35,6 +36,7 @@ public class ShopScreen : MonoBehaviour
                 pauseManager.canPause = true;
                 Time.timeScale = 1f;
                 ShopUI.gameObject.SetActive(false);
+                interaccion.SetActive(true);
             }
         }
     }

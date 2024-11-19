@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ClassSelector : MonoBehaviour
 {
     [SerializeField] SceneChanger sceneChanger;
     [SerializeField] ClassManager classManager;
     [SerializeField] List<TextMeshProUGUI> classTexts; // Asigna los textos de las clases en el orden Melee, Ranged, Engineer
+        
     public string sceneName;
 
     private void Update()
@@ -72,4 +74,5 @@ public class ClassSelector : MonoBehaviour
         }
         return null;
     }
+    
 }

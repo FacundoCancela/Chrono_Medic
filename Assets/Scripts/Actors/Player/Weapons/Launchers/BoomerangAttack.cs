@@ -9,20 +9,20 @@ public class BoomerangAttack : MonoBehaviour, IWeapon
     [SerializeField] public GameObject boomerang;
     [SerializeField] public Transform attackPosition;
     [SerializeField] public float _timeSinceLastBoomerangAttack = 0f;
-    bool _boomerangAttackInCooldown = false;
+    public bool _boomerangAttackInCooldown = false;
 
     private void Update()
     {
         if (_boomerangAttackInCooldown)
         {
-            _timeSinceLastBoomerangAttack += Time.deltaTime;
+            _timeSinceLastBoomerangAttack -= Time.deltaTime;
         }
         if (experienceManager != null)
         {
-            if (_timeSinceLastBoomerangAttack > experienceManager.boomerangCooldown)
+            if (_timeSinceLastBoomerangAttack <= 0f)
             {
                 _boomerangAttackInCooldown = false;
-                _timeSinceLastBoomerangAttack = 0f;
+                _timeSinceLastBoomerangAttack = experienceManager.boomerangCooldown;
             }
 
         }

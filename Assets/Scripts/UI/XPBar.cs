@@ -33,7 +33,10 @@ public class XPBar : MonoBehaviour
         // Actualiza el estado de cada punto de experiencia.
         for (int i = 0; i < XpPoints.Length; i++)
         {
-            XpPoints[i].enabled = !DisplayXpPoints(_Xp, i);
+            if (XpPoints[i] != null)
+            {
+                XpPoints[i].enabled = !DisplayXpPoints(_Xp, i);
+            }
         }
 
         // Actualiza el texto con la experiencia actual.
