@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -23,6 +24,7 @@ public class WaveManager : MonoBehaviour
 
     [SerializeField] WaveStats waveStats;
     public float waveTimer = 30f;
+    public GameObject waveCanvas;
 
     private float spawnCooldown = 0f;
     [SerializeField] private bool noSpawnEnemies = true;
@@ -106,7 +108,7 @@ public class WaveManager : MonoBehaviour
             actualWave++;
             waveInProgress = true;
         }
-
+        StartCoroutine(WaveCanvasDelay(waveCanvas));
         if (actualWave == 5 && !ammitAlreadySpawned)
         {
             enemySpawner.SpawnAmmitBoss();
@@ -148,5 +150,12 @@ public class WaveManager : MonoBehaviour
     public void Win()
     {
         winScreen.gameObject.SetActive(true);
+    }
+    public IEnumerator WaveCanvasDelay(GameObject gameObject)
+    {
+        gameObject.SetActive(true);
+        gameObject.GetComponent<TextMeshProUGUI>().text = "Wave:" + actualWave;
+        yield return new WaitForSeconds(5f);
+        gameObject.SetActive(false);
     }
 }
