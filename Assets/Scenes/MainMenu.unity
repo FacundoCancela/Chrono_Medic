@@ -227,9 +227,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 47926563}
-        m_TargetAssemblyTypeName: CanvasSwitchButton, Assembly-CSharp
-        m_MethodName: Switch
+      - m_Target: {fileID: 47926569}
+        m_TargetAssemblyTypeName: SFXButtons, Assembly-CSharp
+        m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -239,9 +239,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 47926569}
-        m_TargetAssemblyTypeName: SFXButtons, Assembly-CSharp
-        m_MethodName: ClickSound
+      - m_Target: {fileID: 47926563}
+        m_TargetAssemblyTypeName: CanvasSwitchButton, Assembly-CSharp
+        m_MethodName: Switch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1004,9 +1004,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 705679962}
-        m_TargetAssemblyTypeName: CanvasSwitchButton, Assembly-CSharp
-        m_MethodName: Switch
+      - m_Target: {fileID: 705679965}
+        m_TargetAssemblyTypeName: SFXButtons, Assembly-CSharp
+        m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1016,9 +1016,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 705679965}
-        m_TargetAssemblyTypeName: SFXButtons, Assembly-CSharp
-        m_MethodName: ClickSound
+      - m_Target: {fileID: 705679962}
+        m_TargetAssemblyTypeName: CanvasSwitchButton, Assembly-CSharp
+        m_MethodName: Switch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2160,6 +2160,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1377653925}
+        m_TargetAssemblyTypeName: SFXButtons, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1763184773}
         m_TargetAssemblyTypeName: GameDataController, Assembly-CSharp
         m_MethodName: StartGame
@@ -2175,18 +2187,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1377653922}
         m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
         m_MethodName: CambiarEscenaDefault
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1377653925}
-        m_TargetAssemblyTypeName: SFXButtons, Assembly-CSharp
-        m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2671,9 +2671,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1691714848}
-        m_TargetAssemblyTypeName: ExitButton, Assembly-CSharp
-        m_MethodName: SalirDelJuego
+      - m_Target: {fileID: 1691714851}
+        m_TargetAssemblyTypeName: SFXButtons, Assembly-CSharp
+        m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2683,9 +2683,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1691714851}
-        m_TargetAssemblyTypeName: SFXButtons, Assembly-CSharp
-        m_MethodName: ClickSound
+      - m_Target: {fileID: 1691714848}
+        m_TargetAssemblyTypeName: ExitButton, Assembly-CSharp
+        m_MethodName: SalirDelJuego
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2941,6 +2941,9 @@ MonoBehaviour:
   player: {fileID: 0}
   baseStats: {fileID: 11400000, guid: bf61c40d3e61e3e47aecd2987f029bf2, type: 2}
   savedFile: 
+  maxHealthButton: {fileID: 0}
+  maxInjectionsButton: {fileID: 0}
+  maxInjectionHealButton: {fileID: 0}
   gameData:
     maxHealth: 0
     damageMultiplier: 0
