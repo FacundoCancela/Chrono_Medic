@@ -62,10 +62,10 @@ public class PauseManager : MonoBehaviour
 
     public void Continue()
     {
+        playerController.playerControllable = true;
         Time.timeScale = 1.0f;
         pauseScreen.SetActive(false);
         gamePaused = false;
-        playerController.playerControllable = true;
 
     }
 

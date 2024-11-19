@@ -10,7 +10,7 @@ public class SFXButtons : MonoBehaviour
 
     public void HoverSound()
     {
-        if(onHover != null)
+        if(onHover != null || audioSource != null)
         {
             audioSource.PlayOneShot(onHover);
         }
@@ -18,7 +18,7 @@ public class SFXButtons : MonoBehaviour
 
     public void ClickSound()
     {
-        if(onClick != null)
+        if(onClick != null|| audioSource !=null)
         {
             audioSource.PlayOneShot(onClick);
         }
