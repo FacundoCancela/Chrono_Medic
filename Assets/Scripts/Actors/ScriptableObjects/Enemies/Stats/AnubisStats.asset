@@ -18,5 +18,5 @@ MonoBehaviour:
   attackRange: 8
   attackCooldown: 3
   experienceDropped: 1000
-  moneyDroped: 10
+  moneyDroped: 500
   accuracyOffset: 3
