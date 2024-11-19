@@ -22,8 +22,6 @@ public class WeaponManager : MonoBehaviour
     public bool _boomerangCanAttack = false;
     public bool _curveSwordCanAttack = false;
 
-    private float _specialDuration = 5f;
-    private float _specialCooldownTime = 10f;
     private float _timeSinceLastSpecial = 0f;
     private bool _canUseSpecial = true;
 
@@ -108,6 +106,7 @@ public class WeaponManager : MonoBehaviour
 
     private IEnumerator ActivateSpecialMode()
     {
+        Debug.Log("ulti activada, duracion: " + playerStats.ultimateDuration);
         if (currentClassWeapon is RangedAttack rangedWeapon && experienceManager.actualRangedLevel == experienceManager.maxUpgradeableLevel)
         {
             rangedWeapon.specialAttackMode = true;
@@ -123,7 +122,9 @@ public class WeaponManager : MonoBehaviour
             swordWeapon.specialAttackMode = true;
         }
 
-        yield return new WaitForSeconds(_specialDuration);
+        yield return new WaitForSeconds(playerStats.ultimateDuration);
+
+        Debug.Log("ulti desactivada, cooldown: " + playerStats.ultimateCooldown);
 
         if (currentClassWeapon is RangedAttack rangedWeapon2)
         {
@@ -135,6 +136,6 @@ public class WeaponManager : MonoBehaviour
         }
 
         _canUseSpecial = false;
-        _timeSinceLastSpecial = _specialCooldownTime;
+        _timeSinceLastSpecial = playerStats.ultimateCooldown;
     }
 }

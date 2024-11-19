@@ -78,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 57587367
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -388347038, guid: f7de4bc6fdae90541872e3cd53540034, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -105,17 +105,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 879384cec3c68e44a87b4324a91e5836, type: 2}
   _target: {fileID: 0}
+  _targetRb: {fileID: 0}
   angle: 115
   radius: 5
   obsMask:
     serializedVersion: 2
     m_Bits: 8
-  actualHealth: 0
   personalSpaceRadius: 1
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
   separationStrength: 2
+  actualHealth: 0
 --- !u!114 &770504144821543967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739480b6e953be54396f3861e2d7f104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
   enemyWeapon: {fileID: 4539867939225048641}
   enemyStats: {fileID: 11400000, guid: 879384cec3c68e44a87b4324a91e5836, type: 2}
   experiencePoint: {fileID: 7819564320793251449, guid: 6a5d8f596e6b9384783ac36b876a1ce0, type: 3}
@@ -313,7 +313,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 57587367
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -339,6 +339,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 879384cec3c68e44a87b4324a91e5836, type: 2}
-  bulletPrefab: {fileID: 1367665112320747349, guid: 530a509c6271933499be5ed18225bf23, type: 3}
+  bulletPrefab: {fileID: 1367665112320747349, guid: 302be85f32251bc40b84ca4af130e9dc, type: 3}
   shootPoint: {fileID: 6762171844737374789}
   bulletSpeed: 10

@@ -8,6 +8,8 @@ public class ClassStats : ScriptableObject
     public int defensePercentage = 0;
     public int movementSpeed = 1;
     public float attackSpeed = 1;
+    public float ultimateCooldown;
+    public float ultimateDuration;
 
     public ClassManager.SelectedClass selectedClass; 
 }

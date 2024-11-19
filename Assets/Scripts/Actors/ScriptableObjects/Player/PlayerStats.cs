@@ -13,6 +13,8 @@ public class PlayerStats : ScriptableObject
     public int actualLevel;
     public float attackSpeed = 1;
     public float attackRange;
+    public float ultimateCooldown;
+    public float ultimateDuration;
 
     [Header("Shop Prices")]
     public int upgradeCost = 50;

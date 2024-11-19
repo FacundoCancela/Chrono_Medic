@@ -17,4 +17,6 @@ MonoBehaviour:
   defensePercentage: 0
   movementSpeed: 6
   attackSpeed: 2
+  ultimateCooldown: 5
+  ultimateDuration: 5
   selectedClass: 2

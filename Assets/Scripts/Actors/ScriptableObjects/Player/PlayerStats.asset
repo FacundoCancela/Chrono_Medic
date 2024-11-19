@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   money: 0
-  maxHealth: 300
+  maxHealth: 550
   damageMultiplier: 1
   defensePercentage: 50
-  movementSpeed: 1
+  movementSpeed: 5
   actualLevel: 0
   attackSpeed: 1
   attackRange: 0
+  ultimateCooldown: 5
+  ultimateDuration: 10
   upgradeCost: 250
-  ActualInjectionHeal: 20
+  ActualInjectionHeal: 30
   ExtraInjectionHeal: 5
   maxInjectionsHeal: 60
   ActualInjectionsLimit: 5
@@ -29,3 +31,4 @@ MonoBehaviour:
   maxInjectionsLimit: 20
   ExtraBuyHealth: 50
   maxBuyHealth: 500
+  GameStarted: 0

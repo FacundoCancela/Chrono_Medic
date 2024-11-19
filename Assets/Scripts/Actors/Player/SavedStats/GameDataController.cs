@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class GameDataController : MonoBehaviour
@@ -12,6 +13,9 @@ public class GameDataController : MonoBehaviour
     [SerializeField] public PlayerStats baseStats;
 
     public string savedFile;
+    public Button maxHealthButton;
+    public Button maxInjectionsButton;
+    public Button maxInjectionHealButton;
     public GameData gameData = new GameData();
 
 
@@ -35,7 +39,21 @@ public class GameDataController : MonoBehaviour
         savedFile = Application.dataPath + "/gameData.json";
         LoadData();
     }
-
+    public void Update()
+    {
+        if (baseStats.maxHealth == baseStats.maxBuyHealth)
+        {
+            maxHealthButton.interactable = false;
+        }
+        if (baseStats.ActualInjectionHeal == baseStats.maxInjectionsHeal)
+        {
+            maxInjectionHealButton.interactable = false;
+        }
+        if (baseStats.ActualInjectionsLimit == baseStats.maxInjectionsLimit)
+        {
+            maxInjectionsButton.interactable = false;
+        }
+    }
     private void LoadData()
     {
         if(File.Exists(savedFile))
