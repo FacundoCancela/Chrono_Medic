@@ -173,6 +173,8 @@ public class PlayerController : MonoBehaviour
     {
         _playerView.GetDamaged();
         int reducedDamage = damage - (damage * playerStats.defensePercentage / 100);
+        Debug.Log("daño: " + damage);
+        Debug.Log("daño recibido: " + reducedDamage);
         actualHealth -= reducedDamage;
         if (actualHealth <= 0)
         {

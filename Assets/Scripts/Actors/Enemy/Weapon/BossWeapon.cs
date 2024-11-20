@@ -85,6 +85,11 @@ public class BossWeapon : MonoBehaviour
         bullet.GetComponent<Rigidbody2D>().velocity = adjustedDir * bulletSpeed;
 
         canUseWeapon = false;
+
+        EnemyAttack enemyAttack = bullet.GetComponent<EnemyAttack>();
+        enemyAttack.SetDamage(enemyStats.damage);
+        Debug.Log("daño seteado: " + enemyStats.damage);
+
     }
 
 
