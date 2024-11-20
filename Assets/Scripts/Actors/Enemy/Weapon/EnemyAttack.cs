@@ -26,6 +26,7 @@ public class EnemyAttack : MonoBehaviour
             if (playerController != null)
             {
                 playerController.GetDamaged(damage);
+                Debug.Log("intento hacer: " + damage);
                 Destroy(gameObject);
             }
         }

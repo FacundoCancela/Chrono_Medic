@@ -24,5 +24,6 @@ public class EnemyWeapon : MonoBehaviour
 
         EnemyAttack enemyAttack = bullet.GetComponent<EnemyAttack>();
         enemyAttack.SetDamage(enemyStats.damage);
+        Debug.Log("daño seteado: " + enemyStats.damage);
     }
 }

@@ -17,6 +17,6 @@ MonoBehaviour:
   movementSpeed: 5
   attackRange: 1
   attackCooldown: 3
-  experienceDropped: 20
+  experienceDropped: 10
   moneyDroped: 10
   accuracyOffset: 2

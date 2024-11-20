@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d21dd8259b418542bea633a0d82d9c5, type: 3}
   m_Name: Hipopotamo Stats
   m_EditorClassIdentifier: 
-  maxHealth: 200
-  damage: 30
+  maxHealth: 250
+  damage: 40
   movementSpeed: 3
   attackRange: 1
   attackCooldown: 4
-  experienceDropped: 20
+  experienceDropped: 30
   moneyDroped: 10
   accuracyOffset: 1
