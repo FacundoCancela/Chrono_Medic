@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHealth: 800
   damage: 45
   movementSpeed: 5.1
-  attackRange: 2.5
+  attackRange: 3
   attackCooldown: 2.3
   experienceDropped: 1000
   moneyDroped: 300
