@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateCursorState()
     {
-        Debug.Log(Cursor.lockState);
+        //Debug.Log(Cursor.lockState);
 
         if (playerControllable)
         {
