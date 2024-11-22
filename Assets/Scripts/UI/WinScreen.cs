@@ -16,7 +16,7 @@ public class WinScreen : MonoBehaviour
         // Verificar si se encontró el PauseManager
         if (pauseManager != null)
         {
-            Time.timeScale = 0.0f;
+            pauseManager.PauseWithoutCanvas();
             pauseManager.canPause = false;
         }
     }

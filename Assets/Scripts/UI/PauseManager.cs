@@ -60,6 +60,14 @@ public class PauseManager : MonoBehaviour
         playerController.UpdateCursorState();
     }
 
+    public void PauseWithoutCanvas()
+    {
+        Time.timeScale = 0f;
+        gamePaused = true;
+        playerController.playerControllable = false;
+        playerController.UpdateCursorState();
+    }
+
     public void Continue()
     {
         playerController.playerControllable = true;
