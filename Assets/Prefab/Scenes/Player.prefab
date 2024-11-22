@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 6336426011545973726}
   - component: {fileID: 6998702144997350455}
   - component: {fileID: 5133965519047481615}
-  - component: {fileID: 6928402103132769816}
   - component: {fileID: 1250704523402142630}
+  - component: {fileID: 6173987496669475949}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -113,6 +113,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   inventory: {fileID: 6336426011545973726}
   loseScreen: {fileID: 0}
+  animHealth: {fileID: 0}
   classManager: {fileID: 6998702144997350455}
   nombreEscenaAJugar: MainMenu
   actualHealth: 0
@@ -229,8 +230,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &6928402103132769816
-BoxCollider2D:
+--- !u!95 &1250704523402142630
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2516428403863709618}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4129e9144f16a5a4e8ad202f5147648a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &6173987496669475949
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -261,40 +283,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07941696, y: -0.048743308}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.5}
-    newSize: {x: 19.2, y: 19.2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.7248613, y: 1.4763476}
-  m_EdgeRadius: 0
---- !u!95 &1250704523402142630
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2516428403863709618}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4129e9144f16a5a4e8ad202f5147648a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_Offset: {x: -0.06346932, y: -0.03667116}
+  m_Size: {x: 0.5211615, y: 1.4266577}
+  m_Direction: 0
 --- !u!1 &5965469095139817026
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +371,7 @@ MonoBehaviour:
   specialSwordSlash: {fileID: 0}
   attackPosition: {fileID: 7644614681997212829}
   _timeSinceLastSlashAttack: 0
+  _slashAttackInCooldown: 0
   specialAttackMode: 0
 --- !u!114 &3571248273786950874
 MonoBehaviour:
@@ -398,6 +390,7 @@ MonoBehaviour:
   Orbe: {fileID: 8295462121459392274, guid: 0bba2fbba5aa46d40a181586c84720be, type: 3}
   attackPosition: {fileID: 0}
   _timeSinceLastOrbitalAttack: 0
+  _orbitalAttackInCooldown: 0
   specialAttackMode: 0
 --- !u!114 &7524662645173540316
 MonoBehaviour:
@@ -416,6 +409,7 @@ MonoBehaviour:
   curveSword: {fileID: 3417331266045153361, guid: fe21d3c70aa108b45b8f74f490f2c78d, type: 3}
   attackPosition: {fileID: 564850219993731697}
   _timeSinceLastCurveAttack: 0
+  _curveAttackInCooldown: 0
 --- !u!114 &4143787429510404568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,6 +427,7 @@ MonoBehaviour:
   boomerang: {fileID: 3929390940216978768, guid: 739d297b2e4b9084ab30ab502ca52461, type: 3}
   attackPosition: {fileID: 7644614681997212829}
   _timeSinceLastBoomerangAttack: 0
+  _boomerangAttackInCooldown: 0
 --- !u!114 &8041027089336846611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,6 +446,7 @@ MonoBehaviour:
   attackPosition: {fileID: 11058044399516226}
   _timeSinceLastRangedAttack: 0
   extraAttackSpeed: 15
+  _rangedAttackInCooldown: 0
   specialAttackMode: 0
 --- !u!1 &7330107177123346530
 GameObject:

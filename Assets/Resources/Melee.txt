@@ -1,0 +1,7 @@
+A.E.O.N: Dr. Emilssen, before you step into the portal, let me explain one of the classes you can choose: Melee.
+A.E.O.N: This class excels in close combat, delivering powerful frontal attacks to eliminate enemies swiftly.
+A.E.O.N: As you defeat enemies and collect DNA samples, you'll be able to upgrade your Melee Weapon, enhancing its power and speed.
+A.E.O.N: When the weapon reaches its maximum upgrade level, you'll unlock its Ultimate Ability.
+A.E.O.N: This ability lets you perform a devastating, wide-range strike that can clear multiple enemies in front of you. To activate it, press "Q".
+A.E.O.N: Use this class if you want to face your foes head-on and dominate the battlefield with raw strength.
+A.E.O.N: But remember, the ultimate ability takes 60 seconds to recharge after being used. Plan its usage wisely.

@@ -1,6 +1,0 @@
-Doctor: How have you been feeling lately?
-Patient: A bit tired, but nothing too bad.
-Doctor: Have you been sleeping well?
-Patient: Not really. I’ve been staying up late with work.
-Doctor: Try to get more rest. Your body needs time to recover.
-Patient: I’ll try. Thanks for the advice, doctor.

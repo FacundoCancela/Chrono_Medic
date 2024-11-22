@@ -1,0 +1,6 @@
+A.E.O.N: Dr. Emilssen, let me introduce you to another class: Engineer.
+A.E.O.N: This class offers a unique combat style, utilizing orbiting energy orbs as both offense and defense.
+A.E.O.N: Initially, you'll have a single orb revolving around you, striking nearby enemies.
+A.E.O.N: As you upgrade the Engineer Weapon, the number of orbs will increase, and at maximum level, you'll command four orbs, greatly amplifying your offensive and defensive capabilities.
+A.E.O.N: The Ultimate Ability for this class creates a surge of additional orbs that expand into a wide-range protective and destructive field, dealing massive damage to enemies within its radius. To activate it, press "Q".
+A.E.O.N: Remember, this ability requires 60 seconds to recharge before it can be used again. Utilize it to dominate the battlefield when you're surrounded or need to deal with multiple threats at once.

@@ -14,21 +14,16 @@ public class DialogeColl : MonoBehaviour
 
     public bool isMoloDialogue = false;
 
-    private int PAUSE = 0;
     private void Start()
     {
-
         pauseManager = FindObjectOfType<PauseManager>();
-
-
         dialogueManager = FindObjectOfType<DialogueManager>();
+
         if (dialogueManager == null)
         {
             Debug.LogError("DialogueManager no encontrado en la escena.");
             return;
         }
-
-        
 
         LoadDialogueFromFile();
 
@@ -83,36 +78,24 @@ public class DialogeColl : MonoBehaviour
 
     private void Update()
     {
-        if (pauseManager != null && pauseManager.gamePaused)
-        {
-
-            dialogueManager.DeactivateDialogue();
-            PAUSE = 1;
-            return; // Salir del Update si el juego está pausado
-        }
-
-
-        if (pauseManager != null && pauseManager.gamePaused == false && PAUSE == 1 && dialogueManager.IsDialogueActive)
-        {
-
-            dialogueManager.ActivateDialogue();
-            PAUSE = 0;
-
-
-        }
-
         
-
-            if (dialogueManager != null && dialogueManager.ultimoDialogo == true)
+        if (pauseManager != null && pauseManager.gamePaused)
         {
             return;
         }
 
+        
+        if (dialogueManager != null && dialogueManager.ultimoDialogo)
+        {
+            return;
+        }
 
-
+        HandleEscapeKey();
 
         if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
+            pauseManager.canPause = false;
+
             if (pressTObject != null)
             {
                 pressTObject.SetActive(false);
@@ -123,12 +106,51 @@ public class DialogeColl : MonoBehaviour
                 if (dialogueManager.IsDialogueActive)
                 {
                     dialogueManager.OnSpacePressed();
+                    
                 }
                 else
                 {
+                    
                     dialogueManager.StartDialogue(dialogueText, isMoloDialogue);
                 }
+                
             }
         }
+
+
+
+        if (dialogueManager.DialogeActive == false && playerInRange)
+        {
+            StartCoroutine(ResetEscapeFlag());
+            pressTObject.SetActive(true);
+        }
+    }
+
+
+
+
+    private void HandleEscapeKey()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (dialogueManager != null && dialogueManager.IsDialogueActive)
+            {
+                
+                dialogueManager.DeactivateDialogue();
+                dialogueManager.ClearText();
+                dialogueManager.ResetDialogue();
+
+                
+                
+            }
+        }
+    }
+
+    private IEnumerator ResetEscapeFlag()
+    {
+       
+        yield return null; 
+    
+        pauseManager.canPause = true;
     }
 }

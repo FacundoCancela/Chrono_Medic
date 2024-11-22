@@ -1,0 +1,6 @@
+A.E.O.N: Dr. Emilssen, let me explain another class you can choose: Ranged.
+A.E.O.N: This class is ideal for those who prefer to engage enemies from a distance, using precise and strategic attacks.
+A.E.O.N: The Ranged Weapon fires controlled shots, allowing you to pick off targets effectively while keeping yourself out of harm's way.
+A.E.O.N: As you collect DNA samples and upgrade the weapon, its damage and fire rate will improve significantly.
+A.E.O.N: Once fully upgraded, you'll unlock its Ultimate Ability: a burst of scattered bullets, covering a wide area and overwhelming your enemies. To activate it, press "Q".
+A.E.O.N: Keep in mind, the ultimate ability takes 50 seconds to recharge after being used. Use it strategically to turn the tide in difficult situations.

@@ -27,6 +27,7 @@ public class ClassSelector : MonoBehaviour
     public void selectMelee()
     {
         classManager.SetCurrentClass(ClassManager.SelectedClass.Melee);
+        Debug.Log("ManagerMelee");
     }
 
     public void selectRanged()
