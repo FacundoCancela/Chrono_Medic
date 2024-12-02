@@ -15,7 +15,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] public PlayerController playerController;
 
     public bool _isInCombat = false;
-    
+
     public bool _meleeCanAttack = false;
     public bool _rangedCanAttack = false;
     public bool _engineerCanAttack = false;
@@ -46,7 +46,7 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
-        if(_isInCombat && playerController.playerAlive && playerController.playerControllable)
+        if (_isInCombat && playerController.playerAlive && playerController.playerControllable)
         {
             UseWeapon();
         }
@@ -64,6 +64,7 @@ public class WeaponManager : MonoBehaviour
         {
             StartCoroutine(ActivateSpecialMode());
         }
+
     }
 
     private void ActivateWeaponClass()
@@ -94,6 +95,11 @@ public class WeaponManager : MonoBehaviour
         {
             _automaticWeapons.Add(weapon);
         }
+    }
+
+    public void ClearAutomaticWeapon()
+    {
+        _automaticWeapons.Clear();
     }
 
     public void UseWeapon()

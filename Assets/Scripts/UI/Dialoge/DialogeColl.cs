@@ -14,6 +14,18 @@ public class DialogeColl : MonoBehaviour
 
     public bool isMoloDialogue = false;
 
+    [SerializeField] public WeaponManager weaponManager;
+
+    public enum TutorialWeapon
+    {
+        Melee,
+        Engineer,
+        Ranged,
+    }
+    [SerializeField] private TutorialWeapon selectedWeapon;
+    private IWeapon currentClassWeapon;
+
+
     private void Start()
     {
         pauseManager = FindObjectOfType<PauseManager>();
@@ -78,13 +90,13 @@ public class DialogeColl : MonoBehaviour
 
     private void Update()
     {
-        
+
         if (pauseManager != null && pauseManager.gamePaused)
         {
             return;
         }
 
-        
+
         if (dialogueManager != null && dialogueManager.ultimoDialogo)
         {
             return;
@@ -106,15 +118,18 @@ public class DialogeColl : MonoBehaviour
                 if (dialogueManager.IsDialogueActive)
                 {
                     dialogueManager.OnSpacePressed();
-                    
+
                 }
                 else
                 {
-                    
+
                     dialogueManager.StartDialogue(dialogueText, isMoloDialogue);
                 }
-                
+
             }
+
+            ActivateWeaponClass();
+
         }
 
 
@@ -126,31 +141,49 @@ public class DialogeColl : MonoBehaviour
         }
     }
 
-
-
-
     private void HandleEscapeKey()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (dialogueManager != null && dialogueManager.IsDialogueActive)
             {
-                
                 dialogueManager.DeactivateDialogue();
                 dialogueManager.ClearText();
                 dialogueManager.ResetDialogue();
 
-                
-                
             }
         }
     }
 
     private IEnumerator ResetEscapeFlag()
     {
-       
-        yield return null; 
-    
+
+        yield return null;
+
         pauseManager.canPause = true;
     }
+
+    private void ActivateWeaponClass()
+    {
+        weaponManager.ClearAutomaticWeapon();
+        switch (selectedWeapon)
+        {
+            case TutorialWeapon.Melee:
+                weaponManager._meleeCanAttack = true;
+                currentClassWeapon = FindAnyObjectByType<SwordAttack>();
+                weaponManager.AddAutomaticWeapon(currentClassWeapon);
+                break;
+            case TutorialWeapon.Ranged:
+                weaponManager._rangedCanAttack = true;
+                currentClassWeapon = FindAnyObjectByType<RangedAttack>();
+                weaponManager.AddAutomaticWeapon(currentClassWeapon);
+                break;
+            case TutorialWeapon.Engineer:
+                weaponManager._engineerCanAttack = true;
+                currentClassWeapon = FindAnyObjectByType<OrbeAttack>();
+                weaponManager.AddAutomaticWeapon(currentClassWeapon);
+                break;
+        }
+    }
+
 }

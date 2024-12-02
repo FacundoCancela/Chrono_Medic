@@ -52,8 +52,11 @@ public class ExperienceManager : MonoBehaviour
 
     private void Awake()
     {
-        XpBar.SetMaxXP(maxExperience);
-        XpBar.SetXP(actualExperience);
+        if (XpBar != null)
+        {
+            XpBar.SetMaxXP(maxExperience);
+            XpBar.SetXP(actualExperience);
+        }        
     }
 
     private void Update()
@@ -93,7 +96,8 @@ public class ExperienceManager : MonoBehaviour
 
     public void LevelUp()
     {
-        levelUPScreen.gameObject.SetActive(true);
+        if(levelUPScreen != null)
+            levelUPScreen.gameObject.SetActive(true);
 
         pausedManager.canPause = false;
         Time.timeScale = 0f;

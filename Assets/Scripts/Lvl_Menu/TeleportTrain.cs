@@ -6,6 +6,7 @@ public class TeleportTrain : MonoBehaviour
 {
     
     [SerializeField] private Transform destination;
+    [SerializeField] private WeaponManager weaponManager;
     private PlayerController _player;
 
     public GameObject interaccion;
@@ -47,10 +48,10 @@ public class TeleportTrain : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && isInteracting)
-
         {
             //interaccion.SetActive()
             _player.transform.position = destination.position;
+            weaponManager._isInCombat = !weaponManager._isInCombat;
         }
     }
 
