@@ -15,12 +15,6 @@ public class BossModel : Actor
 
     public static event Action<EnemyDeathData> OnBossDeath;
 
-    private void OnDestroy()
-    {
-        EnemyDeath();
-    }
-
-
     public override void Move(Vector2 dir)
     {
         dir *= enemyStats.movementSpeed;

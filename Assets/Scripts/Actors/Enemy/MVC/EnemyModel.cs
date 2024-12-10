@@ -24,11 +24,6 @@ public class EnemyModel : Actor
         HandleCooldown();
     }
 
-    private void OnDestroy()
-    {
-        EnemyDeath();
-    }
-
     private void HandleCooldown()
     {
         if (!canUseWeapon)

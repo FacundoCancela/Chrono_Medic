@@ -15,6 +15,22 @@ public class HealthBar : MonoBehaviour
     public int maxHealthText;             
     private float _healthPercent;
 
+    private void OnEnable()
+    {
+        PlayerController.OnHealthUpdated += UpdateHealthBar;
+    }
+
+    private void OnDisable()
+    {
+        PlayerController.OnHealthUpdated -= UpdateHealthBar;
+    }
+
+    private void UpdateHealthBar(int health, int maxHealth)
+    {
+        SetMaxHealth(maxHealth);
+        SetHealth(health);
+    }
+
     public void SetMaxHealth(int maxHealth)
     {
         maxHealthText = maxHealth;

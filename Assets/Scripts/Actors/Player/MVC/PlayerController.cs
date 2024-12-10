@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public static event Action<int, int> OnHealthUpdated;
+
     private PauseManager pauseManager;
     private DialogueManager dialogueManager;
 
     public PlayerStats playerStats;
     public PlayerStats baseStats;
-    public HealthBar healthBar;
     public Inventory inventory;
     [SerializeField] public LoseScreen loseScreen;
 
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 1.0f;
 
         UpdateClassStats();
+        TriggerHealthUpdated();
     }
 
     private void Update()
@@ -65,12 +68,7 @@ public class PlayerController : MonoBehaviour
                 Walk();
                 UseInventoryItem();
             }
-        }
-
-        if (healthBar != null)
-            HealthBarManager();
-
-        
+        }        
     }
 
     public void UpdateCursorState()
@@ -145,42 +143,31 @@ public class PlayerController : MonoBehaviour
             GameDataController.Instance.SaveData();
         }
     }
-
-
-    public void HealthBarManager()
-    {
-        if(actualHealth >= playerStats.maxHealth)
-        {
-            healthBar.SetMaxHealth(actualHealth);
-        }
-        else healthBar.SetHealth(actualHealth);
-
-        if (animHealth != null)
-        {
-            SetAnim();
-        }
-    }
    
     public void GetHealed(int hpHealed)
     {
         actualHealth += hpHealed;
         if (actualHealth > playerStats.maxHealth) actualHealth = playerStats.maxHealth;
-        healthBar.SetHealth(actualHealth);
         _playerView.anim.SetTrigger("Heal");
+        TriggerHealthUpdated();
     }
 
     public void GetDamaged(int damage)
     {
         _playerView.GetDamaged();
         int reducedDamage = damage - (damage * playerStats.defensePercentage / 100);
-        Debug.Log("daño: " + damage);
-        Debug.Log("daño recibido: " + reducedDamage);
         actualHealth -= reducedDamage;
         if (actualHealth <= 0)
         {
             _playerView.anim.SetTrigger("Dead");
             Die();
         }
+        TriggerHealthUpdated();
+    }
+
+    private void TriggerHealthUpdated()
+    {
+        OnHealthUpdated?.Invoke(actualHealth, playerStats.maxHealth);
     }
 
     public void Die()
@@ -189,7 +176,7 @@ public class PlayerController : MonoBehaviour
         playerControllable = false;
         UpdateCursorState();
         _player.Move(Vector2.zero);
-        HealthBarManager();
+        TriggerHealthUpdated();
         StartCoroutine(DeathCoroutine());
     }
     private IEnumerator DeathCoroutine()
