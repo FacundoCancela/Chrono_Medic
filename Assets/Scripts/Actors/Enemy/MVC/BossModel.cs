@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,14 @@ public class BossModel : Actor
 
     [SerializeField] private GameObject objectToSpawnOnDeath;
 
+    public static event Action<EnemyDeathData> OnBossDeath;
+
+    private void OnDestroy()
+    {
+        EnemyDeath();
+    }
+
+
     public override void Move(Vector2 dir)
     {
         dir *= enemyStats.movementSpeed;
@@ -25,11 +34,15 @@ public class BossModel : Actor
 
     public void EnemyDeath()
     {
+        var deathData = new EnemyDeathData
+        {
+            MoneyDropped = enemyStats.moneyDroped,
+            ExperienceDropped = enemyStats.experienceDropped
+        };
+
         // Incrementa dinero y experiencia, y gestiona el drop del enemigo
-        GameDataController.Instance.IncreaseMoney(enemyStats.moneyDroped);
-        DropManager.Instance.DropSomething(transform.position, DropType.Boss);
-        WaveManager.Instance.OnEnemyKilled();
-        experiencePoint.ExperienceDrop(enemyStats.experienceDropped);
+        OnBossDeath?.Invoke(deathData);
+        RequestDrop(transform.position, DropType.Boss);
 
         // Instanciar el objeto y ajustar la escala para que sea la misma que la del jefe
         if (objectToSpawnOnDeath != null)

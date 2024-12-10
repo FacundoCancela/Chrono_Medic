@@ -17,12 +17,14 @@ public class DropManager : MonoBehaviour
     public List<int> bossDropWeights;
     public List<int> vaseDropWeights;
 
+    public static event System.Action<Vector3, DropType> OnDropRequested;
+
+    private static DropManager instance;
 
     public static DropManager Instance
     {
         get { return instance; }
     }
-    private static DropManager instance;
 
     private void Awake()
     {
@@ -34,9 +36,21 @@ public class DropManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        OnDropRequested += HandleDropRequest;
     }
 
-    public void DropSomething(Vector3 dropPosition, DropType dropType)
+    private void OnDestroy()
+    {
+        OnDropRequested -= HandleDropRequest;
+    }
+
+    public static void RequestDrop(Vector3 dropPosition, DropType dropType)
+    {
+        OnDropRequested?.Invoke(dropPosition, dropType);
+    }
+
+    private void HandleDropRequest(Vector3 dropPosition, DropType dropType)
     {
         List<int> selectedDropWeights;
 
@@ -78,5 +92,4 @@ public class DropManager : MonoBehaviour
             }
         }
     }
-
 }

@@ -17,7 +17,7 @@ public class Jarron : MonoBehaviour, IEnemyController
     {
         if (actualHealth <= 0)
         {
-            DropManager.Instance.DropSomething(transform.position, DropType.Vase);
+            RequestDrop(transform.position, DropType.Vase);
             Destroy(gameObject);
         }
     }

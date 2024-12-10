@@ -48,6 +48,15 @@ public class WaveManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        EnemyModel.OnEnemyDeath += HandleEnemyDeath;
+        BossModel.OnBossDeath += HandleEnemyDeath;
+    }
+
+    private void OnDisable()
+    {
+        EnemyModel.OnEnemyDeath -= HandleEnemyDeath;
+        BossModel.OnBossDeath -= HandleEnemyDeath;
     }
 
     private void Start()
@@ -126,7 +135,7 @@ public class WaveManager : MonoBehaviour
         waveCount.updateWave(actualWave, maxWave);
     }
 
-    public void OnEnemyKilled()
+    private void HandleEnemyDeath(EnemyDeathData deathData)
     {
         enemiesAlive--;
     }

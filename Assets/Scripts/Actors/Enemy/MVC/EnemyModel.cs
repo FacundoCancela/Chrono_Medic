@@ -17,9 +17,16 @@ public class EnemyModel : Actor
     private float fireRateTimer = 0.0f;
     public bool canUseWeapon = true;
 
+    public static event Action<EnemyDeathData> OnEnemyDeath;
+
     private void Update()
     {
         HandleCooldown();
+    }
+
+    private void OnDestroy()
+    {
+        EnemyDeath();
     }
 
     private void HandleCooldown()
@@ -53,10 +60,19 @@ public class EnemyModel : Actor
 
     public void EnemyDeath()
     {
-        GameDataController.Instance.IncreaseMoney(enemyStats.moneyDroped);
-        DropManager.Instance.DropSomething(transform.position, DropType.Enemy);
-        WaveManager.Instance.OnEnemyKilled();
-        experiencePoint.ExperienceDrop(enemyStats.experienceDropped);
-    }
+        var deathData = new EnemyDeathData
+        {
+            MoneyDropped = enemyStats.moneyDroped,
+            ExperienceDropped = enemyStats.experienceDropped
+        };
 
+        OnEnemyDeath?.Invoke(deathData);
+        RequestDrop(transform.position, DropType.Enemy);
+    }
+}
+
+public class EnemyDeathData
+{
+    public int MoneyDropped { get; set; }
+    public int ExperienceDropped { get; set; }
 }

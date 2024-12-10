@@ -38,7 +38,22 @@ public class GameDataController : MonoBehaviour
 
         savedFile = Application.dataPath + "/gameData.json";
         LoadData();
+
+        EnemyModel.OnEnemyDeath += HandleEnemyDeath;
+        BossModel.OnBossDeath += HandleEnemyDeath;
     }
+
+    private void OnDestroy()
+    {
+        EnemyModel.OnEnemyDeath -= HandleEnemyDeath;
+        BossModel.OnBossDeath -= HandleEnemyDeath;
+    }
+
+    private void HandleEnemyDeath(EnemyDeathData deathData)
+    {
+        IncreaseMoney(deathData.MoneyDropped);
+    }
+
     public void Update()
     {
         if (baseStats.maxHealth == baseStats.maxBuyHealth)

@@ -6,9 +6,21 @@ public class ExperiencePoint : MonoBehaviour
 {
     public int experience;
 
-    public void ExperienceDrop(int experienceDroped)
+    private void Awake()
     {
-        experience = experienceDroped;
+        EnemyModel.OnEnemyDeath += HandleEnemyDeath;
+        BossModel.OnBossDeath += HandleEnemyDeath;
+    }
+
+    private void OnDestroy()
+    {
+        EnemyModel.OnEnemyDeath -= HandleEnemyDeath;
+        BossModel.OnBossDeath -= HandleEnemyDeath;
+    }
+
+    private void HandleEnemyDeath(EnemyDeathData deathData)
+    {
+        experience = deathData.ExperienceDropped;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
