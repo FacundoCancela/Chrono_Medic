@@ -7,7 +7,6 @@ using System;
 public class WaveManager : MonoBehaviour
 {
     [SerializeField] WaveCount waveCount;
-    [SerializeField] WinScreen winScreen;
     [SerializeField] public int maxWave;
     [SerializeField] public int actualWave = 0;
     private bool waveInProgress;
@@ -54,13 +53,14 @@ public class WaveManager : MonoBehaviour
 
         EnemyModel.OnEnemyDeath += HandleEnemyDeath;
         BossModel.OnBossDeath += HandleEnemyDeath;
-        
+        BossModel.OnEndBossBattle += EndBossBattle;
     }
 
     private void OnDisable()
     {
         EnemyModel.OnEnemyDeath -= HandleEnemyDeath;
         BossModel.OnBossDeath -= HandleEnemyDeath;
+        BossModel.OnEndBossBattle -= EndBossBattle;
     }
 
     private void Start()
@@ -151,7 +151,6 @@ public class WaveManager : MonoBehaviour
 
     public void EndBossBattle()
     {
-        StartNextWave();
         bossBattleInProgress = false;
     }
 
@@ -163,7 +162,6 @@ public class WaveManager : MonoBehaviour
     public void Win()
     {
         OnWin?.Invoke();
-        //winScreen.gameObject.SetActive(true);
     }
     public IEnumerator WaveCanvasDelay(GameObject gameObject)
     {

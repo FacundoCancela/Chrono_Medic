@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public PlayerStats playerStats;
     public PlayerStats baseStats;
     public Inventory inventory;
-    [SerializeField] public LoseScreen loseScreen;
 
     public Animator animHealth;
 
@@ -74,8 +73,6 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateCursorState()
     {
-        //Debug.Log(Cursor.lockState);
-
         if (playerControllable)
         {
             Cursor.visible = false;
@@ -184,7 +181,6 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         this.gameObject.SetActive(false);
-        //loseScreen.gameObject.SetActive(true);
         OnPlayerDeath?.Invoke();
     }
 

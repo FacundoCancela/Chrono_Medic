@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,26 +18,10 @@ public class DropManager : MonoBehaviour
     public List<int> bossDropWeights;
     public List<int> vaseDropWeights;
 
-    public static event System.Action<Vector3, DropType> OnDropRequested;
-
-    private static DropManager instance;
-
-    public static DropManager Instance
-    {
-        get { return instance; }
-    }
+    public static event Action<Vector3, DropType> OnDropRequested;
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
         OnDropRequested += HandleDropRequest;
     }
 
@@ -80,7 +65,7 @@ public class DropManager : MonoBehaviour
             totalWeight += selectedDropWeights[i];
         }
 
-        int randomWeight = Random.Range(0, totalWeight);
+        int randomWeight = UnityEngine.Random.Range(0, totalWeight);
         int cumulativeWeight = 0;
         for (int i = 0; i < dropPrefabs.Count; i++)
         {

@@ -14,6 +14,7 @@ public class BossModel : Actor
     [SerializeField] private GameObject objectToSpawnOnDeath;
 
     public static event Action<EnemyDeathData> OnBossDeath;
+    public static event Action OnEndBossBattle;
 
     public override void Move(Vector2 dir)
     {
@@ -60,7 +61,7 @@ public class BossModel : Actor
         }
 
         // Finalizar la batalla de jefe y destruir al jefe
-        WaveManager.Instance.EndBossBattle();
+        OnEndBossBattle?.Invoke();
         Destroy(gameObject);
     }
 }
