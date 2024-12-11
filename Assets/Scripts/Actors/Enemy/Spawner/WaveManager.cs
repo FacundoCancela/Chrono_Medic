@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System;
 
 public class WaveManager : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private bool noSpawnEnemies = true;
     [SerializeField] GameObject playerPortal;
 
+    public static event Action OnWin;
+
     public static WaveManager Instance
     {
         get { return instance; }
@@ -51,6 +54,7 @@ public class WaveManager : MonoBehaviour
 
         EnemyModel.OnEnemyDeath += HandleEnemyDeath;
         BossModel.OnBossDeath += HandleEnemyDeath;
+        
     }
 
     private void OnDisable()
@@ -158,7 +162,8 @@ public class WaveManager : MonoBehaviour
 
     public void Win()
     {
-        winScreen.gameObject.SetActive(true);
+        OnWin?.Invoke();
+        //winScreen.gameObject.SetActive(true);
     }
     public IEnumerator WaveCanvasDelay(GameObject gameObject)
     {

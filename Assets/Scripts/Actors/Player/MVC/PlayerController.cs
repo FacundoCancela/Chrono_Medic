@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public static event Action<int, int> OnHealthUpdated;
+    public static event Action OnPlayerDeath;
 
     private PauseManager pauseManager;
     private DialogueManager dialogueManager;
@@ -183,7 +184,8 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         this.gameObject.SetActive(false);
-        loseScreen.gameObject.SetActive(true);
+        //loseScreen.gameObject.SetActive(true);
+        OnPlayerDeath?.Invoke();
     }
 
     public void UpdateStats(PlayerStats newStats)

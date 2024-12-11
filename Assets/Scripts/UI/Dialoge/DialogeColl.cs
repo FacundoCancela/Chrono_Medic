@@ -165,7 +165,8 @@ public class DialogeColl : MonoBehaviour
 
     private void ActivateWeaponClass()
     {
-        weaponManager.ClearAutomaticWeapon();
+        if(weaponManager != null)
+            weaponManager.ClearAutomaticWeapon();
         switch (selectedWeapon)
         {
             case TutorialWeapon.Melee:
