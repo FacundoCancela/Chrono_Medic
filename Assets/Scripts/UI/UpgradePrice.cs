@@ -8,15 +8,24 @@ public class UpgradePrice : MonoBehaviour
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI InjectionHealText;
     public TextMeshProUGUI InjectionLimitText;
-    [SerializeField] ShopUpgrade shopUpgrade;
     [SerializeField] PlayerStats baseStats;
 
-    private void Update()
+    private void OnEnable()
     {
+        ShopUpgrade.OnHealthUpgraded += HealthPrice;
+        ShopUpgrade.OnInjectionsLimitUpgraded += InjectionLimitPrice;
+        ShopUpgrade.OnInjectionsHealUpgraded += InjectionHealPrice;
         HealthPrice();
-        InjectionHealPrice();
         InjectionLimitPrice();
+        InjectionHealPrice();
     }
+    private void OnDisable()
+    {
+        ShopUpgrade.OnHealthUpgraded -= HealthPrice;
+        ShopUpgrade.OnInjectionsLimitUpgraded -= InjectionLimitPrice;
+        ShopUpgrade.OnInjectionsHealUpgraded -= InjectionHealPrice;
+    }
+
 
     public void HealthPrice()
     {
