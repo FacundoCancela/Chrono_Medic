@@ -5,6 +5,7 @@ using System.IO;
 using Newtonsoft.Json;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 
 public class GameDataController : MonoBehaviour
@@ -18,6 +19,7 @@ public class GameDataController : MonoBehaviour
     public Button maxInjectionHealButton;
     public GameData gameData = new GameData();
 
+    public static event Action OnMoneyChanged;
 
     public static GameDataController Instance
     {
@@ -56,15 +58,15 @@ public class GameDataController : MonoBehaviour
 
     public void Update()
     {
-        if (baseStats.maxHealth == baseStats.maxBuyHealth)
+        if (baseStats.maxHealth == baseStats.maxBuyHealth && maxHealthButton != null)
         {
             maxHealthButton.interactable = false;
         }
-        if (baseStats.ActualInjectionHeal == baseStats.maxInjectionsHeal)
+        if (baseStats.ActualInjectionHeal == baseStats.maxInjectionsHeal && maxInjectionHealButton != null)
         {
             maxInjectionHealButton.interactable = false;
         }
-        if (baseStats.ActualInjectionsLimit == baseStats.maxInjectionsLimit)
+        if (baseStats.ActualInjectionsLimit == baseStats.maxInjectionsLimit && maxInjectionsButton != null)
         {
             maxInjectionsButton.interactable = false;
         }
@@ -181,6 +183,7 @@ public class GameDataController : MonoBehaviour
         gameData.money += moreMoney;
         baseStats.money = gameData.money;
         SaveData();
+        OnMoneyChanged?.Invoke();
     }
 
     public void DecreaseMoney(int spentMoney)
@@ -189,6 +192,7 @@ public class GameDataController : MonoBehaviour
         baseStats.money = gameData.money;
         player.UpdateStats(baseStats);
         SaveData();
+        OnMoneyChanged?.Invoke();
     }
 
     public void BasicUpgradePrice()

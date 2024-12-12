@@ -8,8 +8,19 @@ public class MoneyCount : MonoBehaviour
     public TextMeshProUGUI text;
     [SerializeField] public PlayerStats playerStats;
 
-    private void Update()
+    private void OnEnable()
+    {
+        GameDataController.OnMoneyChanged += UpdateMoney;
+        UpdateMoney();
+    }
+    private void OnDisable()
+    {
+        GameDataController.OnMoneyChanged -= UpdateMoney;
+    }
+
+    private void UpdateMoney()
     {
         text.text = ("" + playerStats.money);
     }
+
 }
