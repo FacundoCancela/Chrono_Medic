@@ -17,6 +17,7 @@ public class HudCD : MonoBehaviour
     public BoomerangAttack boomerangAttack;
     public RangedAttack rangedAttack;
     public OrbeAttack orbeAttack;
+    public ExperienceManager experienceManager;
 
     public void Start()
     {
@@ -37,27 +38,25 @@ public class HudCD : MonoBehaviour
             switch (spriteName)
             {
                 case "Melee":
-                    abilityCooldown(swordAttack._timeSinceLastSlashAttack, images[i], texts[i]);
+                    abilityCooldown(swordAttack._timeSinceLastSlashAttack, experienceManager.meleeCooldown, images[i], texts[i]);
                     break;
                 case "Range":
-                    abilityCooldown(rangedAttack._timeSinceLastRangedAttack,images[i], texts[i]);
+                    abilityCooldown(rangedAttack._timeSinceLastRangedAttack, experienceManager.rangedCooldown, images[i], texts[i]);
                     break;
                 case "Engineer":
-                    abilityCooldown(orbeAttack._timeSinceLastOrbitalAttack,images[i], texts[i]);
+                    abilityCooldown(orbeAttack._timeSinceLastOrbitalAttack,experienceManager.orbitalCooldown, images[i], texts[i]);
                     break;
                 case "Curve":
-                    abilityCooldown(curveAttack._timeSinceLastCurveAttack,images[i], texts[i]);
+                    abilityCooldown(curveAttack._timeSinceLastCurveAttack, experienceManager.curveSwordCooldown, images[i], texts[i]);
                     break;
                 case "Boomerang":
-                    abilityCooldown(boomerangAttack._timeSinceLastBoomerangAttack,images[i], texts[i]);
+                    abilityCooldown(boomerangAttack._timeSinceLastBoomerangAttack,experienceManager.boomerangCooldown, images[i], texts[i]);
                     break;
             }
-        }
-        
-        
+        }   
     }
 
-    private void abilityCooldown(float currentCooldown,Image skillImage, TextMeshProUGUI skillText)
+    private void abilityCooldown(float currentCooldown, float maxCooldown, Image skillImage, TextMeshProUGUI skillText)
     {
         if(currentCooldown <= 0f)
         {
@@ -74,7 +73,7 @@ public class HudCD : MonoBehaviour
         {
             if (skillImage != null)
             {
-                skillImage.fillAmount = currentCooldown;
+                skillImage.fillAmount = currentCooldown / maxCooldown;
             }
             if (skillText != null)
             {
