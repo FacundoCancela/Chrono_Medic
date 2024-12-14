@@ -19,7 +19,6 @@ public class WaveManager : MonoBehaviour
     public bool EndDialogueBos; // Este bool será true solo después del diálogo de Molo
 
     [SerializeField] public EnemySpawner enemySpawner;
-    [SerializeField] public List<GameObject> bossPrefabs;
     public int enemiesAlive;
 
     [SerializeField] WaveStats waveStats;
@@ -66,7 +65,6 @@ public class WaveManager : MonoBehaviour
     private void Start()
     {
         ResetTimerAndEnemies();
-        StartNextWave();
     }
 
     private void Update()
@@ -92,7 +90,6 @@ public class WaveManager : MonoBehaviour
             if (waveTimer <= 0f && !bossBattleInProgress)
             {
                 ResetTimerAndEnemies();
-                StartNextWave();
             }
 
             
@@ -109,7 +106,7 @@ public class WaveManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F9))
         {
-            StartNextWave();
+            ResetTimerAndEnemies();
         }
 
     }
@@ -124,7 +121,7 @@ public class WaveManager : MonoBehaviour
         StartCoroutine(WaveCanvasDelay(waveCanvas));
         if (actualWave == 5 && !ammitAlreadySpawned)
         {
-            enemySpawner.SpawnAmmitBoss();
+            enemySpawner.SpawnBoss("Ammit");
             bossBattleInProgress = true;
             ammitAlreadySpawned = true;
         }
@@ -147,10 +144,12 @@ public class WaveManager : MonoBehaviour
     public void ResetTimerAndEnemies()
     {
         waveTimer = waveStats.waveTimer[actualWave + 1];
+        StartNextWave();
     }
 
     public void EndBossBattle()
     {
+        ResetTimerAndEnemies();
         bossBattleInProgress = false;
     }
 

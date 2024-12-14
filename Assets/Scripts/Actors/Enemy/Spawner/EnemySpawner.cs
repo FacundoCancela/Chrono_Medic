@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] List<GameObject> portals;
     [SerializeField] List<GameObject> bossPortals;
     [SerializeField] List<SpawnList> spawnList;
+    [SerializeField] List<BossData> bossDataList;
     private GameObject activePortal;
     private float portalChangeTimer = 0f;
     [SerializeField] private float portalChangeInterval = 5f;
@@ -35,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         playerTransform = FindObjectOfType<PlayerController>().transform;
-        ChangeActivePortal(); 
+        ChangeActivePortal();
     }
 
     private void Update()
@@ -43,8 +44,8 @@ public class EnemySpawner : MonoBehaviour
         portalChangeTimer += Time.deltaTime;
         if (portalChangeTimer >= portalChangeInterval)
         {
-            ChangeActivePortal(); 
-            portalChangeTimer = 0f; 
+            ChangeActivePortal();
+            portalChangeTimer = 0f;
         }
     }
 
@@ -84,42 +85,42 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void SpawnAmmitBoss()
+    public void SpawnBoss(string bossName, Vector3? spawnPosition = null)
     {
-        if (playerTransform != null && activePortal != null)
-        {
-            GameObject selectedEnemyPrefab = waveManager.bossPrefabs[0];
-            Instantiate(selectedEnemyPrefab, activePortal.transform.position, Quaternion.identity);
-        }
-    }
-
-    public void SpawnAmmitAndAnubisBoss()
-    {
-        if (playerTransform != null && activePortal != null)
-        {
+        if(bossName == "AmmitAndAnubis")
             ActivateBossPortal();
-            GameObject selectedEnemyPrefab = waveManager.bossPrefabs[1];
-            Instantiate(selectedEnemyPrefab, bossPortals[0].transform.position, Quaternion.identity);
+
+        if (playerTransform != null)
+        {
+            BossData bossData = bossDataList.Find(boss => boss.bossName == bossName);
+
+            if (bossData != null)
+            {
+                Vector3 position = spawnPosition ?? activePortal.transform.position;
+                Instantiate(bossData.bossPrefab, position, Quaternion.identity);
+            }
+            else
+            {
+                Debug.LogWarning($"No se encontró un jefe con el nombre {bossName}.");
+            }
         }
     }
 
     public void ActivateBossPortal()
     {
         SpriteRenderer spriteRenderer = bossPortals[0].GetComponent<SpriteRenderer>();
+        activePortal = bossPortals[0];
         if (spriteRenderer != null)
         {
             spriteRenderer.enabled = true;
         }
 
     }
+}
 
-
-    public void SpawnAnubisBoss(Vector3 spawnPosition)
-    {
-        if (playerTransform != null && activePortal != null)
-        {
-            GameObject selectedEnemyPrefab = waveManager.bossPrefabs[2];
-            Instantiate(selectedEnemyPrefab, spawnPosition, Quaternion.identity);
-        }
-    }
+[System.Serializable]
+public class BossData
+{
+    public string bossName;
+    public GameObject bossPrefab;
 }

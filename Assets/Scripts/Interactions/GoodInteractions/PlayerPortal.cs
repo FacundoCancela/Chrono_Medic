@@ -13,7 +13,7 @@ public class PlayerPortal : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.transform.position = destination.position;
-            EnemySpawner.Instance.SpawnAmmitAndAnubisBoss();
+            EnemySpawner.Instance.SpawnBoss("AmmitAndAnubis");
             arrow.SetActive(false);
         }
     }

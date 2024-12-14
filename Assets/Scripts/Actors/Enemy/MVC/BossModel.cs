@@ -49,7 +49,7 @@ public class BossModel : Actor
         // Condición especial para Ammit y Anubis
         if (bossWeapon.bossType == BossWeapon.BossType.AmmitAndAnubis)
         {
-            EnemySpawner.Instance.SpawnAnubisBoss(transform.position);
+            EnemySpawner.Instance.SpawnBoss("Anubis", transform.position);
             Destroy(gameObject);
             return;
         }

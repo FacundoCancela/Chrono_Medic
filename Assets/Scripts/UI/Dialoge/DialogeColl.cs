@@ -166,24 +166,26 @@ public class DialogeColl : MonoBehaviour
     private void ActivateWeaponClass()
     {
         if(weaponManager != null)
-            weaponManager.ClearAutomaticWeapon();
-        switch (selectedWeapon)
         {
-            case TutorialWeapon.Melee:
-                weaponManager._meleeCanAttack = true;
-                currentClassWeapon = FindAnyObjectByType<SwordAttack>();
-                weaponManager.AddAutomaticWeapon(currentClassWeapon);
-                break;
-            case TutorialWeapon.Ranged:
-                weaponManager._rangedCanAttack = true;
-                currentClassWeapon = FindAnyObjectByType<RangedAttack>();
-                weaponManager.AddAutomaticWeapon(currentClassWeapon);
-                break;
-            case TutorialWeapon.Engineer:
-                weaponManager._engineerCanAttack = true;
-                currentClassWeapon = FindAnyObjectByType<OrbeAttack>();
-                weaponManager.AddAutomaticWeapon(currentClassWeapon);
-                break;
+            weaponManager.ClearAutomaticWeapon();
+            switch (selectedWeapon)
+            {
+                case TutorialWeapon.Melee:
+                    weaponManager._meleeCanAttack = true;
+                    currentClassWeapon = FindAnyObjectByType<SwordAttack>();
+                    weaponManager.AddAutomaticWeapon(currentClassWeapon);
+                    break;
+                case TutorialWeapon.Ranged:
+                    weaponManager._rangedCanAttack = true;
+                    currentClassWeapon = FindAnyObjectByType<RangedAttack>();
+                    weaponManager.AddAutomaticWeapon(currentClassWeapon);
+                    break;
+                case TutorialWeapon.Engineer:
+                    weaponManager._engineerCanAttack = true;
+                    currentClassWeapon = FindAnyObjectByType<OrbeAttack>();
+                    weaponManager.AddAutomaticWeapon(currentClassWeapon);
+                    break;
+            }
         }
     }
 
