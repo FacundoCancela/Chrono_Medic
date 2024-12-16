@@ -8,7 +8,7 @@ public class ClassSelector : MonoBehaviour
 {
     [SerializeField] SceneChanger sceneChanger;
     [SerializeField] ClassManager classManager;
-    [SerializeField] List<TextMeshProUGUI> classTexts; // Asigna los textos de las clases en el orden Melee, Ranged, Engineer
+    [SerializeField] List<TextMeshProUGUI> classTexts; 
         
     public string sceneName;
 

@@ -8,7 +8,7 @@ public class Orbe : MonoBehaviour
     [SerializeField] public ExperienceManager experienceManager;
     [SerializeField] public PlayerStats playerStats;
 
-    private float currentAngle; // Ángulo actual del orbe alrededor del personaje
+    private float currentAngle; 
     private float orbitalRadius;
 
     private void Awake()
@@ -25,16 +25,16 @@ public class Orbe : MonoBehaviour
 
     private void Update()
     {
-        // Incrementar el ángulo de rotación de manera constante
+      
         currentAngle += experienceManager.orbitalSpeed * Time.deltaTime;
 
-        // Mantener la posición del orbe en función del ángulo
+        
         float x = Mathf.Cos(currentAngle) * orbitalRadius;
         float y = Mathf.Sin(currentAngle) * orbitalRadius;
         transform.position = pivot.transform.position + new Vector3(x, y, 0);
     }
 
-    // Método para establecer el ángulo inicial del orbe
+   
     public void SetInitialAngle(float initialAngle)
     {
         currentAngle = initialAngle;

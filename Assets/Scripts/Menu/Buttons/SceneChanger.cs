@@ -18,7 +18,7 @@ public class SceneChanger : MonoBehaviour
 
     public void CambiarEscenaDefault()
     {
-        // Cambiar a la escena especificada
+        
         Time.timeScale = 1.0f;
 
         if(gameManager != null)
@@ -31,7 +31,7 @@ public class SceneChanger : MonoBehaviour
 
     public void CambiarEscena(string nombreEscenaAJugar)
     {
-        // Cambiar a la escena especificada
+       
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(nombreEscenaAJugar);
         if (pauseManager != null)

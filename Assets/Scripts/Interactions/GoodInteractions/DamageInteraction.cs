@@ -42,7 +42,7 @@ public class DamageInteraction : MonoBehaviour
 
         if (pauseManager != null && pauseManager.gamePaused)
         {
-            return; // Salir del Update si el juego está pausado
+            return; 
         }
 
 

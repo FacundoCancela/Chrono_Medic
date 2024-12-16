@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.UI.Image;
 
-//Constantes para el blackboard
+
 public static class EnemyBlackBoardConsts
 {
     public static string B__IS_DEAD = "bool_IsDead";
@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
 {
     public EnemyStats enemyStats;
 
-    //Variables de IA
+   
     EnemyModel _model;
     EnemyView _view;
     [SerializeField] PlayerController _target;
@@ -29,11 +29,11 @@ public class EnemyController : MonoBehaviour, IEnemyController
     FSM<EnemyStatesEnum> _fsm;
     ISteering _steering;
 
-    public float personalSpaceRadius = 2.0f; // Radio del rea personal
-    public LayerMask enemyLayer; // Capa que define qu son enemigos
-    public float separationStrength = 1.0f; // Fuerza de separacin
+    public float personalSpaceRadius = 2.0f; 
+    public LayerMask enemyLayer; 
+    public float separationStrength = 1.0f; 
 
-    //Variables
+   
     private float shootRange;
     public int actualHealth;
 
@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
 
     private void Awake()
     {
-        //referencias
+        
         _model = GetComponent<EnemyModel>();
         _view = GetComponent<EnemyView>();
         _target = FindObjectOfType<PlayerController>();
@@ -54,7 +54,7 @@ public class EnemyController : MonoBehaviour, IEnemyController
             _targetRb = _target.GetComponent<Rigidbody2D>();
         }
 
-        //inicializaciones 
+       
         InitilizeSteering();
         InitializeFSM();
 

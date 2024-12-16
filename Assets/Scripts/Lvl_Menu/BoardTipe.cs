@@ -29,7 +29,7 @@ public class BoardTipe : MonoBehaviour
                     classSelector.selectEngineer();
                     break;
             }
-            Debug.Log($"Clase {boardType} seleccionada.");
+            
         }
     }
 }

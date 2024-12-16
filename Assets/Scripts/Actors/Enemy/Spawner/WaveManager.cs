@@ -16,7 +16,7 @@ public class WaveManager : MonoBehaviour
 
     private DialogueManager dialogueManager;
 
-    public bool EndDialogueBos; // Este bool será true solo después del diálogo de Molo
+    public bool EndDialogueBos; 
 
     [SerializeField] public EnemySpawner enemySpawner;
     public int enemiesAlive;
@@ -69,7 +69,7 @@ public class WaveManager : MonoBehaviour
 
     private void Update()
     {
-        if (EndDialogueBos) // Verifica si es el final del diálogo de Molo
+        if (EndDialogueBos) 
         {
             Win();
             Debug.Log("Win");
@@ -78,7 +78,7 @@ public class WaveManager : MonoBehaviour
 
         if (dialogueManager != null && dialogueManager.DialogeActive)
         {
-            return; // Salir del Update si el juego está pausado
+            return; 
         }
 
         if (waveInProgress && !noSpawnEnemies)

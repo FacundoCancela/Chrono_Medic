@@ -11,7 +11,7 @@ public class OrbeAttack : MonoBehaviour, IWeapon
     [SerializeField] public float _timeSinceLastOrbitalAttack = 0f;
     public bool _orbitalAttackInCooldown = false;
 
-    // Controla si está en modo especial
+    
     public bool specialAttackMode = false;
 
     private void Update()
@@ -43,7 +43,7 @@ public class OrbeAttack : MonoBehaviour, IWeapon
             {
                 float angle = startingAngle + i * angleStep;
 
-                // Crear orbe normal
+                
                 Vector3 orbPosition = GetPositionAtAngle(attackPosition.position, angle, experienceManager.orbitalRange);
                 GameObject orb = Instantiate(Orbe, orbPosition, Quaternion.identity);
                 Orbe orbeScript = orb.GetComponent<Orbe>();
@@ -52,13 +52,13 @@ public class OrbeAttack : MonoBehaviour, IWeapon
                     orbeScript.SetInitialAngle(angle * Mathf.Deg2Rad);
                 }
 
-                // Crear orbe especial si está activado
+                
                 if (specialAttackMode)
                 {
                     Vector3 specialOrbPosition = GetPositionAtAngle(attackPosition.position, angle, experienceManager.orbitalRange * 2f);
                     GameObject specialOrb = Instantiate(Orbe, specialOrbPosition, Quaternion.identity);
 
-                    // Ajustar tamaño del orbe especial
+                   
                     specialOrb.transform.localScale *= 2f;
 
                     Orbe specialOrbeScript = specialOrb.GetComponent<Orbe>();

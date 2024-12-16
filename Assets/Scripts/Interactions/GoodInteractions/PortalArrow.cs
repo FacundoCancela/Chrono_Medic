@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PortalArrow : MonoBehaviour
 {
-    [SerializeField] private Transform player; // Referencia al jugador
+    [SerializeField] private Transform player; 
 
     private void Update()
     {

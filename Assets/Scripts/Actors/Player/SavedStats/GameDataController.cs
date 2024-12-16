@@ -115,7 +115,7 @@ public class GameDataController : MonoBehaviour
     {
         if(baseStats.maxHealth >= baseStats.maxBuyHealth)
         {
-            Debug.Log("Vida maxima alcanzada");
+            Debug.Log("LimitHealth");
         }
         else if (baseStats.money >= gameData.upgradeCost)
         {
@@ -125,7 +125,7 @@ public class GameDataController : MonoBehaviour
             player.UpdateHealth(baseStats);
             SaveData();
         }
-        else Debug.Log("te falta plata");
+        
 
     }
 
@@ -133,7 +133,7 @@ public class GameDataController : MonoBehaviour
     {
         if (baseStats.ActualInjectionHeal >= baseStats.maxInjectionsHeal)
         {
-            Debug.Log("Vida maxima alcanzada");
+            Debug.Log("LimitHealth");
         }
         else if (baseStats.money >= gameData.upgradeCost)
         {
@@ -143,7 +143,7 @@ public class GameDataController : MonoBehaviour
             player.UpdateStats(baseStats);
             SaveData();
         }
-        else Debug.Log("te falta plata");
+        
 
     }
 
@@ -151,7 +151,7 @@ public class GameDataController : MonoBehaviour
     {
         if (baseStats.ActualInjectionsLimit >= baseStats.maxInjectionsLimit)
         {
-            Debug.Log("Vida maxima alcanzada");
+            Debug.Log("LimitHealth");
         }
         else if (baseStats.money >= gameData.upgradeCost)
         {
@@ -161,7 +161,7 @@ public class GameDataController : MonoBehaviour
             player.UpdateStats(baseStats);
             SaveData();
         }
-        else Debug.Log("te falta plata");
+        
 
     }
 
@@ -175,7 +175,7 @@ public class GameDataController : MonoBehaviour
             player.UpdateStats(baseStats);
             SaveData();
         }
-        else Debug.Log("te falta plata");
+        
     }
     
     public void IncreaseMoney(int moreMoney)

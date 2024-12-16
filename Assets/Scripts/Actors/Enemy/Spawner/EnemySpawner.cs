@@ -99,10 +99,6 @@ public class EnemySpawner : MonoBehaviour
                 Vector3 position = spawnPosition ?? activePortal.transform.position;
                 Instantiate(bossData.bossPrefab, position, Quaternion.identity);
             }
-            else
-            {
-                Debug.LogWarning($"No se encontró un jefe con el nombre {bossName}.");
-            }
         }
     }
 

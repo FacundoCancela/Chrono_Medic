@@ -35,18 +35,18 @@ public class BossModel : Actor
             ExperienceDropped = enemyStats.experienceDropped
         };
 
-        // Incrementa dinero y experiencia, y gestiona el drop del enemigo
+       
         OnBossDeath?.Invoke(deathData);
         RequestDrop(transform.position, DropType.Boss);
 
-        // Instanciar el objeto y ajustar la escala para que sea la misma que la del jefe
+        
         if (objectToSpawnOnDeath != null)
         {
             GameObject spawnedObject = Instantiate(objectToSpawnOnDeath, transform.position, Quaternion.identity);
-            spawnedObject.transform.localScale = transform.localScale; // Ajustar la escala
+            spawnedObject.transform.localScale = transform.localScale; 
         }
 
-        // Condición especial para Ammit y Anubis
+        
         if (bossWeapon.bossType == BossWeapon.BossType.AmmitAndAnubis)
         {
             EnemySpawner.Instance.SpawnBoss("Anubis", transform.position);
@@ -60,7 +60,7 @@ public class BossModel : Actor
             return;
         }
 
-        // Finalizar la batalla de jefe y destruir al jefe
+        
         OnEndBossBattle?.Invoke();
         Destroy(gameObject);
     }

@@ -17,12 +17,12 @@ public class XPBar : MonoBehaviour
     public void SetMaxXP(int maxXP)
     {
         slider.maxValue = maxXP;
-        slider.value = 0; // Comienza desde 0 experiencia.
+        slider.value = 0; 
         maxXPText = maxXP;
         if(textMeshPro != null)
             textMeshPro.text = "XP " + "0" + "/" + maxXP;
 
-        // Calcula el porcentaje de experiencia por punto.
+       
         _xpPercent = maxXP / (float)XpPoints.Length;
     }
 
@@ -30,7 +30,7 @@ public class XPBar : MonoBehaviour
     {
         _Xp = XP;
 
-        // Actualiza el estado de cada punto de experiencia.
+   
         for (int i = 0; i < XpPoints.Length; i++)
         {
             if (XpPoints[i] != null)
@@ -39,11 +39,11 @@ public class XPBar : MonoBehaviour
             }
         }
 
-        // Actualiza el texto con la experiencia actual.
+        
         if (textMeshPro != null)
             textMeshPro.text = "XP " + XP + "/" + maxXPText;
 
-        // Actualiza el valor de la barra.
+      
         slider.value = XP;
     }
 

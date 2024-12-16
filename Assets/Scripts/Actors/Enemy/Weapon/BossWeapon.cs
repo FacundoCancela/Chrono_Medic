@@ -33,7 +33,7 @@ public class BossWeapon : MonoBehaviour
 
     private void Update()
     {
-        //enfriamiento del arma
+       
         if (!canUseWeapon)
         {
             fireRateTimer += Time.deltaTime;
@@ -102,7 +102,7 @@ public class BossWeapon : MonoBehaviour
 
     public void AmmitSpecialAttack(Vector2 targetDir)
     {
-        //Ejecutar animacion ademas de esto
+       
         Instantiate(specialBulletPrefab, targetDir, Quaternion.identity);
         canUseSpecialAttack = false;
         canUseWeapon = false;

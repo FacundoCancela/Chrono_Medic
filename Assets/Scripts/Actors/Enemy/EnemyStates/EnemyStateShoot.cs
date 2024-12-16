@@ -8,7 +8,7 @@ public class EnemyStateShoot<T> : State<T>
     private Transform _shootTarget;
     private Rigidbody2D _targetRb;
     private EnemyView _view;
-    //Este no necesita las variables de blackboard
+    
     
     public EnemyStateShoot(EnemyModel model, Transform shootTarget, EnemyView view, Rigidbody2D targetRigidbody)
     {

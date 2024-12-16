@@ -15,7 +15,6 @@ public class CanvasSwitchButton : MonoBehaviour
     {
         enterSecondaryMenu.SetActive(true);
         StartCoroutine(SwitchDelay(enterSecondaryMenu));
-        // Activar el primer canvas y desactivar el segundo
         newCanvas.gameObject.SetActive(true);
         newBackground.gameObject.SetActive(true);
     }

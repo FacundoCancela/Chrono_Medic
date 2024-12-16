@@ -12,5 +12,5 @@ public class EnemyStats : ScriptableObject
     public int experienceDropped = 10;
     public int moneyDroped = 10;
     public float accuracyOffset = 1;
-    // Puedes agregar más estadísticas aquí si es necesario
+    
 }

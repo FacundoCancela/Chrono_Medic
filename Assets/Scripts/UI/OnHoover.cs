@@ -10,7 +10,7 @@ public class OnHoover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (attack != null)
         {
-            attack.SetActive(true); // Activa el GameObject
+            attack.SetActive(true); 
         }
     }
 
@@ -18,7 +18,7 @@ public class OnHoover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (attack != null)
         {
-            attack.SetActive(false); // Desactiva el GameObject
+            attack.SetActive(false); 
         }
     }
 }

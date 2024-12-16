@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour
     public event System.Action OnDialogueEnd;
 
     public bool DialogeActive = false;
-    // Referencia a WaveManager
+    
     private WaveManager waveManager;
 
     private void Start()

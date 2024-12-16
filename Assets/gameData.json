@@ -10,5 +10,5 @@
   "upgradeCost": 250,
   "InjectionHeal": 30,
   "InjectionsLimit": 5,
-  "GameStarted": false
+  "GameStarted": true
 }

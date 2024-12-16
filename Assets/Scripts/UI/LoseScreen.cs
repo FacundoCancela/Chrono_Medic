@@ -9,10 +9,10 @@ public class LoseScreen : MonoBehaviour
 
     private void Start()
     {
-        // Buscar una instancia de PauseManager en la escena y asignarla a pauseManager
+       
         pauseManager = FindObjectOfType<PauseManager>();
 
-        // Verificar si se encontró el PauseManager
+       
         if (pauseManager != null)
         {
             Time.timeScale = 0.0f;

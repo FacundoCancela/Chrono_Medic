@@ -37,7 +37,7 @@ public class SwordAttack : MonoBehaviour, IWeapon
             GameObject selectedPrefab = specialAttackMode ? specialSwordSlash : swordSlash;
             GameObject attackInstance = Instantiate(selectedPrefab, attackPosition.position, Quaternion.identity);
 
-            // Ajustar la rotación del ataque basado en la dirección del padre
+            
             Vector3 attackDirection = transform.parent.localScale.x > 0 ? Vector3.right : Vector3.left;
             attackInstance.transform.right = attackDirection;
 

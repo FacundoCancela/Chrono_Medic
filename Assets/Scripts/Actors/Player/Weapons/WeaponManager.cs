@@ -56,7 +56,7 @@ public class WeaponManager : MonoBehaviour
             _timeSinceLastSpecial -= Time.deltaTime;
             if (_timeSinceLastSpecial <= 0)
             {
-                _canUseSpecial = true; // Se puede volver a activar
+                _canUseSpecial = true; 
             }
         }
 
@@ -120,7 +120,7 @@ public class WeaponManager : MonoBehaviour
 
         else if (currentClassWeapon is OrbeAttack orbeWeapon && experienceManager.actualEngineerLevel == experienceManager.maxUpgradeableLevel)
         {
-            orbeWeapon.specialAttackMode = true;  // Activamos modo especial en orbes
+            orbeWeapon.specialAttackMode = true; 
         }
 
         else if (currentClassWeapon is SwordAttack swordWeapon && experienceManager.actualMeleeLevel == experienceManager.maxUpgradeableLevel)
@@ -130,7 +130,7 @@ public class WeaponManager : MonoBehaviour
 
         yield return new WaitForSeconds(playerStats.ultimateDuration);
 
-        Debug.Log("ulti desactivada, cooldown: " + playerStats.ultimateCooldown);
+        
 
         if (currentClassWeapon is RangedAttack rangedWeapon2)
         {

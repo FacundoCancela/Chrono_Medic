@@ -45,7 +45,7 @@ public class Level_Portal : MonoBehaviour
 
         if (pauseManager != null && pauseManager.gamePaused)
         {
-            return; // Salir del Update si el juego está pausado
+            return;
         }
 
 
@@ -87,7 +87,7 @@ public class Level_Portal : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             inPortalZone = false;
-            isInteracting = false;  // Reset the interaction state
+            isInteracting = false;  
             if (interaccion != null)
             {
                 interaccion.SetActive(false);

@@ -51,12 +51,12 @@ public class PlayerController : MonoBehaviour
     {
         if (pauseManager != null && pauseManager.gamePaused)
         {
-            return; // Salir del Update si el juego está pausado
+            return; 
         }
 
         if (dialogueManager != null && dialogueManager.DialogeActive)
         {
-            return; // Salir del Update si el juego está pausado
+            return; 
         }
 
         if (playerAlive)

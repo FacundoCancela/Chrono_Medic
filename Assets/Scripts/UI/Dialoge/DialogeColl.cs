@@ -33,7 +33,7 @@ public class DialogeColl : MonoBehaviour
 
         if (dialogueManager == null)
         {
-            Debug.LogError("DialogueManager no encontrado en la escena.");
+            
             return;
         }
 
@@ -51,10 +51,7 @@ public class DialogeColl : MonoBehaviour
         {
             dialogueText = textFile.text;
         }
-        else
-        {
-            Debug.LogError("Archivo de diálogo no asignado en el Inspector.");
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

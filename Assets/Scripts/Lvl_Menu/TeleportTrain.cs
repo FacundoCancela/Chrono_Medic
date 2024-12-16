@@ -49,7 +49,7 @@ public class TeleportTrain : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && isInteracting)
         {
-            //interaccion.SetActive()
+            
             _player.transform.position = destination.position;
             weaponManager._isInCombat = !weaponManager._isInCombat;
         }

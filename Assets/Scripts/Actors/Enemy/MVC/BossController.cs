@@ -13,7 +13,7 @@ public class BossController : MonoBehaviour, IEnemyController
 {
     public EnemyStats enemyStats;
 
-    //Variables de IA
+   
     BossModel _model;
     BossView _view;
     [SerializeField] PlayerController _target;
@@ -28,7 +28,7 @@ public class BossController : MonoBehaviour, IEnemyController
     FSM<EnemyStatesEnum> _fsm;
     ISteering _steering;
 
-    //Variables
+   
     private float shootRange;
     public int actualHealth;
 
@@ -39,7 +39,7 @@ public class BossController : MonoBehaviour, IEnemyController
 
     private void Awake()
     {
-        //referencias
+      
         _model = GetComponent<BossModel>();
         _view = GetComponent<BossView>();
         _target = FindObjectOfType<PlayerController>();
@@ -50,7 +50,7 @@ public class BossController : MonoBehaviour, IEnemyController
         }
 
 
-        //inicializaciones 
+     
         InitilizeSteering();
         InitializeFSM();
 

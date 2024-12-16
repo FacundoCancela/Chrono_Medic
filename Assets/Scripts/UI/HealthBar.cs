@@ -43,11 +43,11 @@ public class HealthBar : MonoBehaviour
     {
         _health = health;
 
-        // Actualiza el texto con la salud actual.
+      
         if (textMeshPro != null)
             textMeshPro.text = _health.ToString() /*+ "/" + maxHealthText*/;
 
-        // Actualiza el estado de cada punto de salud.
+        
         for (int i = 0; i < healthPoints.Length; i++)
         {
             if (healthPoints[i] != null)
