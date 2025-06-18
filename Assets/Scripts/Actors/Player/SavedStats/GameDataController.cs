@@ -7,13 +7,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
 
-
 public class GameDataController : MonoBehaviour
 {
     [SerializeField] public PlayerController player;
     [SerializeField] public PlayerStats baseStats;
 
-    public string savedFile;
     public Button maxHealthButton;
     public Button maxInjectionsButton;
     public Button maxInjectionHealButton;
@@ -38,7 +36,6 @@ public class GameDataController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        savedFile = Application.dataPath + "/gameData.json";
         LoadData();
 
         EnemyModel.OnEnemyDeath += HandleEnemyDeath;
@@ -71,26 +68,26 @@ public class GameDataController : MonoBehaviour
             maxInjectionsButton.interactable = false;
         }
     }
+
     private void LoadData()
     {
-        if(File.Exists(savedFile))
+#if UNITY_WEBGL && !UNITY_EDITOR
+        if (PlayerPrefs.HasKey("gameData"))
         {
-            string data = File.ReadAllText(savedFile);
+            string data = PlayerPrefs.GetString("gameData");
             gameData = JsonConvert.DeserializeObject<GameData>(data);
-
-            baseStats.maxHealth = gameData.maxHealth;
-            baseStats.damageMultiplier = gameData.damageMultiplier;
-            baseStats.defensePercentage = gameData.defensePercentage;
-            baseStats.money = gameData.money;
-            baseStats.upgradeCost = gameData.upgradeCost;
-            baseStats.ActualInjectionHeal = gameData.InjectionHeal;
-            baseStats.ActualInjectionsLimit = gameData.InjectionsLimit;
-            baseStats.GameStarted = gameData.GameStarted;
-            
-            if(player  != null)
-                player.UpdateStats(baseStats);
+            ApplyLoadedData();
         }
+#else
+        if (File.Exists(GetSavePath()))
+        {
+            string data = File.ReadAllText(GetSavePath());
+            gameData = JsonConvert.DeserializeObject<GameData>(data);
+            ApplyLoadedData();
+        }
+#endif
     }
+
     public void SaveData()
     {
         GameData newData = new GameData()
@@ -103,17 +100,41 @@ public class GameDataController : MonoBehaviour
             InjectionHeal = baseStats.ActualInjectionHeal,
             InjectionsLimit = baseStats.ActualInjectionsLimit,
             GameStarted = baseStats.GameStarted,
-            
         };
 
         string jsonString = JsonConvert.SerializeObject(newData, Formatting.Indented);
-        File.WriteAllText(savedFile, jsonString);
 
+#if UNITY_WEBGL && !UNITY_EDITOR
+        PlayerPrefs.SetString("gameData", jsonString);
+        PlayerPrefs.Save();
+#else
+        File.WriteAllText(GetSavePath(), jsonString);
+#endif
+    }
+
+    private void ApplyLoadedData()
+    {
+        baseStats.maxHealth = gameData.maxHealth;
+        baseStats.damageMultiplier = gameData.damageMultiplier;
+        baseStats.defensePercentage = gameData.defensePercentage;
+        baseStats.money = gameData.money;
+        baseStats.upgradeCost = gameData.upgradeCost;
+        baseStats.ActualInjectionHeal = gameData.InjectionHeal;
+        baseStats.ActualInjectionsLimit = gameData.InjectionsLimit;
+        baseStats.GameStarted = gameData.GameStarted;
+
+        if (player != null)
+            player.UpdateStats(baseStats);
+    }
+
+    private string GetSavePath()
+    {
+        return Application.persistentDataPath + "/gameData.json";
     }
 
     public void IncreaseHealth(int moreHealth)
     {
-        if(baseStats.maxHealth >= baseStats.maxBuyHealth)
+        if (baseStats.maxHealth >= baseStats.maxBuyHealth)
         {
             Debug.Log("LimitHealth");
         }
@@ -125,8 +146,6 @@ public class GameDataController : MonoBehaviour
             player.UpdateHealth(baseStats);
             SaveData();
         }
-        
-
     }
 
     public void IncreaseInjectionHeal(int extraHeal)
@@ -143,8 +162,6 @@ public class GameDataController : MonoBehaviour
             player.UpdateStats(baseStats);
             SaveData();
         }
-        
-
     }
 
     public void IncreaseInjectionLimit(int moreInjections)
@@ -161,13 +178,11 @@ public class GameDataController : MonoBehaviour
             player.UpdateStats(baseStats);
             SaveData();
         }
-        
-
     }
 
     public void IncreaseDamage(int moreDamage)
     {
-        if(baseStats.money >= gameData.upgradeCost)
+        if (baseStats.money >= gameData.upgradeCost)
         {
             DecreaseMoney(gameData.upgradeCost);
             gameData.damageMultiplier += moreDamage;
@@ -175,9 +190,8 @@ public class GameDataController : MonoBehaviour
             player.UpdateStats(baseStats);
             SaveData();
         }
-        
     }
-    
+
     public void IncreaseMoney(int moreMoney)
     {
         gameData.money += moreMoney;
@@ -201,7 +215,6 @@ public class GameDataController : MonoBehaviour
         baseStats.upgradeCost = gameData.upgradeCost;
         player.UpdateStats(baseStats);
         SaveData();
-        
     }
 
     public bool gameStarted()
@@ -215,6 +228,5 @@ public class GameDataController : MonoBehaviour
         baseStats.GameStarted = true;
         SaveData();
     }
-
-
 }
+
